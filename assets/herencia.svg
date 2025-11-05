@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="900" height="600" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="450" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Ejemplo de Herencia: Jerarquía de Vehículos
+  </text>
+  
+  <!-- Clase padre: Vehículo -->
+  <g id="vehiculo">
+    <rect x="325" y="80" width="250" height="180" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="5"/>
+    <rect x="325" y="80" width="250" height="40" fill="#a78bfa" stroke="#a78bfa" stroke-width="2" rx="5 5 0 0"/>
+    <text x="450" y="106" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">
+      Vehículo
+    </text>
+    
+    <!-- Atributos protegidos -->
+    <line x1="325" y1="120" x2="575" y2="120" stroke="#a78bfa" stroke-width="1"/>
+    <text x="335" y="140" font-size="13" fill="#fbbf24"># marca: String</text>
+    <text x="335" y="160" font-size="13" fill="#fbbf24"># modelo: String</text>
+    <text x="335" y="180" font-size="13" fill="#fbbf24"># velocidad: int</text>
+    
+    <!-- Métodos públicos -->
+    <line x1="325" y1="190" x2="575" y2="190" stroke="#a78bfa" stroke-width="1"/>
+    <text x="335" y="210" font-size="13" fill="#4ade80">+ acelerar(): void</text>
+    <text x="335" y="230" font-size="13" fill="#4ade80">+ frenar(): void</text>
+    <text x="335" y="250" font-size="13" fill="#4ade80">+ getVelocidad(): int</text>
+  </g>
+  
+  <!-- Flechas de herencia -->
+  <g id="herencia">
+    <!-- Línea desde Auto -->
+    <line x1="200" y1="380" x2="400" y2="260" stroke="#a78bfa" stroke-width="3"/>
+    <polygon points="400,260 395,275 405,275" fill="#ffffff" stroke="#a78bfa" stroke-width="2"/>
+    
+    <!-- Línea desde Motocicleta -->
+    <line x1="450" y1="380" x2="450" y2="260" stroke="#a78bfa" stroke-width="3"/>
+    <polygon points="450,260 445,275 455,275" fill="#ffffff" stroke="#a78bfa" stroke-width="2"/>
+    
+    <!-- Línea desde Camión -->
+    <line x1="700" y1="380" x2="500" y2="260" stroke="#a78bfa" stroke-width="3"/>
+    <polygon points="500,260 495,275 505,275" fill="#ffffff" stroke="#a78bfa" stroke-width="2"/>
+  </g>
+  
+  <!-- Clase Auto -->
+  <g id="auto">
+    <rect x="100" y="380" width="200" height="160" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="5"/>
+    <rect x="100" y="380" width="200" height="40" fill="#374151" stroke="#a78bfa" stroke-width="2" rx="5 5 0 0"/>
+    <text x="200" y="406" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Auto
+    </text>
+    
+    <line x1="100" y1="420" x2="300" y2="420" stroke="#a78bfa" stroke-width="1"/>
+    <text x="110" y="440" font-size="12" fill="#f87171">- numPuertas: int</text>
+    <text x="110" y="460" font-size="12" fill="#f87171">- tipoTransmision: String</text>
+    
+    <line x1="100" y1="470" x2="300" y2="470" stroke="#a78bfa" stroke-width="1"/>
+    <text x="110" y="490" font-size="12" fill="#4ade80">+ abrirMaletero(): void</text>
+    <text x="110" y="510" font-size="12" fill="#4ade80">+ activarAireAcond(): void</text>
+  </g>
+  
+  <!-- Clase Motocicleta -->
+  <g id="moto">
+    <rect x="350" y="380" width="200" height="160" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="5"/>
+    <rect x="350" y="380" width="200" height="40" fill="#374151" stroke="#a78bfa" stroke-width="2" rx="5 5 0 0"/>
+    <text x="450" y="406" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Motocicleta
+    </text>
+    
+    <line x1="350" y1="420" x2="550" y2="420" stroke="#a78bfa" stroke-width="1"/>
+    <text x="360" y="440" font-size="12" fill="#f87171">- cilindrada: int</text>
+    <text x="360" y="460" font-size="12" fill="#f87171">- tieneParabrisas: boolean</text>
+    
+    <line x1="350" y1="470" x2="550" y2="470" stroke="#a78bfa" stroke-width="1"/>
+    <text x="360" y="490" font-size="12" fill="#4ade80">+ hacerCaballito(): void</text>
+    <text x="360" y="510" font-size="12" fill="#4ade80">+ activarTurbo(): void</text>
+  </g>
+  
+  <!-- Clase Camión -->
+  <g id="camion">
+    <rect x="600" y="380" width="200" height="160" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="5"/>
+    <rect x="600" y="380" width="200" height="40" fill="#374151" stroke="#a78bfa" stroke-width="2" rx="5 5 0 0"/>
+    <text x="700" y="406" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Camión
+    </text>
+    
+    <line x1="600" y1="420" x2="800" y2="420" stroke="#a78bfa" stroke-width="1"/>
+    <text x="610" y="440" font-size="12" fill="#f87171">- capacidadCarga: Double</text>
+    <text x="610" y="460" font-size="12" fill="#f87171">- numEjes: int</text>
+    
+    <line x1="600" y1="470" x2="800" y2="470" stroke="#a78bfa" stroke-width="1"/>
+    <text x="610" y="490" font-size="12" fill="#4ade80">+ cargar(): void</text>
+    <text x="610" y="510" font-size="12" fill="#4ade80">+ descargar(): void</text>
+  </g>
+  
+  <!-- Explicación -->
+  <g id="explicacion">
+    <rect x="50" y="560" width="800" height="30" fill="#2d2d2d" stroke="#64748b" stroke-width="2" rx="5"/>
+    <text x="450" y="580" font-size="12" text-anchor="middle" fill="#e5e7eb">
+      <tspan fill="#a78bfa" font-weight="bold">Herencia:</tspan> Auto, Motocicleta y Camión <tspan fill="#fbbf24">heredan</tspan> los atributos y métodos de Vehículo
+    </text>
+  </g>
+</svg>

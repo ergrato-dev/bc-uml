@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .class-box { fill: #2a2a2a; stroke: #0ea5e9; stroke-width: 2; }
+      .text { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+      .text-small { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+      .text-title { fill: #0ea5e9; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold; }
+      .line { stroke: #4ade80; stroke-width: 2; fill: none; }
+      .line-comp { stroke: #f87171; stroke-width: 2; fill: none; }
+      .line-aggr { stroke: #fbbf24; stroke-width: 2; fill: none; }
+      .line-inherit { stroke: #a78bfa; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="1400" height="900"/>
+  
+  <!-- Título -->
+  <text x="700" y="30" class="text-title" text-anchor="middle">Diagrama de Clases - Sistema E-Commerce (Amazon Simplificado)</text>
+  
+  <!-- Usuario -->
+  <rect class="class-box" x="50" y="60" width="220" height="180"/>
+  <text x="160" y="85" class="text-title" text-anchor="middle">Usuario</text>
+  <line x1="50" y1="95" x2="270" y2="95" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="115" class="text-small">- id: String</text>
+  <text x="60" y="135" class="text-small">- nombre: String</text>
+  <text x="60" y="155" class="text-small">- email: String</text>
+  <text x="60" y="175" class="text-small">- password: String</text>
+  <line x1="50" y1="185" x2="270" y2="185" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="205" class="text-small">+ registrar(): void</text>
+  <text x="60" y="225" class="text-small">+ hacerPedido(): Pedido</text>
+  
+  <!-- Dirección -->
+  <rect class="class-box" x="350" y="60" width="220" height="160"/>
+  <text x="460" y="85" class="text-title" text-anchor="middle">Direccion</text>
+  <line x1="350" y1="95" x2="570" y2="95" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="360" y="115" class="text-small">- calle: String</text>
+  <text x="360" y="135" class="text-small">- ciudad: String</text>
+  <text x="360" y="155" class="text-small">- codigoPostal: String</text>
+  <text x="360" y="175" class="text-small">- pais: String</text>
+  <line x1="350" y1="185" x2="570" y2="185" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="360" y="205" class="text-small">+ validar(): boolean</text>
+  
+  <!-- Asociación Usuario-Dirección -->
+  <path class="line" d="M 270 140 L 350 140"/>
+  <text x="300" y="130" class="text-small" fill="#4ade80">tiene</text>
+  <text x="255" y="160" class="text-small" fill="#4ade80">1</text>
+  <text x="335" y="160" class="text-small" fill="#4ade80">1..*</text>
+  
+  <!-- Pedido -->
+  <rect class="class-box" x="50" y="310" width="220" height="200"/>
+  <text x="160" y="335" class="text-title" text-anchor="middle">Pedido</text>
+  <line x1="50" y1="345" x2="270" y2="345" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="365" class="text-small">- id: String</text>
+  <text x="60" y="385" class="text-small">- fecha: Date</text>
+  <text x="60" y="405" class="text-small">- estado: String</text>
+  <text x="60" y="425" class="text-small">- total: double</text>
+  <line x1="50" y1="435" x2="270" y2="435" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="455" class="text-small">+ calcularTotal(): double</text>
+  <text x="60" y="475" class="text-small">+ confirmar(): void</text>
+  <text x="60" y="495" class="text-small">+ cancelar(): void</text>
+  
+  <!-- Asociación Usuario-Pedido -->
+  <path class="line" d="M 160 240 L 160 310"/>
+  <text x="170" y="270" class="text-small" fill="#4ade80">realiza</text>
+  <text x="140" y="255" class="text-small" fill="#4ade80">1</text>
+  <text x="140" y="305" class="text-small" fill="#4ade80">0..*</text>
+  
+  <!-- ItemPedido -->
+  <rect class="class-box" x="350" y="310" width="220" height="180"/>
+  <text x="460" y="335" class="text-title" text-anchor="middle">ItemPedido</text>
+  <line x1="350" y1="345" x2="570" y2="345" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="360" y="365" class="text-small">- cantidad: int</text>
+  <text x="360" y="385" class="text-small">- precioUnitario: double</text>
+  <text x="360" y="405" class="text-small">- subtotal: double</text>
+  <line x1="350" y1="415" x2="570" y2="415" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="360" y="435" class="text-small">+ calcularSubtotal(): double</text>
+  <text x="360" y="455" class="text-small">+ aplicarDescuento(): void</text>
+  <text x="360" y="475" class="text-small">+ obtenerProducto(): Producto</text>
+  
+  <!-- Composición Pedido-ItemPedido -->
+  <path class="line-comp" d="M 270 410 L 350 410"/>
+  <polygon fill="#f87171" points="270,410 280,405 280,415"/>
+  <text x="290" y="400" class="text-small" fill="#f87171">contiene</text>
+  <text x="255" y="430" class="text-small" fill="#f87171">1</text>
+  <text x="335" y="430" class="text-small" fill="#f87171">1..*</text>
+  
+  <!-- Producto (clase abstracta) -->
+  <rect class="class-box" x="650" y="310" width="240" height="200" stroke="#a78bfa"/>
+  <text x="770" y="335" class="text-title" text-anchor="middle" fill="#a78bfa">«abstract» Producto</text>
+  <line x1="650" y1="345" x2="890" y2="345" stroke="#a78bfa" stroke-width="1"/>
+  <text x="660" y="365" class="text-small">- id: String</text>
+  <text x="660" y="385" class="text-small">- nombre: String</text>
+  <text x="660" y="405" class="text-small">- precio: double</text>
+  <text x="660" y="425" class="text-small">- stock: int</text>
+  <line x1="650" y1="435" x2="890" y2="435" stroke="#a78bfa" stroke-width="1"/>
+  <text x="660" y="455" class="text-small" font-style="italic">+ calcularEnvio(): double</text>
+  <text x="660" y="475" class="text-small">+ actualizarStock(): void</text>
+  <text x="660" y="495" class="text-small">+ obtenerDetalles(): String</text>
+  
+  <!-- Asociación ItemPedido-Producto -->
+  <path class="line" d="M 570 400 L 650 400"/>
+  <text x="590" y="390" class="text-small" fill="#4ade80">referencia</text>
+  <text x="555" y="420" class="text-small" fill="#4ade80">*</text>
+  <text x="635" y="420" class="text-small" fill="#4ade80">1</text>
+  
+  <!-- ProductoFisico -->
+  <rect class="class-box" x="550" y="580" width="220" height="160"/>
+  <text x="660" y="605" class="text-title" text-anchor="middle">ProductoFisico</text>
+  <line x1="550" y1="615" x2="770" y2="615" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="560" y="635" class="text-small">- peso: double</text>
+  <text x="560" y="655" class="text-small">- dimensiones: String</text>
+  <text x="560" y="675" class="text-small">- esFragil: boolean</text>
+  <line x1="550" y1="685" x2="770" y2="685" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="560" y="705" class="text-small">+ calcularEnvio(): double</text>
+  <text x="560" y="725" class="text-small">+ embalar(): void</text>
+  
+  <!-- ProductoDigital -->
+  <rect class="class-box" x="820" y="580" width="220" height="160"/>
+  <text x="930" y="605" class="text-title" text-anchor="middle">ProductoDigital</text>
+  <line x1="820" y1="615" x2="1040" y2="615" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="830" y="635" class="text-small">- urlDescarga: String</text>
+  <text x="830" y="655" class="text-small">- tamanoArchivo: double</text>
+  <text x="830" y="675" class="text-small">- formato: String</text>
+  <line x1="820" y1="685" x2="1040" y2="685" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="830" y="705" class="text-small">+ calcularEnvio(): double</text>
+  <text x="830" y="725" class="text-small">+ generarLicencia(): String</text>
+  
+  <!-- Herencia ProductoFisico-Producto -->
+  <path class="line-inherit" d="M 660 580 L 660 540 L 720 540 L 720 510"/>
+  <polygon fill="#a78bfa" points="720,510 715,520 725,520"/>
+  
+  <!-- Herencia ProductoDigital-Producto -->
+  <path class="line-inherit" d="M 930 580 L 930 540 L 820 540 L 820 510"/>
+  <polygon fill="#a78bfa" points="820,510 815,520 825,520"/>
+  
+  <!-- Categoria -->
+  <rect class="class-box" x="980" y="310" width="220" height="160"/>
+  <text x="1090" y="335" class="text-title" text-anchor="middle">Categoria</text>
+  <line x1="980" y1="345" x2="1200" y2="345" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="990" y="365" class="text-small">- id: String</text>
+  <text x="990" y="385" class="text-small">- nombre: String</text>
+  <text x="990" y="405" class="text-small">- descripcion: String</text>
+  <line x1="980" y1="415" x2="1200" y2="415" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="990" y="435" class="text-small">+ agregarProducto(): void</text>
+  <text x="990" y="455" class="text-small">+ listarProductos(): List</text>
+  
+  <!-- Agregación Producto-Categoria -->
+  <path class="line-aggr" d="M 890 390 L 980 390"/>
+  <polygon fill="none" stroke="#fbbf24" stroke-width="2" points="890,390 900,385 900,395"/>
+  <text x="910" y="380" class="text-small" fill="#fbbf24">pertenece</text>
+  <text x="875" y="410" class="text-small" fill="#fbbf24">*</text>
+  <text x="965" y="410" class="text-small" fill="#fbbf24">1..*</text>
+  
+  <!-- Pago -->
+  <rect class="class-box" x="50" y="580" width="220" height="160"/>
+  <text x="160" y="605" class="text-title" text-anchor="middle">Pago</text>
+  <line x1="50" y1="615" x2="270" y2="615" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="635" class="text-small">- id: String</text>
+  <text x="60" y="655" class="text-small">- monto: double</text>
+  <text x="60" y="675" class="text-small">- fecha: Date</text>
+  <line x1="50" y1="685" x2="270" y2="685" stroke="#0ea5e9" stroke-width="1"/>
+  <text x="60" y="705" class="text-small">+ procesarPago(): boolean</text>
+  <text x="60" y="725" class="text-small">+ reembolsar(): void</text>
+  
+  <!-- Asociación Pedido-Pago -->
+  <path class="line" d="M 160 510 L 160 580"/>
+  <text x="170" y="540" class="text-small" fill="#4ade80">pagado con</text>
+  <text x="140" y="525" class="text-small" fill="#4ade80">1</text>
+  <text x="140" y="575" class="text-small" fill="#4ade80">1</text>
+  
+  <!-- Leyenda -->
+  <rect class="class-box" x="1050" y="600" width="320" height="220"/>
+  <text x="1210" y="625" class="text-title" text-anchor="middle">Leyenda de Relaciones</text>
+  <line x1="1050" y1="635" x2="1370" y2="635" stroke="#0ea5e9" stroke-width="1"/>
+  
+  <line x1="1070" y1="660" x2="1140" y2="660" class="line"/>
+  <text x="1150" y="665" class="text-small">Asociación (tiene, realiza)</text>
+  
+  <line x1="1070" y1="685" x2="1140" y2="685" class="line-comp"/>
+  <polygon fill="#f87171" points="1070,685 1080,680 1080,690"/>
+  <text x="1150" y="690" class="text-small">Composición (contiene)</text>
+  
+  <line x1="1070" y1="710" x2="1140" y2="710" class="line-aggr"/>
+  <polygon fill="none" stroke="#fbbf24" stroke-width="2" points="1070,710 1080,705 1080,715"/>
+  <text x="1150" y="715" class="text-small">Agregación (pertenece)</text>
+  
+  <line x1="1070" y1="735" x2="1140" y2="735" class="line-inherit"/>
+  <polygon fill="#a78bfa" points="1140,735 1130,730 1130,740"/>
+  <text x="1150" y="740" class="text-small">Herencia (es un)</text>
+  
+  <text x="1070" y="770" class="text-small">Multiplicidades:</text>
+  <text x="1070" y="790" class="text-small" font-family="monospace">1 = exactamente uno</text>
+  <text x="1070" y="810" class="text-small" font-family="monospace">0..* = cero o muchos</text>
+</svg>

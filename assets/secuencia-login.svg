@@ -1,0 +1,186 @@
+<svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .actor { 
+        fill: none; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .lifeline { 
+        stroke: #4b5563; 
+        stroke-width: 2; 
+        stroke-dasharray: 5,5;
+      }
+      .activation { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .message { 
+        stroke: #4ade80; 
+        stroke-width: 2;
+        marker-end: url(#arrowGreen);
+      }
+      .message-return { 
+        stroke: #6b7280; 
+        stroke-width: 1.5; 
+        stroke-dasharray: 5,3;
+        marker-end: url(#arrowGray);
+      }
+      .message-label { 
+        font-size: 12px; 
+        fill: #4ade80;
+      }
+      .return-label { 
+        font-size: 11px; 
+        fill: #9ca3af;
+      }
+      .fragment { 
+        fill: none; 
+        stroke: #a78bfa; 
+        stroke-width: 2;
+      }
+      .fragment-label { 
+        fill: #2d1b4e; 
+        stroke: #a78bfa; 
+        stroke-width: 1;
+      }
+      .fragment-text { 
+        font-size: 11px; 
+        fill: #a78bfa; 
+        font-weight: bold;
+      }
+    </style>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" font-size="22" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Secuencia: Proceso de Login
+  </text>
+  
+  <!-- Actors/Objects -->
+  <!-- Usuario -->
+  <circle cx="100" cy="80" r="20" class="actor"/>
+  <line x1="100" y1="100" x2="100" y2="120" class="actor"/>
+  <line x1="80" y1="110" x2="120" y2="110" class="actor"/>
+  <line x1="100" y1="120" x2="85" y2="145" class="actor"/>
+  <line x1="100" y1="120" x2="115" y2="145" class="actor"/>
+  <text x="100" y="165" text-anchor="middle" font-size="14" fill="#0ea5e9">Usuario</text>
+  
+  <!-- Interfaz Web -->
+  <rect x="240" y="60" width="120" height="40" rx="5" class="activation" fill="none"/>
+  <text x="300" y="85" text-anchor="middle" font-size="14" fill="#0ea5e9">Interfaz Web</text>
+  
+  <!-- Sistema Auth -->
+  <rect x="440" y="60" width="120" height="40" rx="5" class="activation" fill="none"/>
+  <text x="500" y="85" text-anchor="middle" font-size="14" fill="#0ea5e9">Sistema Auth</text>
+  
+  <!-- Base de Datos -->
+  <rect x="640" y="60" width="120" height="40" rx="5" class="activation" fill="none"/>
+  <text x="700" y="85" text-anchor="middle" font-size="14" fill="#0ea5e9">Base de Datos</text>
+  
+  <!-- Lifelines -->
+  <line x1="100" y1="170" x2="100" y2="650" class="lifeline"/>
+  <line x1="300" y1="100" x2="300" y2="650" class="lifeline"/>
+  <line x1="500" y1="100" x2="500" y2="650" class="lifeline"/>
+  <line x1="700" y1="100" x2="700" y2="650" class="lifeline"/>
+  
+  <!-- Message 1: Ingresar credenciales -->
+  <path d="M 100 190 L 290 190" class="message"/>
+  <text x="195" y="185" text-anchor="middle" class="message-label">1: ingresarCredenciales()</text>
+  
+  <!-- Activation Interfaz -->
+  <rect x="295" y="190" width="10" height="420" class="activation"/>
+  
+  <!-- Message 2: Validar formato -->
+  <path d="M 305 210 L 345 210 L 345 240 L 305 240" class="message"/>
+  <text x="365" y="215" class="message-label">2: validarFormato()</text>
+  
+  <!-- Message 3: Autenticar -->
+  <path d="M 305 260 L 490 260" class="message"/>
+  <text x="395" y="255" text-anchor="middle" class="message-label">3: autenticar(usuario, password)</text>
+  
+  <!-- Activation Sistema Auth -->
+  <rect x="495" y="260" width="10" height="280" class="activation"/>
+  
+  <!-- Message 4: Buscar usuario -->
+  <path d="M 505 280 L 690 280" class="message"/>
+  <text x="595" y="275" text-anchor="middle" class="message-label">4: buscarUsuario(usuario)</text>
+  
+  <!-- Activation BD -->
+  <rect x="695" y="280" width="10" height="40" class="activation"/>
+  
+  <!-- Return 4 -->
+  <path d="M 695 315 L 505 315" class="message-return"/>
+  <text x="600" y="310" text-anchor="middle" class="return-label">datosUsuario</text>
+  
+  <!-- ALT Fragment -->
+  <rect x="120" y="335" width="760" height="185" class="fragment"/>
+  <rect x="120" y="335" width="80" height="25" class="fragment-label"/>
+  <text x="125" y="352" class="fragment-text">alt</text>
+  <text x="210" y="352" class="fragment-text">[Usuario existe]</text>
+  
+  <!-- Message 5: Verificar password -->
+  <path d="M 505 360 L 545 360 L 545 385 L 505 385" class="message"/>
+  <text x="565" y="368" class="message-label">5: verificarPassword()</text>
+  
+  <!-- Decision -->
+  <rect x="120" y="400" width="760" height="25" class="fragment-label" fill="#2d1b4e" fill-opacity="0.3"/>
+  <text x="125" y="415" class="fragment-text">[Password correcto]</text>
+  
+  <!-- Message 6: Generar token -->
+  <path d="M 505 430 L 545 430 L 545 455 L 505 455" class="message"/>
+  <text x="565" y="438" class="message-label">6: generarToken()</text>
+  
+  <!-- Else -->
+  <line x1="120" y1="470" x2="880" y2="470" class="fragment" stroke-dasharray="8,4"/>
+  <text x="125" y="487" class="fragment-text">[else] Password incorrecto</text>
+  
+  <!-- Message 7: Registrar intento -->
+  <path d="M 505 495 L 690 495" class="message"/>
+  <text x="595" y="490" text-anchor="middle" class="message-label" font-size="11">7: registrarIntentoFallido()</text>
+  
+  <!-- Activation BD 2 -->
+  <rect x="695" y="495" width="10" height="30" class="activation"/>
+  
+  <!-- Return 7 -->
+  <path d="M 505 540 L 305 540" class="message-return"/>
+  <text x="405" y="535" text-anchor="middle" class="return-label">resultado</text>
+  
+  <!-- OPT Fragment - Actualizar sesión -->
+  <rect x="120" y="560" width="560" height="80" class="fragment"/>
+  <rect x="120" y="560" width="80" height="25" class="fragment-label"/>
+  <text x="125" y="577" class="fragment-text">opt</text>
+  <text x="210" y="577" class="fragment-text">[Login exitoso]</text>
+  
+  <!-- Message 8: Actualizar última conexión -->
+  <path d="M 505 590 L 690 590" class="message"/>
+  <text x="595" y="585" text-anchor="middle" class="message-label" font-size="11">8: actualizarUltimaConexion()</text>
+  
+  <!-- Activation BD 3 -->
+  <rect x="695" y="590" width="10" height="30" class="activation"/>
+  
+  <!-- Return final -->
+  <path d="M 295 610 L 100 610" class="message-return"/>
+  <text x="195" y="605" text-anchor="middle" class="return-label">respuesta (token / error)</text>
+  
+  <!-- Note -->
+  <rect x="50" y="660" width="800" height="30" fill="#1e3a5f" stroke="#0ea5e9" stroke-width="1" rx="5"/>
+  <text x="450" y="680" text-anchor="middle" font-size="11" fill="#e5e7eb">
+    Los fragmentos alt y opt permiten modelar decisiones y ejecución condicional
+  </text>
+  
+</svg>

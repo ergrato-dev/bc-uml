@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="900" height="500" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="450" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Ejemplo de Composición: Casa y Habitación
+  </text>
+  
+  <!-- Clase Casa -->
+  <g id="casa">
+    <rect x="100" y="150" width="200" height="200" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="5"/>
+    <rect x="100" y="150" width="200" height="40" fill="#f87171" stroke="#f87171" stroke-width="2" rx="5 5 0 0"/>
+    <text x="200" y="176" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Casa
+    </text>
+    
+    <!-- Atributos -->
+    <line x1="100" y1="190" x2="300" y2="190" stroke="#f87171" stroke-width="1"/>
+    <text x="110" y="210" font-size="13" fill="#f87171">- direccion: String</text>
+    <text x="110" y="230" font-size="13" fill="#f87171">- metrosCuadrados: int</text>
+    <text x="110" y="250" font-size="13" fill="#f87171">- propietario: String</text>
+    
+    <!-- Métodos -->
+    <line x1="100" y1="260" x2="300" y2="260" stroke="#f87171" stroke-width="1"/>
+    <text x="110" y="280" font-size="13" fill="#4ade80">+ construir(): void</text>
+    <text x="110" y="300" font-size="13" fill="#4ade80">+ demoler(): void</text>
+    <text x="110" y="320" font-size="13" fill="#4ade80">+ getHabitaciones()</text>
+  </g>
+  
+  <!-- Línea de composición con diamante negro -->
+  <g id="composicion">
+    <line x1="350" y1="250" x2="600" y2="250" stroke="#f87171" stroke-width="3"/>
+    
+    <!-- Diamante negro (composición) -->
+    <polygon points="300,250 315,240 330,250 315,260" fill="#f87171" stroke="#f87171" stroke-width="3"/>
+    
+    <!-- Multiplicidad lado Casa -->
+    <text x="340" y="240" font-size="14" font-weight="bold" fill="#fbbf24">1</text>
+    
+    <!-- Multiplicidad lado Habitación -->
+    <text x="570" y="240" font-size="14" font-weight="bold" fill="#fbbf24">1..*</text>
+    
+    <!-- Nombre de la relación -->
+    <text x="465" y="240" font-size="13" fill="#94a3b8" font-style="italic">contiene</text>
+  </g>
+  
+  <!-- Clase Habitación -->
+  <g id="habitacion">
+    <rect x="600" y="150" width="200" height="200" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="5"/>
+    <rect x="600" y="150" width="200" height="40" fill="#f87171" stroke="#f87171" stroke-width="2" rx="5 5 0 0"/>
+    <text x="700" y="176" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Habitación
+    </text>
+    
+    <!-- Atributos -->
+    <line x1="600" y1="190" x2="800" y2="190" stroke="#f87171" stroke-width="1"/>
+    <text x="610" y="210" font-size="13" fill="#f87171">- tipo: String</text>
+    <text x="610" y="230" font-size="13" fill="#f87171">- area: Double</text>
+    <text x="610" y="250" font-size="13" fill="#f87171">- ventanas: int</text>
+    
+    <!-- Métodos -->
+    <line x1="600" y1="260" x2="800" y2="260" stroke="#f87171" stroke-width="1"/>
+    <text x="610" y="280" font-size="13" fill="#4ade80">+ decorar(): void</text>
+    <text x="610" y="300" font-size="13" fill="#4ade80">+ calcularArea(): Double</text>
+    <text x="610" y="320" font-size="13" fill="#4ade80">+ iluminar(): void</text>
+  </g>
+  
+  <!-- Explicación -->
+  <g id="explicacion">
+    <rect x="50" y="380" width="800" height="100" fill="#2d2d2d" stroke="#64748b" stroke-width="2" rx="5"/>
+    <text x="450" y="405" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Características de la Composición (◆—)
+    </text>
+    
+    <text x="60" y="430" font-size="13" fill="#e5e7eb">
+      • Una casa <tspan fill="#f87171" font-weight="bold">está compuesta</tspan> de una o más habitaciones
+    </text>
+    <text x="60" y="450" font-size="13" fill="#e5e7eb">
+      • Las habitaciones <tspan fill="#fbbf24" font-weight="bold">NO pueden existir sin la casa</tspan> (relación fuerte)
+    </text>
+    <text x="60" y="470" font-size="13" fill="#e5e7eb">
+      • Si la casa es demolida, todas sus habitaciones son destruidas también
+    </text>
+  </g>
+</svg>

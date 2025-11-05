@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="900" height="500" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="450" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Ejemplo de Realización: Implementación de Interfaz
+  </text>
+  
+  <!-- Interfaz Pagable -->
+  <g id="interfaz">
+    <rect x="300" y="80" width="300" height="150" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="5" stroke-dasharray="5,5"/>
+    <rect x="300" y="80" width="300" height="40" fill="#fbbf24" stroke="#fbbf24" stroke-width="2" rx="5 5 0 0"/>
+    <text x="450" y="100" font-size="13" text-anchor="middle" fill="#000000">«interface»</text>
+    <text x="450" y="116" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">
+      Pagable
+    </text>
+    
+    <!-- Métodos abstractos -->
+    <line x1="300" y1="120" x2="600" y2="120" stroke="#fbbf24" stroke-width="1"/>
+    <text x="310" y="145" font-size="13" fill="#4ade80">+ procesarPago(monto: Double): boolean</text>
+    <text x="310" y="165" font-size="13" fill="#4ade80">+ validarPago(): boolean</text>
+    <text x="310" y="185" font-size="13" fill="#4ade80">+ generarComprobante(): String</text>
+    <text x="310" y="205" font-size="13" fill="#4ade80">+ cancelarPago(): void</text>
+  </g>
+  
+  <!-- Flechas de realización (líneas discontinuas con triángulo) -->
+  <g id="realizacion">
+    <!-- Desde TarjetaCredito -->
+    <line x1="200" y1="350" x2="400" y2="230" stroke="#fbbf24" stroke-width="3" stroke-dasharray="8,4"/>
+    <polygon points="400,230 395,245 405,245" fill="#ffffff" stroke="#fbbf24" stroke-width="2"/>
+    
+    <!-- Desde PayPal -->
+    <line x1="450" y1="350" x2="450" y2="230" stroke="#fbbf24" stroke-width="3" stroke-dasharray="8,4"/>
+    <polygon points="450,230 445,245 455,245" fill="#ffffff" stroke="#fbbf24" stroke-width="2"/>
+    
+    <!-- Desde Efectivo -->
+    <line x1="700" y1="350" x2="500" y2="230" stroke="#fbbf24" stroke-width="3" stroke-dasharray="8,4"/>
+    <polygon points="500,230 495,245 505,245" fill="#ffffff" stroke="#fbbf24" stroke-width="2"/>
+  </g>
+  
+  <!-- Clase TarjetaCredito -->
+  <g id="tarjeta">
+    <rect x="50" y="350" width="300" height="130" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="5"/>
+    <rect x="50" y="350" width="300" height="35" fill="#374151" stroke="#fbbf24" stroke-width="2" rx="5 5 0 0"/>
+    <text x="200" y="373" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      TarjetaCredito
+    </text>
+    
+    <line x1="50" y1="385" x2="350" y2="385" stroke="#fbbf24" stroke-width="1"/>
+    <text x="60" y="405" font-size="12" fill="#f87171">- numero: String</text>
+    <text x="60" y="423" font-size="12" fill="#f87171">- cvv: String</text>
+    <text x="60" y="441" font-size="12" fill="#f87171">- fechaVencimiento: Date</text>
+    
+    <line x1="50" y1="448" x2="350" y2="448" stroke="#fbbf24" stroke-width="1"/>
+    <text x="60" y="468" font-size="12" fill="#4ade80">+ procesarPago(monto): boolean</text>
+  </g>
+  
+  <!-- Clase PayPal -->
+  <g id="paypal">
+    <rect x="375" y="350" width="150" height="130" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="5"/>
+    <rect x="375" y="350" width="150" height="35" fill="#374151" stroke="#fbbf24" stroke-width="2" rx="5 5 0 0"/>
+    <text x="450" y="373" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      PayPal
+    </text>
+    
+    <line x1="375" y1="385" x2="525" y2="385" stroke="#fbbf24" stroke-width="1"/>
+    <text x="385" y="405" font-size="12" fill="#f87171">- email: String</text>
+    <text x="385" y="423" font-size="12" fill="#f87171">- token: String</text>
+    
+    <line x1="375" y1="433" x2="525" y2="433" stroke="#fbbf24" stroke-width="1"/>
+    <text x="385" y="453" font-size="12" fill="#4ade80">+ procesarPago()</text>
+    <text x="385" y="471" font-size="12" fill="#4ade80">+ validarPago()</text>
+  </g>
+  
+  <!-- Clase Efectivo -->
+  <g id="efectivo">
+    <rect x="550" y="350" width="300" height="130" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="5"/>
+    <rect x="550" y="350" width="300" height="35" fill="#374151" stroke="#fbbf24" stroke-width="2" rx="5 5 0 0"/>
+    <text x="700" y="373" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      PagoEfectivo
+    </text>
+    
+    <line x1="550" y1="385" x2="850" y2="385" stroke="#fbbf24" stroke-width="1"/>
+    <text x="560" y="405" font-size="12" fill="#f87171">- montoPagado: Double</text>
+    <text x="560" y="423" font-size="12" fill="#f87171">- cambio: Double</text>
+    
+    <line x1="550" y1="433" x2="850" y2="433" stroke="#fbbf24" stroke-width="1"/>
+    <text x="560" y="453" font-size="12" fill="#4ade80">+ procesarPago(monto): boolean</text>
+    <text x="560" y="471" font-size="12" fill="#4ade80">+ calcularCambio(): Double</text>
+  </g>
+</svg>

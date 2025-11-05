@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .box { fill: #2a2a2a; stroke: #0ea5e9; stroke-width: 2; }
+      .arrow-include { stroke: #4ade80; stroke-width: 2; fill: none; stroke-dasharray: 8,4; }
+      .arrow-extend { stroke: #f87171; stroke-width: 2; fill: none; stroke-dasharray: 8,4; }
+      .text { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+      .text-small { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+      .text-title { fill: #0ea5e9; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: bold; }
+      .text-use-case { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 13px; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="1200" height="800"/>
+  
+  <!-- Título -->
+  <text x="600" y="35" class="text-title" text-anchor="middle">Include vs Extend - Diferencias Clave</text>
+  
+  <!-- Sección INCLUDE (lado izquierdo) -->
+  <rect fill="none" stroke="#4ade80" stroke-width="3" x="50" y="70" width="520" height="680"/>
+  <text x="310" y="100" class="text-title" text-anchor="middle" fill="#4ade80">«include»</text>
+  
+  <!-- Definición INCLUDE -->
+  <rect class="box" x="80" y="120" width="460" height="120" stroke="#4ade80"/>
+  <text x="310" y="145" class="text" text-anchor="middle" font-weight="bold">DEFINICIÓN:</text>
+  <text x="90" y="170" class="text-small">• Relación de OBLIGACIÓN</text>
+  <text x="90" y="190" class="text-small">• El caso base SIEMPRE ejecuta el incluido</text>
+  <text x="90" y="210" class="text-small">• Extrae funcionalidad COMÚN y REUTILIZABLE</text>
+  <text x="90" y="230" class="text-small">• El caso incluido NO tiene sentido por sí solo</text>
+  
+  <!-- Sintaxis INCLUDE -->
+  <rect class="box" x="80" y="260" width="460" height="60" stroke="#4ade80"/>
+  <text x="310" y="285" class="text" text-anchor="middle" font-weight="bold">SINTAXIS UML:</text>
+  <text x="310" y="310" class="text-small" text-anchor="middle" font-family="monospace">CasoBase ---&lt;&lt;include&gt;&gt;---&gt; CasoIncluido</text>
+  
+  <!-- Ejemplo visual INCLUDE -->
+  <rect fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="5,5" x="120" y="340" width="380" height="300"/>
+  <text x="310" y="365" class="text" text-anchor="middle" fill="#4ade80">Ejemplo: Sistema de Compras</text>
+  
+  <!-- Comprar Producto -->
+  <ellipse cx="310" cy="420" rx="120" ry="40" class="box" stroke="#4ade80"/>
+  <text x="310" y="425" class="text-use-case" text-anchor="middle">Comprar Producto</text>
+  
+  <!-- Include hacia Validar Usuario -->
+  <ellipse cx="200" cy="530" rx="90" ry="35" class="box" stroke="#4ade80"/>
+  <text x="200" y="535" class="text-use-case" text-anchor="middle">Validar Usuario</text>
+  
+  <path class="arrow-include" d="M 270 445 L 230 505"/>
+  <polygon fill="#4ade80" points="230,505 237,497 224,495"/>
+  <text x="235" y="470" class="text-small" fill="#4ade80">«include»</text>
+  
+  <!-- Include hacia Procesar Pago -->
+  <ellipse cx="420" cy="530" rx="90" ry="35" class="box" stroke="#4ade80"/>
+  <text x="420" y="535" class="text-use-case" text-anchor="middle">Procesar Pago</text>
+  
+  <path class="arrow-include" d="M 350 445 L 390 505"/>
+  <polygon fill="#4ade80" points="390,505 383,497 396,495"/>
+  <text x="355" y="470" class="text-small" fill="#4ade80">«include»</text>
+  
+  <!-- Nota INCLUDE -->
+  <rect class="box" x="120" y="580" width="380" height="50" fill="#2a3a2a" stroke="#4ade80"/>
+  <text x="310" y="600" class="text-small" text-anchor="middle" font-weight="bold" fill="#4ade80">SIEMPRE se ejecutan ambos casos incluidos</text>
+  <text x="310" y="620" class="text-small" text-anchor="middle">No hay condición, es OBLIGATORIO</text>
+  
+  <!-- Cuando usar INCLUDE -->
+  <rect class="box" x="80" y="660" width="460" height="70" stroke="#4ade80"/>
+  <text x="310" y="685" class="text" text-anchor="middle" font-weight="bold">CUÁNDO USAR:</text>
+  <text x="90" y="705" class="text-small">✓ Evitar duplicación de funcionalidad</text>
+  <text x="90" y="720" class="text-small">✓ Separar pasos obligatorios comunes</text>
+  
+  <!-- Sección EXTEND (lado derecho) -->
+  <rect fill="none" stroke="#f87171" stroke-width="3" x="630" y="70" width="520" height="680"/>
+  <text x="890" y="100" class="text-title" text-anchor="middle" fill="#f87171">«extend»</text>
+  
+  <!-- Definición EXTEND -->
+  <rect class="box" x="660" y="120" width="460" height="120" stroke="#f87171"/>
+  <text x="890" y="145" class="text" text-anchor="middle" font-weight="bold">DEFINICIÓN:</text>
+  <text x="670" y="170" class="text-small">• Relación de OPCIONALIDAD</text>
+  <text x="670" y="190" class="text-small">• El caso base se ejecuta SIN necesitar extensión</text>
+  <text x="670" y="210" class="text-small">• Agrega comportamiento CONDICIONAL</text>
+  <text x="670" y="230" class="text-small">• El caso extensor SÍ tiene sentido por sí solo</text>
+  
+  <!-- Sintaxis EXTEND -->
+  <rect class="box" x="660" y="260" width="460" height="60" stroke="#f87171"/>
+  <text x="890" y="285" class="text" text-anchor="middle" font-weight="bold">SINTAXIS UML:</text>
+  <text x="890" y="310" class="text-small" text-anchor="middle" font-family="monospace">CasoExtensor ---&lt;&lt;extend&gt;&gt;---&gt; CasoBase</text>
+  
+  <!-- Ejemplo visual EXTEND -->
+  <rect fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="5,5" x="700" y="340" width="380" height="300"/>
+  <text x="890" y="365" class="text" text-anchor="middle" fill="#f87171">Ejemplo: Sistema de Compras</text>
+  
+  <!-- Comprar Producto -->
+  <ellipse cx="890" cy="420" rx="120" ry="40" class="box" stroke="#f87171"/>
+  <text x="890" y="425" class="text-use-case" text-anchor="middle">Comprar Producto</text>
+  
+  <!-- Extend desde Aplicar Cupón -->
+  <ellipse cx="780" cy="530" rx="90" ry="35" class="box" stroke="#f87171"/>
+  <text x="780" y="530" class="text-use-case" text-anchor="middle">Aplicar Cupón</text>
+  <text x="780" y="545" class="text-use-case" text-anchor="middle" font-size="11px">de Descuento</text>
+  
+  <path class="arrow-extend" d="M 820 505 L 860 445"/>
+  <polygon fill="#f87171" points="860,445 853,453 866,455"/>
+  <text x="825" y="470" class="text-small" fill="#f87171">«extend»</text>
+  <text x="815" y="485" class="text-small" fill="#fbbf24">(si tiene cupón)</text>
+  
+  <!-- Extend desde Envolver Regalo -->
+  <ellipse cx="1000" cy="530" rx="90" ry="35" class="box" stroke="#f87171"/>
+  <text x="1000" y="530" class="text-use-case" text-anchor="middle">Envolver para</text>
+  <text x="1000" y="545" class="text-use-case" text-anchor="middle" font-size="11px">Regalo</text>
+  
+  <path class="arrow-extend" d="M 960 505 L 920 445"/>
+  <polygon fill="#f87171" points="920,445 927,453 914,455"/>
+  <text x="925" y="470" class="text-small" fill="#f87171">«extend»</text>
+  <text x="920" y="485" class="text-small" fill="#fbbf24">(si es regalo)</text>
+  
+  <!-- Nota EXTEND -->
+  <rect class="box" x="700" y="580" width="380" height="50" fill="#3a2a2a" stroke="#f87171"/>
+  <text x="890" y="600" class="text-small" text-anchor="middle" font-weight="bold" fill="#f87171">Extensiones OPCIONALES bajo condición</text>
+  <text x="890" y="620" class="text-small" text-anchor="middle">La compra funciona sin ellas</text>
+  
+  <!-- Cuando usar EXTEND -->
+  <rect class="box" x="660" y="660" width="460" height="70" stroke="#f87171"/>
+  <text x="890" y="685" class="text" text-anchor="middle" font-weight="bold">CUÁNDO USAR:</text>
+  <text x="670" y="705" class="text-small">✓ Agregar funcionalidad opcional</text>
+  <text x="670" y="720" class="text-small">✓ Variantes o excepciones del flujo base</text>
+  
+  <!-- Tabla comparativa en la parte inferior -->
+  <rect class="box" x="50" y="770" width="1100" height="1" stroke="none" fill="#4ade80"/>
+</svg>

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .actor-box { fill: #2a2a2a; stroke: #0ea5e9; stroke-width: 2; }
+      .lifeline { stroke: #4ade80; stroke-width: 2; stroke-dasharray: 5,5; }
+      .activation { fill: #3a3a3a; stroke: #0ea5e9; stroke-width: 2; }
+      .message { stroke: #0ea5e9; stroke-width: 2; fill: none; }
+      .message-return { stroke: #fbbf24; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .text { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+      .text-small { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+      .text-title { fill: #0ea5e9; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; }
+      .text-number { fill: #f87171; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="1000" height="700"/>
+  
+  <!-- Título -->
+  <text x="500" y="30" class="text-title" text-anchor="middle">Diagrama de Comunicación - Proceso de Login</text>
+  <text x="500" y="50" class="text-small" text-anchor="middle" fill="#4ade80">(Misma funcionalidad que diagrama de secuencia, enfoque en estructura)</text>
+  
+  <!-- Objetos -->
+  
+  <!-- Usuario -->
+  <rect class="actor-box" x="50" y="100" width="150" height="60"/>
+  <text x="125" y="135" class="text" text-anchor="middle">:Usuario</text>
+  
+  <!-- InterfazLogin -->
+  <rect class="actor-box" x="350" y="100" width="200" height="60"/>
+  <text x="450" y="125" class="text" text-anchor="middle">:InterfazLogin</text>
+  <text x="450" y="145" class="text-small" text-anchor="middle">(formulario)</text>
+  
+  <!-- ControladorAuth -->
+  <rect class="actor-box" x="700" y="100" width="220" height="60"/>
+  <text x="810" y="125" class="text" text-anchor="middle">:ControladorAuth</text>
+  <text x="810" y="145" class="text-small" text-anchor="middle">(lógica autenticación)</text>
+  
+  <!-- BaseDatos -->
+  <rect class="actor-box" x="350" y="300" width="200" height="60"/>
+  <text x="450" y="325" class="text" text-anchor="middle">:BaseDatos</text>
+  <text x="450" y="345" class="text-small" text-anchor="middle">(repositorio usuarios)</text>
+  
+  <!-- ServicioSesion -->
+  <rect class="actor-box" x="700" y="300" width="220" height="60"/>
+  <text x="810" y="325" class="text" text-anchor="middle">:ServicioSesion</text>
+  <text x="810" y="345" class="text-small" text-anchor="middle">(manejo JWT)</text>
+  
+  <!-- Enlaces entre objetos -->
+  
+  <!-- Usuario -> InterfazLogin -->
+  <line x1="200" y1="130" x2="350" y2="130" stroke="#4ade80" stroke-width="2"/>
+  
+  <!-- InterfazLogin -> ControladorAuth -->
+  <line x1="550" y1="130" x2="700" y2="130" stroke="#4ade80" stroke-width="2"/>
+  
+  <!-- ControladorAuth -> BaseDatos -->
+  <line x1="700" y1="180" x2="550" y2="300" stroke="#4ade80" stroke-width="2"/>
+  
+  <!-- ControladorAuth -> ServicioSesion -->
+  <line x1="810" y1="160" x2="810" y2="300" stroke="#4ade80" stroke-width="2"/>
+  
+  <!-- Mensajes con numeración -->
+  
+  <!-- 1: ingresarCredenciales -->
+  <text x="125" y="110" class="text-number">1:</text>
+  <text x="210" y="120" class="text-small">ingresarCredenciales</text>
+  <text x="220" y="135" class="text-small" font-size="11px">(email, password)</text>
+  <polygon fill="#0ea5e9" points="350,130 340,125 340,135"/>
+  
+  <!-- 2: validarFormulario -->
+  <ellipse cx="450" cy="190" rx="80" ry="30" fill="none" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="450" y="185" class="text-number" text-anchor="middle">2:</text>
+  <text x="450" y="200" class="text-small" text-anchor="middle">validarFormulario()</text>
+  
+  <!-- 3: autenticar -->
+  <text x="585" y="110" class="text-number">3:</text>
+  <text x="600" y="120" class="text-small">autenticar</text>
+  <text x="610" y="135" class="text-small" font-size="11px">(email, password)</text>
+  <polygon fill="#0ea5e9" points="700,130 690,125 690,135"/>
+  
+  <!-- 4: buscarUsuario -->
+  <text x="595" y="225" class="text-number">4:</text>
+  <text x="580" y="240" class="text-small">buscarUsuario</text>
+  <text x="600" y="255" class="text-small" font-size="11px">(email)</text>
+  <polygon fill="#0ea5e9" points="550,300 555,290 545,290"/>
+  
+  <!-- 5: usuario -->
+  <text x="595" y="275" class="text-number">5:</text>
+  <text x="610" y="265" class="text-small">usuario</text>
+  <polygon fill="#fbbf24" points="700,240 690,235 690,245"/>
+  
+  <!-- 6: verificarPassword -->
+  <ellipse cx="810" cy="220" rx="90" ry="30" fill="none" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="810" y="215" class="text-number" text-anchor="middle">6:</text>
+  <text x="810" y="230" class="text-small" text-anchor="middle">verificarPassword()</text>
+  
+  <!-- 7: generarToken -->
+  <text x="825" y="215" class="text-number">7:</text>
+  <text x="850" y="225" class="text-small">generarToken</text>
+  <text x="860" y="240" class="text-small" font-size="11px">(usuario.id)</text>
+  <polygon fill="#0ea5e9" points="810,300 805,290 815,290"/>
+  
+  <!-- 8: token JWT -->
+  <text x="825" y="280" class="text-number">8:</text>
+  <text x="850" y="270" class="text-small">token JWT</text>
+  <polygon fill="#fbbf24" points="810,260 805,270 815,270"/>
+  
+  <!-- 9: sesión creada -->
+  <text x="585" y="155" class="text-number">9:</text>
+  <text x="610" y="165" class="text-small">sesión creada</text>
+  <polygon fill="#fbbf24" points="550,150 560,145 560,155"/>
+  
+  <!-- 10: mostrarDashboard -->
+  <text x="240" y="155" class="text-number">10:</text>
+  <text x="220" y="165" class="text-small">mostrarDashboard()</text>
+  <polygon fill="#fbbf24" points="200,150 210,145 210,155"/>
+  
+  <!-- Notas explicativas -->
+  <rect fill="#2a2a2a" stroke="#f87171" stroke-width="2" x="50" y="420" width="400" height="120"/>
+  <text x="60" y="445" class="text" fill="#f87171" font-weight="bold">Nota: Características del Diagrama de Comunicación</text>
+  <text x="60" y="470" class="text-small">• Muestra la ESTRUCTURA de las interacciones</text>
+  <text x="60" y="490" class="text-small">• Los números indican el ORDEN de los mensajes</text>
+  <text x="60" y="510" class="text-small">• Los enlaces muestran las RELACIONES entre objetos</text>
+  <text x="60" y="530" class="text-small">• Mejor para mostrar arquitectura del sistema</text>
+  
+  <rect fill="#2a2a2a" stroke="#4ade80" stroke-width="2" x="480" y="420" width="470" height="120"/>
+  <text x="490" y="445" class="text" fill="#4ade80" font-weight="bold">Ventajas sobre Diagrama de Secuencia:</text>
+  <text x="490" y="470" class="text-small">✓ Muestra relaciones entre objetos claramente</text>
+  <text x="490" y="490" class="text-small">✓ Usa menos espacio vertical</text>
+  <text x="490" y="510" class="text-small">✓ Facilita entender la arquitectura</text>
+  <text x="490" y="530" class="text-small">✗ Más difícil seguir secuencia temporal</text>
+  
+  <!-- Leyenda -->
+  <rect fill="#2a2a2a" stroke="#0ea5e9" stroke-width="2" x="50" y="570" width="900" height="110"/>
+  <text x="500" y="595" class="text-title" text-anchor="middle">Leyenda</text>
+  
+  <line x1="80" y1="620" x2="180" y2="620" stroke="#4ade80" stroke-width="2"/>
+  <text x="190" y="625" class="text-small">Enlace entre objetos</text>
+  
+  <line x1="400" y1="620" x2="500" y2="620" stroke="#0ea5e9" stroke-width="2"/>
+  <polygon fill="#0ea5e9" points="500,620 490,615 490,625"/>
+  <text x="510" y="625" class="text-small">Mensaje (con numeración)</text>
+  
+  <line x1="80" y1="650" x2="180" y2="650" stroke="#fbbf24" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon fill="#fbbf24" points="80,650 90,645 90,655"/>
+  <text x="190" y="655" class="text-small">Mensaje de retorno</text>
+  
+  <ellipse cx="550" cy="650" rx="60" ry="20" fill="none" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="620" y="655" class="text-small">Llamada a sí mismo (reflexiva)</text>
+</svg>

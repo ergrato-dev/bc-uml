@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="1000" height="600" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="500" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Tipos de Relaciones entre Clases
+  </text>
+  
+  <!-- 1. ASOCIACIÓN -->
+  <g id="asociacion">
+    <text x="50" y="70" font-size="16" font-weight="bold" fill="#0ea5e9">1. Asociación</text>
+    <text x="50" y="90" font-size="12" fill="#94a3b8">Relación general "conoce a"</text>
+    
+    <rect x="50" y="100" width="140" height="60" fill="#2d2d2d" stroke="#0ea5e9" stroke-width="2" rx="3"/>
+    <text x="120" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Estudiante</text>
+    
+    <line x1="190" y1="130" x2="300" y2="130" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="245" y="125" font-size="11" fill="#94a3b8">inscrito en</text>
+    <text x="195" y="145" font-size="11" fill="#fbbf24">1..*</text>
+    <text x="280" y="145" font-size="11" fill="#fbbf24">1..*</text>
+    
+    <rect x="300" y="100" width="140" height="60" fill="#2d2d2d" stroke="#0ea5e9" stroke-width="2" rx="3"/>
+    <text x="370" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Curso</text>
+  </g>
+  
+  <!-- 2. AGREGACIÓN -->
+  <g id="agregacion">
+    <text x="500" y="70" font-size="16" font-weight="bold" fill="#4ade80">2. Agregación</text>
+    <text x="500" y="90" font-size="12" fill="#94a3b8">Relación "tiene un" (débil)</text>
+    
+    <rect x="500" y="100" width="140" height="60" fill="#2d2d2d" stroke="#4ade80" stroke-width="2" rx="3"/>
+    <text x="570" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Departamento</text>
+    
+    <line x1="640" y1="130" x2="730" y2="130" stroke="#4ade80" stroke-width="2"/>
+    <polygon points="640,130 655,125 655,135" fill="none" stroke="#4ade80" stroke-width="2"/>
+    <text x="685" y="125" font-size="11" fill="#94a3b8">contiene</text>
+    <text x="645" y="145" font-size="11" fill="#fbbf24">1</text>
+    <text x="710" y="145" font-size="11" fill="#fbbf24">1..*</text>
+    
+    <rect x="730" y="100" width="140" height="60" fill="#2d2d2d" stroke="#4ade80" stroke-width="2" rx="3"/>
+    <text x="800" y="135" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Empleado</text>
+  </g>
+  
+  <!-- 3. COMPOSICIÓN -->
+  <g id="composicion">
+    <text x="50" y="230" font-size="16" font-weight="bold" fill="#f87171">3. Composición</text>
+    <text x="50" y="250" font-size="12" fill="#94a3b8">Relación "tiene un" (fuerte)</text>
+    
+    <rect x="50" y="260" width="140" height="60" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="120" y="295" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Casa</text>
+    
+    <line x1="190" y1="290" x2="300" y2="290" stroke="#f87171" stroke-width="2"/>
+    <polygon points="190,290 205,285 205,295" fill="#f87171" stroke="#f87171" stroke-width="2"/>
+    <text x="245" y="285" font-size="11" fill="#94a3b8">contiene</text>
+    <text x="195" y="305" font-size="11" fill="#fbbf24">1</text>
+    <text x="280" y="305" font-size="11" fill="#fbbf24">1..*</text>
+    
+    <rect x="300" y="260" width="140" height="60" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="370" y="295" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Habitación</text>
+  </g>
+  
+  <!-- 4. HERENCIA -->
+  <g id="herencia">
+    <text x="500" y="230" font-size="16" font-weight="bold" fill="#a78bfa">4. Herencia</text>
+    <text x="500" y="250" font-size="12" fill="#94a3b8">Relación "es un"</text>
+    
+    <rect x="600" y="260" width="140" height="60" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="3"/>
+    <text x="670" y="295" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Vehículo</text>
+    
+    <!-- Flecha hacia arriba desde Auto -->
+    <line x1="620" y1="380" x2="650" y2="320" stroke="#a78bfa" stroke-width="2"/>
+    <polygon points="650,320 645,335 655,335" fill="#ffffff" stroke="#a78bfa" stroke-width="2"/>
+    
+    <!-- Flecha hacia arriba desde Moto -->
+    <line x1="720" y1="380" x2="690" y2="320" stroke="#a78bfa" stroke-width="2"/>
+    <polygon points="690,320 685,335 695,335" fill="#ffffff" stroke="#a78bfa" stroke-width="2"/>
+    
+    <rect x="550" y="380" width="100" height="50" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="3"/>
+    <text x="600" y="410" font-size="13" font-weight="bold" text-anchor="middle" fill="#ffffff">Auto</text>
+    
+    <rect x="670" y="380" width="100" height="50" fill="#2d2d2d" stroke="#a78bfa" stroke-width="2" rx="3"/>
+    <text x="720" y="410" font-size="13" font-weight="bold" text-anchor="middle" fill="#ffffff">Moto</text>
+  </g>
+  
+  <!-- 5. REALIZACIÓN -->
+  <g id="realizacion">
+    <text x="50" y="400" font-size="16" font-weight="bold" fill="#fbbf24">5. Realización</text>
+    <text x="50" y="420" font-size="12" fill="#94a3b8">Implementa interfaz</text>
+    
+    <rect x="50" y="430" width="140" height="60" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="3"/>
+    <text x="120" y="450" font-size="11" fill="#94a3b8">«interface»</text>
+    <text x="120" y="470" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Pagable</text>
+    
+    <!-- Flecha discontinua desde TarjetaCredito -->
+    <line x1="190" y1="480" x2="280" y2="480" stroke="#fbbf24" stroke-width="2" stroke-dasharray="5,5"/>
+    <polygon points="190,480 205,475 205,485" fill="#ffffff" stroke="#fbbf24" stroke-width="2"/>
+    
+    <rect x="280" y="450" width="140" height="60" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="3"/>
+    <text x="350" y="485" font-size="13" font-weight="bold" text-anchor="middle" fill="#ffffff">TarjetaCredito</text>
+  </g>
+  
+  <!-- 6. DEPENDENCIA -->
+  <g id="dependencia">
+    <text x="500" y="400" font-size="16" font-weight="bold" fill="#ec4899">6. Dependencia</text>
+    <text x="500" y="420" font-size="12" fill="#94a3b8">Usa temporalmente</text>
+    
+    <rect x="500" y="430" width="140" height="60" fill="#2d2d2d" stroke="#ec4899" stroke-width="2" rx="3"/>
+    <text x="570" y="465" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Impresora</text>
+    
+    <line x1="640" y1="460" x2="730" y2="460" stroke="#ec4899" stroke-width="2" stroke-dasharray="5,5"/>
+    <polygon points="730,460 715,455 715,465" fill="#ec4899"/>
+    <text x="685" y="455" font-size="11" fill="#94a3b8">usa</text>
+    
+    <rect x="730" y="430" width="140" height="60" fill="#2d2d2d" stroke="#ec4899" stroke-width="2" rx="3"/>
+    <text x="800" y="465" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Documento</text>
+  </g>
+  
+  <!-- Tabla resumen -->
+  <g id="resumen">
+    <rect x="50" y="530" width="900" height="50" fill="#2d2d2d" stroke="#64748b" stroke-width="2" rx="5"/>
+    <text x="100" y="555" font-size="12" fill="#e5e7eb">Asociación: —</text>
+    <text x="250" y="555" font-size="12" fill="#e5e7eb">Agregación: ◇—</text>
+    <text x="400" y="555" font-size="12" fill="#e5e7eb">Composición: ◆—</text>
+    <text x="570" y="555" font-size="12" fill="#e5e7eb">Herencia: △—</text>
+    <text x="700" y="555" font-size="12" fill="#e5e7eb">Realización: △···</text>
+    <text x="830" y="555" font-size="12" fill="#e5e7eb">Dependencia: ···▷</text>
+  </g>
+</svg>

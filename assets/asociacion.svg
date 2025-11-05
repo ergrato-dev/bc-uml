@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="900" height="500" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="450" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Ejemplo de Asociación: Estudiante y Curso
+  </text>
+  
+  <!-- Clase Estudiante -->
+  <g id="estudiante">
+    <rect x="100" y="150" width="200" height="200" fill="#2d2d2d" stroke="#0ea5e9" stroke-width="2" rx="5"/>
+    <rect x="100" y="150" width="200" height="40" fill="#0ea5e9" stroke="#0ea5e9" stroke-width="2" rx="5 5 0 0"/>
+    <text x="200" y="176" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Estudiante
+    </text>
+    
+    <!-- Atributos -->
+    <line x1="100" y1="190" x2="300" y2="190" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="110" y="210" font-size="13" fill="#f87171">- id: String</text>
+    <text x="110" y="230" font-size="13" fill="#f87171">- nombre: String</text>
+    <text x="110" y="250" font-size="13" fill="#f87171">- matricula: String</text>
+    
+    <!-- Métodos -->
+    <line x1="100" y1="260" x2="300" y2="260" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="110" y="280" font-size="13" fill="#4ade80">+ inscribir(c: Curso)</text>
+    <text x="110" y="300" font-size="13" fill="#4ade80">+ calificar(): Double</text>
+    <text x="110" y="320" font-size="13" fill="#4ade80">+ getCursos(): List</text>
+  </g>
+  
+  <!-- Línea de asociación -->
+  <g id="asociacion">
+    <line x1="300" y1="250" x2="600" y2="250" stroke="#0ea5e9" stroke-width="3"/>
+    
+    <!-- Multiplicidad lado Estudiante -->
+    <text x="310" y="240" font-size="14" font-weight="bold" fill="#fbbf24">1..*</text>
+    
+    <!-- Multiplicidad lado Curso -->
+    <text x="570" y="240" font-size="14" font-weight="bold" fill="#fbbf24">1..*</text>
+    
+    <!-- Nombre de la relación -->
+    <text x="450" y="240" font-size="13" fill="#94a3b8" font-style="italic">inscrito en</text>
+    
+    <!-- Flecha de navegación -->
+    <polygon points="600,250 585,245 585,255" fill="#0ea5e9"/>
+  </g>
+  
+  <!-- Clase Curso -->
+  <g id="curso">
+    <rect x="600" y="150" width="200" height="200" fill="#2d2d2d" stroke="#0ea5e9" stroke-width="2" rx="5"/>
+    <rect x="600" y="150" width="200" height="40" fill="#0ea5e9" stroke="#0ea5e9" stroke-width="2" rx="5 5 0 0"/>
+    <text x="700" y="176" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Curso
+    </text>
+    
+    <!-- Atributos -->
+    <line x1="600" y1="190" x2="800" y2="190" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="610" y="210" font-size="13" fill="#f87171">- codigo: String</text>
+    <text x="610" y="230" font-size="13" fill="#f87171">- nombre: String</text>
+    <text x="610" y="250" font-size="13" fill="#f87171">- creditos: int</text>
+    
+    <!-- Métodos -->
+    <line x1="600" y1="260" x2="800" y2="260" stroke="#0ea5e9" stroke-width="1"/>
+    <text x="610" y="280" font-size="13" fill="#4ade80">+ agregar(e: Estudiante)</text>
+    <text x="610" y="300" font-size="13" fill="#4ade80">+ listarEstudiantes()</text>
+    <text x="610" y="320" font-size="13" fill="#4ade80">+ getCupo(): int</text>
+  </g>
+  
+  <!-- Explicación -->
+  <g id="explicacion">
+    <rect x="50" y="380" width="800" height="100" fill="#2d2d2d" stroke="#64748b" stroke-width="2" rx="5"/>
+    <text x="450" y="405" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Interpretación de la Asociación
+    </text>
+    
+    <text x="60" y="430" font-size="13" fill="#e5e7eb">
+      • Un estudiante puede estar inscrito en <tspan fill="#fbbf24" font-weight="bold">uno o más cursos</tspan> (1..*)
+    </text>
+    <text x="60" y="450" font-size="13" fill="#e5e7eb">
+      • Un curso tiene <tspan fill="#fbbf24" font-weight="bold">uno o más estudiantes</tspan> inscritos (1..*)
+    </text>
+    <text x="60" y="470" font-size="13" fill="#e5e7eb">
+      • La relación es <tspan fill="#0ea5e9" font-weight="bold">bidireccional</tspan>: ambas clases se conocen mutuamente
+    </text>
+  </g>
+</svg>

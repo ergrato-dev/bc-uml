@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="800" height="400" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="400" y="30" font-size="20" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Sintaxis de una Clase en UML
+  </text>
+  
+  <!-- Clase principal - centro -->
+  <g id="clase-ejemplo">
+    <!-- Rectángulo de la clase -->
+    <rect x="250" y="70" width="300" height="250" fill="#2d2d2d" stroke="#0ea5e9" stroke-width="3" rx="5"/>
+    
+    <!-- Línea separadora 1 -->
+    <line x1="250" y1="130" x2="550" y2="130" stroke="#0ea5e9" stroke-width="2"/>
+    
+    <!-- Línea separadora 2 -->
+    <line x1="250" y1="220" x2="550" y2="220" stroke="#0ea5e9" stroke-width="2"/>
+    
+    <!-- Sección 1: Nombre -->
+    <text x="400" y="105" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Usuario
+    </text>
+    
+    <!-- Sección 2: Atributos -->
+    <text x="260" y="155" font-size="14" fill="#f87171">- id: String</text>
+    <text x="260" y="175" font-size="14" fill="#f87171">- nombre: String</text>
+    <text x="260" y="195" font-size="14" fill="#4ade80">+ email: String</text>
+    
+    <!-- Sección 3: Métodos -->
+    <text x="260" y="245" font-size="14" fill="#4ade80">+ registrar(): void</text>
+    <text x="260" y="265" font-size="14" fill="#4ade80">+ login(): boolean</text>
+    <text x="260" y="285" font-size="14" fill="#fbbf24"># validar(): boolean</text>
+    <text x="260" y="305" font-size="14" fill="#f87171">- encriptar(): String</text>
+  </g>
+  
+  <!-- Anotaciones -->
+  <g id="anotaciones">
+    <!-- Flecha 1: Nombre -->
+    <path d="M 170 100 L 240 100" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="20" y="95" font-size="13" fill="#e5e7eb">Nombre de la clase</text>
+    <text x="20" y="112" font-size="11" fill="#94a3b8">(sustantivo, PascalCase)</text>
+    
+    <!-- Flecha 2: Atributos -->
+    <path d="M 170 175 L 240 175" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="20" y="172" font-size="13" fill="#e5e7eb">Atributos (propiedades)</text>
+    <text x="20" y="189" font-size="11" fill="#94a3b8">(visibilidad nombre: Tipo)</text>
+    
+    <!-- Flecha 3: Métodos -->
+    <path d="M 170 270 L 240 270" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    <text x="20" y="265" font-size="13" fill="#e5e7eb">Métodos (comportamiento)</text>
+    <text x="20" y="282" font-size="11" fill="#94a3b8">(visibilidad nombre(): Tipo)</text>
+  </g>
+  
+  <!-- Leyenda de visibilidad -->
+  <g id="leyenda">
+    <rect x="600" y="70" width="180" height="150" fill="#2d2d2d" stroke="#64748b" stroke-width="2" rx="5"/>
+    <text x="690" y="95" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Visibilidad
+    </text>
+    
+    <text x="615" y="120" font-size="13" fill="#4ade80" font-weight="bold">+</text>
+    <text x="635" y="120" font-size="12" fill="#e5e7eb">public</text>
+    
+    <text x="615" y="145" font-size="13" fill="#f87171" font-weight="bold">-</text>
+    <text x="635" y="145" font-size="12" fill="#e5e7eb">private</text>
+    
+    <text x="615" y="170" font-size="13" fill="#fbbf24" font-weight="bold">#</text>
+    <text x="635" y="170" font-size="12" fill="#e5e7eb">protected</text>
+    
+    <text x="615" y="195" font-size="13" fill="#a78bfa" font-weight="bold">~</text>
+    <text x="635" y="195" font-size="12" fill="#e5e7eb">package</text>
+  </g>
+  
+  <!-- Nota inferior -->
+  <text x="400" y="360" font-size="12" text-anchor="middle" fill="#94a3b8">
+    Formato estándar: visibilidad nombre: Tipo = valorDefault
+  </text>
+  
+  <!-- Definición de marcador de flecha -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+</svg>

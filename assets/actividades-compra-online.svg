@@ -1,0 +1,275 @@
+<svg viewBox="0 0 1100 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .swimlane { 
+        fill: none; 
+        stroke: #374151; 
+        stroke-width: 2;
+      }
+      .swimlane-header { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .activity { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .decision { 
+        fill: #2d1b4e; 
+        stroke: #a78bfa; 
+        stroke-width: 2;
+      }
+      .fork-join { 
+        fill: #0ea5e9;
+      }
+      .flow { 
+        stroke: #4ade80; 
+        stroke-width: 2; 
+        fill: none;
+        marker-end: url(#arrow);
+      }
+      .initial { 
+        fill: #0ea5e9;
+      }
+      .final { 
+        fill: #1a1a1a; 
+        stroke: #0ea5e9; 
+        stroke-width: 3;
+      }
+      .final-inner { 
+        fill: #0ea5e9;
+      }
+      .label { 
+        font-size: 12px;
+      }
+      .decision-label { 
+        font-size: 11px; 
+        fill: #fbbf24;
+      }
+      .swimlane-title { 
+        font-size: 15px; 
+        font-weight: bold; 
+        fill: #0ea5e9;
+      }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1100" height="1600" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="550" y="30" font-size="22" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Actividades con Swimlanes: Proceso de Compra Online
+  </text>
+  
+  <!-- Swimlanes -->
+  <!-- Cliente -->
+  <rect x="50" y="70" width="300" height="60" class="swimlane-header"/>
+  <text x="200" y="108" text-anchor="middle" class="swimlane-title">CLIENTE</text>
+  <rect x="50" y="130" width="300" height="1420" class="swimlane"/>
+  
+  <!-- Sistema -->
+  <rect x="350" y="70" width="300" height="60" class="swimlane-header"/>
+  <text x="500" y="108" text-anchor="middle" class="swimlane-title">SISTEMA</text>
+  <rect x="350" y="130" width="300" height="1420" class="swimlane"/>
+  
+  <!-- Pasarela/Servicios -->
+  <rect x="650" y="70" width="200" height="60" class="swimlane-header"/>
+  <text x="750" y="108" text-anchor="middle" class="swimlane-title">SERVICIOS</text>
+  <rect x="650" y="130" width="200" height="1420" class="swimlane"/>
+  
+  <!-- Logística -->
+  <rect x="850" y="70" width="200" height="60" class="swimlane-header"/>
+  <text x="950" y="108" text-anchor="middle" class="swimlane-title">LOGÍSTICA</text>
+  <rect x="850" y="130" width="200" height="1420" class="swimlane"/>
+  
+  <!-- Flow starts -->
+  <!-- Cliente: Initial -->
+  <circle cx="200" cy="160" r="12" class="initial"/>
+  <path d="M 200 172 L 200 200" class="flow"/>
+  
+  <!-- Cliente: Buscar productos -->
+  <rect x="110" y="200" width="180" height="40" rx="20" class="activity"/>
+  <text x="200" y="225" text-anchor="middle" class="label">Buscar productos</text>
+  <path d="M 200 240 L 200 270" class="flow"/>
+  
+  <!-- Cliente: Agregar al carrito -->
+  <rect x="100" y="270" width="200" height="40" rx="20" class="activity"/>
+  <text x="200" y="295" text-anchor="middle" class="label">Agregar al carrito</text>
+  <path d="M 200 310 L 200 340" class="flow"/>
+  
+  <!-- Cliente: Revisar carrito (loop) -->
+  <rect x="110" y="340" width="180" height="40" rx="20" class="activity"/>
+  <text x="200" y="365" text-anchor="middle" class="label">Revisar carrito</text>
+  <path d="M 200 380 L 200 410" class="flow"/>
+  
+  <!-- Decision: Continuar comprando -->
+  <path d="M 200 410 L 250 440 L 200 470 L 150 440 Z" class="decision"/>
+  <text x="200" y="438" text-anchor="middle" class="decision-label" font-size="10">¿Continuar</text>
+  <text x="200" y="450" text-anchor="middle" class="decision-label" font-size="10">comprando?</text>
+  
+  <!-- Loop back -->
+  <path d="M 150 440 L 80 440 L 80 290 L 100 290" class="flow"/>
+  <text x="85" y="435" class="decision-label" font-size="10">sí</text>
+  
+  <!-- Continue to checkout -->
+  <path d="M 200 470 L 200 510" class="flow"/>
+  <text x="210" y="490" class="decision-label" font-size="10">no</text>
+  
+  <!-- Cliente: Iniciar checkout -->
+  <rect x="110" y="510" width="180" height="40" rx="20" class="activity"/>
+  <text x="200" y="535" text-anchor="middle" class="label">Iniciar checkout</text>
+  <path d="M 290 530 L 380 530" class="flow"/>
+  
+  <!-- Sistema: Validar stock -->
+  <rect x="380" y="510" width="200" height="40" rx="20" class="activity"/>
+  <text x="480" y="535" text-anchor="middle" class="label">Validar stock</text>
+  <path d="M 480 550 L 480 580" class="flow"/>
+  
+  <!-- Decision: Stock disponible -->
+  <path d="M 480 580 L 530 610 L 480 640 L 430 610 Z" class="decision"/>
+  <text x="480" y="608" text-anchor="middle" class="decision-label" font-size="10">¿Stock</text>
+  <text x="480" y="620" text-anchor="middle" class="decision-label" font-size="10">disponible?</text>
+  
+  <!-- NO branch - stock insuficiente -->
+  <path d="M 430 610 L 200 610 L 200 1480" class="flow"/>
+  <text x="310" y="605" class="decision-label" font-size="10">no</text>
+  
+  <!-- YES branch -->
+  <path d="M 480 640 L 480 680" class="flow"/>
+  <text x="490" y="660" class="decision-label" font-size="10">sí</text>
+  
+  <!-- Sistema: Reservar productos -->
+  <rect x="380" y="680" width="200" height="40" rx="20" class="activity"/>
+  <text x="480" y="705" text-anchor="middle" class="label">Reservar productos</text>
+  <path d="M 380 700 L 200 700" class="flow"/>
+  
+  <!-- Cliente: Ingresar dirección -->
+  <rect x="90" y="730" width="220" height="40" rx="20" class="activity"/>
+  <text x="200" y="755" text-anchor="middle" class="label">Ingresar dirección envío</text>
+  <path d="M 200 770 L 200 800" class="flow"/>
+  
+  <!-- Cliente: Método de pago -->
+  <rect x="80" y="800" width="240" height="40" rx="20" class="activity"/>
+  <text x="200" y="825" text-anchor="middle" class="label">Seleccionar método de pago</text>
+  <path d="M 320 820 L 380 820" class="flow"/>
+  
+  <!-- Sistema: Fork para cálculos paralelos -->
+  <rect x="380" y="816" width="200" height="8" class="fork-join"/>
+  <path d="M 480 824 L 420 870" class="flow"/>
+  <path d="M 480 824 L 480 870" class="flow"/>
+  <path d="M 480 824 L 540 870" class="flow"/>
+  
+  <!-- Cálculos paralelos -->
+  <rect x="370" y="870" width="100" height="35" rx="17" class="activity"/>
+  <text x="420" y="892" text-anchor="middle" class="label" font-size="11">Calcular envío</text>
+  
+  <rect x="430" y="870" width="100" height="35" rx="17" class="activity"/>
+  <text x="480" y="892" text-anchor="middle" class="label" font-size="11">Calc. impuestos</text>
+  
+  <rect x="490" y="870" width="100" height="35" rx="17" class="activity"/>
+  <text x="540" y="892" text-anchor="middle" class="label" font-size="11">Aplicar desc.</text>
+  
+  <!-- Join -->
+  <path d="M 420 905 L 480 945" class="flow"/>
+  <path d="M 480 905 L 480 945" class="flow"/>
+  <path d="M 540 905 L 480 945" class="flow"/>
+  <rect x="380" y="945" width="200" height="8" class="fork-join"/>
+  
+  <!-- Sistema: Mostrar total -->
+  <path d="M 480 953 L 480 980" class="flow"/>
+  <rect x="400" y="980" width="160" height="40" rx="20" class="activity"/>
+  <text x="480" y="1005" text-anchor="middle" class="label">Mostrar total</text>
+  <path d="M 400 1000 L 200 1000" class="flow"/>
+  
+  <!-- Cliente: Confirmar compra -->
+  <rect x="90" y="1030" width="220" height="40" rx="20" class="activity"/>
+  <text x="200" y="1055" text-anchor="middle" class="label">Confirmar compra</text>
+  <path d="M 310 1050 L 660 1050" class="flow"/>
+  
+  <!-- Pasarela: Procesar pago -->
+  <rect x="660" y="1030" width="180" height="40" rx="20" class="activity"/>
+  <text x="750" y="1055" text-anchor="middle" class="label">Procesar pago</text>
+  <path d="M 750 1070 L 750 1100" class="flow"/>
+  
+  <!-- Decision: Pago exitoso -->
+  <path d="M 750 1100 L 800 1130 L 750 1160 L 700 1130 Z" class="decision"/>
+  <text x="750" y="1135" text-anchor="middle" class="decision-label" font-size="10">¿Exitoso?</text>
+  
+  <!-- NO branch pago -->
+  <path d="M 700 1130 L 200 1130 L 200 1430" class="flow"/>
+  <text x="450" y="1125" class="decision-label" font-size="10">no</text>
+  
+  <!-- YES branch pago -->
+  <path d="M 750 1160 L 750 1190 L 480 1190" class="flow"/>
+  <text x="760" y="1175" class="decision-label" font-size="10">sí</text>
+  
+  <!-- Sistema: Generar orden -->
+  <rect x="390" y="1190" width="180" height="35" rx="17" class="activity"/>
+  <text x="480" y="1212" text-anchor="middle" class="label" font-size="11">Generar orden</text>
+  <path d="M 480 1225 L 480 1255" class="flow"/>
+  
+  <!-- Sistema: Actualizar inventario -->
+  <rect x="380" y="1255" width="200" height="35" rx="17" class="activity"/>
+  <text x="480" y="1277" text-anchor="middle" class="label" font-size="11">Actualizar inventario</text>
+  <path d="M 480 1290 L 480 1320" class="flow"/>
+  
+  <!-- Fork para notificaciones -->
+  <rect x="380" y="1320" width="200" height="8" class="fork-join"/>
+  <path d="M 480 1328 L 200 1360" class="flow"/>
+  <path d="M 480 1328 L 680 1360" class="flow"/>
+  <path d="M 480 1328 L 950 1360" class="flow"/>
+  
+  <!-- Email notification -->
+  <rect x="110" y="1360" width="180" height="35" rx="17" class="activity"/>
+  <text x="200" y="1377" text-anchor="middle" class="label" font-size="11">Recibir email</text>
+  <text x="200" y="1390" text-anchor="middle" class="label" font-size="11">confirmación</text>
+  
+  <!-- SMS notification -->
+  <rect x="670" y="1360" width="160" height="35" rx="17" class="activity"/>
+  <text x="750" y="1377" text-anchor="middle" class="label" font-size="11">Enviar SMS con</text>
+  <text x="750" y="1390" text-anchor="middle" class="label" font-size="11">número de orden</text>
+  
+  <!-- Logística: Crear guía -->
+  <rect x="870" y="1360" width="160" height="35" rx="17" class="activity"/>
+  <text x="950" y="1377" text-anchor="middle" class="label" font-size="11">Crear guía de</text>
+  <text x="950" y="1390" text-anchor="middle" class="label" font-size="11">envío</text>
+  
+  <!-- Join notifications -->
+  <path d="M 200 1395 L 200 1430 L 480 1430" class="flow"/>
+  <path d="M 750 1395 L 750 1430 L 480 1430" class="flow"/>
+  <path d="M 950 1395 L 950 1430 L 480 1430" class="flow"/>
+  <rect x="380" y="1430" width="200" height="8" class="fork-join"/>
+  
+  <!-- Final normal -->
+  <path d="M 480 1438 L 480 1480" class="flow"/>
+  <circle cx="480" cy="1520" r="18" class="final"/>
+  <circle cx="480" cy="1520" r="12" class="final-inner"/>
+  <path d="M 480 1480 L 480 1502" class="flow"/>
+  <text x="480" y="1545" text-anchor="middle" font-size="11" fill="#4ade80">Compra exitosa</text>
+  
+  <!-- Cliente: Error pago -->
+  <rect x="90" y="1430" width="220" height="35" rx="17" class="activity"/>
+  <text x="200" y="1452" text-anchor="middle" class="label" font-size="11">Ver error de pago</text>
+  <path d="M 200 1465 L 200 1500" class="flow"/>
+  
+  <!-- Final error pago -->
+  <circle cx="200" cy="1520" r="18" class="final"/>
+  <circle cx="200" cy="1520" r="12" class="final-inner"/>
+  <path d="M 200 1500 L 200 1502" class="flow"/>
+  <text x="200" y="1545" text-anchor="middle" font-size="11" fill="#f87171">Pago fallido</text>
+  
+  <!-- Cliente: Sin stock -->
+  <rect x="90" y="1480" width="220" height="35" rx="17" class="activity"/>
+  <text x="200" y="1502" text-anchor="middle" class="label" font-size="10">Notif. stock insuficiente</text>
+  
+</svg>
