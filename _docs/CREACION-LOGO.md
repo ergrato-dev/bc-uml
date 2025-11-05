@@ -8,6 +8,7 @@
 ## 🎨 Logos Creados
 
 ### 1. **Logo Banner** (`logo-uml-course.svg`)
+
 - ✅ Dimensiones: 800×200px (formato horizontal)
 - ✅ Ubicación: `assets/logo-uml-course.svg`
 - ✅ Uso: Encabezado del README principal
@@ -20,6 +21,7 @@
   - Tema dark coherente con todo el curso
 
 ### 2. **Logo Icono** (`logo-icon.svg`)
+
 - ✅ Dimensiones: 200×200px (formato cuadrado)
 - ✅ Ubicación: `assets/logo-icon.svg`
 - ✅ Uso: Favicon, redes sociales, avatar
@@ -31,6 +33,7 @@
   - Colores: azul, verde, rojo, amarillo
 
 ### 3. **Documentación** (`README-LOGOS.md`)
+
 - ✅ Ubicación: `assets/README-LOGOS.md`
 - ✅ Contenido:
   - Especificaciones técnicas
@@ -53,6 +56,7 @@ El `README.md` ahora incluye el logo en el encabezado:
 ---
 
 ## 📚 Descripción del Curso
+
 ...
 ```
 
@@ -60,27 +64,29 @@ El `README.md` ahora incluye el logo en el encabezado:
 
 ## 🎨 Paleta de Colores Utilizada
 
-| Color | Hex | Uso en Logo |
-|-------|-----|-------------|
-| **Azul Primario** | `#0ea5e9` | Bordes, líneas principales, texto |
-| **Verde Secundario** | `#4ade80` | Gradiente, clase destacada |
-| **Rojo Acento** | `#f87171` | Subclase, decoración |
-| **Amarillo** | `#fbbf24` | Atributos, subclase |
-| **Púrpura** | `#a78bfa` | Métodos, decoración |
-| **Gris Claro** | `#e5e5e5` | Texto principal |
-| **Gris Medio** | `#9ca3af` | Subtítulos |
-| **Fondo Oscuro** | `#1e293b` | Background con gradiente |
+| Color                | Hex       | Uso en Logo                       |
+| -------------------- | --------- | --------------------------------- |
+| **Azul Primario**    | `#0ea5e9` | Bordes, líneas principales, texto |
+| **Verde Secundario** | `#4ade80` | Gradiente, clase destacada        |
+| **Rojo Acento**      | `#f87171` | Subclase, decoración              |
+| **Amarillo**         | `#fbbf24` | Atributos, subclase               |
+| **Púrpura**          | `#a78bfa` | Métodos, decoración               |
+| **Gris Claro**       | `#e5e5e5` | Texto principal                   |
+| **Gris Medio**       | `#9ca3af` | Subtítulos                        |
+| **Fondo Oscuro**     | `#1e293b` | Background con gradiente          |
 
 ---
 
 ## 📊 Estadísticas Actualizadas
 
 ### Assets Totales
+
 - **Antes**: 23 SVG de diagramas
 - **Ahora**: 25 SVG (23 diagramas + 2 logos)
 - **Documentos en assets**: 1 README (logos)
 
 ### Archivos Totales del Proyecto
+
 ```
 bc-uml/
 ├── README.md (1)
@@ -96,12 +102,14 @@ Total: 42 archivos
 ## ✅ Características del Diseño
 
 ### 🎯 Coherencia Visual
+
 - ✅ Mismo tema dark que todos los SVG del curso
 - ✅ Paleta de colores consistente
 - ✅ Tipografía sans-serif (Arial/Helvetica)
 - ✅ Alto contraste para legibilidad
 
 ### 📐 Elementos UML Reconocibles
+
 - ✅ Diagrama de clases con compartimentos
 - ✅ Herencia con flecha triangular
 - ✅ Casos de uso (elipse)
@@ -109,6 +117,7 @@ Total: 42 archivos
 - ✅ Notación UML estándar
 
 ### 🚀 Profesionalismo
+
 - ✅ Diseño moderno y limpio
 - ✅ Gradientes sutiles sin saturación
 - ✅ Jerarquía visual clara
@@ -116,6 +125,7 @@ Total: 42 archivos
 - ✅ Optimizado (tamaños: 8KB banner, 5KB icono)
 
 ### 📱 Versatilidad
+
 - ✅ Banner horizontal para README
 - ✅ Icono cuadrado para otros usos
 - ✅ Fácil exportación a PNG
@@ -126,6 +136,7 @@ Total: 42 archivos
 ## 🔧 Uso en Diferentes Contextos
 
 ### GitHub README
+
 ```markdown
 <div align="center">
   <img src="assets/logo-uml-course.svg" alt="UML Course Logo" width="800"/>
@@ -133,18 +144,26 @@ Total: 42 archivos
 ```
 
 ### Documentación Interna
+
 ```markdown
 ![UML Course](../assets/logo-uml-course.svg)
 ```
 
 ### Favicon (exportar a PNG primero)
+
 ```html
-<link rel="icon" type="image/png" href="favicon-64.png">
+<link
+  rel="icon"
+  type="image/png"
+  href="favicon-64.png" />
 ```
 
 ### Open Graph (redes sociales)
+
 ```html
-<meta property="og:image" content="logo-social.png">
+<meta
+  property="og:image"
+  content="logo-social.png" />
 ```
 
 ---
@@ -164,14 +183,14 @@ Si se requieren más versiones:
 
 ## ✅ Estado del Proyecto
 
-| Componente | Antes | Ahora | Estado |
-|------------|-------|-------|--------|
-| **README con logo** | ❌ | ✅ | Actualizado |
-| **Logo banner** | ❌ | ✅ | Creado |
-| **Logo icono** | ❌ | ✅ | Creado |
-| **Documentación logos** | ❌ | ✅ | Creada |
-| **SVG totales** | 23 | 25 | +2 |
-| **Archivos totales** | 38 | 42 | +4 |
+| Componente              | Antes | Ahora | Estado      |
+| ----------------------- | ----- | ----- | ----------- |
+| **README con logo**     | ❌    | ✅    | Actualizado |
+| **Logo banner**         | ❌    | ✅    | Creado      |
+| **Logo icono**          | ❌    | ✅    | Creado      |
+| **Documentación logos** | ❌    | ✅    | Creada      |
+| **SVG totales**         | 23    | 25    | +2          |
+| **Archivos totales**    | 38    | 42    | +4          |
 
 ---
 
