@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .primary { fill: #0ea5e9; }
+      .secondary { fill: #4ade80; }
+      .accent { fill: #f87171; }
+      .warning { fill: #fbbf24; }
+      .purple { fill: #a78bfa; }
+      .text { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
+      .line { stroke: #0ea5e9; stroke-width: 2; fill: none; }
+      .box { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    </style>
+    
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ade80;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo circular -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGrad)"/>
+  
+  <!-- Círculo de borde con gradiente -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#circleGrad)" stroke-width="3"/>
+  
+  <!-- Diagrama de Clases estilizado (centro) -->
+  <g transform="translate(50, 40)">
+    <!-- Clase principal -->
+    <rect class="box" x="10" y="0" width="80" height="60"/>
+    <line x1="10" y1="20" x2="90" y2="20" class="line"/>
+    <line x1="10" y1="40" x2="90" y2="40" class="line"/>
+    
+    <!-- Nombre de clase -->
+    <text x="50" y="15" class="text" style="font-size: 10px; fill: #4ade80;" text-anchor="middle">«class»</text>
+    
+    <!-- Atributos -->
+    <line x1="20" y1="30" x2="70" y2="30" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="20" y1="35" x2="60" y2="35" stroke="#fbbf24" stroke-width="1.5"/>
+    
+    <!-- Métodos -->
+    <line x1="20" y1="50" x2="75" y2="50" stroke="#a78bfa" stroke-width="1.5"/>
+    <line x1="20" y1="55" x2="65" y2="55" stroke="#a78bfa" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Flecha de herencia -->
+  <g transform="translate(100, 90)">
+    <line x1="0" y1="10" x2="0" y2="35" stroke="#0ea5e9" stroke-width="2.5"/>
+    <polygon points="0,10 -5,20 5,20" fill="#0ea5e9"/>
+  </g>
+  
+  <!-- Subclases -->
+  <g transform="translate(30, 125)">
+    <!-- Subclase 1 -->
+    <rect class="box" x="0" y="0" width="40" height="30" stroke="#4ade80"/>
+    <line x1="0" y1="10" x2="40" y2="10" stroke="#4ade80" stroke-width="1"/>
+    
+    <!-- Subclase 2 -->
+    <rect class="box" x="60" y="0" width="40" height="30" stroke="#f87171"/>
+    <line x1="60" y1="10" x2="100" y2="10" stroke="#f87171" stroke-width="1"/>
+    
+    <!-- Subclase 3 -->
+    <rect class="box" x="120" y="0" width="40" height="30" stroke="#fbbf24"/>
+    <line x1="120" y1="10" x2="160" y2="10" stroke="#fbbf24" stroke-width="1"/>
+  </g>
+  
+  <!-- Conexiones a subclases -->
+  <line x1="70" y1="125" x2="50" y2="137" stroke="#4ade80" stroke-width="2"/>
+  <line x1="100" y1="125" x2="100" y2="137" stroke="#f87171" stroke-width="2"/>
+  <line x1="130" y1="125" x2="150" y2="137" stroke="#fbbf24" stroke-width="2"/>
+  
+  <!-- Texto UML -->
+  <text x="100" y="180" class="text" style="font-size: 32px; fill: url(#circleGrad);" text-anchor="middle">UML</text>
+  
+  <!-- Decoración: puntos de esquina -->
+  <circle cx="20" cy="20" r="3" class="primary"/>
+  <circle cx="180" cy="20" r="3" class="secondary"/>
+  <circle cx="20" cy="180" r="3" class="accent"/>
+  <circle cx="180" cy="180" r="3" class="warning"/>
+</svg>

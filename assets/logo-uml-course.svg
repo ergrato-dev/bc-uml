@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .primary { fill: #0ea5e9; }
+      .secondary { fill: #4ade80; }
+      .accent { fill: #f87171; }
+      .warning { fill: #fbbf24; }
+      .purple { fill: #a78bfa; }
+      .text-main { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 48px; font-weight: bold; }
+      .text-sub { fill: #9ca3af; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
+      .line { stroke: #0ea5e9; stroke-width: 2; fill: none; }
+      .box { fill: none; stroke: #0ea5e9; stroke-width: 2; }
+    </style>
+    
+    <!-- Gradiente sutil para el fondo del logo -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Brillo para el texto -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4ade80;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="800" height="200" fill="url(#bgGrad)" rx="10"/>
+  
+  <!-- Símbolo UML estilizado (lado izquierdo) -->
+  <g transform="translate(50, 50)">
+    <!-- Diagrama de Clases miniatura -->
+    <rect class="box" x="0" y="0" width="90" height="100"/>
+    <line x1="0" y1="30" x2="90" y2="30" class="line"/>
+    <line x1="0" y1="60" x2="90" y2="60" class="line"/>
+    
+    <!-- Detalles de clase -->
+    <line x1="10" y1="15" x2="80" y2="15" stroke="#4ade80" stroke-width="2"/>
+    <line x1="10" y1="45" x2="60" y2="45" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="10" y1="50" x2="70" y2="50" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="10" y1="75" x2="65" y2="75" stroke="#a78bfa" stroke-width="1.5"/>
+    <line x1="10" y1="85" x2="55" y2="85" stroke="#a78bfa" stroke-width="1.5"/>
+    
+    <!-- Flechas de relación -->
+    <path d="M 45 105 L 45 125" stroke="#0ea5e9" stroke-width="2" fill="none"/>
+    <polygon points="45,125 40,115 50,115" class="primary"/>
+  </g>
+  
+  <!-- Texto UML con efecto -->
+  <text x="180" y="100" style="fill: url(#textGrad); font-family: Arial, Helvetica, sans-serif; font-size: 72px; font-weight: bold; letter-spacing: 8px;">UML</text>
+  
+  <!-- Subtítulo -->
+  <text x="180" y="130" class="text-sub">Unified Modeling Language</text>
+  <text x="180" y="155" class="text-sub" style="font-size: 16px; fill: #6b7280;">Modelado de Sistemas · Curso Intensivo</text>
+  
+  <!-- Iconos decorativos (lado derecho) -->
+  <g transform="translate(650, 50)">
+    <!-- Caso de uso (elipse) -->
+    <ellipse cx="45" cy="20" rx="35" ry="18" class="box"/>
+    <line x1="10" y1="20" x2="25" y2="20" stroke="#4ade80" stroke-width="2"/>
+    <circle cx="8" cy="20" r="3" class="secondary"/>
+    
+    <!-- Diagrama de secuencia -->
+    <line x1="15" y1="50" x2="15" y2="95" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="3,3"/>
+    <line x1="45" y1="50" x2="45" y2="95" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="3,3"/>
+    <line x1="75" y1="50" x2="75" y2="95" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <!-- Mensajes -->
+    <path d="M 15 60 L 45 60" stroke="#4ade80" stroke-width="2"/>
+    <polygon points="45,60 35,56 35,64" class="secondary"/>
+    <path d="M 45 75 L 75 75" stroke="#fbbf24" stroke-width="2"/>
+    <polygon points="75,75 65,71 65,79" class="warning"/>
+  </g>
+  
+  <!-- Versión/Tag -->
+  <g transform="translate(720, 170)">
+    <rect x="0" y="0" width="60" height="20" rx="10" fill="#0ea5e9" opacity="0.2"/>
+    <text x="30" y="14" style="fill: #0ea5e9; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold;" text-anchor="middle">v1.0</text>
+  </g>
+  
+  <!-- Decoración: líneas de código -->
+  <g opacity="0.1">
+    <line x1="20" y1="180" x2="100" y2="180" stroke="#4ade80" stroke-width="1"/>
+    <line x1="20" y1="190" x2="80" y2="190" stroke="#4ade80" stroke-width="1"/>
+  </g>
+</svg>

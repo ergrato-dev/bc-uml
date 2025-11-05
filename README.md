@@ -1,4 +1,8 @@
-# Curso de UML - Modelado de Sistemas
+<div align="center">
+  <img src="assets/logo-uml-course.svg" alt="UML Course Logo" width="800"/>
+</div>
+
+---
 
 ## 📚 Descripción del Curso
 
