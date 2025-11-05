@@ -11,6 +11,16 @@
 
 ---
 
+## 🎥 Video de Refuerzo
+
+📺 **UML: El Plano para el Software**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/a56f6rip3ez3ez1oe3evh/1.1.UML__El_Plano_para_el_Software.mp4?rlkey=p4noshv6t8whdua59fafnrar6&st=ab1ia0hz&dl=0)
+
+Este video complementa los conceptos fundamentales de UML presentados en este módulo.
+
+---
+
 ## 📖 ¿Qué es UML?
 
 **UML (Unified Modeling Language)** es un lenguaje de modelado visual estandarizado para:
@@ -233,18 +243,18 @@ Para cada escenario, identifica qué tipo(s) de diagrama UML serían más apropi
 
 1. **Escenario A**: Necesitas mostrar cómo un cliente realiza una compra en una tienda online.
 
-   - Respuesta: ******\_\_\_******
+   - Respuesta: **\*\***\_\_\_**\*\***
 
 2. **Escenario B**: Quieres documentar las clases principales de tu aplicación de gestión de tareas.
 
-   - Respuesta: ******\_\_\_******
+   - Respuesta: **\*\***\_\_\_**\*\***
 
 3. **Escenario C**: Necesitas explicar los diferentes estados por los que pasa un pedido (pendiente, procesando, enviado, entregado).
 
-   - Respuesta: ******\_\_\_******
+   - Respuesta: **\*\***\_\_\_**\*\***
 
 4. **Escenario D**: Debes mostrar cómo se distribuyen los servicios de tu aplicación en diferentes servidores.
-   - Respuesta: ******\_\_\_******
+   - Respuesta: **\*\***\_\_\_**\*\***
 
 **Respuestas**:
 
