@@ -11,6 +11,16 @@
 
 ---
 
+## 🎥 Video de Refuerzo
+
+📺 **El Plano del Código: UML**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/7vr6zegwi3yjyeszafuy4/1.2.El_Plano_del_C-digo__UML.mp4?rlkey=nwtut0r1mhiue750jcav9cnnb&st=iweiu2fs&dl=0)
+
+Este video complementa los conceptos de diagramas de clases y relaciones presentados en este módulo.
+
+---
+
 ## 📖 ¿Qué es un Diagrama de Clases?
 
 El **Diagrama de Clases** es el diagrama más utilizado en UML. Representa la estructura estática del sistema mostrando:
