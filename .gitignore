@@ -1,0 +1,108 @@
+# Curso UML - .gitignore
+
+## Carpetas de contenido multimedia
+videos/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+## Carpetas de sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+## IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+## Archivos temporales
+*.tmp
+*.bak
+*.log
+*.cache
+.temp/
+temp/
+
+## Node modules (si se usan herramientas de build)
+node_modules/
+package-lock.json
+yarn.lock
+
+## Python (si se usan scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+## Archivos de respaldo
+*.backup
+*.old
+*~
+
+## Archivos comprimidos (opcional)
+# *.zip
+# *.tar.gz
+# *.rar
+
+## Carpetas de build/dist (si aplica)
+dist/
+build/
+*.egg-info/
+
+## Archivos de configuración personal
+.env
+.env.local
+config.local.*
+
+## Archivos generados por PlantUML
+*.png
+*.pdf
+# Comentar las líneas anteriores si quieres versionar PNGs/PDFs generados
+
+## Archivos de macOS
+.AppleDouble
+.LSOverride
+Icon
+
+## Archivos de Windows
+desktop.ini
+$RECYCLE.BIN/
+
+## Archivos de Linux
+.directory
+.Trash-*
+
+## Logs y bases de datos
+*.sqlite
+*.sqlite3
+*.db
+
+## Certificados y claves (IMPORTANTE)
+*.pem
+*.key
+*.cert
+*.crt
+id_rsa
+id_rsa.pub
+
+## Archivos específicos del curso
+# Descomentar si necesitas excluir:
+# ejercicios-resueltos/
+# soluciones-privadas/
+# notas-instructor/
