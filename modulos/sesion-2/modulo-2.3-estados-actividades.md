@@ -11,6 +11,16 @@
 
 ---
 
+## 🎥 Video de Refuerzo
+
+📺 **Duelo UML: Estado vs Actividad**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/t4w417dh646uyx90fpbja/2.3.Duelo_UML__Estado_vs.mp4?rlkey=6bnjpdikcac5vzspzue0on119&st=4stttabv&dl=0)
+
+Este video complementa los conceptos de diagramas de estados y actividades, mostrando las diferencias y cuándo usar cada uno.
+
+---
+
 ## 1️⃣ DIAGRAMA DE ESTADOS
 
 ## 📖 ¿Qué es?
