@@ -11,7 +11,17 @@
 
 ---
 
-## 🏢 Caso de Estudio: Sistema de Gestión de Biblioteca
+## � Video de Refuerzo
+
+📺 **El Plano de una Biblioteca**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/rcejqdk22invqptw3x7o6/1.4.El_Plano_de_una_Biblioteca.mp4?rlkey=h0grurw3e5ajgwzdv5pe2afv4&st=msii791u&dl=0)
+
+Este video complementa el ejercicio integrador del sistema de biblioteca, mostrando el proceso completo de diseño con diagramas UML.
+
+---
+
+## �🏢 Caso de Estudio: Sistema de Gestión de Biblioteca
 
 ### 📋 Descripción del Sistema
 
