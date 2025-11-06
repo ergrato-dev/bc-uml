@@ -11,6 +11,16 @@
 
 ---
 
+## 🎥 Video de Refuerzo
+
+📺 **Diagramas de Casos de Uso**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/7vg9h9m92nae9d55lye2p/2.1.Diagramas_de_Casos_de_Uso.mp4?rlkey=xts7ez1f6v4b7oj3z6x6uwdte&st=t4slm13b&dl=0)
+
+Este video complementa los conceptos de casos de uso, actores y relaciones presentados en este módulo.
+
+---
+
 ## 📖 ¿Qué es un Diagrama de Casos de Uso?
 
 El **Diagrama de Casos de Uso** es fundamental en el **análisis de requisitos**. Muestra:
