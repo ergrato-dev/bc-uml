@@ -390,6 +390,48 @@ Diseña el diagrama de casos de uso para un sistema de gestión universitaria.
 
 ---
 
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> 📦 **ENTREGABLE #4: Diagrama de Casos de Uso - Sistema Universitario**
+
+**Descripción**: Diagrama completo de casos de uso del Ejercicio 4 + documentación de 3 casos de uso
+
+**Requisitos mínimos**:
+
+### A) Diagrama de Casos de Uso
+
+- ✅ Mínimo 4 actores: Estudiante, Profesor, Coordinador, Sistema de Pagos
+- ✅ Mínimo 8 casos de uso organizados lógicamente
+- ✅ Al menos 2 relaciones «include»
+- ✅ Al menos 1 relación «extend»
+- ✅ Generalización de actores si aplica
+- ✅ Límites del sistema claramente definidos
+
+### B) Documentación de Casos de Uso (3 casos principales)
+
+Usando la plantilla estándar, documentar:
+
+1. **Inscribirse en Cursos**
+2. **Registrar Calificaciones**
+3. **Generar Reporte Académico**
+
+Cada uno debe incluir:
+
+- ✅ Actor principal y secundarios
+- ✅ Precondiciones y postcondiciones
+- ✅ Flujo básico (mínimo 5 pasos)
+- ✅ Flujos alternativos (mínimo 2)
+- ✅ Flujos de excepción
+
+**Formato de entrega**:
+
+- `apellido-modulo2.1-casos-uso.puml` (diagrama)
+- `apellido-modulo2.1-documentacion.md` (3 casos documentados)
+
+**Tiempo estimado**: 30 minutos
+
+---
+
 ## ✅ Checklist del Módulo
 
 Antes de continuar, asegúrate de:

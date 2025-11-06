@@ -563,6 +563,47 @@ Diseña AMBOS diagramas para un **proceso de devolución** en e-commerce:
 
 ---
 
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> 📦 **ENTREGABLE #6: Diagramas de Comportamiento - Proceso de Devolución**
+
+**Descripción**: Conjunto de diagramas del Ejercicio 6 modelando el proceso completo de devolución
+
+**Requisitos mínimos**:
+
+### A) Diagrama de Estados - Ciclo de Vida del Producto Devuelto
+
+- ✅ Mínimo 6 estados: Solicitado, Aprobado, EnTránsito, Recibido, Inspeccionado, Procesado (Reembolsado/Rechazado)
+- ✅ Estado inicial y estados finales
+- ✅ Transiciones con eventos y guardas
+- ✅ Acciones entry/exit en estados clave
+- ✅ Al menos un subestado compuesto
+
+### B) Diagrama de Actividades - Proceso Completo
+
+- ✅ Mínimo 5 swimlanes: Cliente, Sistema, Agente, Almacén, Finanzas
+- ✅ Mínimo 15 actividades
+- ✅ Al menos 3 nodos de decisión con guardas
+- ✅ Al menos 1 fork/join para actividades paralelas
+- ✅ Nodo inicial y finales claramente marcados
+- ✅ Flujos de excepción (producto dañado, tiempo excedido)
+
+### C) Documentación (OPCIONAL)
+
+- 📝 Descripción de estados principales
+- 📝 Reglas de negocio aplicadas
+- 📝 Tiempos estimados por actividad
+
+**Formato de entrega**:
+
+- `apellido-modulo2.3-estados.puml`
+- `apellido-modulo2.3-actividades.puml`
+- `apellido-modulo2.3-reglas.md` (opcional)
+
+**Tiempo estimado**: 30 minutos
+
+---
+
 ## 💡 Consejos Prácticos
 
 ### Para Diagramas de Estados:

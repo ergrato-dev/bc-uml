@@ -265,6 +265,18 @@ Para cada escenario, identifica qué tipo(s) de diagrama UML serían más apropi
 
 ---
 
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> ⚠️ **Este módulo es introductorio y NO requiere entregables formales**
+
+Sin embargo, se recomienda:
+
+- ✅ Completar el Ejercicio 1 (Identificar Diagramas)
+- ✅ Revisar los recursos adicionales
+- ✅ Familiarizarse con PlantUML
+
+---
+
 ## 📚 Recursos Adicionales
 
 - [UML Specification - OMG](https://www.omg.org/spec/UML/)

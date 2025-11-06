@@ -442,6 +442,29 @@ Crea el diagrama de clases completo con:
 
 ---
 
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> 📦 **ENTREGABLE #1: Diagrama de Clases - Sistema Bancario**
+
+**Descripción**: Diagrama de clases completo del Ejercicio 2
+
+**Requisitos mínimos**:
+
+- ✅ Mínimo 6 clases: Cliente, Cuenta, CuentaAhorro, CuentaCorriente, Transaccion, Direccion
+- ✅ Relaciones: Herencia (Cuenta → CuentaAhorro/CuentaCorriente), Composición (Cliente → Direccion), Agregación (Cuenta → Transaccion)
+- ✅ Atributos con visibilidad (-private, +public, #protected)
+- ✅ Métodos principales en cada clase
+- ✅ Multiplicidades en todas las relaciones
+
+**Formato de entrega**:
+
+- Archivo `.puml` (PlantUML) o `.svg` (imagen)
+- Nomenclatura: `apellido-modulo1.2-diagrama-clases.puml`
+
+**Tiempo estimado**: 30 minutos
+
+---
+
 ## 🔍 Patrones de Diseño Comunes
 
 ### Patrón Singleton

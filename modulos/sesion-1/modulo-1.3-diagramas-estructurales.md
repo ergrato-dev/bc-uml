@@ -11,6 +11,16 @@
 
 ---
 
+## 🎥 Video de Refuerzo
+
+📺 **Diagramas Estructurales UML**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/a8mhoj3z6mvxwm879sncf/1.3.Diagramas_Estructurales_UML.mp4?rlkey=wzn0358lr97zh4zluo7i2x2yf&st=69ecpzx6&dl=0)
+
+Este video complementa los conceptos de diagramas de objetos, componentes y despliegue presentados en este módulo.
+
+---
+
 ## 📖 Introducción
 
 Además del **Diagrama de Clases** (el más usado), UML ofrece otros diagramas estructurales que complementan el análisis de sistemas. En este módulo nos enfocaremos en los más relevantes para el análisis de sistemas:
@@ -396,6 +406,37 @@ Crea los siguientes diagramas para un sistema hospitalario:
    - Sistema de respaldo
 
 **Solución**: Ver [solucion-ejercicio-3.md](./ejercicios/solucion-ejercicio-3.md)
+
+---
+
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> 📦 **ENTREGABLE #2: Diagramas Estructurales - Sistema Hospitalario**
+
+**Descripción**: Conjunto de diagramas estructurales del Ejercicio 3
+
+**Requisitos mínimos**:
+
+### A) Diagrama de Componentes
+
+- ✅ Mínimo 4 componentes: Módulo Citas, Historia Clínica, Farmacia, Facturación
+- ✅ Interfaces claramente definidas
+- ✅ Dependencias entre componentes
+- ✅ Organización en capas (presentación, lógica, datos)
+
+### B) Diagrama de Despliegue
+
+- ✅ Mínimo 5 nodos: Servidor App, Servidor BD, Estación Consultorio, Tablet Enfermería, Servidor Respaldo
+- ✅ Protocolos de comunicación (HTTP, JDBC, etc.)
+- ✅ Componentes desplegados en cada nodo
+- ✅ Conexiones de red claramente indicadas
+
+**Formato de entrega**:
+
+- 2 archivos: `apellido-modulo1.3-componentes.puml` y `apellido-modulo1.3-despliegue.puml`
+- O formato `.svg` si prefieres
+
+**Tiempo estimado**: 30 minutos
 
 ---
 

@@ -533,6 +533,48 @@ En la próxima sesión veremos:
 
 ---
 
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> 📦 **ENTREGABLE #3: Ejercicio Integrador Sesión 1 - Sistema Biblioteca**
+
+**Descripción**: Conjunto completo de diagramas estructurales para el sistema de biblioteca
+
+**Requisitos mínimos**:
+
+### A) Diagrama de Clases Completo (20 min)
+
+- ✅ Mínimo 9 clases: Usuario (abstracta), Estudiante, Profesor, PublicoGeneral, Libro (abstracta), LibroFisico, LibroDigital, Prestamo, Reserva, Multa
+- ✅ Herencia: Usuario → [Estudiante, Profesor, PublicoGeneral], Libro → [LibroFisico, LibroDigital]
+- ✅ Composición y agregación apropiadas
+- ✅ Atributos con tipos de datos
+- ✅ Métodos principales y abstractos
+- ✅ Enumeraciones: EstadoUsuario, EstadoLibro, EstadoPrestamo
+
+### B) Diagrama de Componentes (10 min)
+
+- ✅ 3 capas: Presentación, Lógica, Datos
+- ✅ Mínimo 6 componentes de lógica de negocio
+- ✅ Servicios externos (Email, SMS)
+- ✅ Dependencias claramente marcadas
+
+### C) Documentación (OPCIONAL pero recomendado)
+
+- 📝 Justificación de decisiones de diseño
+- 📝 Restricciones y reglas de negocio
+- 📝 Casos de uso cubiertos
+
+**Formato de entrega**:
+
+- `apellido-sesion1-biblioteca-clases.puml`
+- `apellido-sesion1-biblioteca-componentes.puml`
+- `apellido-sesion1-documentacion.md` (opcional)
+
+**Peso en evaluación**: 30% de la nota de Sesión 1
+
+**Tiempo estimado**: 30 minutos
+
+---
+
 ## ✅ Autoevaluación
 
 Antes de la Sesión 2, deberías poder:

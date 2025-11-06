@@ -578,6 +578,42 @@ Diseña el diagrama de secuencia para una **transferencia bancaria**:
 
 ---
 
+## 🎯 ENTREGABLES OBLIGATORIOS
+
+> 📦 **ENTREGABLE #5: Diagramas de Interacción - Transferencia Bancaria**
+
+**Descripción**: Diagrama de secuencia complejo del Ejercicio 5
+
+**Requisitos mínimos**:
+
+### A) Diagrama de Secuencia
+
+- ✅ Actor: Cliente + 6 participantes (UI, TransferenciaController, CuentaService, ValidacionService, TransaccionService, NotificacionService, Database)
+- ✅ Flujo completo con mínimo 15 mensajes
+- ✅ Fragmento «alt» para validaciones (mínimo 3 alternativas)
+- ✅ Fragmento «par» para notificaciones paralelas
+- ✅ Activaciones/desactivaciones correctas
+- ✅ Mensajes síncronos y asíncronos claramente diferenciados
+- ✅ Manejo de al menos 3 casos de error:
+  - Cuenta origen no existe
+  - Saldo insuficiente
+  - Límite diario excedido
+
+### B) Diagrama de Comunicación (OPCIONAL pero recomendado)
+
+- Mismo flujo en formato de comunicación
+- Numeración secuencial de mensajes
+- Estructuras de control indicadas
+
+**Formato de entrega**:
+
+- `apellido-modulo2.2-secuencia.puml`
+- `apellido-modulo2.2-comunicacion.puml` (opcional)
+
+**Tiempo estimado**: 30 minutos
+
+---
+
 ## ✅ Checklist del Módulo
 
 Antes de continuar, asegúrate de:

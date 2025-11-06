@@ -71,11 +71,21 @@ El Hospital Digital debe gestionar:
 
 ---
 
-## 📝 Entregables Requeridos
+## 🎯 ENTREGABLES OBLIGATORIOS
 
-Debes crear los siguientes diagramas UML:
+> 🏆 **PROYECTO FINAL INTEGRADOR - Sistema de Gestión Hospitalaria**
+>
+> **Peso en evaluación**: 100% de la nota de Sesión 2  
+> **Tiempo estimado**: 2 horas  
+> **Modalidad**: Individual
 
-### 1️⃣ Diagrama de Casos de Uso (OBLIGATORIO)
+---
+
+## 📝 Listado de Entregables
+
+Debes crear los siguientes **7 diagramas UML profesionales**:
+
+### 1️⃣ Diagrama de Casos de Uso (OBLIGATORIO) - 20 puntos
 
 **Requisitos**:
 
@@ -137,7 +147,7 @@ Facturación:
 - Gestionar Seguro
 ```
 
-### 2️⃣ Diagrama de Clases (OBLIGATORIO)
+### 2️⃣ Diagrama de Clases (OBLIGATORIO) - 25 puntos
 
 **Requisitos**:
 
@@ -184,7 +194,7 @@ Administrativo:
 - Seguro
 ```
 
-### 3️⃣ Diagrama de Secuencia (OBLIGATORIO - 2 flujos)
+### 3️⃣ Diagramas de Secuencia (OBLIGATORIO - 2 flujos) - 20 puntos
 
 **Flujo 1**: "Agendar Cita y Realizar Consulta"
 
@@ -199,7 +209,7 @@ Administrativo:
 - Incluir comunicación entre múltiples departamentos
 - Usar fragmentos par para acciones paralelas
 
-### 4️⃣ Diagrama de Estados (OBLIGATORIO - 2 objetos)
+### 4️⃣ Diagramas de Estados (OBLIGATORIO - 2 objetos) - 15 puntos
 
 **Objeto 1**: Ciclo de vida de una **Cita**
 
@@ -219,7 +229,7 @@ Admitido → EnTratamiento → Estable → EnAlta → DadoDeAlta
          Critico         Transferido
 ```
 
-### 5️⃣ Diagrama de Actividades (OBLIGATORIO)
+### 5️⃣ Diagrama de Actividades (OBLIGATORIO) - 15 puntos
 
 **Proceso**: "Proceso Completo de Atención al Paciente"
 
@@ -247,7 +257,7 @@ Desde llegada hasta salida:
 - Incluir decisiones múltiples
 - Mínimo 2 forks/joins
 
-### 6️⃣ Diagrama de Componentes (OPCIONAL pero recomendado)
+### 6️⃣ Diagrama de Componentes (OPCIONAL) - 5 puntos extra
 
 **Arquitectura de microservicios**:
 
@@ -278,9 +288,46 @@ Externos:
 - Servicio de Notificaciones (Email/SMS)
 ```
 
+### 7️⃣ Diagrama de Despliegue (OPCIONAL) - 5 puntos extra
+
+**Infraestructura cloud** (AWS/Azure):
+
+- Load Balancer
+- Clúster de servidores de aplicación
+- Clúster de bases de datos (master-slave)
+- Servidor de cache (Redis)
+- Almacenamiento en la nube (S3/Blob)
+- CDN para imágenes médicas
+
 ---
 
-## 📋 Documentación Adicional
+## 📋 Formato de Entrega
+
+### Archivos Requeridos:
+
+```
+apellido-proyecto-final/
+├── 1-casos-uso.puml (o .svg)
+├── 2-clases.puml (o .svg)
+├── 3-secuencia-consulta.puml (o .svg)
+├── 3-secuencia-hospitalizacion.puml (o .sv)
+├── 4-estados-cita.puml (o .svg)
+├── 4-estados-hospitalizacion.puml (o .svg)
+├── 5-actividades-atencion.puml (o .svg)
+├── 6-componentes.puml (OPCIONAL)
+├── 7-despliegue.puml (OPCIONAL)
+└── README.md (documentación general)
+```
+
+### Nomenclatura:
+
+- **Formato**: `apellido-NombreDelDiagrama.extension`
+- **Extensiones aceptadas**: `.puml` (PlantUML) o `.svg` (imagen vectorial)
+- **NO se aceptan**: formatos de herramientas propietarias sin exportación
+
+---
+
+## 📋 Documentación Adicional (5 puntos)
 
 Para 3 casos de uso principales, documenta:
 
