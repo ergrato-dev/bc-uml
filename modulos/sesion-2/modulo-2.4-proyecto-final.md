@@ -11,7 +11,17 @@
 
 ---
 
-## 🏥 PROYECTO: Sistema de Gestión Hospitalaria Integral
+## � Video de Refuerzo
+
+📺 **Tu Proyecto Final de UML**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/30g7camb14ty2o7ewxc4q/2.4.Tu_Proyecto_Final_de_UML.mp4?rlkey=xhvkcxkrwinkhh6l2apxqn3s0&st=wjj6z1f0&dl=0)
+
+Este video te guía paso a paso en el desarrollo del proyecto final integrador, mostrando cómo aplicar todos los diagramas UML aprendidos en el curso.
+
+---
+
+## �🏥 PROYECTO: Sistema de Gestión Hospitalaria Integral
 
 ### 📋 Descripción General
 
