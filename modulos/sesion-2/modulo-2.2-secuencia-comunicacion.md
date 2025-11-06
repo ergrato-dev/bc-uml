@@ -11,6 +11,16 @@
 
 ---
 
+## 🎥 Video de Refuerzo
+
+📺 **Conversaciones de Sistemas**
+
+👉 [Ver video en Dropbox](https://www.dropbox.com/scl/fi/lixwy8nn3l95c0gh8x1aw/2.2.Conversaciones_de_Sistemas.mp4?rlkey=yplp5far9dwovwq6ultxsvvuj&st=ujt078ry&dl=0)
+
+Este video complementa los conceptos de diagramas de secuencia y comunicación, mostrando cómo los objetos interactúan en el tiempo.
+
+---
+
 ## 📖 ¿Qué es un Diagrama de Secuencia?
 
 El **Diagrama de Secuencia** muestra cómo los objetos interactúan entre sí **en el tiempo**. Es uno de los diagramas más importantes para:
