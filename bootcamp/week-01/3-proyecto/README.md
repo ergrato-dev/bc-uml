@@ -38,12 +38,12 @@ Ver el comentario de cabecera en [`starter/sistema-biblioteca.puml`](starter/sis
 
 Ver [`../rubrica-evaluacion.md`](../rubrica-evaluacion.md) — sección **Producto 📦**.
 
-| Criterio | Puntaje |
-|----------|---------|
-| Completitud (todas las clases requeridas) | 20 pts |
-| Relaciones correctas y justificadas | 25 pts |
-| Multiplicidades en todas las relaciones | 15 pts |
-| Visibilidad apropiada en atributos/métodos | 15 pts |
-| Diagrama de Objetos incluido | 15 pts |
-| PlantUML funcional (renderiza sin errores) | 10 pts |
-| **Total** | **100 pts** |
+| Criterio                                   | Puntaje     |
+| ------------------------------------------ | ----------- |
+| Completitud (todas las clases requeridas)  | 20 pts      |
+| Relaciones correctas y justificadas        | 25 pts      |
+| Multiplicidades en todas las relaciones    | 15 pts      |
+| Visibilidad apropiada en atributos/métodos | 15 pts      |
+| Diagrama de Objetos incluido               | 15 pts      |
+| PlantUML funcional (renderiza sin errores) | 10 pts      |
+| **Total**                                  | **100 pts** |
