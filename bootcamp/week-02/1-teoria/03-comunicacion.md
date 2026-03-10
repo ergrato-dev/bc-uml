@@ -46,7 +46,7 @@ mismas interacciones que el diagrama de secuencia, pero organizadas
 
 ## 🌍 Ejemplo: Login (mismo flujo que secuencia)
 
-![Comunicación Login](../0-assets/comunicacion-login.svg)
+![Comunicación Login](../0-assets/05-comunicacion-login.svg)
 
 ```plantuml
 @startuml

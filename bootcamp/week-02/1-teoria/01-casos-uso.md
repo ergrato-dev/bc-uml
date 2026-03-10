@@ -122,6 +122,8 @@ Administrador ──────▷ Usuario
 
 ## 🧠 include vs extend — La Diferencia Clave
 
+![include vs extend](../0-assets/02-include-vs-extend.svg)
+
 | Criterio                   | `«include»`                     | `«extend»`                         |
 | -------------------------- | ------------------------------- | ---------------------------------- |
 | **¿Cuándo ocurre?**        | Siempre                         | Solo si se cumple una condición    |
@@ -133,7 +135,7 @@ Administrador ──────▷ Usuario
 
 ## 🌍 Ejemplo: Sistema E-Commerce
 
-![Casos de Uso E-Commerce](../0-assets/casos-uso-ecommerce.svg)
+![Casos de Uso E-Commerce](../0-assets/01-casos-uso-ecommerce.svg)
 
 ```plantuml
 @startuml

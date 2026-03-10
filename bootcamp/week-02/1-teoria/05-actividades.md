@@ -134,13 +134,13 @@ stop
 
 ## 🌍 Ejemplo: Proceso de Préstamo Bibliotecario
 
-![Actividades Préstamo](../0-assets/actividades-prestamo.svg)
+![Actividades Préstamo](../0-assets/07-actividades-prestamo.svg)
 
 ---
 
 ## 🌍 Ejemplo: Proceso de Compra Online
 
-![Actividades Compra Online](../0-assets/actividades-compra-online.svg)
+![Actividades Compra Online](../0-assets/08-actividades-compra-online.svg)
 
 ---
 

@@ -75,7 +75,7 @@ Activo --> [*] : eliminar()
 
 ## 🌍 Ejemplo: Ciclo de Vida de un Pedido
 
-![Estados Pedido](../0-assets/estados-pedido.svg)
+![Estados Pedido](../0-assets/06-estados-pedido.svg)
 
 ```plantuml
 @startuml

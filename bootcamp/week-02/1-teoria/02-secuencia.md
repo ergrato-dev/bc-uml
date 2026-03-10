@@ -139,7 +139,7 @@ end
 
 ## 🌍 Ejemplo: Flujo de Login
 
-![Secuencia Login](../0-assets/secuencia-login.svg)
+![Secuencia Login](../0-assets/03-secuencia-login.svg)
 
 ```plantuml
 @startuml
@@ -177,7 +177,7 @@ end
 
 ## 🌍 Ejemplo Extendido: E-Commerce Completo
 
-![Secuencia E-Commerce](../0-assets/secuencia-ecommerce-completa.svg)
+![Secuencia E-Commerce](../0-assets/04-secuencia-ecommerce-completa.svg)
 
 ---
 
