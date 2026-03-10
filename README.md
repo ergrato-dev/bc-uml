@@ -23,19 +23,21 @@ Domina el modelado de sistemas en 2 sesiones de 5 horas · 23 diagramas SVG · E
 
 Este bootcamp está diseñado para desarrolladores que quieren comunicar y documentar diseños de software con **UML 2.5** de forma profesional.
 
-| Sesión | Tema | Horas | Estado |
-|--------|------|-------|--------|
-| **Sesión 1** | Fundamentos + Diagramas Estructurales | 5h | ✅ Disponible |
-| **Sesión 2** | Diagramas de Comportamiento | 5h | ✅ Disponible |
+| Sesión       | Tema                                  | Horas | Estado        |
+| ------------ | ------------------------------------- | ----- | ------------- |
+| **Sesión 1** | Fundamentos + Diagramas Estructurales | 5h    | ✅ Disponible |
+| **Sesión 2** | Diagramas de Comportamiento           | 5h    | ✅ Disponible |
 
 ### Resumen de contenidos
 
 **Sesión 1 — Diagramas Estructurales:**
+
 - Taxonomía UML: 14 diagramas estándar
 - Diagrama de Clases: sintaxis, visibilidad, relaciones (6 tipos)
 - Diagrama de Objetos, Componentes y Despliegue
 
 **Sesión 2 — Diagramas de Comportamiento:**
+
 - Casos de Uso: actores, include, extend
 - Diagrama de Secuencia: lifelines, fragmentos combinados (alt/opt/loop)
 - Diagrama de Comunicación: numeración jerárquica
@@ -113,11 +115,11 @@ Luego abre [`bootcamp/week-01/README.md`](bootcamp/week-01/README.md) y sigue el
 
 Cada sesión evalúa tres dimensiones:
 
-| Dimensión | Peso | Instrumento |
-|-----------|------|-------------|
-| 🧠 **Conocimiento** | 30% | Cuestionarios teóricos |
-| 💪 **Desempeño** | 40% | Ejercicios prácticos (`2-practicas/`) |
-| 📦 **Producto** | 30% | Proyecto final (`3-proyecto/`) |
+| Dimensión           | Peso | Instrumento                           |
+| ------------------- | ---- | ------------------------------------- |
+| 🧠 **Conocimiento** | 30%  | Cuestionarios teóricos                |
+| 💪 **Desempeño**    | 40%  | Ejercicios prácticos (`2-practicas/`) |
+| 📦 **Producto**     | 30%  | Proyecto final (`3-proyecto/`)        |
 
 > **Criterio de aprobación**: mínimo **70%** en cada dimensión
 
@@ -136,22 +138,22 @@ Cada sesión evalúa tres dimensiones:
 
 ## 🧩 Herramientas
 
-| Herramienta | Uso | Costo |
-|-------------|-----|-------|
-| **PlantUML** (extensión VS Code) | Renderizar `.puml` | Gratuito |
-| **PlantUML Online** | Sin instalación | Gratuito |
-| **Draw.io** | Diagramas visuales | Gratuito |
-| **Mermaid** | Diagramas en Markdown | Gratuito |
+| Herramienta                      | Uso                   | Costo    |
+| -------------------------------- | --------------------- | -------- |
+| **PlantUML** (extensión VS Code) | Renderizar `.puml`    | Gratuito |
+| **PlantUML Online**              | Sin instalación       | Gratuito |
+| **Draw.io**                      | Diagramas visuales    | Gratuito |
+| **Mermaid**                      | Diagramas en Markdown | Gratuito |
 
 ---
 
 ## 📖 Documentación
 
-| Documento | Descripción |
-|-----------|-------------|
-| [Cheat Sheet](_docs/CHEAT-SHEET.md) | Guía rápida de notación PlantUML |
-| [Plan de Estudios](_docs/plan-estudios.md) | Programa completo del bootcamp |
-| [Guía de Contenidos](_docs/guia-desarrollo-contenidos.md) | Cómo agregar nuevo material |
+| Documento                                                 | Descripción                      |
+| --------------------------------------------------------- | -------------------------------- |
+| [Cheat Sheet](_docs/CHEAT-SHEET.md)                       | Guía rápida de notación PlantUML |
+| [Plan de Estudios](_docs/plan-estudios.md)                | Programa completo del bootcamp   |
+| [Guía de Contenidos](_docs/guia-desarrollo-contenidos.md) | Cómo agregar nuevo material      |
 
 ---
 
