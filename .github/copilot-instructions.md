@@ -11,8 +11,8 @@ una dedicación de **5 horas semanales**.
 ```
 bc-uml/
 ├── bootcamp/
-│   ├── sesion-1/     # Fundamentos + Diagramas Estructurales (5h)
-│   └── sesion-2/     # Diagramas de Comportamiento (5h)
+│   ├── week-01/     # Fundamentos + Diagramas Estructurales (5h)
+│   └── week-02/     # Diagramas de Comportamiento (5h)
 ├── _assets/          # Diagramas SVG (dark theme)
 └── _docs/            # Plan de estudios y guías
 ```

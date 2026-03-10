@@ -6,7 +6,7 @@
 
 1. 📖 Lee [README.md](./README.md) - Presentación general
 2. 📋 Revisa [RESUMEN-EJECUTIVO.md](./RESUMEN-EJECUTIVO.md) - Vista ejecutiva
-3. 🎯 Comienza con [Sesión 1, Módulo 1.1](./modulos/sesion-1/modulo-1.1-introduccion.md)
+3. 🎯 Comienza con [Sesión 1, Módulo 1.1](./modulos/week-01/modulo-1.1-introduccion.md)
 
 ---
 
@@ -28,10 +28,10 @@
 
 | Módulo  | Archivo                                                                             | Duración  | Temas                                                   | Ejercicio             |
 | ------- | ----------------------------------------------------------------------------------- | --------- | ------------------------------------------------------- | --------------------- |
-| **1.1** | [Introducción](./modulos/sesion-1/modulo-1.1-introduccion.md)                       | 1 hora    | Historia UML, 14 diagramas, taxonomía, buenas prácticas | Ejercicio 1: Netflix  |
-| **1.2** | [Diagrama de Clases](./modulos/sesion-1/modulo-1.2-diagrama-clases.md)              | 1.5 horas | Sintaxis, 6 relaciones, multiplicidades, e-commerce     | Ejercicio 2: Banco    |
-| **1.3** | [Diagramas Estructurales](./modulos/sesion-1/modulo-1.3-diagramas-estructurales.md) | 1 hora    | Objetos, componentes, despliegue                        | Ejercicio 3: Hospital |
-| **1.4** | [Ejercicio Integrador](./modulos/sesion-1/modulo-1.4-ejercicio-integrador.md)       | 30 min    | Sistema biblioteca completo                             | Evaluación práctica   |
+| **1.1** | [Introducción](./modulos/week-01/modulo-1.1-introduccion.md)                       | 1 hora    | Historia UML, 14 diagramas, taxonomía, buenas prácticas | Ejercicio 1: Netflix  |
+| **1.2** | [Diagrama de Clases](./modulos/week-01/modulo-1.2-diagrama-clases.md)              | 1.5 horas | Sintaxis, 6 relaciones, multiplicidades, e-commerce     | Ejercicio 2: Banco    |
+| **1.3** | [Diagramas Estructurales](./modulos/week-01/modulo-1.3-diagramas-estructurales.md) | 1 hora    | Objetos, componentes, despliegue                        | Ejercicio 3: Hospital |
+| **1.4** | [Ejercicio Integrador](./modulos/week-01/modulo-1.4-ejercicio-integrador.md)       | 30 min    | Sistema biblioteca completo                             | Evaluación práctica   |
 
 **📊 Total Sesión 1**: 4 horas
 
@@ -41,10 +41,10 @@
 
 | Módulo  | Archivo                                                                             | Duración  | Temas                                         | Ejercicio                  |
 | ------- | ----------------------------------------------------------------------------------- | --------- | --------------------------------------------- | -------------------------- |
-| **2.1** | [Casos de Uso](./modulos/sesion-2/modulo-2.1-casos-uso.md)                          | 1 hora    | Actores, casos, include/extend, documentación | Ejercicio 4: Red social    |
-| **2.2** | [Secuencia y Comunicación](./modulos/sesion-2/modulo-2.2-secuencia-comunicacion.md) | 1.5 horas | Mensajes, lifelines, fragmentos, e-commerce   | Ejercicio 5: Transferencia |
-| **2.3** | [Estados y Actividades](./modulos/sesion-2/modulo-2.3-estados-actividades.md)       | 1 hora    | Ciclos de vida, workflows, swimlanes          | Ejercicio 6: Devolución    |
-| **2.4** | [Proyecto Final](./modulos/sesion-2/modulo-2.4-proyecto-final.md)                   | 30 min    | Hospital digital completo                     | Evaluación final           |
+| **2.1** | [Casos de Uso](./modulos/week-02/modulo-2.1-casos-uso.md)                          | 1 hora    | Actores, casos, include/extend, documentación | Ejercicio 4: Red social    |
+| **2.2** | [Secuencia y Comunicación](./modulos/week-02/modulo-2.2-secuencia-comunicacion.md) | 1.5 horas | Mensajes, lifelines, fragmentos, e-commerce   | Ejercicio 5: Transferencia |
+| **2.3** | [Estados y Actividades](./modulos/week-02/modulo-2.3-estados-actividades.md)       | 1 hora    | Ciclos de vida, workflows, swimlanes          | Ejercicio 6: Devolución    |
+| **2.4** | [Proyecto Final](./modulos/week-02/modulo-2.4-proyecto-final.md)                   | 30 min    | Hospital digital completo                     | Evaluación final           |
 
 **📊 Total Sesión 2**: 4 horas
 
@@ -181,37 +181,37 @@
 
 #### Relaciones entre Clases
 
-📍 [Módulo 1.2](./modulos/sesion-1/modulo-1.2-diagrama-clases.md)  
+📍 [Módulo 1.2](./modulos/week-01/modulo-1.2-diagrama-clases.md)  
 🎨 SVG: asociacion, agregacion, composicion, herencia, realizacion, dependencia
 
 #### Captura de Requisitos
 
-📍 [Módulo 2.1](./modulos/sesion-2/modulo-2.1-casos-uso.md)  
+📍 [Módulo 2.1](./modulos/week-02/modulo-2.1-casos-uso.md)  
 🎨 SVG: casos-uso-ecommerce
 
 #### Flujos de Interacción
 
-📍 [Módulo 2.2](./modulos/sesion-2/modulo-2.2-secuencia-comunicacion.md)  
+📍 [Módulo 2.2](./modulos/week-02/modulo-2.2-secuencia-comunicacion.md)  
 🎨 SVG: secuencia-login
 
 #### Ciclos de Vida
 
-📍 [Módulo 2.3](./modulos/sesion-2/modulo-2.3-estados-actividades.md)  
+📍 [Módulo 2.3](./modulos/week-02/modulo-2.3-estados-actividades.md)  
 🎨 SVG: estados-pedido
 
 #### Procesos de Negocio
 
-📍 [Módulo 2.3](./modulos/sesion-2/modulo-2.3-estados-actividades.md)  
+📍 [Módulo 2.3](./modulos/week-02/modulo-2.3-estados-actividades.md)  
 🎨 SVG: actividades-prestamo, actividades-compra-online
 
 #### Arquitectura de Software
 
-📍 [Módulo 1.3](./modulos/sesion-1/modulo-1.3-diagramas-estructurales.md)  
+📍 [Módulo 1.3](./modulos/week-01/modulo-1.3-diagramas-estructurales.md)  
 🎨 SVG: diagrama-componentes-ecommerce
 
 #### Infraestructura Cloud
 
-📍 [Módulo 1.3](./modulos/sesion-1/modulo-1.3-diagramas-estructurales.md)  
+📍 [Módulo 1.3](./modulos/week-01/modulo-1.3-diagramas-estructurales.md)  
 🎨 SVG: diagrama-despliegue-webapp
 
 ---

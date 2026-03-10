@@ -13,7 +13,7 @@
 **Bootcamp intensivo de UML para desarrolladores de software**  
 Domina el modelado de sistemas en 2 sesiones de 5 horas · 23 diagramas SVG · Ejercicios con starter + solución
 
-[Inicio Rápido](#-inicio-rápido) · [Sesión 1](bootcamp/sesion-1/README.md) · [Sesión 2](bootcamp/sesion-2/README.md) · [Cheat Sheet](_docs/CHEAT-SHEET.md) · [English](README_EN.md)
+[Inicio Rápido](#-inicio-rápido) · [Sesión 1](bootcamp/week-01/README.md) · [Sesión 2](bootcamp/week-02/README.md) · [Cheat Sheet](_docs/CHEAT-SHEET.md) · [English](README_EN.md)
 
 </div>
 
@@ -56,7 +56,7 @@ bc-uml/
 ├── SECURITY.md                         # Política de seguridad
 │
 ├── bootcamp/
-│   ├── sesion-1/                       # Fundamentos + Estructurales (5h)
+│   ├── week-01/                       # Fundamentos + Estructurales (5h)
 │   │   ├── README.md                   # Objetivos, cronograma, checklist
 │   │   ├── rubrica-evaluacion.md       # Conocimiento 30% / Desempeño 40% / Producto 30%
 │   │   ├── 0-assets/                   # 15 SVGs de la sesión
@@ -66,7 +66,7 @@ bc-uml/
 │   │   ├── 4-recursos/                 # Webgrafía, videografía, ebooks
 │   │   └── 5-glosario/                 # Glosario A-Z de términos estructurales
 │   │
-│   └── sesion-2/                       # Comportamiento (5h)
+│   └── week-02/                       # Comportamiento (5h)
 │       ├── README.md                   # Objetivos, cronograma, checklist
 │       ├── rubrica-evaluacion.md       # Misma rubrica adaptada
 │       ├── 0-assets/                   # 8 SVGs de la sesión
@@ -105,7 +105,7 @@ code .
 # VS Code te pedirá instalarlas automáticamente
 ```
 
-Luego abre [`bootcamp/sesion-1/README.md`](bootcamp/sesion-1/README.md) y sigue el cronograma.
+Luego abre [`bootcamp/week-01/README.md`](bootcamp/week-01/README.md) y sigue el cronograma.
 
 ---
 

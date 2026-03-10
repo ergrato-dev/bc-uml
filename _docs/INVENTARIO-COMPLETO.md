@@ -10,7 +10,7 @@
 
 #### Módulo 1.1: Introducción a UML (1 hora) ✅
 
-- **Archivo**: `modulos/sesion-1/modulo-1.1-introduccion.md`
+- **Archivo**: `modulos/week-01/modulo-1.1-introduccion.md`
 - **Contenido**:
   - Historia y evolución de UML
   - ¿Qué es UML?
@@ -23,7 +23,7 @@
 
 #### Módulo 1.2: Diagrama de Clases (1.5 horas) ⭐⭐⭐⭐⭐ ✅
 
-- **Archivo**: `modulos/sesion-1/modulo-1.2-diagrama-clases.md`
+- **Archivo**: `modulos/week-01/modulo-1.2-diagrama-clases.md`
 - **Contenido**:
   - Sintaxis completa de clases
   - Atributos y métodos
@@ -42,7 +42,7 @@
 
 #### Módulo 1.3: Diagramas Estructurales (1 hora) ⭐⭐⭐ ✅
 
-- **Archivo**: `modulos/sesion-1/modulo-1.3-diagramas-estructurales.md`
+- **Archivo**: `modulos/week-01/modulo-1.3-diagramas-estructurales.md`
 - **Contenido**:
   - Diagrama de Objetos (instancias)
   - Diagrama de Componentes (arquitectura)
@@ -53,7 +53,7 @@
 
 #### Módulo 1.4: Ejercicio Integrador (30 min) ✅
 
-- **Archivo**: `modulos/sesion-1/modulo-1.4-ejercicio-integrador.md`
+- **Archivo**: `modulos/week-01/modulo-1.4-ejercicio-integrador.md`
 - **Contenido**:
   - Caso completo: Sistema de Biblioteca
   - Requisitos funcionales
@@ -69,7 +69,7 @@
 
 #### Módulo 2.1: Casos de Uso (1 hora) ⭐⭐⭐⭐⭐ ✅
 
-- **Archivo**: `modulos/sesion-2/modulo-2.1-casos-uso.md`
+- **Archivo**: `modulos/week-02/modulo-2.1-casos-uso.md`
 - **Contenido**:
   - Elementos: actores, casos de uso, relaciones
   - Relaciones include/extend
@@ -81,7 +81,7 @@
 
 #### Módulo 2.2: Secuencia y Comunicación (1.5 horas) ⭐⭐⭐⭐⭐ ✅
 
-- **Archivo**: `modulos/sesion-2/modulo-2.2-secuencia-comunicacion.md`
+- **Archivo**: `modulos/week-02/modulo-2.2-secuencia-comunicacion.md`
 - **Contenido**:
   - Elementos de secuencia: actores, objetos, lifelines, mensajes
   - Activación de objetos
@@ -94,7 +94,7 @@
 
 #### Módulo 2.3: Estados y Actividades (1 hora) ⭐⭐⭐⭐ ✅
 
-- **Archivo**: `modulos/sesion-2/modulo-2.3-estados-actividades.md`
+- **Archivo**: `modulos/week-02/modulo-2.3-estados-actividades.md`
 - **Contenido**:
   - Diagrama de Estados:
     - Estados simples y compuestos
@@ -111,7 +111,7 @@
 
 #### Módulo 2.4: Proyecto Final (30 min) ✅
 
-- **Archivo**: `modulos/sesion-2/modulo-2.4-proyecto-final.md`
+- **Archivo**: `modulos/week-02/modulo-2.4-proyecto-final.md`
 - **Contenido**:
   - Proyecto integrador: Sistema Hospital Digital
   - 7 módulos del sistema:

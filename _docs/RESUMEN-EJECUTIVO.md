@@ -143,13 +143,13 @@ bc-uml/
 ├── CHEAT-SHEET.md                 # Guía rápida de referencia
 │
 ├── modulos/
-│   ├── sesion-1/
+│   ├── week-01/
 │   │   ├── modulo-1.1-introduccion.md
 │   │   ├── modulo-1.2-diagrama-clases.md
 │   │   ├── modulo-1.3-diagramas-estructurales.md
 │   │   └── modulo-1.4-ejercicio-integrador.md
 │   │
-│   └── sesion-2/
+│   └── week-02/
 │       ├── modulo-2.1-casos-uso.md
 │       ├── modulo-2.2-secuencia-comunicacion.md
 │       ├── modulo-2.3-estados-actividades.md

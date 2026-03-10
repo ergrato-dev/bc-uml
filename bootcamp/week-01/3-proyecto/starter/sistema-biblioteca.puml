@@ -5,7 +5,7 @@
 ' Instrucciones:
 '   Implementa el diagrama de clases completo para una
 '   Biblioteca Municipal con los requisitos descritos en
-'   bootcamp/sesion-1/README.md (sección "Entregables")
+'   bootcamp/week-01/README.md (sección "Entregables")
 '
 ' Clases requeridas:
 '   - Usuario (abstracta): id, nombre, email, telefono, estado

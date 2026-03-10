@@ -34,8 +34,8 @@ bc-uml/
 │   ├── INDICE-NAVEGACION.md
 │   └── AUDITORIA-FINAL.md
 ├── modulos/                      ← 8 módulos teóricos
-│   ├── sesion-1/ (4 módulos)
-│   └── sesion-2/ (4 módulos)
+│   ├── week-01/ (4 módulos)
+│   └── week-02/ (4 módulos)
 └── assets/                       ← 23 diagramas SVG
 ```
 
@@ -111,7 +111,7 @@ Para diferentes usuarios:
 
 1. Lee `README.md` (raíz)
 2. Ve a [Índice de Navegación](_docs/INDICE-NAVEGACION.md)
-3. Empieza con `modulos/sesion-1/modulo-1.1-introduccion.md`
+3. Empieza con `modulos/week-01/modulo-1.1-introduccion.md`
 
 ### 👨‍🏫 Instructor preparando clase
 

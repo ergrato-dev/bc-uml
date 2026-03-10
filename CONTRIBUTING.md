@@ -22,8 +22,8 @@
 3. Realiza tus cambios aplicando las convenciones del proyecto
 4. Usa **Conventional Commits**:
    ```
-   feat(sesion-1): add ejercicio de herencia múltiple
-   fix(sesion-2): corregir diagrama de secuencia login
+   feat(week-01): add ejercicio de herencia múltiple
+   fix(week-02): corregir diagrama de secuencia login
    docs: actualizar glosario sesión 1
    ```
 5. Haz push: `git push origin feat/descripcion-breve`

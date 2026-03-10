@@ -192,4 +192,4 @@ Notación completa: `evento[guarda] / acción`.
 ---
 
 _Glosario de la Sesión 1 (términos estructurales): consultar
-[`../../sesion-1/5-glosario/README.md`](../../sesion-1/5-glosario/README.md)_
+[`../../week-01/5-glosario/README.md`](../../week-01/5-glosario/README.md)_

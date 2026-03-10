@@ -177,4 +177,4 @@ Modificador de acceso de atributos y métodos:
 
 ## 🔗 Navegación
 
-⬅️ [README Sesión 1](../README.md) | ➡️ [Sesión 2 — Glosario](../../sesion-2/5-glosario/README.md)
+⬅️ [README Sesión 1](../README.md) | ➡️ [Sesión 2 — Glosario](../../week-02/5-glosario/README.md)
