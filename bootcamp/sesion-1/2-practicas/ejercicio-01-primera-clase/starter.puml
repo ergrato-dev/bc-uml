@@ -1,0 +1,43 @@
+@startuml
+' ============================================================
+' Ejercicio 01 — Mi Primera Clase UML
+' Instrucciones:
+'   1. Completa los atributos de la clase Producto
+'   2. Completa los métodos con sus parámetros y tipos de retorno
+'   3. Aplica la visibilidad correcta a cada miembro
+'   4. Renderiza el diagrama para verificar que no hay errores
+' ============================================================
+
+skinparam classBackgroundColor #2d2d2d
+skinparam classBorderColor #8b5cf6
+skinparam classFontColor #e2e8f0
+skinparam classAttributeFontColor #94a3b8
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+
+class Producto {
+  ' TODO: Agrega los atributos privados aquí
+  ' Recuerda: visibilidad nombre: Tipo
+  '
+  ' Atributos a agregar:
+  '   - id (String, privado)
+  '   - nombre (String, privado)
+  '   - descripcion (String, privado)
+  '   - precio (Double, privado)
+  '   - stock (int, privado)
+  '   - categoria (String, privado)
+  '   - disponible (boolean, privado)
+
+  --
+
+  ' TODO: Agrega los métodos aquí
+  ' Recuerda: visibilidad nombre(parametros): TipoRetorno
+  '
+  ' Métodos a agregar:
+  '   - estaDisponible() → boolean (público)
+  '   - actualizarStock(cambio: int) → void (público)
+  '   - getPrecioConDescuento(porcentaje: Double) → Double (público)
+  '   - calcularHash() → String (privado, detalle interno)
+}
+
+@enduml

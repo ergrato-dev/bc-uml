@@ -1,0 +1,222 @@
+<svg viewBox="0 0 900 1400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .activity { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .decision { 
+        fill: #2d1b4e; 
+        stroke: #a78bfa; 
+        stroke-width: 2;
+      }
+      .fork-join { 
+        fill: #0ea5e9;
+      }
+      .flow { 
+        stroke: #4ade80; 
+        stroke-width: 2; 
+        fill: none;
+        marker-end: url(#arrow);
+      }
+      .initial { 
+        fill: #0ea5e9;
+      }
+      .final { 
+        fill: #1a1a1a; 
+        stroke: #0ea5e9; 
+        stroke-width: 3;
+      }
+      .final-inner { 
+        fill: #0ea5e9;
+      }
+      .label { 
+        font-size: 13px;
+      }
+      .decision-label { 
+        font-size: 12px; 
+        fill: #fbbf24;
+      }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="1400" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" font-size="22" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Actividades: Proceso de Aprobación de Préstamo
+  </text>
+  
+  <!-- Initial -->
+  <circle cx="450" cy="70" r="12" class="initial"/>
+  <path d="M 450 82 L 450 110" class="flow"/>
+  
+  <!-- Activity 1 -->
+  <rect x="350" y="110" width="200" height="40" rx="20" class="activity"/>
+  <text x="450" y="135" text-anchor="middle" class="label">Cliente solicita préstamo</text>
+  
+  <path d="M 450 150 L 450 170" class="flow"/>
+  
+  <!-- Activity 2 -->
+  <rect x="340" y="170" width="220" height="40" rx="20" class="activity"/>
+  <text x="450" y="195" text-anchor="middle" class="label">Ingresar datos personales</text>
+  
+  <path d="M 450 210 L 450 230" class="flow"/>
+  
+  <!-- Activity 3 -->
+  <rect x="360" y="230" width="180" height="40" rx="20" class="activity"/>
+  <text x="450" y="255" text-anchor="middle" class="label">Adjuntar documentos</text>
+  
+  <path d="M 450 270 L 450 290" class="flow"/>
+  
+  <!-- Activity 4 -->
+  <rect x="330" y="290" width="240" height="40" rx="20" class="activity"/>
+  <text x="450" y="315" text-anchor="middle" class="label">Sistema valida documentación</text>
+  
+  <path d="M 450 330 L 450 360" class="flow"/>
+  
+  <!-- Decision 1: Documentos completos -->
+  <path d="M 450 360 L 520 390 L 450 420 L 380 390 Z" class="decision"/>
+  <text x="450" y="395" text-anchor="middle" class="decision-label">¿Completos?</text>
+  
+  <!-- NO branch -->
+  <path d="M 380 390 L 250 390 L 250 500" class="flow"/>
+  <text x="310" y="385" class="decision-label">no</text>
+  
+  <rect x="160" y="500" width="180" height="40" rx="20" class="activity"/>
+  <text x="250" y="525" text-anchor="middle" class="label" font-size="12">Solicitar docs faltantes</text>
+  
+  <path d="M 250 540 L 250 590" class="flow"/>
+  
+  <!-- YES branch -->
+  <path d="M 450 420 L 450 460" class="flow"/>
+  <text x="460" y="440" class="decision-label">sí</text>
+  
+  <!-- Activity 5 -->
+  <rect x="330" y="460" width="240" height="40" rx="20" class="activity"/>
+  <text x="450" y="485" text-anchor="middle" class="label">Evaluar historial crediticio</text>
+  
+  <path d="M 450 500 L 450 530" class="flow"/>
+  
+  <!-- Decision 2: Historial -->
+  <path d="M 450 530 L 520 560 L 450 590 L 380 560 Z" class="decision"/>
+  <text x="450" y="565" text-anchor="middle" class="decision-label">¿Aprobado?</text>
+  
+  <!-- NO branch historial -->
+  <path d="M 380 560 L 250 560 L 250 590" class="flow"/>
+  <text x="310" y="555" class="decision-label">no</text>
+  
+  <rect x="160" y="590" width="180" height="40" rx="20" class="activity"/>
+  <text x="250" y="615" text-anchor="middle" class="label" font-size="11">Solicitar referencias</text>
+  
+  <path d="M 250 630 L 250 680" class="flow"/>
+  
+  <path d="M 250 680 L 310 710 L 250 740 L 190 710 Z" class="decision"/>
+  <text x="250" y="715" text-anchor="middle" class="decision-label" font-size="11">¿Refs OK?</text>
+  
+  <path d="M 310 710 L 450 710 L 450 650" class="flow"/>
+  <text x="380" y="705" class="decision-label" font-size="11">sí</text>
+  
+  <path d="M 190 710 L 100 710 L 100 1320 L 450 1320" class="flow"/>
+  <text x="140" y="705" class="decision-label" font-size="11">no</text>
+  
+  <!-- YES branch historial -->
+  <path d="M 450 590 L 450 650" class="flow"/>
+  <text x="460" y="620" class="decision-label">sí</text>
+  
+  <!-- Activity 6 -->
+  <rect x="340" y="650" width="220" height="40" rx="20" class="activity"/>
+  <text x="450" y="675" text-anchor="middle" class="label">Calcular capacidad de pago</text>
+  
+  <path d="M 450 690 L 450 720" class="flow"/>
+  
+  <!-- Decision 3: Capacidad -->
+  <path d="M 450 720 L 520 750 L 450 780 L 380 750 Z" class="decision"/>
+  <text x="450" y="755" text-anchor="middle" class="decision-label">¿Suficiente?</text>
+  
+  <!-- NO branch capacidad -->
+  <path d="M 380 750 L 680 750" class="flow"/>
+  <text x="530" y="745" class="decision-label">no</text>
+  
+  <rect x="680" y="730" width="160" height="40" rx="20" class="activity"/>
+  <text x="760" y="755" text-anchor="middle" class="label" font-size="12">Ofrecer monto menor</text>
+  
+  <!-- YES branch capacidad -->
+  <path d="M 450 780 L 450 830" class="flow"/>
+  <text x="460" y="805" class="decision-label">sí</text>
+  
+  <!-- Fork -->
+  <rect x="350" y="830" width="200" height="8" class="fork-join"/>
+  <path d="M 450 838 L 350 900" class="flow"/>
+  <path d="M 450 838 L 450 900" class="flow"/>
+  <path d="M 450 838 L 550 900" class="flow"/>
+  
+  <!-- Parallel Activities -->
+  <rect x="260" y="900" width="180" height="40" rx="20" class="activity"/>
+  <text x="350" y="925" text-anchor="middle" class="label" font-size="12">Generar contrato</text>
+  
+  <rect x="360" y="900" width="180" height="40" rx="20" class="activity"/>
+  <text x="450" y="918" text-anchor="middle" class="label" font-size="11">Calcular tabla de</text>
+  <text x="450" y="933" text-anchor="middle" class="label" font-size="11">amortización</text>
+  
+  <rect x="460" y="900" width="180" height="40" rx="20" class="activity"/>
+  <text x="550" y="925" text-anchor="middle" class="label" font-size="12">Verificar garantías</text>
+  
+  <!-- Join -->
+  <path d="M 350 940 L 450 1000" class="flow"/>
+  <path d="M 450 940 L 450 1000" class="flow"/>
+  <path d="M 550 940 L 450 1000" class="flow"/>
+  <rect x="350" y="1000" width="200" height="8" class="fork-join"/>
+  
+  <path d="M 450 1008 L 450 1040" class="flow"/>
+  
+  <!-- Activity 7 -->
+  <rect x="320" y="1040" width="260" height="40" rx="20" class="activity"/>
+  <text x="450" y="1065" text-anchor="middle" class="label">Enviar a aprobación gerencial</text>
+  
+  <path d="M 450 1080 L 450 1110" class="flow"/>
+  
+  <!-- Decision 4: Gerente -->
+  <path d="M 450 1110 L 520 1140 L 450 1170 L 380 1140 Z" class="decision"/>
+  <text x="450" y="1145" text-anchor="middle" class="decision-label">¿Aprueba?</text>
+  
+  <!-- NO branch gerente -->
+  <path d="M 520 1140 L 680 1140 L 680 1220" class="flow"/>
+  <text x="600" y="1135" class="decision-label">no</text>
+  
+  <rect x="600" y="1220" width="160" height="40" rx="20" class="activity"/>
+  <text x="680" y="1238" text-anchor="middle" class="label" font-size="11">Notificar rechazo</text>
+  <text x="680" y="1252" text-anchor="middle" class="label" font-size="11">gerencial</text>
+  
+  <path d="M 680 1260 L 680 1320 L 450 1320" class="flow"/>
+  
+  <!-- YES branch gerente -->
+  <path d="M 450 1170 L 450 1220" class="flow"/>
+  <text x="460" y="1195" class="decision-label">sí</text>
+  
+  <!-- Activity 8 -->
+  <rect x="360" y="1220" width="180" height="40" rx="20" class="activity"/>
+  <text x="450" y="1245" text-anchor="middle" class="label">Desembolsar préstamo</text>
+  
+  <path d="M 450 1260 L 450 1280" class="flow"/>
+  
+  <!-- Final -->
+  <circle cx="450" cy="1320" r="18" class="final"/>
+  <circle cx="450" cy="1320" r="12" class="final-inner"/>
+  <path d="M 450 1280 L 450 1302" class="flow"/>
+  
+  <!-- Note -->
+  <text x="50" y="1370" font-size="12" fill="#9ca3af">
+    * Las actividades paralelas (fork/join) se ejecutan simultáneamente
+  </text>
+  
+</svg>

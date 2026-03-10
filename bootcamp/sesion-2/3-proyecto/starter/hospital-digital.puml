@@ -1,0 +1,167 @@
+@startuml
+' ============================================================
+' PROYECTO FINAL — SESIÓN 2: Hospital Digital
+'
+' Objetivo: Modelar el sistema de gestión de una clínica privada
+' usando diagramas de comportamiento UML.
+'
+' Entregable: hospital-digital.puml (este archivo completado)
+' Tiempo estimado: 30-40 minutos
+'
+' INSTRUCCIONES:
+'   Lee cada sección marcada con "TODO" y completa el diagrama.
+'   Puedes dividir en múltiples archivos si lo prefieres
+'   (hospital-cu.puml, hospital-secuencia.puml, etc.).
+'
+' CRITERIOS DE EVALUACIÓN (ver rubrica-evaluacion.md):
+'   - Completitud (todos los diagramas presentes)    20 pts
+'   - Correctitud de actores y casos de uso          25 pts
+'   - Flujo de secuencia coherente                   20 pts
+'   - Estados del paciente completos                 20 pts
+'   - Actividades médicas con swimlanes              15 pts
+' ============================================================
+
+' ============================================================
+' PARTE 1: DIAGRAMA DE CASOS DE USO — Sistema Hospitalario
+' ============================================================
+'
+' Actores del sistema:
+'   - Paciente: agenda citas, ve historial, recibe resultados
+'   - Médico: ve citas del día, registra diagnóstico, prescribe
+'   - Enfermero: registra signos vitales, administra medicación
+'   - Administrador: gestiona médicos, genera reportes
+'   - SistemaExtLaboratorio: actor secundario, envía resultados
+'
+' Casos de uso principales:
+'   - Registrar Paciente
+'   - Agendar Cita (include: Verificar Disponibilidad)
+'   - Cancelar Cita
+'   - Atender Consulta (include: Registrar Diagnóstico)
+'   - Prescribir Medicamento
+'   - Solicitar Examen de Laboratorio
+'   - Ver Resultados de Laboratorio (extend: Enviar Alerta Crítica)
+'   - Registrar Signos Vitales
+'   - Generar Reporte Mensual
+'
+' TODO: Implementa el diagrama de casos de uso del hospital
+' Reemplaza este comentario con el código PlantUML
+
+@startuml hospital-cu
+left to right direction
+' ... tu implementación aquí
+@enduml
+
+
+' ============================================================
+' PARTE 2: DIAGRAMA DE SECUENCIA — Agendar Consulta Médica
+' ============================================================
+'
+' Flujo a modelar:
+'   1. Paciente accede al portal y solicita cita con especialista
+'   2. Sistema consulta disponibilidad del médico
+'   3. alt [hay disponibilidad]:
+'      - Sistema crea la cita
+'      - Envía confirmación asíncrona al email del paciente
+'      - Notifica al médico de la nueva cita
+'   3. alt [sin disponibilidad]:
+'      - Sistema retorna lista de fechas alternativas
+'   4. opt [paciente tiene deuda pendiente]:
+'      - Sistema bloquea la cita y solicita pago previo
+'
+' Participantes:
+'   - Paciente (actor)
+'   - PortalPaciente (boundary)
+'   - CitaController (control)
+'   - AgendaMedicoRepository (entity)
+'   - PacienteRepository (entity)
+'   - EmailService (entity)
+'
+' TODO: Implementa el diagrama de secuencia
+' Reemplaza este comentario con el código PlantUML
+
+@startuml hospital-secuencia
+' ... tu implementación aquí
+@enduml
+
+
+' ============================================================
+' PARTE 3: DIAGRAMA DE ESTADOS — Ciclo de vida del Paciente
+' ============================================================
+'
+' Estados a modelar:
+'   - NuevoRegistro: paciente acaba de registrarse
+'   - CitaPendiente: tiene cita agendada
+'   - EnConsulta: está siendo atendido (estado compuesto con
+'     subestados: EsperandoMédico → EnExaminación → FinalizandoConsulta)
+'   - EnObservacion: requiere monitoreo post-consulta
+'   - ConResultadosPendientes: espera resultados de laboratorio
+'   - AltaMedica: fue dado de alta
+'   - Inactivo: sin actividad por > 12 meses
+'
+' Transiciones principales:
+'   NuevoRegistro → CitaPendiente: agendarCita[médico disponible]
+'   CitaPendiente → CitaPendiente: reagendarCita
+'   CitaPendiente → NuevoRegistro: cancelarCita
+'   CitaPendiente → EnConsulta: iniciarConsulta / registrarLlegada()
+'   EnConsulta → ConResultadosPendientes: solicitarExamen
+'   EnConsulta → EnObservacion: requiereMonitoreo[signos anormales]
+'   EnConsulta → AltaMedica: darAlta / generarReceta()
+'   ConResultadosPendientes → AltaMedica: recibirResultados[normales]
+'   EnObservacion → AltaMedica: estabilizar
+'   AltaMedica → CitaPendiente: agendarSeguimiento
+'   AltaMedica → Inactivo: inactividad[> 12 meses]
+'
+' TODO: Implementa el diagrama de estados
+' Reemplaza este comentario con el código PlantUML
+
+@startuml hospital-estados
+' ... tu implementación aquí
+@enduml
+
+
+' ============================================================
+' PARTE 4: DIAGRAMA DE ACTIVIDADES — Proceso de Consulta Médica
+' ============================================================
+'
+' Swimlanes (carriles):
+'   |Paciente|          |Recepción|          |Médico|
+'
+' Flujo:
+'   |Paciente| Llega a la clínica
+'        ↓ (sincronización)
+'   |Recepción| Verifica cita en el sistema
+'        → si no hay cita registrada: |Recepción| notifica al paciente
+'        → si hay cita: |Recepción| registra llegada y genera ficha
+'        ↓
+'   |Médico| Revisa ficha del paciente
+'        ↓
+'   |Paciente| Entra al consultorio
+'   |Médico| Realiza anamnesis
+'   |Médico| Examina al paciente
+'        ↓
+'   decisión: ¿Requiere examen?
+'        → sí: |Médico| Solicita examen a laboratorio
+'              |Paciente| Espera resultados (fork con:)
+'              |Médico| Atiende otros pacientes (paralelo)
+'              → join cuando llegan resultados
+'        → no: (continúa directo a diagnóstico)
+'        ↓
+'   |Médico| Emite diagnóstico y receta
+'   |Recepción| Programa cita de seguimiento si aplica
+'   |Paciente| Se retira
+'        ↓
+'   stop
+'
+' TODO: Implementa el diagrama de actividades con swimlanes
+' Reemplaza este comentario con el código PlantUML
+
+@startuml hospital-actividades
+' ... tu implementación aquí
+@enduml
+
+@enduml
+' ============================================================
+' FIN DEL ARCHIVO STARTER
+' Consulta los apuntes en 1-teoria/ y los ejercicios en 2-practicas/
+' Ante cualquier duda: revisa la solucion.puml de los ejercicios.
+' ============================================================

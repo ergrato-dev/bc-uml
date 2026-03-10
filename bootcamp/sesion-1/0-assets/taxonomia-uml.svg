@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="Arial, Helvetica, sans-serif">
+  <!-- Fondo oscuro -->
+  <rect width="1200" height="800" fill="#1a1a1a"/>
+  
+  <!-- Título -->
+  <text x="600" y="40" font-size="28" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Taxonomía de UML 2.5
+  </text>
+  
+  <!-- Nodo raíz -->
+  <rect x="500" y="70" width="200" height="60" fill="#0ea5e9" stroke="#38bdf8" stroke-width="2" rx="5"/>
+  <text x="600" y="108" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    UML 2.5
+  </text>
+  
+  <!-- Líneas principales -->
+  <line x1="600" y1="130" x2="300" y2="190" stroke="#64748b" stroke-width="2"/>
+  <line x1="600" y1="130" x2="900" y2="190" stroke="#64748b" stroke-width="2"/>
+  
+  <!-- Diagramas Estructurales -->
+  <rect x="150" y="190" width="300" height="70" fill="#dc2626" stroke="#f87171" stroke-width="2" rx="5"/>
+  <text x="300" y="220" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Diagramas Estructurales
+  </text>
+  <text x="300" y="244" font-size="14" text-anchor="middle" fill="#fecaca">
+    (Vista Estática)
+  </text>
+  
+  <!-- Diagramas de Comportamiento -->
+  <rect x="750" y="190" width="300" height="70" fill="#16a34a" stroke="#4ade80" stroke-width="2" rx="5"/>
+  <text x="900" y="220" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    Diagramas de Comportamiento
+  </text>
+  <text x="900" y="244" font-size="14" text-anchor="middle" fill="#bbf7d0">
+    (Vista Dinámica)
+  </text>
+  
+  <!-- Diagramas Estructurales - Detalles -->
+  <g id="estructurales">
+    <!-- Clases -->
+    <rect x="40" y="300" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="115" y="333" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Clases</text>
+    <line x1="300" y1="260" x2="115" y2="300" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Objetos -->
+    <rect x="210" y="300" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="285" y="333" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Objetos</text>
+    <line x1="300" y1="260" x2="285" y2="300" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Componentes -->
+    <rect x="380" y="300" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="455" y="333" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Componentes</text>
+    <line x1="300" y1="260" x2="455" y2="300" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Despliegue -->
+    <rect x="40" y="380" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="115" y="413" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Despliegue</text>
+    <line x1="300" y1="260" x2="115" y2="380" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Paquetes -->
+    <rect x="210" y="380" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="285" y="413" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Paquetes</text>
+    <line x1="300" y1="260" x2="285" y2="380" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Estructura Compuesta -->
+    <rect x="380" y="380" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="455" y="404" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Estructura</text>
+    <text x="455" y="422" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Compuesta</text>
+    <line x1="300" y1="260" x2="455" y2="380" stroke="#f87171" stroke-width="2"/>
+    
+    <!-- Perfil -->
+    <rect x="210" y="460" width="150" height="55" fill="#2d2d2d" stroke="#f87171" stroke-width="2" rx="3"/>
+    <text x="285" y="493" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Perfil</text>
+    <line x1="300" y1="260" x2="285" y2="460" stroke="#f87171" stroke-width="2"/>
+  </g>
+  
+  <!-- Diagramas de Comportamiento - Detalles -->
+  <g id="comportamiento">
+    <!-- Casos de Uso -->
+    <rect x="670" y="300" width="150" height="55" fill="#2d2d2d" stroke="#4ade80" stroke-width="2" rx="3"/>
+    <text x="745" y="333" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Casos de Uso</text>
+    <line x1="900" y1="260" x2="745" y2="300" stroke="#4ade80" stroke-width="2"/>
+    
+    <!-- Actividades -->
+    <rect x="840" y="300" width="150" height="55" fill="#2d2d2d" stroke="#4ade80" stroke-width="2" rx="3"/>
+    <text x="915" y="333" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Actividades</text>
+    <line x1="900" y1="260" x2="915" y2="300" stroke="#4ade80" stroke-width="2"/>
+    
+    <!-- Estados -->
+    <rect x="1010" y="300" width="150" height="55" fill="#2d2d2d" stroke="#4ade80" stroke-width="2" rx="3"/>
+    <text x="1085" y="333" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Estados</text>
+    <line x1="900" y1="260" x2="1085" y2="300" stroke="#4ade80" stroke-width="2"/>
+    
+    <!-- Diagramas de Interacción (subgrupo) -->
+    <rect x="735" y="390" width="330" height="60" fill="#f59e0b" stroke="#fbbf24" stroke-width="2" rx="5"/>
+    <text x="900" y="426" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">
+      Diagramas de Interacción
+    </text>
+    <line x1="900" y1="260" x2="900" y2="390" stroke="#4ade80" stroke-width="2"/>
+    
+    <!-- Secuencia -->
+    <rect x="670" y="475" width="150" height="55" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="3"/>
+    <text x="745" y="508" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Secuencia</text>
+    <line x1="900" y1="450" x2="745" y2="475" stroke="#fbbf24" stroke-width="2"/>
+    
+    <!-- Comunicación -->
+    <rect x="840" y="475" width="150" height="55" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="3"/>
+    <text x="915" y="508" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Comunicación</text>
+    <line x1="900" y1="450" x2="915" y2="475" stroke="#fbbf24" stroke-width="2"/>
+    
+    <!-- Timing -->
+    <rect x="1010" y="475" width="150" height="55" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="3"/>
+    <text x="1085" y="508" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">Timing</text>
+    <line x1="900" y1="450" x2="1085" y2="475" stroke="#fbbf24" stroke-width="2"/>
+    
+    <!-- Interacción Global -->
+    <rect x="825" y="555" width="150" height="55" fill="#2d2d2d" stroke="#fbbf24" stroke-width="2" rx="3"/>
+    <text x="900" y="578" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Interacción</text>
+    <text x="900" y="596" font-size="14" font-weight="bold" text-anchor="middle" fill="#ffffff">Global</text>
+    <line x1="900" y1="450" x2="900" y2="555" stroke="#fbbf24" stroke-width="2"/>
+  </g>
+  
+  <!-- Leyenda -->
+  <g id="leyenda">
+    <rect x="50" y="650" width="550" height="130" fill="#2d2d2d" stroke="#64748b" stroke-width="2" rx="5"/>
+    <text x="325" y="680" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      Leyenda de Uso
+    </text>
+    
+    <!-- Estructurales -->
+    <rect x="70" y="700" width="20" height="20" fill="#dc2626" stroke="#f87171" stroke-width="1"/>
+    <text x="100" y="715" font-size="14" fill="#e5e7eb">Diagramas estructurales (vista estática)</text>
+    
+    <!-- Comportamiento -->
+    <rect x="70" y="730" width="20" height="20" fill="#16a34a" stroke="#4ade80" stroke-width="1"/>
+    <text x="100" y="745" font-size="14" fill="#e5e7eb">Diagramas de comportamiento (vista dinámica)</text>
+    
+    <!-- Interacción -->
+    <rect x="70" y="760" width="20" height="20" fill="#f59e0b" stroke="#fbbf24" stroke-width="1"/>
+    <text x="100" y="775" font-size="14" fill="#e5e7eb">Subgrupo: Diagramas de interacción</text>
+  </g>
+  
+  <!-- Indicadores de uso frecuente (estrellas) -->
+  <text x="115" y="290" font-size="20" fill="#fbbf24">★★★</text>
+  <text x="745" y="290" font-size="20" fill="#fbbf24">★★★</text>
+  <text x="915" y="290" font-size="20" fill="#fbbf24">★★</text>
+  <text x="745" y="465" font-size="20" fill="#fbbf24">★★★</text>
+  
+  <!-- Nota inferior -->
+  <text x="600" y="770" font-size="13" text-anchor="middle" fill="#94a3b8">
+    Los diagramas marcados con ★★★ son los más utilizados en la práctica del desarrollo de software
+  </text>
+</svg>

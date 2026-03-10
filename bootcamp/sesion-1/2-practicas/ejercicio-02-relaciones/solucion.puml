@@ -1,0 +1,67 @@
+@startuml
+' ============================================================
+' Ejercicio 02 — SOLUCIÓN: Las 6 Relaciones
+' ============================================================
+
+skinparam classBackgroundColor #2d2d2d
+skinparam classBorderColor #8b5cf6
+skinparam classFontColor #e2e8f0
+skinparam classAttributeFontColor #94a3b8
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+
+' Interfaz
+interface Evaluable {
+  + {abstract} evaluar(): Double
+}
+
+' Clase abstracta base
+abstract class Persona {
+  # nombre: String
+  # email: String
+  + getNombre(): String
+}
+
+' Subclases (HERENCIA)
+class Estudiante {
+  - matricula: String
+  - promedio: Double
+  + evaluar(): Double
+}
+
+class Profesor {
+  - legajo: String
+  - especialidad: String
+}
+
+class Curso {
+  - codigo: String
+  - nombre: String
+  - creditos: int
+  + evaluar(): Double
+}
+
+class Material {
+  - titulo: String
+  - tipo: String
+  - url: String
+}
+
+' 1 y 2 — HERENCIA
+Persona <|-- Estudiante
+Persona <|-- Profesor
+
+' 3 — COMPOSICIÓN: materiales pertenecen al curso (no existen sin él)
+Curso "1" *-- "1..*" Material : contiene >
+
+' 4 — AGREGACIÓN: un profesor dicta cursos (puede existir sin cursos)
+Profesor "1..2" o-- "1..5" Curso : dicta >
+
+' 5 — ASOCIACIÓN N:M: inscripciones
+Estudiante "0..*" -- "1..*" Curso : inscripto en >
+
+' 6 y 7 — REALIZACIÓN
+Curso <|.. Evaluable
+Estudiante <|.. Evaluable
+
+@enduml

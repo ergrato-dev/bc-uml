@@ -1,0 +1,93 @@
+@startuml
+' ============================================================
+' Ejercicio 01 — Red Social: Diagrama de Casos de Uso (SOLUCIÓN)
+' ============================================================
+
+left to right direction
+
+skinparam actorBackgroundColor #2d2d2d
+skinparam actorBorderColor #8b5cf6
+skinparam actorFontColor #e2e8f0
+skinparam backgroundColor #1a1a1a
+skinparam usecaseBackgroundColor #2d2d2d
+skinparam usecaseBorderColor #8b5cf6
+skinparam usecaseFontColor #e2e8f0
+skinparam arrowColor #94a3b8
+skinparam noteFontColor #e2e8f0
+skinparam noteBackgroundColor #1e293b
+skinparam noteBorderColor #475569
+
+' ── Actores ─────────────────────────────────────────────────
+actor "Usuario No\nRegistrado" as UNR
+actor "Usuario\nRegistrado"    as UR
+actor "Moderador"              as MOD
+actor "Sistema de\nNotificaciones" as SN
+
+' ── Generalización ──────────────────────────────────────────
+UR  <|-- MOD
+
+' ── Sistema ─────────────────────────────────────────────────
+rectangle "SocialConnect" {
+
+  ' Casos de uso compartidos / de acceso público
+  usecase "Registrarse"            as UC01
+  usecase "Ver Perfil Público"     as UC02
+
+  ' Casos de uso de Usuario Registrado
+  usecase "Iniciar Sesión"         as UC03
+  usecase "Publicar Contenido"     as UC04
+  usecase "Dar Me Gusta"           as UC05
+  usecase "Comentar Publicación"   as UC06
+  usecase "Seguir Usuario"         as UC07
+  usecase "Enviar Mensaje Directo" as UC08
+  usecase "Reportar Contenido"     as UC09
+  usecase "Editar Perfil"          as UC10
+
+  ' Casos de uso de Moderador
+  usecase "Ver Reportes Pendientes" as UC11
+  usecase "Banear Usuario"          as UC12
+  usecase "Eliminar Contenido"      as UC13
+
+  ' Casos de uso incluidos (abstracciones reutilizables)
+  usecase "Autenticar Usuario"      as UC_AUTH
+  usecase "Comprimir Imagen"        as UC_IMG
+  usecase "Validar Sesión Activa"   as UC_SES
+
+  ' Casos de uso extendidos (comportamiento opcional)
+  usecase "Etiquetar Amigos"        as UC_EXT1
+  usecase "Adjuntar Imagen\nen Comentario" as UC_EXT2
+  usecase "Notificar Seguimiento\nde Reporte" as UC_EXT3
+
+  ' ── Asociaciones actor → CU ───────────────────────────────
+  UNR  --> UC01
+  UNR  --> UC02
+
+  UR   --> UC03
+  UR   --> UC04
+  UR   --> UC05
+  UR   --> UC06
+  UR   --> UC07
+  UR   --> UC08
+  UR   --> UC09
+  UR   --> UC10
+
+  MOD  --> UC11
+  MOD  --> UC12
+  MOD  --> UC13
+
+  ' Actor secundario
+  SN   --> UC_EXT3
+
+  ' ── Relaciones include ────────────────────────────────────
+  UC03 .> UC_AUTH : «include»
+  UC04 .> UC_SES  : «include»
+  UC08 .> UC_SES  : «include»
+  UC04 .> UC_IMG  : «include»
+
+  ' ── Relaciones extend ─────────────────────────────────────
+  UC_EXT1 .> UC04 : «extend»
+  UC_EXT2 .> UC06 : «extend»
+  UC_EXT3 .> UC09 : «extend»
+}
+
+@enduml

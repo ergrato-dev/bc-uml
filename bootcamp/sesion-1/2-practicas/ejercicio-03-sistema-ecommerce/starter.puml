@@ -1,0 +1,113 @@
+@startuml
+' ============================================================
+' Ejercicio 03 — Sistema E-Commerce Completo (STARTER)
+'
+' Instrucciones:
+'   1. Completa cada clase con sus atributos y métodos
+'   2. Agrega el enum EstadoPedido
+'   3. Crea la interfaz Pagable y sus implementaciones
+'   4. Conecta todas las clases con el tipo de relación correcto
+'   5. Añade multiplicidades en todas las asociaciones
+'   6. Agrega comentarios ' justificando tus decisiones de diseño
+' ============================================================
+
+skinparam classBackgroundColor #2d2d2d
+skinparam classBorderColor #8b5cf6
+skinparam classFontColor #e2e8f0
+skinparam classAttributeFontColor #94a3b8
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+
+' --- JERARQUÍA DE USUARIOS ---
+abstract class Usuario {
+  ' TODO: atributos comunes
+}
+
+class ClienteRegistrado {
+  ' TODO: atributos específicos del cliente
+}
+
+class Administrador {
+  ' TODO: atributos del admin
+}
+
+class Vendedor {
+  ' TODO: atributos del vendedor
+}
+
+' TODO: Relacionar subclases con Usuario (herencia)
+
+
+' --- DIRECCIÓN ---
+class Direccion {
+  ' TODO: atributos
+}
+
+' TODO: Relacionar Direccion con Cliente
+' Decisión: composición o agregación?
+' Justificación: '...
+
+
+' --- CATÁLOGO ---
+class Producto {
+  ' TODO: atributos
+}
+
+class Categoria {
+  ' TODO: atributos
+}
+
+class Imagen {
+  ' TODO: url, altText
+}
+
+' TODO: Relacionar Producto con Categoria (muchos a muchos)
+' TODO: Relacionar Producto con Imagen
+' Decisión sobre Imagen: composición o agregación?
+' Justificación: '...
+
+' TODO: Categoría con sub-categorías (auto-relación)
+' Decisión: ¿cómo modelarías la jerarquía de categorías?
+' Justificación: '...
+
+
+' --- PEDIDOS ---
+enum EstadoPedido {
+  ' TODO: estados del pedido
+}
+
+class Pedido {
+  ' TODO: atributos (recuerda: total es derivado)
+}
+
+class LineaPedido {
+  ' TODO: atributos (recuerda: subtotal es derivado)
+}
+
+' TODO: Relacionar Pedido con LineaPedido (composición)
+' TODO: Relacionar LineaPedido con Producto
+' TODO: Relacionar Pedido con Cliente
+
+
+' --- PAGOS ---
+interface Pagable {
+  ' TODO: método procesar
+  ' TODO: método reembolsar
+}
+
+class PagoTarjeta {
+  ' TODO: atributos específicos de tarjeta
+}
+
+class PagoPayPal {
+  ' TODO: atributos específicos de PayPal
+}
+
+class PagoTransferencia {
+  ' TODO: atributos específicos de transferencia
+}
+
+' TODO: Relacionar implementaciones con la interfaz Pagable
+' TODO: Relacionar Pedido con Pagable (un pedido puede tener un pago)
+
+@enduml

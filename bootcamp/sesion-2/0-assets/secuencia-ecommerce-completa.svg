@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1200">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .lifeline { stroke: #4ade80; stroke-width: 2; stroke-dasharray: 5,5; }
+      .actor-box { fill: #2a2a2a; stroke: #0ea5e9; stroke-width: 2; }
+      .activation { fill: #3a3a3a; stroke: #0ea5e9; stroke-width: 2; }
+      .message { stroke: #0ea5e9; stroke-width: 2; fill: none; }
+      .message-return { stroke: #fbbf24; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .fragment { fill: none; stroke: #f87171; stroke-width: 2; }
+      .text { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+      .text-small { fill: #e5e5e5; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+      .text-title { fill: #0ea5e9; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; }
+      .text-fragment { fill: #f87171; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; }
+    </style>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect class="bg" width="1400" height="1200"/>
+  
+  <!-- Título -->
+  <text x="700" y="30" class="text-title" text-anchor="middle">Diagrama de Secuencia - Proceso Completo de Compra E-Commerce</text>
+  
+  <!-- Actores y Objetos -->
+  <!-- Cliente -->
+  <rect class="actor-box" x="50" y="60" width="120" height="60"/>
+  <text x="110" y="95" class="text" text-anchor="middle">:Cliente</text>
+  <line class="lifeline" x1="110" y1="120" x2="110" y2="1150"/>
+  
+  <!-- UI -->
+  <rect class="actor-box" x="230" y="60" width="140" height="60"/>
+  <text x="300" y="95" class="text" text-anchor="middle">:InterfazWeb</text>
+  <line class="lifeline" x1="300" y1="120" x2="300" y2="1150"/>
+  
+  <!-- ControladorPedido -->
+  <rect class="actor-box" x="430" y="60" width="180" height="60"/>
+  <text x="520" y="95" class="text" text-anchor="middle">:ControladorPedido</text>
+  <line class="lifeline" x1="520" y1="120" x2="520" y2="1150"/>
+  
+  <!-- ServicioCarrito -->
+  <rect class="actor-box" x="670" y="60" width="160" height="60"/>
+  <text x="750" y="95" class="text" text-anchor="middle">:ServicioCarrito</text>
+  <line class="lifeline" x1="750" y1="120" x2="750" y2="1150"/>
+  
+  <!-- ServicioPago -->
+  <rect class="actor-box" x="890" y="60" width="150" height="60"/>
+  <text x="965" y="95" class="text" text-anchor="middle">:ServicioPago</text>
+  <line class="lifeline" x1="965" y1="120" x2="965" y2="1150"/>
+  
+  <!-- ServicioInventario -->
+  <rect class="actor-box" x="1100" y="60" width="180" height="60"/>
+  <text x="1190" y="95" class="text" text-anchor="middle">:ServicioInventario</text>
+  <line class="lifeline" x1="1190" y1="120" x2="1190" y2="1150"/>
+  
+  <!-- Secuencia de mensajes -->
+  
+  <!-- 1. Agregar productos al carrito -->
+  <text x="20" y="165" class="text-small" fill="#4ade80">1. Agregar productos</text>
+  
+  <path class="message" d="M 110 170 L 290 170"/>
+  <polygon fill="#0ea5e9" points="290,170 280,165 280,175"/>
+  <text x="140" y="165" class="text-small">agregarProducto(id, cantidad)</text>
+  <rect class="activation" x="295" y="170" width="10" height="80"/>
+  
+  <path class="message" d="M 305 190 L 510 190"/>
+  <polygon fill="#0ea5e9" points="510,190 500,185 500,195"/>
+  <text x="340" y="185" class="text-small">agregarAlCarrito(producto)</text>
+  <rect class="activation" x="515" y="190" width="10" height="50"/>
+  
+  <path class="message" d="M 525 210 L 740 210"/>
+  <polygon fill="#0ea5e9" points="740,210 730,205 730,215"/>
+  <text x="580" y="205" class="text-small">agregar(producto)</text>
+  <rect class="activation" x="745" y="210" width="10" height="20"/>
+  
+  <path class="message-return" d="M 740 230 L 525 230"/>
+  <text x="580" y="225" class="text-small">confirmación</text>
+  
+  <path class="message-return" d="M 510 240 L 305 240"/>
+  <text x="360" y="235" class="text-small">ok</text>
+  
+  <!-- 2. Ver carrito -->
+  <text x="20" y="285" class="text-small" fill="#4ade80">2. Revisar carrito</text>
+  
+  <path class="message" d="M 110 290 L 290 290"/>
+  <polygon fill="#0ea5e9" points="290,290 280,285 280,295"/>
+  <text x="140" y="285" class="text-small">verCarrito()</text>
+  <rect class="activation" x="295" y="290" width="10" height="60"/>
+  
+  <path class="message" d="M 305 310 L 740 310"/>
+  <polygon fill="#0ea5e9" points="740,310 730,305 730,315"/>
+  <text x="450" y="305" class="text-small">obtenerItems()</text>
+  <rect class="activation" x="745" y="310" width="10" height="20"/>
+  
+  <path class="message-return" d="M 740 330 L 305 330"/>
+  <text x="450" y="325" class="text-small">lista de items</text>
+  
+  <path class="message-return" d="M 290 340 L 110 340"/>
+  <text x="140" y="335" class="text-small">mostrar carrito</text>
+  
+  <!-- 3. Procesar pedido (fragmento ALT) -->
+  <text x="20" y="395" class="text-small" fill="#4ade80">3. Procesar pedido</text>
+  
+  <!-- Fragmento ALT -->
+  <rect class="fragment" x="80" y="380" width="1260" height="520"/>
+  <text x="90" y="400" class="text-fragment">[alt]</text>
+  <text x="140" y="400" class="text-small">Stock disponible / Stock insuficiente</text>
+  
+  <!-- Caso: Stock disponible -->
+  <line x1="80" y1="410" x2="1340" y2="410" stroke="#f87171" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="90" y="430" class="text-small" fill="#4ade80">[stock disponible]</text>
+  
+  <path class="message" d="M 110 440 L 290 440"/>
+  <polygon fill="#0ea5e9" points="290,440 280,435 280,445"/>
+  <text x="140" y="435" class="text-small">confirmarPedido()</text>
+  <rect class="activation" x="295" y="440" width="10" height="300"/>
+  
+  <path class="message" d="M 305 460 L 510 460"/>
+  <polygon fill="#0ea5e9" points="510,460 500,455 500,465"/>
+  <text x="340" y="455" class="text-small">crearPedido(carrito)</text>
+  <rect class="activation" x="515" y="460" width="10" height="260"/>
+  
+  <!-- Verificar stock -->
+  <path class="message" d="M 525 480 L 1180 480"/>
+  <polygon fill="#0ea5e9" points="1180,480 1170,475 1170,485"/>
+  <text x="760" y="475" class="text-small">verificarDisponibilidad(items)</text>
+  <rect class="activation" x="1185" y="480" width="10" height="40"/>
+  
+  <path class="message-return" d="M 1180 510 L 525 510"/>
+  <text x="760" y="505" class="text-small">disponible: true</text>
+  
+  <!-- Reservar stock -->
+  <path class="message" d="M 525 530 L 1180 530"/>
+  <polygon fill="#0ea5e9" points="1180,530 1170,525 1170,535"/>
+  <text x="760" y="525" class="text-small">reservarStock(items)</text>
+  <rect class="activation" x="1185" y="530" width="10" height="30"/>
+  
+  <path class="message-return" d="M 1180 550 L 525 550"/>
+  <text x="760" y="545" class="text-small">reservado</text>
+  
+  <!-- Procesar pago -->
+  <path class="message" d="M 525 570 L 955 570"/>
+  <polygon fill="#0ea5e9" points="955,570 945,565 945,575"/>
+  <text x="680" y="565" class="text-small">procesarPago(monto, tarjeta)</text>
+  <rect class="activation" x="960" y="570" width="10" height="60"/>
+  
+  <path class="message" d="M 960 590 L 960 610"/>
+  <polygon fill="#0ea5e9" points="960,610 955,600 965,600"/>
+  <text x="975" y="600" class="text-small">validarTarjeta()</text>
+  
+  <path class="message-return" d="M 955 630 L 525 630"/>
+  <text x="680" y="625" class="text-small">pago exitoso</text>
+  
+  <!-- Confirmar stock -->
+  <path class="message" d="M 525 650 L 1180 650"/>
+  <polygon fill="#0ea5e9" points="1180,650 1170,645 1170,655"/>
+  <text x="760" y="645" class="text-small">confirmarReserva(items)</text>
+  <rect class="activation" x="1185" y="650" width="10" height="30"/>
+  
+  <path class="message-return" d="M 1180 670 L 525 670"/>
+  <text x="760" y="665" class="text-small">confirmado</text>
+  
+  <!-- Crear pedido -->
+  <path class="message" d="M 525 690 L 740 690"/>
+  <polygon fill="#0ea5e9" points="740,690 730,685 730,695"/>
+  <text x="580" y="685" class="text-small">vaciarCarrito()</text>
+  <rect class="activation" x="745" y="690" width="10" height="20"/>
+  
+  <path class="message-return" d="M 740 705 L 525 705"/>
+  
+  <path class="message-return" d="M 510 720 L 305 720"/>
+  <text x="340" y="715" class="text-small">pedido creado: #12345</text>
+  
+  <path class="message-return" d="M 290 730 L 110 730"/>
+  <text x="140" y="725" class="text-small">mostrar confirmación</text>
+  
+  <!-- División: Stock insuficiente -->
+  <line x1="80" y1="760" x2="1340" y2="760" stroke="#f87171" stroke-width="2"/>
+  <text x="90" y="780" class="text-small" fill="#f87171">[else: stock insuficiente]</text>
+  
+  <path class="message" d="M 110 790 L 290 790"/>
+  <polygon fill="#0ea5e9" points="290,790 280,785 280,795"/>
+  <text x="140" y="785" class="text-small">confirmarPedido()</text>
+  <rect class="activation" x="295" y="790" width="10" height="90"/>
+  
+  <path class="message" d="M 305 810 L 510 810"/>
+  <polygon fill="#0ea5e9" points="510,810 500,805 500,815"/>
+  <text x="340" y="805" class="text-small">crearPedido(carrito)</text>
+  <rect class="activation" x="515" y="810" width="10" height="50"/>
+  
+  <path class="message" d="M 525 830 L 1180 830"/>
+  <polygon fill="#0ea5e9" points="1180,830 1170,825 1170,835"/>
+  <text x="760" y="825" class="text-small">verificarDisponibilidad(items)</text>
+  <rect class="activation" x="1185" y="830" width="10" height="20"/>
+  
+  <path class="message-return" d="M 1180 845 L 525 845"/>
+  <text x="760" y="840" class="text-small" fill="#f87171">disponible: false</text>
+  
+  <path class="message-return" d="M 510 855 L 305 855"/>
+  <text x="340" y="850" class="text-small" fill="#f87171">error: stock insuficiente</text>
+  
+  <path class="message-return" d="M 290 870 L 110 870"/>
+  <text x="140" y="865" class="text-small" fill="#f87171">mostrar error</text>
+  
+  <!-- Fin fragmento ALT -->
+  
+  <!-- 4. Fragmento OPT: Envío de confirmación -->
+  <text x="20" y="945" class="text-small" fill="#4ade80">4. Notificación (si pedido exitoso)</text>
+  
+  <rect class="fragment" x="80" y="930" width="1000" height="140"/>
+  <text x="90" y="950" class="text-fragment">[opt]</text>
+  <text x="140" y="950" class="text-small">Pedido confirmado</text>
+  
+  <path class="message" d="M 520 970 L 520 1000"/>
+  <polygon fill="#0ea5e9" points="520,1000 515,990 525,990"/>
+  <text x="530" y="985" class="text-small">enviarEmailConfirmacion(pedido)</text>
+  <rect class="activation" x="515" y="1000" width="10" height="20"/>
+  
+  <path class="message" d="M 520 1030 L 520 1050"/>
+  <polygon fill="#0ea5e9" points="520,1050 515,1040 525,1040"/>
+  <text x="530" y="1040" class="text-small">enviarSMSConfirmacion(pedido)</text>
+  <rect class="activation" x="515" y="1050" width="10" height="20"/>
+  
+  <!-- Leyenda -->
+  <rect class="actor-box" x="50" y="1100" width="1300" height="80"/>
+  <text x="700" y="1125" class="text-title" text-anchor="middle">Leyenda</text>
+  
+  <line x1="70" y1="1145" x2="150" y2="1145" class="message"/>
+  <polygon fill="#0ea5e9" points="150,1145 140,1140 140,1150"/>
+  <text x="160" y="1150" class="text-small">Mensaje síncrono</text>
+  
+  <line x1="350" y1="1145" x2="430" y2="1145" class="message-return"/>
+  <text x="440" y="1150" class="text-small">Mensaje de retorno</text>
+  
+  <rect class="activation" x="630" y="1135" width="10" height="25"/>
+  <text x="650" y="1150" class="text-small">Activación (procesamiento)</text>
+  
+  <rect class="fragment" x="870" y="1135" width="100" height="25"/>
+  <text x="980" y="1150" class="text-small">Fragmento combinado</text>
+  
+  <text x="1150" y="1150" class="text-small">[alt] = alternativa</text>
+  <text x="1150" y="1170" class="text-small">[opt] = opcional</text>
+</svg>

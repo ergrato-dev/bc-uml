@@ -1,0 +1,167 @@
+@startuml
+' ============================================================
+' Ejercicio 03 — SOLUCIÓN: Sistema E-Commerce
+' ============================================================
+
+skinparam classBackgroundColor #2d2d2d
+skinparam classBorderColor #8b5cf6
+skinparam classFontColor #e2e8f0
+skinparam classAttributeFontColor #94a3b8
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+
+' --- ENUM ---
+enum EstadoPedido {
+  CREADO
+  CONFIRMADO
+  PAGADO
+  ENVIADO
+  ENTREGADO
+  CANCELADO
+}
+
+' --- JERARQUÍA DE USUARIOS ---
+abstract class Usuario {
+  - id: String
+  - email: String
+  - passwordHash: String
+  - nombre: String
+  - apellido: String
+  - fechaRegistro: Date
+  - activo: boolean
+  --
+  + verificarCredenciales(pass: String): boolean
+  + actualizarPerfil(): void
+  + darDeBaja(): void
+}
+
+class ClienteRegistrado {
+  - puntosFidelidad: int
+}
+
+class Administrador {
+  - nivelAcceso: int
+}
+
+class Vendedor {
+  - comision: Double
+  - tienda: String
+}
+
+' HERENCIA
+Usuario <|-- ClienteRegistrado
+Usuario <|-- Administrador
+Usuario <|-- Vendedor
+
+' --- DIRECCIÓN ---
+' Decisión: COMPOSICIÓN — las direcciones no tienen sentido sin el usuario
+class Direccion {
+  - calle: String
+  - numero: String
+  - ciudad: String
+  - pais: String
+  - codigoPostal: String
+  - predeterminada: boolean
+}
+
+ClienteRegistrado "1" *-- "0..*" Direccion : tiene >
+
+' --- CATÁLOGO ---
+class Categoria {
+  - id: String
+  - nombre: String
+  - descripcion: String
+  --
+  + getSubcategorias(): List<Categoria>
+}
+
+' Auto-relación: una categoría puede tener subcategorías
+Categoria "1" o-- "0..*" Categoria : contiene >
+
+class Imagen {
+  - url: String
+  - altText: String
+  - orden: int
+}
+
+class Producto {
+  - sku: String
+  - nombre: String
+  - descripcion: String
+  - precio: Double
+  - stock: int
+  - activo: boolean
+  --
+  + estaDisponible(): boolean
+  + actualizarStock(cantidad: int): void
+}
+
+' Decisión: COMPOSICIÓN — las imágenes no existen sin el producto
+Producto "1" *-- "0..*" Imagen : tiene >
+
+' Asociación N:M con Categoría (un producto puede estar en múltiples categorías)
+Producto "0..*" -- "1..*" Categoria : pertenece a >
+
+' --- PEDIDOS ---
+class Pedido {
+  - numeroPedido: String
+  - fecha: Date
+  - estado: EstadoPedido
+  / total: Double
+  --
+  + confirmar(): void
+  + cancelar(): void
+  + calcularTotal(): Double
+}
+
+class LineaPedido {
+  - cantidad: int
+  - precioUnitario: Double
+  / subtotal: Double
+}
+
+' El cliente realiza pedidos (asociación: pedido puede sobrevivir al cliente)
+ClienteRegistrado "1" -- "0..*" Pedido : realiza >
+
+' COMPOSICIÓN: las líneas no existen sin el pedido
+Pedido "1" *-- "1..*" LineaPedido : contiene >
+
+' Asociación: referencia al producto (el producto existe independientemente)
+LineaPedido "1..*" -- "1" Producto : referencia >
+
+' --- PAGOS ---
+interface Pagable {
+  + {abstract} procesar(monto: Double): boolean
+  + {abstract} reembolsar(): boolean
+}
+
+class PagoTarjeta {
+  - numeroMascarado: String
+  - marca: String
+  - ultimosDigitos: String
+  + procesar(monto: Double): boolean
+  + reembolsar(): boolean
+}
+
+class PagoPayPal {
+  - emailCuenta: String
+  + procesar(monto: Double): boolean
+  + reembolsar(): boolean
+}
+
+class PagoTransferencia {
+  - cbu: String
+  - banco: String
+  + procesar(monto: Double): boolean
+  + reembolsar(): boolean
+}
+
+' REALIZACIÓN
+Pagable <|.. PagoTarjeta
+Pagable <|.. PagoPayPal
+Pagable <|.. PagoTransferencia
+
+' Un pedido tiene un pago (agregación: el pago podría registrarse independientemente)
+Pedido "1" o-- "0..1" Pagable : pagado con >
+
+@enduml

@@ -1,0 +1,202 @@
+<svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .state { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .initial { 
+        fill: #0ea5e9;
+      }
+      .final { 
+        fill: #1a1a1a; 
+        stroke: #0ea5e9; 
+        stroke-width: 3;
+      }
+      .final-inner { 
+        fill: #0ea5e9;
+      }
+      .transition { 
+        stroke: #4ade80; 
+        stroke-width: 2; 
+        fill: none;
+        marker-end: url(#arrowGreen);
+      }
+      .transition-cancel { 
+        stroke: #f87171; 
+        stroke-width: 2; 
+        fill: none;
+        marker-end: url(#arrowRed);
+      }
+      .label { 
+        font-size: 13px; 
+        fill: #4ade80;
+      }
+      .label-cancel { 
+        font-size: 13px; 
+        fill: #f87171;
+      }
+      .label-condition { 
+        font-size: 11px; 
+        fill: #fbbf24; 
+        font-style: italic;
+      }
+      .state-name { 
+        font-size: 16px; 
+        font-weight: bold;
+      }
+      .composite-state {
+        fill: #0f2942;
+        stroke: #0ea5e9;
+        stroke-width: 2;
+        stroke-dasharray: 5,5;
+      }
+    </style>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#f87171"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="800" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Estados: Ciclo de Vida de un Pedido
+  </text>
+  
+  <!-- Initial State -->
+  <circle cx="80" cy="100" r="12" class="initial"/>
+  <path d="M 92 100 L 150 100" class="transition"/>
+  
+  <!-- Estado: Creado -->
+  <rect x="150" y="70" width="120" height="60" rx="8" class="state"/>
+  <text x="210" y="105" text-anchor="middle" class="state-name">Creado</text>
+  
+  <!-- Transiciones desde Creado -->
+  <path d="M 270 85 L 350 85" class="transition"/>
+  <text x="310" y="75" text-anchor="middle" class="label">confirmar()</text>
+  <text x="310" y="90" text-anchor="middle" class="label-condition">[stockDisponible]</text>
+  
+  <path d="M 210 130 L 210 680 L 500 680" class="transition-cancel"/>
+  <text x="220" y="400" class="label-cancel">cancelar()</text>
+  
+  <!-- Estado: Confirmado -->
+  <rect x="350" y="55" width="120" height="60" rx="8" class="state"/>
+  <text x="410" y="90" text-anchor="middle" class="state-name">Confirmado</text>
+  
+  <!-- Estado Compuesto: Pagado -->
+  <rect x="550" y="30" width="180" height="120" rx="8" class="composite-state"/>
+  <text x="640" y="55" text-anchor="middle" class="state-name">Pagado</text>
+  
+  <!-- Subestados dentro de Pagado -->
+  <rect x="565" y="65" width="150" height="35" rx="5" class="state"/>
+  <text x="640" y="87" text-anchor="middle" font-size="12">Verificando Pago</text>
+  
+  <rect x="565" y="105" width="70" height="30" rx="5" class="state"/>
+  <text x="600" y="124" text-anchor="middle" font-size="11">Confirmado</text>
+  
+  <rect x="645" y="105" width="70" height="30" rx="5" class="state"/>
+  <text x="680" y="124" text-anchor="middle" font-size="11">Rechazado</text>
+  
+  <path d="M 640 100 L 600 105" stroke="#4ade80" stroke-width="1" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M 640 100 L 680 105" stroke="#f87171" stroke-width="1" fill="none" marker-end="url(#arrowRed)"/>
+  
+  <!-- Transición Confirmado -> Pagado -->
+  <path d="M 470 75 L 550 75" class="transition"/>
+  <text x="510" y="65" text-anchor="middle" class="label">procesarPago()</text>
+  <text x="510" y="80" text-anchor="middle" class="label-condition">[pagoExitoso]</text>
+  
+  <!-- Transición Confirmado -> Cancelado -->
+  <path d="M 410 115 L 410 680 L 500 680" class="transition-cancel"/>
+  <text x="420" y="400" class="label-cancel">cancelar()</text>
+  <text x="420" y="415" class="label-condition">[antesDeEnvio]</text>
+  
+  <!-- Estado: EnPreparacion -->
+  <rect x="770" y="55" width="140" height="60" rx="8" class="state"/>
+  <text x="840" y="90" text-anchor="middle" class="state-name">En Preparación</text>
+  
+  <path d="M 730 90 L 770 90" class="transition"/>
+  <text x="750" y="80" text-anchor="middle" class="label">iniciar()</text>
+  
+  <!-- Estado: Enviado -->
+  <rect x="770" y="175" width="140" height="60" rx="8" class="state"/>
+  <text x="840" y="210" text-anchor="middle" class="state-name">Enviado</text>
+  
+  <path d="M 840 115 L 840 175" class="transition"/>
+  <text x="860" y="145" class="label">enviar()</text>
+  
+  <!-- Estado: En Tránsito -->
+  <rect x="770" y="295" width="140" height="60" rx="8" class="state"/>
+  <text x="840" y="330" text-anchor="middle" class="state-name">En Tránsito</text>
+  
+  <path d="M 840 235 L 840 295" class="transition"/>
+  <text x="860" y="265" class="label">salirAlmacen()</text>
+  
+  <!-- Estado: Entregado -->
+  <rect x="580" y="415" width="120" height="60" rx="8" class="state"/>
+  <text x="640" y="450" text-anchor="middle" class="state-name">Entregado</text>
+  
+  <path d="M 840 355 L 840 445 L 700 445" class="transition"/>
+  <text x="770" y="400" class="label">confirmarEntrega()</text>
+  
+  <!-- Estado: Devuelto -->
+  <rect x="350" y="535" width="120" height="60" rx="8" class="state"/>
+  <text x="410" y="570" text-anchor="middle" class="state-name">Devuelto</text>
+  
+  <path d="M 840 320 L 920 320 L 920 565 L 470 565" class="transition-cancel"/>
+  <text x="880" y="440" class="label-cancel">iniciarDevolucion()</text>
+  
+  <path d="M 640 475 L 640 565 L 470 565" class="transition-cancel"/>
+  <text x="560" y="520" class="label-cancel">solicitarDevolucion()</text>
+  <text x="560" y="535" class="label-condition">[dentroDePlazo]</text>
+  
+  <!-- Estado: Completado -->
+  <rect x="580" y="535" width="120" height="60" rx="8" class="state"/>
+  <text x="640" y="570" text-anchor="middle" class="state-name">Completado</text>
+  
+  <path d="M 640 475 L 640 535" class="transition"/>
+  <text x="660" y="505" class="label">cerrarPedido()</text>
+  <text x="660" y="520" class="label-condition">[sinReclamos]</text>
+  
+  <!-- Estado: Reembolsado -->
+  <rect x="150" y="535" width="130" height="60" rx="8" class="state"/>
+  <text x="215" y="570" text-anchor="middle" class="state-name">Reembolsado</text>
+  
+  <path d="M 350 565 L 280 565" class="transition"/>
+  <text x="315" y="555" class="label">procesarReembolso()</text>
+  
+  <!-- Estado: Cancelado -->
+  <rect x="440" y="650" width="120" height="60" rx="8" class="state"/>
+  <text x="500" y="685" text-anchor="middle" class="state-name">Cancelado</text>
+  
+  <!-- Final States -->
+  <circle cx="215" cy="650" r="18" class="final"/>
+  <circle cx="215" cy="650" r="12" class="final-inner"/>
+  <path d="M 215 595 L 215 632" class="transition"/>
+  
+  <circle cx="640" cy="650" r="18" class="final"/>
+  <circle cx="640" cy="650" r="12" class="final-inner"/>
+  <path d="M 640 595 L 640 632" class="transition"/>
+  
+  <circle cx="500" cy="750" r="18" class="final"/>
+  <circle cx="500" cy="750" r="12" class="final-inner"/>
+  <path d="M 500 710 L 500 732" class="transition"/>
+  
+  <!-- Legend -->
+  <text x="20" y="750" font-size="14" font-weight="bold" fill="#0ea5e9">Leyenda:</text>
+  <line x1="20" y1="760" x2="60" y2="760" class="transition"/>
+  <text x="70" y="765" font-size="12">Flujo normal</text>
+  
+  <line x1="20" y1="780" x2="60" y2="780" class="transition-cancel"/>
+  <text x="70" y="785" font-size="12">Cancelación/Devolución</text>
+  
+</svg>

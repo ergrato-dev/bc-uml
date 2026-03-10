@@ -1,0 +1,66 @@
+@startuml
+' ============================================================
+' Ejercicio 02 — Transferencia Bancaria: Diagrama de Secuencia (STARTER)
+'
+' Instrucciones:
+'   1. Declara los participantes con el tipo correcto (actor, boundary,
+'      control, entity)
+'   2. Escribe los mensajes en secuencia (->  para síncrono, -->  para
+'      retorno, ->> para asíncrono)
+'   3. Añade el fragmento alt para la validación de fondos
+'   4. Añade el fragmento alt para el antifraude
+'   5. Añade el fragmento opt para montos > 10000
+'   6. Usa activate/deactivate para mostrar activación de lifelines
+' ============================================================
+
+skinparam backgroundColor #1a1a1a
+skinparam sequenceArrowColor #94a3b8
+skinparam sequenceLifeLineBorderColor #8b5cf6
+skinparam sequenceLifeLineBackgroundColor #2d2d2d
+skinparam sequenceParticipantBorderColor #8b5cf6
+skinparam sequenceParticipantBackgroundColor #2d2d2d
+skinparam sequenceParticipantFontColor #e2e8f0
+skinparam sequenceGroupBorderColor #8b5cf6
+skinparam sequenceGroupBodyBackgroundColor #1e1e2e
+skinparam sequenceGroupFontSize 13
+skinparam noteFontColor #e2e8f0
+skinparam noteBackgroundColor #1e293b
+skinparam noteBorderColor #475569
+
+' TODO: Declara los participantes
+' Tipos en PlantUML: actor, boundary, control, entity, database
+' Ejemplo: boundary ":AppBancaria" as APP
+'
+' Participantes (en orden de aparición de izquierda a derecha):
+'   - Cliente          → tipo: actor
+'   - AppBancaria      → tipo: boundary
+'   - TransferenciaController → tipo: control
+'   - CuentaRepository → tipo: entity
+'   - AntiFraudeService → tipo: entity
+'   - NotificacionService → tipo: entity
+
+
+' TODO: Escribe el flujo de mensajes aquí
+' Recuerda: ->  mensaje síncrono
+'          -->  mensaje de retorno
+'          ->>  mensaje asíncrono
+
+
+' TODO: Fragmento alt — Validación de fondos
+' alt saldo >= monto
+'   ' ... continúa flujo
+' else saldo < monto
+'   ' ... retorna error
+' end
+
+
+' TODO: Fragmento alt — Resultado antifraude
+' (mismo patrón)
+
+
+' TODO: Fragmento opt — Alerta adicional para montos > 10000
+' opt monto > 10000
+'   ' ... mensaje asíncrono de alerta
+' end
+
+@enduml

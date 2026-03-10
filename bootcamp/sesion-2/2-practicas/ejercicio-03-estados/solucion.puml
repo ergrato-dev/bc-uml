@@ -1,0 +1,75 @@
+@startuml
+' ============================================================
+' Ejercicio 03 — Solicitud de Crédito: Diagrama de Estados (SOLUCIÓN)
+' ============================================================
+
+skinparam backgroundColor #1a1a1a
+skinparam stateBorderColor #8b5cf6
+skinparam stateBackgroundColor #2d2d2d
+skinparam stateFontColor #e2e8f0
+skinparam stateArrowColor #94a3b8
+skinparam stateStartColor #8b5cf6
+skinparam stateEndColor #8b5cf6
+skinparam noteFontColor #e2e8f0
+skinparam noteBackgroundColor #1e293b
+skinparam noteBorderColor #475569
+
+' ── Estado inicial ──────────────────────────────────────────
+[*] --> Borrador
+
+' ── Estados simples ─────────────────────────────────────────
+state "Borrador"               as Borrador
+state "Enviada"                as Enviada
+state "Aprobada"               as Aprobada
+state "Rechazada"              as Rechazada
+state "Pendiente Documentos"   as PendDocs
+state "Desembolsada"           as Desembolsada
+state "Cancelada"              as Cancelada
+
+' ── Estado compuesto: En Revisión ───────────────────────────
+state "En Revisión" as EnRevision {
+  [*]                  --> AnalizandoPerfil
+  state "Analizando\nPerfil"          as AnalizandoPerfil
+  state "Verificando\nHistorial"      as VerificandoHistorial
+  state "Evaluando\nRiesgo"           as EvaluandoRiesgo
+
+  AnalizandoPerfil    --> VerificandoHistorial : continuar
+  VerificandoHistorial --> EvaluandoRiesgo     : continuar
+  EvaluandoRiesgo     --> [*]
+}
+
+' ── Transiciones ────────────────────────────────────────────
+Borrador      --> Enviada       : enviarSolicitud[formularioCompleto] / validarDatos()
+Borrador      --> Cancelada     : cancelar / notificarCancelacion()
+
+Enviada       --> EnRevision    : asignarAnalista[disponible]
+
+EnRevision    --> Aprobada      : aprobar[scoreCredito >= 600] / notificarAprobacion()
+EnRevision    --> Rechazada     : rechazar[scoreCredito < 600] / notificarRechazo()
+EnRevision    --> PendDocs      : solicitarDocs / enviarEmailDocs()
+
+PendDocs      --> EnRevision    : recibirDocumentos
+PendDocs      --> Cancelada     : expirar[30 días sin respuesta] / notificarExpiracion()
+
+Aprobada      --> Desembolsada  : desembolsar[cuentaVerificada] / transferirFondos()
+Aprobada      --> Cancelada     : cancelarDesembolso
+
+' ── Estados finales ─────────────────────────────────────────
+Desembolsada --> [*]
+Rechazada    --> [*]
+Cancelada    --> [*]
+
+' ── Notas aclaratorias ──────────────────────────────────────
+note right of EnRevision
+  Estado compuesto:
+  el analista sigue un proceso
+  interno estructurado en 3 fases
+end note
+
+note bottom of PendDocs
+  Si no hay respuesta en 30 días
+  la solicitud se cancela
+  automáticamente
+end note
+
+@enduml

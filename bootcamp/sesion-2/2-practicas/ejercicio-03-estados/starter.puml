@@ -1,0 +1,57 @@
+@startuml
+' ============================================================
+' Ejercicio 03 — Solicitud de Crédito: Diagrama de Estados (STARTER)
+'
+' Instrucciones:
+'   1. Conecta [*] al estado inicial (Borrador)
+'   2. Declara todos los estados con: state "NombreEstado" as S1
+'   3. Agrega transiciones: S1 --> S2 : evento[guarda] / accion
+'   4. Implementa el estado compuesto EnRevision con subestados
+'   5. Conecta los estados finales a [*]
+' ============================================================
+
+skinparam backgroundColor #1a1a1a
+skinparam stateBorderColor #8b5cf6
+skinparam stateBackgroundColor #2d2d2d
+skinparam stateFontColor #e2e8f0
+skinparam stateArrowColor #94a3b8
+skinparam stateStartColor #8b5cf6
+skinparam stateEndColor #8b5cf6
+skinparam noteFontColor #e2e8f0
+skinparam noteBackgroundColor #1e293b
+skinparam noteBorderColor #475569
+
+' TODO: Conecta [*] al estado inicial
+' [*] --> Borrador
+
+
+' TODO: Declara los estados
+' state "Borrador" as Borrador
+' state "Enviada" as Enviada
+' ... (continúa con todos los estados)
+
+
+' TODO: Implementa el estado compuesto EnRevision
+' state "En Revisión" as EnRevision {
+'   [*] --> AnalizandoPerfil
+'   AnalizandoPerfil --> VerificandoHistorial : continuar
+'   VerificandoHistorial --> EvaluandoRiesgo : continuar
+'   EvaluandoRiesgo --> [*]
+' }
+
+
+' TODO: Agrega las transiciones entre estados
+' Formato: EstadoOrigen --> EstadoDestino : evento[guarda] / accion()
+'
+' Ejemplos de transiciones a implementar:
+'   Borrador --> Enviada          : enviarSolicitud[formularioCompleto] / validarDatos()
+'   Borrador --> Cancelada        : cancelar / notificarCancelacion()
+'   ...
+
+
+' TODO: Conecta los estados finales a [*]
+' Desembolsada --> [*]
+' Rechazada    --> [*]
+' Cancelada    --> [*]
+
+@enduml

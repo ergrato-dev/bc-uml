@@ -1,0 +1,42 @@
+@startuml
+' ============================================================
+' Ejercicio 01 — Red Social: Diagrama de Casos de Uso (STARTER)
+'
+' Instrucciones:
+'   1. Declara los actores fuera del rectángulo del sistema
+'   2. Define el límite del sistema con "rectangle"
+'   3. Agrega los casos de uso dentro del sistema
+'   4. Conecta actores con sus casos de uso
+'   5. Añade relaciones include y extend
+'   6. Añade la generalización Moderador → UsuarioRegistrado
+' ============================================================
+
+left to right direction
+
+skinparam actorBackgroundColor #2d2d2d
+skinparam actorBorderColor #8b5cf6
+skinparam backgroundColor #1a1a1a
+skinparam usecaseBackgroundColor #2d2d2d
+skinparam usecaseBorderColor #8b5cf6
+
+' TODO: Declara los actores aquí
+' Actores a declarar:
+'   - Usuario No Registrado
+'   - Usuario Registrado
+'   - Moderador (hereda de Usuario Registrado)
+'   - Sistema de Notificaciones (actor secundario/sistema)
+
+
+' TODO: Define el rectángulo del sistema
+' rectangle "SocialConnect" {
+'   TODO: Declara los casos de uso aquí con: usecase "Nombre CU" as UCX
+'
+'   TODO: Conecta actores con CUs
+'
+'   TODO: Añade relaciones include: CUbase .> CUincluido : «include»
+'   TODO: Añade relaciones extend:  CUext   .> CUbase    : «extend»
+' }
+
+' TODO: Añade la generalización de Moderador aquí (fuera del rectangle)
+
+@enduml

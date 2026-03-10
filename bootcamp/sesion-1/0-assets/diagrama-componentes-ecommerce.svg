@@ -1,0 +1,274 @@
+<svg viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .component { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .component-icon { 
+        fill: none; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .interface { 
+        fill: #2d1b4e; 
+        stroke: #a78bfa; 
+        stroke-width: 2;
+      }
+      .dependency { 
+        stroke: #4ade80; 
+        stroke-width: 2; 
+        stroke-dasharray: 5,3;
+        marker-end: url(#arrowGreen);
+      }
+      .provided-interface { 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .required-interface { 
+        stroke: #fbbf24; 
+        stroke-width: 2;
+      }
+      .component-label { 
+        font-size: 13px; 
+        font-weight: bold;
+      }
+      .interface-label { 
+        font-size: 11px; 
+        fill: #a78bfa;
+      }
+      .layer-label { 
+        font-size: 16px; 
+        font-weight: bold; 
+        fill: #0ea5e9;
+      }
+    </style>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1100" height="800" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="550" y="30" font-size="22" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Componentes: Arquitectura E-Commerce
+  </text>
+  
+  <!-- Layer Labels -->
+  <text x="30" y="110" class="layer-label">Presentación</text>
+  <text x="30" y="310" class="layer-label">Lógica de Negocio</text>
+  <text x="30" y="590" class="layer-label">Datos</text>
+  
+  <!-- Presentation Layer -->
+  <rect x="20" y="120" width="1060" height="150" fill="none" stroke="#374151" stroke-width="2" stroke-dasharray="10,5" rx="5"/>
+  
+  <!-- Component: Web UI -->
+  <g>
+    <rect x="60" y="150" width="30" height="20" class="component-icon"/>
+    <rect x="70" y="140" width="10" height="10" class="component-icon"/>
+    <rect x="60" y="175" width="180" height="80" class="component"/>
+    <text x="150" y="200" text-anchor="middle" class="component-label">Web UI</text>
+    <text x="150" y="218" text-anchor="middle" font-size="11">«Frontend»</text>
+    <text x="70" y="235" font-size="10">- React/Angular</text>
+    <text x="70" y="248" font-size="10">- Responsive design</text>
+  </g>
+  
+  <!-- Component: Mobile App -->
+  <g>
+    <rect x="290" y="150" width="30" height="20" class="component-icon"/>
+    <rect x="300" y="140" width="10" height="10" class="component-icon"/>
+    <rect x="290" y="175" width="180" height="80" class="component"/>
+    <text x="380" y="200" text-anchor="middle" class="component-label">Mobile App</text>
+    <text x="380" y="218" text-anchor="middle" font-size="11">«Frontend»</text>
+    <text x="300" y="235" font-size="10">- iOS / Android</text>
+    <text x="300" y="248" font-size="10">- Native / Hybrid</text>
+  </g>
+  
+  <!-- Component: Admin Dashboard -->
+  <g>
+    <rect x="520" y="150" width="30" height="20" class="component-icon"/>
+    <rect x="530" y="140" width="10" height="10" class="component-icon"/>
+    <rect x="520" y="175" width="180" height="80" class="component"/>
+    <text x="610" y="200" text-anchor="middle" class="component-label">Admin Dashboard</text>
+    <text x="610" y="218" text-anchor="middle" font-size="11">«Frontend»</text>
+    <text x="530" y="235" font-size="10">- Panel de control</text>
+    <text x="530" y="248" font-size="10">- Reportes</text>
+  </g>
+  
+  <!-- Component: API Gateway -->
+  <g>
+    <rect x="750" y="150" width="30" height="20" class="component-icon"/>
+    <rect x="760" y="140" width="10" height="10" class="component-icon"/>
+    <rect x="750" y="175" width="180" height="80" class="component"/>
+    <text x="840" y="200" text-anchor="middle" class="component-label">API Gateway</text>
+    <text x="840" y="218" text-anchor="middle" font-size="11">«Backend»</text>
+    <text x="760" y="235" font-size="10">- Routing</text>
+    <text x="760" y="248" font-size="10">- Load balancing</text>
+  </g>
+  
+  <!-- Business Logic Layer -->
+  <rect x="20" y="320" width="1060" height="220" fill="none" stroke="#374151" stroke-width="2" stroke-dasharray="10,5" rx="5"/>
+  
+  <!-- Component: Auth Service -->
+  <g>
+    <rect x="60" y="345" width="30" height="20" class="component-icon"/>
+    <rect x="70" y="335" width="10" height="10" class="component-icon"/>
+    <rect x="60" y="370" width="150" height="90" class="component"/>
+    <text x="135" y="395" text-anchor="middle" class="component-label">Auth Service</text>
+    <text x="135" y="413" text-anchor="middle" font-size="11">«Microservice»</text>
+    <text x="70" y="430" font-size="9">- Login/Logout</text>
+    <text x="70" y="442" font-size="9">- JWT tokens</text>
+    <text x="70" y="454" font-size="9">- Roles y permisos</text>
+  </g>
+  
+  <!-- Component: Product Service -->
+  <g>
+    <rect x="250" y="345" width="30" height="20" class="component-icon"/>
+    <rect x="260" y="335" width="10" height="10" class="component-icon"/>
+    <rect x="250" y="370" width="150" height="90" class="component"/>
+    <text x="325" y="395" text-anchor="middle" class="component-label">Product Service</text>
+    <text x="325" y="413" text-anchor="middle" font-size="11">«Microservice»</text>
+    <text x="260" y="430" font-size="9">- CRUD productos</text>
+    <text x="260" y="442" font-size="9">- Búsqueda</text>
+    <text x="260" y="454" font-size="9">- Filtros</text>
+  </g>
+  
+  <!-- Component: Cart Service -->
+  <g>
+    <rect x="440" y="345" width="30" height="20" class="component-icon"/>
+    <rect x="450" y="335" width="10" height="10" class="component-icon"/>
+    <rect x="440" y="370" width="150" height="90" class="component"/>
+    <text x="515" y="395" text-anchor="middle" class="component-label">Cart Service</text>
+    <text x="515" y="413" text-anchor="middle" font-size="11">«Microservice»</text>
+    <text x="450" y="430" font-size="9">- Agregar items</text>
+    <text x="450" y="442" font-size="9">- Calcular totales</text>
+    <text x="450" y="454" font-size="9">- Gestión sesión</text>
+  </g>
+  
+  <!-- Component: Order Service -->
+  <g>
+    <rect x="630" y="345" width="30" height="20" class="component-icon"/>
+    <rect x="640" y="335" width="10" height="10" class="component-icon"/>
+    <rect x="630" y="370" width="150" height="90" class="component"/>
+    <text x="705" y="395" text-anchor="middle" class="component-label">Order Service</text>
+    <text x="705" y="413" text-anchor="middle" font-size="11">«Microservice»</text>
+    <text x="640" y="430" font-size="9">- Crear orden</text>
+    <text x="640" y="442" font-size="9">- Estado pedido</text>
+    <text x="640" y="454" font-size="9">- Historial</text>
+  </g>
+  
+  <!-- Component: Payment Service -->
+  <g>
+    <rect x="820" y="345" width="30" height="20" class="component-icon"/>
+    <rect x="830" y="335" width="10" height="10" class="component-icon"/>
+    <rect x="820" y="370" width="150" height="90" class="component"/>
+    <text x="895" y="395" text-anchor="middle" class="component-label">Payment Service</text>
+    <text x="895" y="413" text-anchor="middle" font-size="11">«Microservice»</text>
+    <text x="830" y="430" font-size="9">- Procesar pagos</text>
+    <text x="830" y="442" font-size="9">- Integración</text>
+    <text x="830" y="454" font-size="9">- Reembolsos</text>
+  </g>
+  
+  <!-- Component: Notification Service -->
+  <g>
+    <rect x="440" y="480" width="30" height="20" class="component-icon"/>
+    <rect x="450" y="470" width="10" height="10" class="component-icon"/>
+    <rect x="440" y="505" width="170" height="25" class="component"/>
+    <text x="525" y="522" text-anchor="middle" class="component-label" font-size="12">Notification Service</text>
+  </g>
+  
+  <!-- Data Layer -->
+  <rect x="20" y="600" width="1060" height="170" fill="none" stroke="#374151" stroke-width="2" stroke-dasharray="10,5" rx="5"/>
+  
+  <!-- Component: User DB -->
+  <g>
+    <ellipse cx="120" cy="670" rx="60" ry="40" class="component" fill="#0f2942"/>
+    <ellipse cx="120" cy="665" rx="50" ry="32" class="component" fill="none"/>
+    <ellipse cx="120" cy="660" rx="40" ry="24" class="component" fill="none"/>
+    <text x="120" y="715" text-anchor="middle" class="component-label" font-size="12">User DB</text>
+    <text x="120" y="730" text-anchor="middle" font-size="10" fill="#9ca3af">PostgreSQL</text>
+  </g>
+  
+  <!-- Component: Product DB -->
+  <g>
+    <ellipse cx="300" cy="670" rx="60" ry="40" class="component" fill="#0f2942"/>
+    <ellipse cx="300" cy="665" rx="50" ry="32" class="component" fill="none"/>
+    <ellipse cx="300" cy="660" rx="40" ry="24" class="component" fill="none"/>
+    <text x="300" y="715" text-anchor="middle" class="component-label" font-size="12">Product DB</text>
+    <text x="300" y="730" text-anchor="middle" font-size="10" fill="#9ca3af">MongoDB</text>
+  </g>
+  
+  <!-- Component: Order DB -->
+  <g>
+    <ellipse cx="480" cy="670" rx="60" ry="40" class="component" fill="#0f2942"/>
+    <ellipse cx="480" cy="665" rx="50" ry="32" class="component" fill="none"/>
+    <ellipse cx="480" cy="660" rx="40" ry="24" class="component" fill="none"/>
+    <text x="480" y="715" text-anchor="middle" class="component-label" font-size="12">Order DB</text>
+    <text x="480" y="730" text-anchor="middle" font-size="10" fill="#9ca3af">PostgreSQL</text>
+  </g>
+  
+  <!-- Component: Cache -->
+  <g>
+    <rect x="610" y="640" width="120" height="60" rx="5" class="component" fill="#0f2942"/>
+    <text x="670" y="665" text-anchor="middle" class="component-label" font-size="12">Cache</text>
+    <text x="670" y="680" text-anchor="middle" font-size="10" fill="#9ca3af">Redis</text>
+    <text x="670" y="693" text-anchor="middle" font-size="9" fill="#6b7280">Sesiones/Carritos</text>
+  </g>
+  
+  <!-- Component: Message Queue -->
+  <g>
+    <rect x="780" y="640" width="140" height="60" rx="5" class="component" fill="#0f2942"/>
+    <text x="850" y="665" text-anchor="middle" class="component-label" font-size="12">Message Queue</text>
+    <text x="850" y="680" text-anchor="middle" font-size="10" fill="#9ca3af">RabbitMQ</text>
+    <text x="850" y="693" text-anchor="middle" font-size="9" fill="#6b7280">Eventos async</text>
+  </g>
+  
+  <!-- Dependencies -->
+  
+  <!-- Frontend to Gateway -->
+  <path d="M 150 255 L 150 285 L 840 285 L 840 255" class="dependency"/>
+  <path d="M 380 255 L 380 280 L 840 280 L 840 255" class="dependency"/>
+  <path d="M 610 255 L 610 275 L 840 275 L 840 255" class="dependency"/>
+  
+  <!-- Gateway to Services -->
+  <path d="M 780 255 L 780 300 L 135 300 L 135 370" class="dependency"/>
+  <path d="M 820 255 L 820 305 L 325 305 L 325 370" class="dependency"/>
+  <path d="M 860 255 L 860 310 L 515 310 L 515 370" class="dependency"/>
+  <path d="M 900 255 L 900 315 L 705 315 L 705 370" class="dependency"/>
+  <path d="M 895 255 L 895 370" class="dependency"/>
+  
+  <!-- Services to DBs -->
+  <path d="M 120 460 L 120 630" class="dependency"/>
+  <path d="M 315 460 L 315 580 L 300 580 L 300 630" class="dependency"/>
+  <path d="M 705 460 L 705 580 L 480 580 L 480 630" class="dependency"/>
+  
+  <!-- Cart to Cache -->
+  <path d="M 515 460 L 515 550 L 670 550 L 670 640" class="dependency"/>
+  
+  <!-- Services to Message Queue -->
+  <path d="M 895 460 L 895 570 L 850 570 L 850 640" class="dependency"/>
+  <path d="M 705 460 L 705 575 L 850 575 L 850 640" class="dependency"/>
+  
+  <!-- Notification Service connections -->
+  <path d="M 525 480 L 525 505" class="dependency"/>
+  <path d="M 525 530 L 525 555 L 850 555 L 850 640" class="dependency"/>
+  
+  <!-- External Systems -->
+  <rect x="990" y="380" width="100" height="50" rx="5" fill="#2d1b4e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="1040" y="398" text-anchor="middle" font-size="10" fill="#a78bfa">«External»</text>
+  <text x="1040" y="413" text-anchor="middle" font-size="11" fill="#e5e7eb">Stripe API</text>
+  <path d="M 970 415 L 990 415" class="dependency"/>
+  
+  <rect x="990" y="490" width="100" height="50" rx="5" fill="#2d1b4e" stroke="#a78bfa" stroke-width="2"/>
+  <text x="1040" y="508" text-anchor="middle" font-size="10" fill="#a78bfa">«External»</text>
+  <text x="1040" y="523" text-anchor="middle" font-size="11" fill="#e5e7eb">Email Service</text>
+  <path d="M 610 515 L 990 515" class="dependency"/>
+  
+</svg>

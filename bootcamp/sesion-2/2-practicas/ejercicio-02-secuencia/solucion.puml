@@ -1,0 +1,83 @@
+@startuml
+' ============================================================
+' Ejercicio 02 — Transferencia Bancaria: Diagrama de Secuencia (SOLUCIÓN)
+' ============================================================
+
+skinparam backgroundColor #1a1a1a
+skinparam sequenceArrowColor #94a3b8
+skinparam sequenceLifeLineBorderColor #8b5cf6
+skinparam sequenceLifeLineBackgroundColor #2d2d2d
+skinparam sequenceParticipantBorderColor #8b5cf6
+skinparam sequenceParticipantBackgroundColor #2d2d2d
+skinparam sequenceParticipantFontColor #e2e8f0
+skinparam sequenceGroupBorderColor #8b5cf6
+skinparam sequenceGroupBodyBackgroundColor #1e1e2e
+skinparam sequenceGroupFontColor #e2e8f0
+skinparam sequenceGroupFontSize 13
+skinparam noteFontColor #e2e8f0
+skinparam noteBackgroundColor #1e293b
+skinparam noteBorderColor #475569
+
+' ── Participantes ───────────────────────────────────────────
+actor      ":Cliente"                 as CLI
+boundary   ":AppBancaria"             as APP
+control    ":TransferenciaController" as CTRL
+entity     ":CuentaRepository"        as REPO
+entity     ":AntiFraudeService"       as AF
+entity     ":NotificacionService"     as NOTIF
+
+' ── Flujo principal ─────────────────────────────────────────
+CLI  -> APP  : ingresarTransferencia(monto, cuentaDestino)
+activate APP
+
+APP  -> CTRL : procesarTransferencia(monto, origen, destino)
+activate CTRL
+
+CTRL -> REPO : consultarSaldo(cuentaOrigen)
+activate REPO
+REPO --> CTRL : saldoDisponible
+deactivate REPO
+
+' ── Fragmento alt: validación de fondos ─────────────────────
+alt saldo >= monto
+
+  CTRL -> AF   : validarTransaccion(monto, origen, destino)
+  activate AF
+  AF  --> CTRL : resultadoValidacion
+  deactivate AF
+
+  ' ── Fragmento alt: resultado antifraude ─────────────────
+  alt resultadoValidacion = OK
+
+    CTRL -> REPO : ejecutarTransferencia(origen, destino, monto)
+    activate REPO
+    REPO --> CTRL : transaccionConfirmada
+    deactivate REPO
+
+    ' ── Fragmento opt: alerta para montos grandes ─────────
+    opt monto > 10000
+      CTRL ->> AF : registrarAlertaMonto(monto, origen)
+    end
+
+    ' Notificación asíncrona al cliente
+    CTRL ->> NOTIF : enviarConfirmacion(cliente, monto, destino)
+
+    CTRL --> APP  : exito("Transferencia completada")
+
+  else resultadoValidacion = Sospechoso
+
+    CTRL --> APP  : error("Transacción bloqueada por seguridad")
+
+  end
+
+else saldo < monto
+
+  CTRL --> APP  : error("Fondos insuficientes")
+
+end
+
+APP  --> CLI  : mostrarResultado()
+deactivate CTRL
+deactivate APP
+
+@enduml

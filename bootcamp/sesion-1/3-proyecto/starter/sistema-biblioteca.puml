@@ -1,0 +1,46 @@
+@startuml
+' ============================================================
+' PROYECTO SESIÓN 1 — Sistema de Gestión de Biblioteca
+'
+' Instrucciones:
+'   Implementa el diagrama de clases completo para una
+'   Biblioteca Municipal con los requisitos descritos en
+'   bootcamp/sesion-1/README.md (sección "Entregables")
+'
+' Clases requeridas:
+'   - Usuario (abstracta): id, nombre, email, telefono, estado
+'   - Estudiante extends Usuario: maxLibros = 3
+'   - Profesor extends Usuario: maxLibros = 5
+'   - Publico extends Usuario: maxLibros = 2
+'   - Libro (abstracta): isbn, titulo, autor, editorial, año, categoria
+'   - LibroFisico extends Libro: ubicacion, codigoEstante
+'   - LibroDigital extends Libro: urlDescarga, formato, tamañoMB
+'   - Prestamo: fechaPrestamo, fechaDevolucionEsperada, fechaDevolucionReal, estado
+'   - Reserva: fechaReserva, estado
+'   - Multa: monto, fechaEmision, estado
+'   - Categoria: nombre, descripcion
+'
+' Relaciones requeridas:
+'   - Herencia en jerarquías de Usuario y Libro
+'   - Composición entre Prestamo y Multa
+'   - Asociaciones con multiplicidades para Prestamo, Reserva
+'   - Asociación Libro ↔ Categoria
+'
+' Diagrama de Objetos (en el mismo archivo):
+'   Muestra un Estudiante, un Libro y un Prestamo activo
+'   con datos de ejemplo concretos
+'
+' Nota: el proyecto está completo cuando
+'   este archivo renderiza sin errores en PlantUML.
+' ============================================================
+
+skinparam classBackgroundColor #2d2d2d
+skinparam classBorderColor #8b5cf6
+skinparam classFontColor #e2e8f0
+skinparam classAttributeFontColor #94a3b8
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+
+' TODO: Implementa tu solución aquí
+
+@enduml

@@ -1,0 +1,203 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .object { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .object-name { 
+        fill: #0f2942; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .attribute { 
+        font-size: 11px;
+      }
+      .link { 
+        stroke: #4ade80; 
+        stroke-width: 2;
+        marker-end: url(#arrow);
+      }
+      .link-label { 
+        font-size: 10px; 
+        fill: #4ade80;
+      }
+      .name { 
+        font-size: 13px; 
+        font-weight: bold; 
+        text-decoration: underline;
+      }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" font-size="22" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Objetos: Instancias en Sistema de Biblioteca
+  </text>
+  
+  <text x="500" y="55" font-size="13" text-anchor="middle" fill="#9ca3af">
+    Snapshot del estado del sistema el 5 de noviembre de 2025
+  </text>
+  
+  <!-- Object: maria:Usuario -->
+  <g>
+    <rect x="50" y="100" width="180" height="30" class="object-name"/>
+    <text x="140" y="120" text-anchor="middle" class="name">maria:Usuario</text>
+    <rect x="50" y="130" width="180" height="110" class="object"/>
+    <text x="60" y="150" class="attribute">id = "U001"</text>
+    <text x="60" y="170" class="attribute">nombre = "María García"</text>
+    <text x="60" y="190" class="attribute">email = "maria@email.com"</text>
+    <text x="60" y="210" class="attribute">tipo = "Estudiante"</text>
+    <text x="60" y="230" class="attribute">activo = true</text>
+  </g>
+  
+  <!-- Object: juan:Usuario -->
+  <g>
+    <rect x="50" y="290" width="180" height="30" class="object-name"/>
+    <text x="140" y="310" text-anchor="middle" class="name">juan:Usuario</text>
+    <rect x="50" y="320" width="180" height="110" class="object"/>
+    <text x="60" y="340" class="attribute">id = "U002"</text>
+    <text x="60" y="360" class="attribute">nombre = "Juan Pérez"</text>
+    <text x="60" y="380" class="attribute">email = "juan@email.com"</text>
+    <text x="60" y="400" class="attribute">tipo = "Profesor"</text>
+    <text x="60" y="420" class="attribute">activo = true</text>
+  </g>
+  
+  <!-- Object: libro1:Libro -->
+  <g>
+    <rect x="310" y="100" width="200" height="30" class="object-name"/>
+    <text x="410" y="120" text-anchor="middle" class="name">libro1:Libro</text>
+    <rect x="310" y="130" width="200" height="130" class="object"/>
+    <text x="320" y="150" class="attribute">isbn = "978-0-13-468599-1"</text>
+    <text x="320" y="170" class="attribute">titulo = "Clean Code"</text>
+    <text x="320" y="190" class="attribute">autor = "Robert C. Martin"</text>
+    <text x="320" y="210" class="attribute">editorial = "Prentice Hall"</text>
+    <text x="320" y="230" class="attribute">año = 2008</text>
+    <text x="320" y="250" class="attribute">disponible = false</text>
+  </g>
+  
+  <!-- Object: libro2:Libro -->
+  <g>
+    <rect x="570" y="100" width="210" height="30" class="object-name"/>
+    <text x="675" y="120" text-anchor="middle" class="name">libro2:Libro</text>
+    <rect x="570" y="130" width="210" height="130" class="object"/>
+    <text x="580" y="150" class="attribute">isbn = "978-0-13-597686-2"</text>
+    <text x="580" y="170" class="attribute">titulo = "Refactoring"</text>
+    <text x="580" y="190" class="attribute">autor = "Martin Fowler"</text>
+    <text x="580" y="210" class="attribute">editorial = "Addison-Wesley"</text>
+    <text x="580" y="230" class="attribute">año = 2018</text>
+    <text x="580" y="250" class="attribute">disponible = true</text>
+  </g>
+  
+  <!-- Object: libro3:Libro -->
+  <g>
+    <rect x="570" y="310" width="210" height="30" class="object-name"/>
+    <text x="675" y="330" text-anchor="middle" class="name">libro3:Libro</text>
+    <rect x="570" y="340" width="210" height="110" class="object"/>
+    <text x="580" y="360" class="attribute">isbn = "978-0-13-475759-9"</text>
+    <text x="580" y="380" class="attribute">titulo = "Effective Java"</text>
+    <text x="580" y="400" class="attribute">autor = "Joshua Bloch"</text>
+    <text x="580" y="420" class="attribute">editorial = "Addison-Wesley"</text>
+    <text x="580" y="440" class="attribute">año = 2017</text>
+  </g>
+  
+  <!-- Object: prestamo1:Préstamo -->
+  <g>
+    <rect x="310" y="310" width="200" height="30" class="object-name"/>
+    <text x="410" y="330" text-anchor="middle" class="name">prestamo1:Préstamo</text>
+    <rect x="310" y="340" width="200" height="130" class="object"/>
+    <text x="320" y="360" class="attribute">id = "P2025-001"</text>
+    <text x="320" y="380" class="attribute">fechaPréstamo =</text>
+    <text x="340" y="395" class="attribute" font-size="10">"2025-10-15"</text>
+    <text x="320" y="415" class="attribute">fechaDevolucion =</text>
+    <text x="340" y="430" class="attribute" font-size="10">"2025-11-15"</text>
+    <text x="320" y="450" class="attribute">estado = "Activo"</text>
+    <text x="320" y="465" class="attribute">renovaciones = 1</text>
+  </g>
+  
+  <!-- Object: reserva1:Reserva -->
+  <g>
+    <rect x="50" y="510" width="180" height="30" class="object-name"/>
+    <text x="140" y="530" text-anchor="middle" class="name">reserva1:Reserva</text>
+    <rect x="50" y="540" width="180" height="110" class="object"/>
+    <text x="60" y="560" class="attribute">id = "R2025-005"</text>
+    <text x="60" y="580" class="attribute">fecha = "2025-11-04"</text>
+    <text x="60" y="600" class="attribute">estado = "Pendiente"</text>
+    <text x="60" y="620" class="attribute">expira = "2025-11-11"</text>
+    <text x="60" y="640" class="attribute">prioridad = 1</text>
+  </g>
+  
+  <!-- Object: categoria1:Categoría -->
+  <g>
+    <rect x="800" y="310" width="160" height="30" class="object-name"/>
+    <text x="880" y="330" text-anchor="middle" class="name">cat1:Categoría</text>
+    <rect x="800" y="340" width="160" height="90" class="object"/>
+    <text x="810" y="360" class="attribute">id = "CAT001"</text>
+    <text x="810" y="380" class="attribute">nombre =</text>
+    <text x="820" y="395" class="attribute" font-size="10">"Ing. Software"</text>
+    <text x="810" y="415" class="attribute">ubicacion = "Estante A"</text>
+  </g>
+  
+  <!-- Links -->
+  
+  <!-- maria -> prestamo1 -->
+  <path d="M 140 240 L 140 280 L 350 280 L 350 310" class="link"/>
+  <text x="240" y="275" class="link-label">solicitante</text>
+  
+  <!-- prestamo1 -> libro1 -->
+  <path d="M 410 310 L 410 260" class="link"/>
+  <text x="420" y="290" class="link-label">ejemplar</text>
+  
+  <!-- juan -> reserva1 -->
+  <path d="M 140 430 L 140 510" class="link"/>
+  <text x="150" y="470" class="link-label">usuario</text>
+  
+  <!-- reserva1 -> libro3 -->
+  <path d="M 230 580 L 570 380" class="link"/>
+  <text x="400" y="480" class="link-label">libro reservado</text>
+  
+  <!-- libro1 -> categoria1 -->
+  <path d="M 510 195 L 800 360" class="link"/>
+  <text x="650" y="270" class="link-label">categoría</text>
+  
+  <!-- libro2 -> categoria1 -->
+  <path d="M 675 260 L 675 290 L 880 290 L 880 340" class="link"/>
+  <text x="770" y="285" class="link-label">categoría</text>
+  
+  <!-- libro3 -> categoria1 -->
+  <path d="M 780 375 L 800 375" class="link"/>
+  <text x="790" y="370" class="link-label" transform="rotate(-90 790 370)">cat.</text>
+  
+  <!-- Note Box -->
+  <rect x="310" y="510" width="450" height="140" fill="#1e3a5f" stroke="#0ea5e9" stroke-width="2" rx="5"/>
+  <text x="535" y="535" text-anchor="middle" font-size="14" font-weight="bold" fill="#0ea5e9">
+    Interpretación del Diagrama
+  </text>
+  <text x="320" y="560" font-size="11" fill="#e5e7eb">
+    • María (U001) tiene un préstamo activo del libro "Clean Code"
+  </text>
+  <text x="320" y="580" font-size="11" fill="#e5e7eb">
+    • El préstamo comenzó el 15/10/2025 y vence el 15/11/2025
+  </text>
+  <text x="320" y="600" font-size="11" fill="#e5e7eb">
+    • Juan (U002) tiene una reserva pendiente para "Effective Java"
+  </text>
+  <text x="320" y="620" font-size="11" fill="#e5e7eb">
+    • Los tres libros pertenecen a la categoría "Ingeniería de Software"
+  </text>
+  <text x="320" y="640" font-size="11" fill="#e5e7eb">
+    • Solo "Refactoring" está actualmente disponible
+  </text>
+  
+</svg>

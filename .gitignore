@@ -1,4 +1,7 @@
-# Curso UML - .gitignore
+# Bootcamp UML - .gitignore
+
+## Exportaciones PDF generadas por _scripts/export-pdf.sh
+exported-pdfs/
 
 ## Carpetas de contenido multimedia
 videos/
@@ -18,7 +21,7 @@ ehthumbs.db
 Thumbs.db
 
 ## IDEs y editores
-.vscode/
+# .vscode/ se versiona (incluye extensions.json con recomendaciones)
 .idea/
 *.swp
 *.swo

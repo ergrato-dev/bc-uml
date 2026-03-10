@@ -1,0 +1,38 @@
+@startuml
+' ============================================================
+' Ejercicio 02 — Las 6 Relaciones en Práctica
+' 
+' Instrucciones:
+'   1. Declara las clases e interfaz del sistema
+'   2. Agrega las relaciones con el tipo correcto
+'   3. Añade las multiplicidades donde corresponda
+'   4. Renderiza y verifica el diagrama
+' ============================================================
+
+skinparam classBackgroundColor #2d2d2d
+skinparam classBorderColor #8b5cf6
+skinparam classFontColor #e2e8f0
+skinparam classAttributeFontColor #94a3b8
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+
+' TODO: Declara aquí las clases y la interfaz
+' Pista: usa abstract, interface y class según corresponda
+
+' abstract class Persona { ... }
+' class Estudiante { ... }
+' class Profesor { ... }
+' class Curso { ... }
+' class Material { ... }
+' interface Evaluable { ... }
+
+' TODO: Agrega las relaciones a continuación
+' Recuerda:
+'   Herencia:     ClaseHija <|-- ClasePadre
+'   Realización:  Clase <|.. Interfaz
+'   Composición:  Todo *-- "multiplicidad" Parte
+'   Agregación:   Contenedor o-- "multiplicidad" Elemento
+'   Asociación:   ClaseA "mult" -- "mult" ClaseB : etiqueta
+'   Dependencia:  ClaseA ..> ClaseB
+
+@enduml

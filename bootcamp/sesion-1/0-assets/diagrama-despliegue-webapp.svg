@@ -1,0 +1,292 @@
+<svg viewBox="0 0 1100 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { 
+        font-family: Arial, Helvetica, sans-serif; 
+        fill: #e5e7eb;
+      }
+      .node { 
+        fill: #1e3a5f; 
+        stroke: #0ea5e9; 
+        stroke-width: 2;
+      }
+      .artifact { 
+        fill: #0f2942; 
+        stroke: #4ade80; 
+        stroke-width: 2;
+      }
+      .execution-env { 
+        fill: none; 
+        stroke: #a78bfa; 
+        stroke-width: 2; 
+        stroke-dasharray: 5,3;
+      }
+      .communication { 
+        stroke: #4ade80; 
+        stroke-width: 2;
+        marker-end: url(#arrowGreen);
+      }
+      .label { 
+        font-size: 12px;
+      }
+      .node-label { 
+        font-size: 14px; 
+        font-weight: bold; 
+        fill: #0ea5e9;
+      }
+      .artifact-label { 
+        font-size: 11px; 
+        fill: #4ade80;
+      }
+      .protocol { 
+        font-size: 10px; 
+        fill: #fbbf24; 
+        font-style: italic;
+      }
+    </style>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4ade80"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1100" height="900" fill="#1a1a1a"/>
+  
+  <!-- Title -->
+  <text x="550" y="30" font-size="22" font-weight="bold" text-anchor="middle" fill="#0ea5e9">
+    Diagrama de Despliegue: Aplicación Web E-Commerce
+  </text>
+  
+  <!-- Zone Labels -->
+  <text x="550" y="70" font-size="16" font-weight="bold" text-anchor="middle" fill="#9ca3af">
+    Arquitectura de 3 Capas en Cloud
+  </text>
+  
+  <!-- Client Zone -->
+  <rect x="50" y="100" width="300" height="750" fill="#0f1419" stroke="#374151" stroke-width="2" rx="5"/>
+  <text x="200" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b7280">
+    ZONA DE CLIENTE
+  </text>
+  
+  <!-- Node: Desktop Browser -->
+  <g>
+    <path d="M 80 160 L 320 160 L 320 300 L 260 300 L 260 310 L 140 310 L 140 300 L 80 300 Z" class="node"/>
+    <rect x="90" y="175" width="220" height="110" fill="#1a1a1a"/>
+    <text x="200" y="200" text-anchor="middle" class="node-label">Web Browser</text>
+    <text x="200" y="220" text-anchor="middle" font-size="11">«device»</text>
+    
+    <!-- Artifacts in Browser -->
+    <rect x="110" y="235" width="180" height="25" class="artifact"/>
+    <path d="M 270 235 L 280 235 L 280 245 L 275 250 L 270 250 Z" class="artifact"/>
+    <text x="200" y="252" text-anchor="middle" class="artifact-label">React SPA</text>
+    
+    <rect x="110" y="265" width="180" height="20" class="artifact"/>
+    <path d="M 270 265 L 280 265 L 280 275 L 275 280 L 270 280 Z" class="artifact"/>
+    <text x="200" y="279" text-anchor="middle" class="artifact-label" font-size="10">JavaScript Bundle</text>
+  </g>
+  
+  <!-- Node: Mobile Device -->
+  <g>
+    <rect x="100" y="350" width="200" height="300" rx="15" class="node"/>
+    <rect x="110" y="370" width="180" height="260" fill="#1a1a1a"/>
+    <circle cx="200" cy="640" r="15" fill="#1e3a5f" stroke="#0ea5e9" stroke-width="2"/>
+    
+    <text x="200" y="395" text-anchor="middle" class="node-label">Mobile Device</text>
+    <text x="200" y="415" text-anchor="middle" font-size="11">«device»</text>
+    
+    <!-- Mobile App Artifact -->
+    <rect x="130" y="440" width="140" height="30" class="artifact"/>
+    <path d="M 250 440 L 260 440 L 260 455 L 255 460 L 250 460 Z" class="artifact"/>
+    <text x="200" y="460" text-anchor="middle" class="artifact-label">Mobile App</text>
+    
+    <text x="200" y="490" text-anchor="middle" font-size="10" fill="#9ca3af">iOS: Swift</text>
+    <text x="200" y="505" text-anchor="middle" font-size="10" fill="#9ca3af">Android: Kotlin</text>
+    
+    <rect x="130" y="530" width="140" height="25" class="artifact"/>
+    <path d="M 250 530 L 260 530 L 260 543 L 255 548 L 250 548 Z" class="artifact"/>
+    <text x="200" y="547" text-anchor="middle" class="artifact-label" font-size="10">Native Code</text>
+    
+    <rect x="130" y="575" width="140" height="25" class="artifact"/>
+    <path d="M 250 575 L 260 575 L 260 588 L 255 593 L 250 593 Z" class="artifact"/>
+    <text x="200" y="592" text-anchor="middle" class="artifact-label" font-size="10">Local Storage</text>
+  </g>
+  
+  <!-- Application Zone -->
+  <rect x="390" y="100" width="330" height="750" fill="#0f1419" stroke="#374151" stroke-width="2" rx="5"/>
+  <text x="555" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b7280">
+    ZONA DE APLICACIÓN
+  </text>
+  
+  <!-- Node: Load Balancer -->
+  <g>
+    <rect x="420" y="160" width="270" height="100" class="node"/>
+    <text x="555" y="190" text-anchor="middle" class="node-label">Load Balancer</text>
+    <text x="555" y="210" text-anchor="middle" font-size="11">«device» Nginx</text>
+    
+    <text x="555" y="235" text-anchor="middle" font-size="10" fill="#9ca3af">• SSL Termination</text>
+    <text x="555" y="250" text-anchor="middle" font-size="10" fill="#9ca3af">• Round Robin</text>
+  </g>
+  
+  <!-- Node: Web Server 1 -->
+  <g>
+    <rect x="420" y="300" width="120" height="180" class="node"/>
+    <text x="480" y="325" text-anchor="middle" class="node-label" font-size="12">Web Server 1</text>
+    <text x="480" y="343" text-anchor="middle" font-size="10">«server»</text>
+    
+    <!-- Execution Environment -->
+    <rect x="430" y="355" width="100" height="110" class="execution-env"/>
+    <text x="480" y="373" text-anchor="middle" font-size="10" fill="#a78bfa">«container»</text>
+    <text x="480" y="387" text-anchor="middle" font-size="10" fill="#a78bfa">Docker</text>
+    
+    <rect x="440" y="400" width="80" height="25" class="artifact"/>
+    <path d="M 500 400 L 510 400 L 510 413 L 505 418 L 500 418 Z" class="artifact"/>
+    <text x="480" y="417" text-anchor="middle" class="artifact-label" font-size="9">Node.js API</text>
+    
+    <rect x="440" y="430" width="80" height="25" class="artifact"/>
+    <path d="M 500 430 L 510 430 L 510 443 L 505 448 L 500 448 Z" class="artifact"/>
+    <text x="480" y="447" text-anchor="middle" class="artifact-label" font-size="9">Express.js</text>
+  </g>
+  
+  <!-- Node: Web Server 2 -->
+  <g>
+    <rect x="570" y="300" width="120" height="180" class="node"/>
+    <text x="630" y="325" text-anchor="middle" class="node-label" font-size="12">Web Server 2</text>
+    <text x="630" y="343" text-anchor="middle" font-size="10">«server»</text>
+    
+    <!-- Execution Environment -->
+    <rect x="580" y="355" width="100" height="110" class="execution-env"/>
+    <text x="630" y="373" text-anchor="middle" font-size="10" fill="#a78bfa">«container»</text>
+    <text x="630" y="387" text-anchor="middle" font-size="10" fill="#a78bfa">Docker</text>
+    
+    <rect x="590" y="400" width="80" height="25" class="artifact"/>
+    <path d="M 650 400 L 660 400 L 660 413 L 655 418 L 650 418 Z" class="artifact"/>
+    <text x="630" y="417" text-anchor="middle" class="artifact-label" font-size="9">Node.js API</text>
+    
+    <rect x="590" y="430" width="80" height="25" class="artifact"/>
+    <path d="M 650 430 L 660 430 L 660 443 L 655 448 L 650 448 Z" class="artifact"/>
+    <text x="630" y="447" text-anchor="middle" class="artifact-label" font-size="9">Express.js</text>
+  </g>
+  
+  <!-- Node: Application Server -->
+  <g>
+    <rect x="420" y="520" width="270" height="150" class="node"/>
+    <text x="555" y="545" text-anchor="middle" class="node-label">App Server</text>
+    <text x="555" y="563" text-anchor="middle" font-size="11">«server» Business Logic</text>
+    
+    <rect x="440" y="580" width="100" height="25" class="artifact"/>
+    <path d="M 520 580 L 530 580 L 530 593 L 525 598 L 520 598 Z" class="artifact"/>
+    <text x="490" y="597" text-anchor="middle" class="artifact-label" font-size="10">Services Layer</text>
+    
+    <rect x="440" y="615" width="100" height="25" class="artifact"/>
+    <path d="M 520 615 L 530 615 L 530 628 L 525 633 L 520 633 Z" class="artifact"/>
+    <text x="490" y="632" text-anchor="middle" class="artifact-label" font-size="10">Business Rules</text>
+    
+    <rect x="570" y="580" width="100" height="60" class="artifact"/>
+    <path d="M 650 580 L 660 580 L 660 605 L 655 610 L 650 610 Z" class="artifact"/>
+    <text x="620" y="598" text-anchor="middle" class="artifact-label" font-size="9">Auth Module</text>
+    <text x="620" y="613" text-anchor="middle" class="artifact-label" font-size="9">Payment Module</text>
+    <text x="620" y="628" text-anchor="middle" class="artifact-label" font-size="9">Order Module</text>
+  </g>
+  
+  <!-- Node: Cache Server -->
+  <g>
+    <rect x="420" y="710" width="120" height="100" class="node"/>
+    <text x="480" y="735" text-anchor="middle" class="node-label" font-size="12">Cache Server</text>
+    <text x="480" y="753" text-anchor="middle" font-size="10">«server» Redis</text>
+    
+    <rect x="440" y="770" width="80" height="25" class="artifact"/>
+    <path d="M 500 770 L 510 770 L 510 783 L 505 788 L 500 788 Z" class="artifact"/>
+    <text x="480" y="787" text-anchor="middle" class="artifact-label" font-size="9">Key-Value Store</text>
+  </g>
+  
+  <!-- Data Zone -->
+  <rect x="760" y="100" width="300" height="750" fill="#0f1419" stroke="#374151" stroke-width="2" rx="5"/>
+  <text x="910" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b7280">
+    ZONA DE DATOS
+  </text>
+  
+  <!-- Node: Primary Database -->
+  <g>
+    <rect x="790" y="250" width="220" height="160" class="node"/>
+    <ellipse cx="900" cy="310" rx="70" ry="50" class="node" fill="#0f2942"/>
+    <ellipse cx="900" cy="305" rx="60" ry="42" class="node" fill="none"/>
+    <ellipse cx="900" cy="300" rx="50" ry="34" class="node" fill="none"/>
+    
+    <text x="900" y="215" text-anchor="middle" class="node-label">Primary DB</text>
+    <text x="900" y="233" text-anchor="middle" font-size="10">«database server»</text>
+    
+    <text x="900" y="375" text-anchor="middle" font-size="11" fill="#9ca3af">PostgreSQL</text>
+    <text x="900" y="395" text-anchor="middle" font-size="10" fill="#9ca3af">Master Node</text>
+  </g>
+  
+  <!-- Node: Replica Database -->
+  <g>
+    <rect x="790" y="450" width="220" height="160" class="node"/>
+    <ellipse cx="900" cy="510" rx="70" ry="50" class="node" fill="#0f2942"/>
+    <ellipse cx="900" cy="505" rx="60" ry="42" class="node" fill="none"/>
+    <ellipse cx="900" cy="500" rx="50" ry="34" class="node" fill="none"/>
+    
+    <text x="900" y="415" text-anchor="middle" class="node-label">Replica DB</text>
+    <text x="900" y="433" text-anchor="middle" font-size="10">«database server»</text>
+    
+    <text x="900" y="575" text-anchor="middle" font-size="11" fill="#9ca3af">PostgreSQL</text>
+    <text x="900" y="595" text-anchor="middle" font-size="10" fill="#9ca3af">Read Replica</text>
+  </g>
+  
+  <!-- Node: File Storage -->
+  <g>
+    <rect x="790" y="650" width="220" height="120" class="node"/>
+    <text x="900" y="680" text-anchor="middle" class="node-label">File Storage</text>
+    <text x="900" y="698" text-anchor="middle" font-size="10">«storage» AWS S3</text>
+    
+    <text x="900" y="725" text-anchor="middle" font-size="10" fill="#9ca3af">• Images</text>
+    <text x="900" y="743" text-anchor="middle" font-size="10" fill="#9ca3af">• Documents</text>
+    <text x="900" y="761" text-anchor="middle" font-size="10" fill="#9ca3af">• Backups</text>
+  </g>
+  
+  <!-- Communications -->
+  
+  <!-- Browser to Load Balancer -->
+  <path d="M 320 210 L 420 210" class="communication"/>
+  <text x="370" y="205" class="protocol">HTTPS</text>
+  
+  <!-- Mobile to Load Balancer -->
+  <path d="M 300 420 L 360 420 L 360 230 L 420 230" class="communication"/>
+  <text x="330" y="415" class="protocol">HTTPS</text>
+  
+  <!-- Load Balancer to Web Servers -->
+  <path d="M 555 260 L 480 300" class="communication"/>
+  <path d="M 555 260 L 630 300" class="communication"/>
+  <text x="500" y="280" class="protocol">HTTP</text>
+  
+  <!-- Web Servers to App Server -->
+  <path d="M 480 480 L 480 520" class="communication"/>
+  <path d="M 630 480 L 630 520" class="communication"/>
+  <text x="490" y="500" class="protocol">REST API</text>
+  
+  <!-- App Server to Cache -->
+  <path d="M 480 670 L 480 710" class="communication"/>
+  <text x="490" y="690" class="protocol">TCP</text>
+  
+  <!-- App Server to Databases -->
+  <path d="M 690 595 L 790 310" class="communication"/>
+  <text x="720" y="450" class="protocol">SQL</text>
+  
+  <path d="M 690 605 L 790 510" class="communication"/>
+  <text x="720" y="560" class="protocol">SQL (Read)</text>
+  
+  <!-- App Server to File Storage -->
+  <path d="M 690 640 L 790 710" class="communication"/>
+  <text x="720" y="675" class="protocol">S3 API</text>
+  
+  <!-- DB Replication -->
+  <path d="M 900 410 L 900 450" class="communication" stroke-dasharray="5,3"/>
+  <text x="910" y="430" class="protocol">Replication</text>
+  
+  <!-- Notes -->
+  <rect x="50" y="860" width="1000" height="30" fill="#1e3a5f" stroke="#0ea5e9" stroke-width="1" rx="5"/>
+  <text x="550" y="880" text-anchor="middle" font-size="11" fill="#e5e7eb">
+    Arquitectura escalable horizontalmente con balanceo de carga, caché distribuido y replicación de base de datos
+  </text>
+  
+</svg>
