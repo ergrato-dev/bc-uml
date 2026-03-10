@@ -176,8 +176,8 @@ Los SVGs deben seguir el tema dark del proyecto:
 - Texto: `#e2e8f0`
 - Flechas: `#94a3b8`
 
-SVGs globales van en `_assets/`.
-SVGs específicos de sesión van en `bootcamp/sesion-X/0-assets/`.
+SVGs de diagramas van en `bootcamp/week-XX/0-assets/`, numerados por orden de aparición en la teoría.
+El logo del bootcamp va en `_assets/logo-uml-course.svg`.
 
 ---
 

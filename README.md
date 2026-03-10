@@ -76,7 +76,7 @@ bc-uml/
 │       ├── 4-recursos/                 # Webgrafía, videografía, ebooks
 │       └── 5-glosario/                 # Glosario términos de comportamiento
 │
-├── _assets/                            # 23 SVGs globales (tema dark)
+├── _assets/                            # Logo del bootcamp (logo-uml-course.svg)
 ├── _docs/                              # Plan de estudios, cheat sheet, guías
 └── _scripts/                           # Scripts de exportación PDF
 ```
