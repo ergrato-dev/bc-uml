@@ -47,7 +47,7 @@ Clase (abstracta):          Objeto (instancia):
 
 ### Ejemplo: Sistema de Biblioteca
 
-![Diagrama de Objetos - Biblioteca](../0-assets/diagrama-objetos-biblioteca.svg)
+![Diagrama de Objetos - Biblioteca](../0-assets/11-diagrama-objetos-biblioteca.svg)
 
 ```plantuml
 @startuml
@@ -105,7 +105,7 @@ cómo están divididos los módulos, servicios o librerías y cómo se comunican
 
 ### Ejemplo: E-Commerce
 
-![Componentes E-Commerce](../0-assets/diagrama-componentes-ecommerce.svg)
+![Componentes E-Commerce](../0-assets/12-diagrama-componentes-ecommerce.svg)
 
 ```plantuml
 @startuml
@@ -157,7 +157,7 @@ en qué servidores, nodos o dispositivos se ejecuta cada componente.
 
 ### Ejemplo: Aplicación Web
 
-![Despliegue WebApp](../0-assets/diagrama-despliegue-webapp.svg)
+![Despliegue WebApp](../0-assets/13-diagrama-despliegue-webapp.svg)
 
 ```plantuml
 @startuml

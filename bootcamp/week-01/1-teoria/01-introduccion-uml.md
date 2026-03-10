@@ -62,7 +62,7 @@ estándar industrial. Hoy es el lenguaje de modelado más usado en el mundo.
 
 UML 2.5 define **14 tipos de diagramas** en dos categorías:
 
-![Taxonomía de UML](../0-assets/taxonomia-uml.svg)
+![Taxonomía de UML](../0-assets/01-taxonomia-uml.svg)
 
 ### Categoría 1: Diagramas Estructurales (Static)
 

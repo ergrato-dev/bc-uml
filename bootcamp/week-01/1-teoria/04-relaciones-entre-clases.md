@@ -15,7 +15,7 @@
 
 UML define 6 tipos de relaciones entre clases, ordenados **de más fuerte a más débil**:
 
-![Relaciones entre Clases](../0-assets/relaciones-clases.svg)
+![Relaciones entre Clases](../0-assets/04-relaciones-clases.svg)
 
 | #   | Relación    | Notación                          | Keyword      | Fuerza     |
 | --- | ----------- | --------------------------------- | ------------ | ---------- |
@@ -32,7 +32,7 @@ UML define 6 tipos de relaciones entre clases, ordenados **de más fuerte a más
 
 **"Las partes no pueden existir sin el todo"** — Ciclo de vida dependiente.
 
-![Composición](../0-assets/composicion.svg)
+![Composición](../0-assets/05-composicion.svg)
 
 ```plantuml
 @startuml
@@ -64,7 +64,7 @@ Pedido "1" *-- "1..*" LineaPedido : contiene >
 
 **"Las partes pueden existir sin el todo"** — Ciclo de vida independiente.
 
-![Agregación](../0-assets/agregacion.svg)
+![Agregación](../0-assets/06-agregacion.svg)
 
 ```plantuml
 @startuml
@@ -111,7 +111,7 @@ Departamento "1" o-- "1..*" Empleado : agrupa >
 
 **"Es un tipo de"** — La subclase hereda todos los miembros de la superclase.
 
-![Herencia](../0-assets/herencia.svg)
+![Herencia](../0-assets/07-herencia.svg)
 
 ```plantuml
 @startuml
@@ -155,7 +155,7 @@ Vehiculo <|-- Camion
 
 **"Implementa un contrato"** — Una clase concreta implementa una interfaz.
 
-![Realización](../0-assets/realizacion.svg)
+![Realización](../0-assets/08-realizacion.svg)
 
 ```plantuml
 @startuml
@@ -187,7 +187,7 @@ Pagable <|.. PagoPayPal
 
 **Relación general entre dos clases** sin implicar ciclo de vida compartido.
 
-![Asociación](../0-assets/asociacion.svg)
+![Asociación](../0-assets/09-asociacion.svg)
 
 ```plantuml
 @startuml
@@ -212,7 +212,7 @@ Medico "1..*" -- "0..*" Paciente : atiende >
 
 **Uso temporal o puntual** de una clase por otra — la más débil de todas.
 
-![Dependencia](../0-assets/dependencia.svg)
+![Dependencia](../0-assets/10-dependencia.svg)
 
 ```plantuml
 @startuml

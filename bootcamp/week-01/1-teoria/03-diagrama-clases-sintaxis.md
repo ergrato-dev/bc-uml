@@ -35,7 +35,7 @@ El **Diagrama de Clases** es el diagrama UML más utilizado. Representa la
 
 Una clase se representa con un rectángulo dividido en **3 compartimentos**:
 
-![Sintaxis de Clase](../0-assets/clase-sintaxis.svg)
+![Sintaxis de Clase](../0-assets/02-clase-sintaxis.svg)
 
 ```
 ┌─────────────────────────────┐
@@ -209,6 +209,8 @@ class CuentaBancaria {
 ---
 
 ## 🌍 Ejemplo de la Vida Real: Sistema E-Commerce
+
+![Diagrama de Clases E-Commerce](../0-assets/03-ecommerce-diagrama-clases.svg)
 
 ```plantuml
 @startuml
