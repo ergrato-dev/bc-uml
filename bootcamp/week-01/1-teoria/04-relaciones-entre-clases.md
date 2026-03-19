@@ -301,6 +301,15 @@ LineaPedido "1..*" -- "1" Producto : referencia >
 
 ---
 
+## 🧪 Vista Previa de Práctica (Biblioteca)
+
+Este diagrama integra clases y relaciones típicas de dominio para practicar la selección
+de asociaciones, agregaciones y composiciones en un caso más cercano a proyecto.
+
+![Ejercicio Biblioteca - Clases](../0-assets/14-ejercicio-biblioteca-clases.svg)
+
+---
+
 ## 🔗 Navegación
 
 ⬅️ Anterior: [03 — Diagrama de Clases: Sintaxis](03-diagrama-clases-sintaxis.md) &nbsp;➡️ Siguiente: [05 — Diagramas Estructurales](05-diagramas-estructurales.md)

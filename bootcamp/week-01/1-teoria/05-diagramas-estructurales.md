@@ -209,6 +209,15 @@ node "Cache" {
 
 ---
 
+## 🧪 Vista Previa de Práctica (Componentes)
+
+Como transición entre teoría y práctica, este ejemplo muestra una descomposición por componentes
+de un sistema de biblioteca, útil para identificar responsabilidades por módulo.
+
+![Ejercicio Biblioteca - Componentes](../0-assets/15-ejercicio-biblioteca-componentes.svg)
+
+---
+
 ## ✅ Resumen
 
 - **Objeto**: "Fotografía" del sistema — instancias con datos concretos
