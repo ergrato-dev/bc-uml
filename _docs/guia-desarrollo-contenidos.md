@@ -196,9 +196,9 @@ Este proyecto usa Conventional Commits para el historial de Git:
 Ejemplo:
 
 ```
-feat(week-02): agregar ejercicio-04-actividades con starter y solucion
+feat(week-02-diagramas_de_comportamiento): agregar ejercicio-04-actividades con starter y solucion
 docs(glosario): ampliar definición de estado compuesto
-fix(week-01): corregir sintaxis starter ejercicio-02
+fix(week-01-fundamentos_y_diagramas_estructurales): corregir sintaxis starter ejercicio-02
 ```
 
 ---

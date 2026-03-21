@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # export-pdf.sh — Exportar módulos del bootcamp a PDF (requiere pandoc)
-# Uso: ./export-pdf.sh [week-01|week-02|all]
+# Uso: ./export-pdf.sh [week-01-fundamentos_y_diagramas_estructurales|week-02-diagramas_de_comportamiento|all]
 
 set -e
 
@@ -23,14 +23,14 @@ export_sesion() {
 }
 
 case "$SESION" in
-  week-01) export_sesion week-01 ;;
-  week-02) export_sesion week-02 ;;
+  week-01-fundamentos_y_diagramas_estructurales) export_sesion week-01-fundamentos_y_diagramas_estructurales ;;
+  week-02-diagramas_de_comportamiento) export_sesion week-02-diagramas_de_comportamiento ;;
   all)
-    export_sesion week-01
-    export_sesion week-02
+    export_sesion week-01-fundamentos_y_diagramas_estructurales
+    export_sesion week-02-diagramas_de_comportamiento
     ;;
   *)
-    echo "Uso: $0 [week-01|week-02|all]"
+    echo "Uso: $0 [week-01-fundamentos_y_diagramas_estructurales|week-02-diagramas_de_comportamiento|all]"
     exit 1
     ;;
 esac

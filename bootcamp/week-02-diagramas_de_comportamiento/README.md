@@ -28,7 +28,7 @@ Al finalizar esta sesión, serás capaz de:
 ## 🗂️ Estructura de la Sesión
 
 ```
-week-02/
+week-02-diagramas_de_comportamiento/
 ├── README.md                                    # Este archivo
 ├── rubrica-evaluacion.md                        # Criterios de evaluación
 ├── 0-assets/                                    # Diagramas SVG de apoyo
@@ -165,7 +165,7 @@ Antes de dar por completo el bootcamp, asegúrate de:
 
 ## 🔗 Navegación
 
-⬅️ Anterior: [Sesión 1: Fundamentos y Diagramas Estructurales](../week-01/README.md) &nbsp;➡️ [Inicio del Bootcamp](../../README.md)
+⬅️ Anterior: [Sesión 1: Fundamentos y Diagramas Estructurales](../week-01-fundamentos_y_diagramas_estructurales/README.md)  ➡️ [Inicio del Bootcamp](../../README.md)
 
 ---
 

@@ -54,7 +54,7 @@ cd bc-uml
 code .
 ```
 
-Navigate to [bootcamp/week-01/](bootcamp/week-01/) to begin.
+Navigate to [bootcamp/week-01-fundamentos_y_diagramas_estructurales/](bootcamp/week-01-fundamentos_y_diagramas_estructurales/) to begin.
 
 ---
 
@@ -82,7 +82,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 🎓 UML Bootcamp — From zero to professional modeling in 2 sessions
 
-[▶ Start Session 1](bootcamp/week-01/) • [📖 See Docs](_docs/) • [🐛 Report Issue](https://github.com/ergrato-dev/bc-uml/issues)
+[▶ Start Session 1](bootcamp/week-01-fundamentos_y_diagramas_estructurales/) • [📖 See Docs](_docs/) • [🐛 Report Issue](https://github.com/ergrato-dev/bc-uml/issues)
 
 Made with ❤️ for the developer community
 

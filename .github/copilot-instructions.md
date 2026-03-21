@@ -11,8 +11,8 @@ una dedicación de **5 horas semanales**.
 ```
 bc-uml/
 ├── bootcamp/
-│   ├── week-01/     # Fundamentos + Diagramas Estructurales (5h)
-│   └── week-02/     # Diagramas de Comportamiento (5h)
+│   ├── week-01-fundamentos_y_diagramas_estructurales/     # Fundamentos + Diagramas Estructurales (5h)
+│   └── week-02-diagramas_de_comportamiento/               # Diagramas de Comportamiento (5h)
 ├── _assets/          # Diagramas SVG (dark theme)
 └── _docs/            # Plan de estudios y guías
 ```
@@ -20,17 +20,21 @@ bc-uml/
 ## Convenciones del Proyecto
 
 ### Idioma
+
 - **Documentación**: Español
 - **Código PlantUML**: Inglés para clases/métodos, español para comentarios
 - **Nombres de archivo**: minúsculas, guiones, numeración con cero: `01-introduccion-uml.md`
 
 ### Diagramas PlantUML
+
 - Siempre incluir `@startuml` / `@enduml`
 - Usar skinparam consistente con el tema dark del proyecto
 - Los diagramas deben ser didácticos (no overly complex)
 
 ### Estructura de Módulos
+
 Cada sesión sigue la estructura estándar:
+
 ```
 sesion-X/
 ├── README.md                  # Objetivos, contenidos, distribución tiempo (5h)
@@ -44,12 +48,14 @@ sesion-X/
 ```
 
 ### Evaluación
+
 - **Conocimiento** 🧠 (30%): Cuestionarios teóricos
 - **Desempeño** 💪 (40%): Ejercicios prácticos (2-practicas/)
 - **Producto** 📦 (30%): Proyecto final (3-proyecto/)
 - Criterio de aprobación: mínimo **70%** en cada tipo
 
 ### Distribución de tiempo por sesión (5h)
+
 ```
 📖 Teoría:        2h   (40%)
 💻 Prácticas:     2h   (40%)
