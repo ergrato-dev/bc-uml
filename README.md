@@ -164,6 +164,17 @@ Este proyecto usa **Conventional Commits**: `feat:`, `fix:`, `docs:`.
 
 ---
 
+## ⚠️ Exención de Responsabilidad
+
+Este material es de carácter **educativo y sin fines de lucro**. Los ejemplos, diagramas y proyectos incluidos son ficticios y tienen únicamente propósitos de aprendizaje.
+
+- El contenido se proporciona **"tal cual"**, sin garantías de ningún tipo, explícitas o implícitas.
+- Los autores no asumen ninguna responsabilidad por el uso que se dé a este material en entornos de producción.
+- **UML** es una marca registrada del Object Management Group (OMG). Este proyecto no tiene afiliación oficial con OMG ni con ninguna organización certificadora.
+- Las herramientas y recursos de terceros mencionados están sujetos a sus propios términos de licencia.
+
+---
+
 ## 📜 Licencia
 
 [MIT](LICENSE) © 2026 ergrato-dev

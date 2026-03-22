@@ -72,6 +72,17 @@ Navigate to [bootcamp/week-01-fundamentos_y_diagramas_estructurales/](bootcamp/w
 
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+## ⚠️ Disclaimer
+
+This material is **educational and non-commercial** in nature. Examples, diagrams, and projects are fictitious and intended for learning purposes only.
+
+- Content is provided **"as is"**, without warranties of any kind, express or implied.
+- The authors assume no responsibility for the use of this material in production environments.
+- **UML** is a registered trademark of the Object Management Group (OMG). This project has no official affiliation with OMG or any certification body.
+- Third-party tools and resources mentioned are subject to their own license terms.
+
+---
+
 ## 📄 License
 
 MIT License — see [LICENSE](LICENSE) for details.
