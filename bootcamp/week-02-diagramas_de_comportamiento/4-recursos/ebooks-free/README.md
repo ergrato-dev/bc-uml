@@ -48,6 +48,6 @@
 
 | Tipo                       | Recurso                                                    |
 | -------------------------- | ---------------------------------------------------------- |
-| Cheat Sheet del proyecto   | [`../../_docs/CHEAT-SHEET.md`](../../_docs/CHEAT-SHEET.md) |
+| Cheat Sheet del proyecto   | [`../../docs/CHEAT-SHEET.md`](../../docs/CHEAT-SHEET.md) |
 | Glosario de comportamiento | [`../5-glosario/README.md`](../5-glosario/README.md)       |
 | Teoría interactiva         | [`../1-teoria/`](../1-teoria/)                             |

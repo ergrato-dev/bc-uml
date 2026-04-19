@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="_assets/logo-uml-course.svg" alt="Bootcamp UML Logo" width="800"/>
+  <img src="assets/logo-uml-course.svg" alt="Bootcamp UML Logo" width="800"/>
 </div>
 
 <div align="center">
@@ -13,7 +13,7 @@
 **Bootcamp intensivo de UML para desarrolladores de software**  
 Domina el modelado de sistemas en 2 sesiones de 5 horas · 23 diagramas SVG · Ejercicios con starter + solución
 
-[Inicio Rápido](#-inicio-rápido) · [Sesión 1](bootcamp/week-01-fundamentos_y_diagramas_estructurales/README.md) · [Sesión 2](bootcamp/week-02-diagramas_de_comportamiento/README.md) · [Cheat Sheet](_docs/CHEAT-SHEET.md) · [English](README_EN.md)
+[Inicio Rápido](#-inicio-rápido) · [Sesión 1](bootcamp/week-01-fundamentos_y_diagramas_estructurales/README.md) · [Sesión 2](bootcamp/week-02-diagramas_de_comportamiento/README.md) · [Cheat Sheet](docs/CHEAT-SHEET.md) · [English](README_EN.md)
 
 </div>
 
@@ -78,9 +78,9 @@ bc-uml/
 │       ├── 4-recursos/                 # Webgrafía, videografía, ebooks
 │       └── 5-glosario/                 # Glosario términos de comportamiento
 │
-├── _assets/                            # Logo del bootcamp (logo-uml-course.svg)
-├── _docs/                              # Plan de estudios, cheat sheet, guías
-└── _scripts/                           # Scripts de exportación PDF
+├── assets/                            # Logo del bootcamp (logo-uml-course.svg)
+├── docs/                              # Plan de estudios, cheat sheet, guías
+└── scripts/                           # Scripts de exportación PDF
 ```
 
 ---
@@ -151,9 +151,9 @@ Cada sesión evalúa tres dimensiones:
 
 | Documento                                                 | Descripción                      |
 | --------------------------------------------------------- | -------------------------------- |
-| [Cheat Sheet](_docs/CHEAT-SHEET.md)                       | Guía rápida de notación PlantUML |
-| [Plan de Estudios](_docs/plan-estudios.md)                | Programa completo del bootcamp   |
-| [Guía de Contenidos](_docs/guia-desarrollo-contenidos.md) | Cómo agregar nuevo material      |
+| [Cheat Sheet](docs/CHEAT-SHEET.md)                       | Guía rápida de notación PlantUML |
+| [Plan de Estudios](docs/plan-estudios.md)                | Programa completo del bootcamp   |
+| [Guía de Contenidos](docs/guia-desarrollo-contenidos.md) | Cómo agregar nuevo material      |
 
 ---
 

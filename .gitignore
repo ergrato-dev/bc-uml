@@ -1,6 +1,6 @@
 # Bootcamp UML - .gitignore
 
-## Exportaciones PDF generadas por _scripts/export-pdf.sh
+## Exportaciones PDF generadas por scripts/export-pdf.sh
 exported-pdfs/
 
 ## Carpetas de contenido multimedia

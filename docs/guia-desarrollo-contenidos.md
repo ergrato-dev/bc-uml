@@ -153,7 +153,7 @@ mkdir -p bootcamp/sesion-3/{0-assets,1-teoria,2-practicas,3-proyecto/starter,4-r
 
 2. Copiar los SVGs relevantes a `0-assets/`
 3. Crear `README.md` y `rubrica-evaluacion.md` siguiendo el patrón de sesiones anteriores
-4. Actualizar `_docs/plan-estudios.md` con la nueva sesión
+4. Actualizar `docs/plan-estudios.md` con la nueva sesión
 5. Actualizar el `README.md` raíz con la nueva entrada en la tabla
 
 ---
@@ -177,7 +177,7 @@ Los SVGs deben seguir el tema dark del proyecto:
 - Flechas: `#94a3b8`
 
 SVGs de diagramas van en `bootcamp/week-XX/0-assets/`, numerados por orden de aparición en la teoría.
-El logo del bootcamp va en `_assets/logo-uml-course.svg`.
+El logo del bootcamp va en `assets/logo-uml-course.svg`.
 
 ---
 

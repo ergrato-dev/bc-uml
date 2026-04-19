@@ -1,7 +1,7 @@
 # ✅ Reorganización Completada
 
 **Fecha**: 5 de noviembre de 2025  
-**Acción**: Movimiento de documentos a carpeta `_docs`
+**Acción**: Movimiento de documentos a carpeta `docs`
 
 ---
 
@@ -19,7 +19,7 @@ bc-uml/
 ├── AUDITORIA-FINAL.md            ← En raíz
 ├── modulos/
 ├── assets/
-└── _docs/                        ← Vacía
+└── docs/                        ← Vacía
 ```
 
 ### Después:
@@ -27,7 +27,7 @@ bc-uml/
 ```
 bc-uml/
 ├── README.md                     ← ÚNICO archivo en raíz ✅
-├── _docs/                        ← Documentación organizada
+├── docs/                        ← Documentación organizada
 │   ├── RESUMEN-EJECUTIVO.md
 │   ├── INVENTARIO-COMPLETO.md
 │   ├── CHEAT-SHEET.md
@@ -46,7 +46,7 @@ bc-uml/
 | Carpeta      | Contenido        | Cantidad        |
 | ------------ | ---------------- | --------------- |
 | **Raíz**     | README.md        | 1 archivo       |
-| **\_docs/**  | Documentación    | 5 archivos      |
+| **\docs/**  | Documentación    | 5 archivos      |
 | **modulos/** | Teoría del curso | 8 archivos      |
 | **assets/**  | Diagramas SVG    | 23 archivos     |
 | **TOTAL**    |                  | **37 archivos** |
@@ -77,10 +77,10 @@ El README.md ahora incluye:
 ## ✅ Beneficios de la Reorganización
 
 1. **Raíz limpia**: Solo el README.md como punto de entrada
-2. **Documentación agrupada**: Todo en `_docs/` fácil de encontrar
+2. **Documentación agrupada**: Todo en `docs/` fácil de encontrar
 3. **Mejor navegación**: Enlaces directos desde el README
 4. **Organización profesional**: Estructura clara y mantenible
-5. **Escalabilidad**: Fácil agregar más documentos a `_docs/`
+5. **Escalabilidad**: Fácil agregar más documentos a `docs/`
 
 ---
 
@@ -90,7 +90,7 @@ El README.md ahora incluye:
 
 ```
 /                   ← README.md SOLAMENTE
-├── _docs/          ← Documentación de apoyo (prefijo _ para agrupación)
+├── docs/          ← Documentación de apoyo (prefijo _ para agrupación)
 ├── modulos/        ← Contenido del curso
 └── assets/         ← Recursos gráficos
 ```
@@ -110,22 +110,22 @@ Para diferentes usuarios:
 ### 🎓 Estudiante que empieza
 
 1. Lee `README.md` (raíz)
-2. Ve a [Índice de Navegación](_docs/INDICE-NAVEGACION.md)
+2. Ve a [Índice de Navegación](docs/INDICE-NAVEGACION.md)
 3. Empieza con `modulos/week-01/modulo-1.1-introduccion.md`
 
 ### 👨‍🏫 Instructor preparando clase
 
 1. Lee `README.md` (raíz)
-2. Revisa [Resumen Ejecutivo](_docs/RESUMEN-EJECUTIVO.md)
-3. Consulta [Inventario Completo](_docs/INVENTARIO-COMPLETO.md)
+2. Revisa [Resumen Ejecutivo](docs/RESUMEN-EJECUTIVO.md)
+3. Consulta [Inventario Completo](docs/INVENTARIO-COMPLETO.md)
 
 ### 🔍 Consulta rápida
 
-1. Ve directo a [Cheat Sheet](_docs/CHEAT-SHEET.md)
+1. Ve directo a [Cheat Sheet](docs/CHEAT-SHEET.md)
 
 ### 🔧 Verificación de calidad
 
-1. Revisa [Auditoría Final](_docs/AUDITORIA-FINAL.md)
+1. Revisa [Auditoría Final](docs/AUDITORIA-FINAL.md)
 
 ---
 

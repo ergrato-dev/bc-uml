@@ -13,8 +13,8 @@ bc-uml/
 ├── bootcamp/
 │   ├── week-01-fundamentos_y_diagramas_estructurales/     # Fundamentos + Diagramas Estructurales (5h)
 │   └── week-02-diagramas_de_comportamiento/               # Diagramas de Comportamiento (5h)
-├── _assets/          # Diagramas SVG (dark theme)
-└── _docs/            # Plan de estudios y guías
+├── assets/          # Diagramas SVG (dark theme)
+└── docs/            # Plan de estudios y guías
 ```
 
 ## Convenciones del Proyecto

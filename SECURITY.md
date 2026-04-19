@@ -17,7 +17,7 @@ Si bien este proyecto no contiene software ejecutable, si encuentras:
 
 - Links externos que apunten a sitios maliciosos
 - Contenido que promueva prácticas inseguras como ejemplo
-- Scripts de automatización (`_scripts/`) con comportamiento inesperado
+- Scripts de automatización (`scripts/`) con comportamiento inesperado
 
 Por favor abre un **Issue privado** o contáctanos directamente antes de hacer
 la divulgación pública.

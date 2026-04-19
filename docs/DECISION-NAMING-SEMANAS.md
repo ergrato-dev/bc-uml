@@ -56,23 +56,23 @@ Se actualizaron **todas** las referencias de ruta en los siguientes archivos:
 | `bootcamp/week-02-.../README.md` | Árbol interno, link de navegación |
 | `bootcamp/week-01-.../5-glosario/README.md` | Link cruzado al glosario de semana 2 |
 | `bootcamp/week-02-.../5-glosario/README.md` | Link cruzado al glosario de semana 1 |
-| `_docs/plan-estudios.md` | Todos los links a teoría, prácticas y proyecto |
-| `_scripts/export-pdf.sh` | Argumentos del script y case statement |
+| `docs/plan-estudios.md` | Todos los links a teoría, prácticas y proyecto |
+| `scripts/export-pdf.sh` | Argumentos del script y case statement |
 | `CONTRIBUTING.md` | Ejemplos de scope en Conventional Commits |
-| `_docs/guia-desarrollo-contenidos.md` | Ejemplos de scope en commits |
+| `docs/guia-desarrollo-contenidos.md` | Ejemplos de scope en commits |
 | `.github/copilot-instructions.md` | Árbol de estructura del proyecto |
 
 ### Notas sobre archivos NO actualizados
 
-Los siguientes archivos en `_docs/` describen una **estructura legacy** (`modulos/`)
+Los siguientes archivos en `docs/` describen una **estructura legacy** (`modulos/`)
 previa a la reorganización del repositorio. Sus referencias a `week-01`/`week-02`
 están bajo `modulos/week-01/` (ruta que nunca existió en la estructura `bootcamp/`),
 por lo que quedan fuera del alcance de este cambio:
 
-- `_docs/RESUMEN-EJECUTIVO.md`
-- `_docs/REORGANIZACION.md`
-- `_docs/INVENTARIO-COMPLETO.md`
-- `_docs/INDICE-NAVEGACION.md`
+- `docs/RESUMEN-EJECUTIVO.md`
+- `docs/REORGANIZACION.md`
+- `docs/INVENTARIO-COMPLETO.md`
+- `docs/INDICE-NAVEGACION.md`
 
 ---
 

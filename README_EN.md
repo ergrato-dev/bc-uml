@@ -1,6 +1,6 @@
 <!-- UML Bootcamp Header -->
 <div align="center">
-  <img src="_assets/logo-uml-course.svg" alt="UML Bootcamp Logo" width="800"/>
+  <img src="assets/logo-uml-course.svg" alt="UML Bootcamp Logo" width="800"/>
 </div>
 
 <div align="center">
@@ -93,7 +93,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 🎓 UML Bootcamp — From zero to professional modeling in 2 sessions
 
-[▶ Start Session 1](bootcamp/week-01-fundamentos_y_diagramas_estructurales/) • [📖 See Docs](_docs/) • [🐛 Report Issue](https://github.com/ergrato-dev/bc-uml/issues)
+[▶ Start Session 1](bootcamp/week-01-fundamentos_y_diagramas_estructurales/) • [📖 See Docs](docs/) • [🐛 Report Issue](https://github.com/ergrato-dev/bc-uml/issues)
 
 Made with ❤️ for the developer community
 

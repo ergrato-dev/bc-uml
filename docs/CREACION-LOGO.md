@@ -90,7 +90,7 @@ El `README.md` ahora incluye el logo en el encabezado:
 ```
 bc-uml/
 ├── README.md (1)
-├── _docs/ (6 archivos)
+├── docs/ (6 archivos)
 ├── modulos/ (8 archivos)
 └── assets/ (25 SVG + 1 README = 26)
 ────────────────────────────────
