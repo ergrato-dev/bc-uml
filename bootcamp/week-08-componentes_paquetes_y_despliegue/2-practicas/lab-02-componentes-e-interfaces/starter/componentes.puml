@@ -1,0 +1,18 @@
+@startuml
+title Tienda — componentes del envío
+
+component Checkout
+component Inventory
+component Shipping
+component Notifications
+
+' TODO 1: declara las interfaces StockQuery, StockReservation, ShipmentApi y Notifier.
+
+' TODO 2: cada interfaz la provee un componente.
+
+' TODO 3: sustituye estas flechas por interfaces requeridas.
+Checkout --> Inventory
+Checkout --> Shipping
+Shipping --> Inventory
+Shipping --> Notifications
+@enduml

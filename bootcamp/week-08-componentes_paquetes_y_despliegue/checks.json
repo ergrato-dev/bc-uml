@@ -1,0 +1,132 @@
+{
+  "semana": "08",
+  "titulo": "Componentes, paquetes y despliegue",
+  "checks": [
+    {
+      "id": "modelo-sigue-renderizando",
+      "descripcion": "Los diagramas de clases, casos de uso, actividad, secuencia, comunicación y estados siguen en el modelo y renderizan",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/04-casos-de-uso.puml {proyecto}/diagramas/05-actividad-*.puml {proyecto}/diagramas/06-secuencia-*.puml {proyecto}/diagramas/06-comunicacion-*.puml {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "paquetes-renderiza",
+      "descripcion": "08-paquetes.puml renderiza, es un diagrama de clases y tiene title",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/08-paquetes.puml && plantuml -syntax < {proyecto}/diagramas/08-paquetes.puml | head -1 | grep -qx CLASS && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/08-paquetes.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "paquetes-minimos",
+      "descripcion": "08-paquetes.puml tiene al menos 3 paquetes",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*package[[:space:]]+[A-Za-z]' {proyecto}/diagramas/08-paquetes.puml)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "paquetes-con-clases-del-modelo",
+      "descripcion": "Los paquetes contienen al menos 6 clasificadores y todos existen en 02-clases.puml",
+      "cmd": "RE='^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+'; awk -v re=\"$RE\" '$0 ~ re && d > 0 {sub(/^[[:space:]]*(abstract[[:space:]]+)?[a-z]+[[:space:]]+/, \"\"); sub(/[^A-Za-z0-9_].*$/, \"\"); print} {d += gsub(/[{]/, \"{\") - gsub(/[}]/, \"}\")}' {proyecto}/diagramas/08-paquetes.puml | sort -u > /tmp/p && grep -oE \"$RE\" {proyecto}/diagramas/02-clases.puml | awk '{print $NF}' | sort -u > /tmp/c && [ \"$(wc -l < /tmp/p)\" -ge 6 ] && [ -z \"$(comm -23 /tmp/p /tmp/c)\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "dependencias-entre-paquetes",
+      "descripcion": "Hay al menos 2 dependencias ..> entre paquetes",
+      "cmd": "grep -oE '^[[:space:]]*package[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/08-paquetes.puml | awk '{print $2}' > /tmp/k && awk 'NR == FNR {k[$1]; next} $2 ~ /^[.]+>$/ && ($1 in k) && ($3 in k) {n++} END {exit !(n >= 2)}' /tmp/k {proyecto}/diagramas/08-paquetes.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "paquetes-sin-ciclos",
+      "descripcion": "Las dependencias entre paquetes no forman ningún ciclo",
+      "cmd": "grep -oE '^[[:space:]]*package[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/08-paquetes.puml | awk '{print $2}' > /tmp/k && awk 'NR == FNR {k[$1]; next} $2 ~ /^[.]+>$/ && ($1 in k) && ($3 in k) {print $1, $3}' /tmp/k {proyecto}/diagramas/08-paquetes.puml | tsort > /dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "componentes-renderiza",
+      "descripcion": "08-componentes.puml renderiza, es un diagrama de componentes y tiene title",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/08-componentes.puml && plantuml -syntax < {proyecto}/diagramas/08-componentes.puml | head -1 | grep -qx DESCRIPTION && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/08-componentes.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "componentes-minimos",
+      "descripcion": "08-componentes.puml tiene al menos 3 componentes",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*component[[:space:]]+[A-Za-z]' {proyecto}/diagramas/08-componentes.puml)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "interfaces-provistas",
+      "descripcion": "Hay al menos 2 interfaces y cada una la provee un componente (Componente -- Interfaz)",
+      "cmd": "grep -oE '^[[:space:]]*interface[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/08-componentes.puml | awk '{print $2}' > /tmp/i && awk 'NR == FNR {i[$1]; next} $2 ~ /^-+([(][)])?$/ && ($3 in i) {p[$3]} END {for (x in i) {if (!(x in p)) exit 1; n++} exit !(n >= 2)}' /tmp/i {proyecto}/diagramas/08-componentes.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "interfaz-requerida",
+      "descripcion": "Al menos una interfaz la provee un componente y la requiere otro (Componente --( Interfaz)",
+      "cmd": "grep -oE '^[[:space:]]*interface[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/08-componentes.puml | awk '{print $2}' > /tmp/i && awk 'NR == FNR {i[$1]; next} !($3 in i) {next} $2 ~ /^-+([(][)])?$/ {p[$3] = $1} $2 ~ /^-+[(]$/ {r[$1, $3]} END {for (k in r) {split(k, a, SUBSEP); if ((a[2] in p) && p[a[2]] != a[1]) ok = 1} exit !ok}' /tmp/i {proyecto}/diagramas/08-componentes.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "despliegue-renderiza",
+      "descripcion": "08-despliegue.puml renderiza, es un diagrama de despliegue y tiene title",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/08-despliegue.puml && plantuml -syntax < {proyecto}/diagramas/08-despliegue.puml | head -1 | grep -qx DESCRIPTION && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/08-despliegue.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "nodos-dispositivo",
+      "descripcion": "Hay al menos 2 nodos <<device>>",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*node[[:space:]].*<<device>>' {proyecto}/diagramas/08-despliegue.puml)\" -ge 2 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "entorno-de-ejecucion",
+      "descripcion": "Hay al menos un nodo <<executionEnvironment>> dentro de otro nodo",
+      "cmd": "awk 'd > 0 && /^[[:space:]]*node[[:space:]].*<<executionEnvironment>>/ {ok = 1} {d += gsub(/[{]/, \"{\") - gsub(/[}]/, \"}\")} END {exit !ok}' {proyecto}/diagramas/08-despliegue.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "artefactos-en-nodos",
+      "descripcion": "Hay al menos 2 artefactos desplegados dentro de un nodo",
+      "cmd": "awk 'd > 0 && /^[[:space:]]*artifact[[:space:]]/ {n++} {d += gsub(/[{]/, \"{\") - gsub(/[}]/, \"}\")} END {exit !(n >= 2)}' {proyecto}/diagramas/08-despliegue.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "artefacto-manifiesta-componente",
+      "descripcion": "Un artefacto manifiesta (<<manifest>>) un componente de 08-componentes.puml",
+      "cmd": "grep -oE '^[[:space:]]*component[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/08-componentes.puml | awk '{print $2}' > /tmp/m && awk 'NR == FNR {m[$1]; next} $2 ~ /^[.]+>$/ && ($3 in m) && /<<manifest>>/ {ok = 1} END {exit !ok}' /tmp/m {proyecto}/diagramas/08-despliegue.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "ruta-de-comunicacion",
+      "descripcion": "Dos nodos se unen con una ruta de comunicación con etiqueta (a -- b : protocolo)",
+      "cmd": "awk '/^[[:space:]]*node[[:space:]]/ {id = $2; if (match($0, / as [A-Za-z0-9_]+/)) id = substr($0, RSTART + 4, RLENGTH - 4); n[id]} $2 ~ /^-+$/ && ($1 in n) && ($3 in n) && $4 == \":\" {ok = 1} END {exit !ok}' {proyecto}/diagramas/08-despliegue.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "El README del modelo enlaza los tres diagramas de la semana 08",
+      "cmd": "grep -qF 'diagramas/08-paquetes.puml' {proyecto}/README.md && grep -qF 'diagramas/08-componentes.puml' {proyecto}/README.md && grep -qF 'diagramas/08-despliegue.puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en los diagramas 08-*.puml",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/08-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    }
+  ]
+}

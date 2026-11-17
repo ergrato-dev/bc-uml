@@ -1,0 +1,20 @@
+@startuml
+title Biblioteca — despliegue
+
+' TODO 1: tipo de cada nodo y un alias sin espacios.
+node "Self-service kiosk"
+node "Library server"
+node "Database server"
+
+' TODO 2: el software base de cada máquina.
+database "Library DB"
+
+' TODO 3: dónde se instala cada archivo.
+artifact "kiosk-app.exe"
+artifact "library-api.jar"
+artifact "library-schema.sql"
+
+' TODO 4: cómo se comunican las máquinas.
+"Self-service kiosk" -- "Library server"
+"Library server" --> "Library DB"
+@enduml

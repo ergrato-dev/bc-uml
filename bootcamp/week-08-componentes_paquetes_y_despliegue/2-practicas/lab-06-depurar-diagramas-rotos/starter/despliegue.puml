@@ -1,0 +1,25 @@
+@startuml
+title Cine — despliegue
+
+node "Customer device" <<device>> as customer {
+  node "Web browser" <<executionEnvironment>> as browser {
+    artifact "website.js" as websiteJs
+  }
+}
+
+node "Cinema server" <<device>> as cinemaServer {
+  node "JVM 21" <<executionEnvironment>> as jvm {
+    artifact "bookings.jar" as bookingsJar
+  }
+}
+
+database "Cinema DB" as cinemaDb
+
+node "Payment provider" <<device>> as paymentProvider
+
+artifact "notifications.jar" as notificationsJar
+
+customer -- cinemaServer : <<protocol>> HTTPS
+Cinema server -- cinemaDb : <<protocol>> JDBC
+cinemaServer -- paymentProvider
+@enduml

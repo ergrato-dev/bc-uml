@@ -1,0 +1,21 @@
+@startuml
+title Cine — componentes
+
+component Website
+component Bookings
+component Payments
+component Notifications
+
+interface BookingApi
+interface PaymentGateway
+
+Bokings -- BookingApi
+Payments -- PaymentGateway
+Notifications -- NotificationSender
+
+Website --( BookingApi
+Bookings -(( PaymentGateway
+Bookings --( Mailer
+
+interface NotificationSender
+@enduml

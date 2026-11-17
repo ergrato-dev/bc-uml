@@ -1,0 +1,10 @@
+@startuml
+' TODO 4: escribe en el title el nombre de tu sistema.
+title <Tu sistema> — componentes
+
+' TODO 4: al menos 3 componentes, piezas del sistema que se podrían sustituir.
+component FirstComponent
+
+' TODO 5: al menos 2 interfaces, declaradas antes de usarlas; cada una provista por un
+' componente (Componente -- Interfaz) y al menos una requerida por otro (Componente --( Interfaz).
+@enduml

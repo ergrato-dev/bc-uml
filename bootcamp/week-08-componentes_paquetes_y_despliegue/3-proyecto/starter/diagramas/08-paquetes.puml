@@ -1,0 +1,18 @@
+@startuml
+' TODO 1: escribe en el title el nombre de tu sistema.
+title <Tu sistema> — paquetes
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 1: entre 3 y 6 paquetes con nombres del dominio en minúsculas.
+' TODO 2: dentro de cada paquete, solo el nombre de las clases, enumeraciones e interfaces
+' de 02-clases.puml que le pertenecen (al menos 6 en total).
+package firstPackage {
+  class FirstClass
+}
+
+' TODO 3: una dependencia ..> por cada par de paquetes que une una relación de 02-clases.puml,
+' sin ciclos. Comenta con ' por qué va en esa dirección.
+@enduml

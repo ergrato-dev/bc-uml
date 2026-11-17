@@ -1,0 +1,25 @@
+@startuml
+title Cine — taquilla
+
+' TODO 2: la interfaz única de la taquilla.
+
+component Kiosk
+
+' TODO 1: SeatMap, Pricing y TicketPrinter forman un solo componente BoxOffice.
+component SeatMap
+component Pricing
+component TicketPrinter
+
+interface SeatSelection
+interface PriceQuote
+interface Printing
+
+SeatMap -- SeatSelection
+Pricing -- PriceQuote
+TicketPrinter -- Printing
+
+' TODO 3: el quiosco solo conoce la taquilla.
+Kiosk --( SeatSelection
+Kiosk --( PriceQuote
+Kiosk --( Printing
+@enduml

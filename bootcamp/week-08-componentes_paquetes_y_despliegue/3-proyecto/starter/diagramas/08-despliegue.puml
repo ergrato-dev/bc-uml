@@ -1,0 +1,12 @@
+@startuml
+' TODO 6: escribe en el title el nombre de tu sistema.
+title <Tu sistema> — despliegue
+
+' TODO 6: al menos 2 nodos <<device>> con alias y, dentro de alguno, un <<executionEnvironment>>.
+node "First device" <<device>> as firstDevice
+
+' TODO 7: al menos 2 artefactos dentro de los nodos; uno manifiesta (<<manifest>>) un componente
+' de 08-componentes.puml, declarado también aquí con component.
+
+' TODO 8: rutas de comunicación entre dispositivos con <<protocol>>.
+@enduml

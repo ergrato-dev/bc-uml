@@ -1,0 +1,28 @@
+@startuml
+title Biblioteca — paquetes
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' Asociaciones navegables de 02-clases.puml (origen --> destino):
+'   Copy --> Book            Book --> Author
+'   Loan --> Copy            Loan --> Member
+'   Reservation --> Book     Reservation --> Member
+'   Member --> Loan          (el socio guarda sus préstamos activos)
+'   Member --> MembershipType
+
+class Book
+class Copy
+class Author
+class Member
+enum MembershipType <<enumeration>>
+class Loan
+class Reservation
+
+' TODO 1: agrupa las clases en los paquetes catalog, members y loans.
+
+' TODO 2: una dependencia por cada par de paquetes que une una asociación.
+
+' TODO 3: busca el ciclo y rómpelo.
+@enduml

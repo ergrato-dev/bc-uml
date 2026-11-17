@@ -1,0 +1,36 @@
+@startuml
+title Tienda — despliegue
+
+node "Customer device" <<device>> as customer {
+  node "Web browser" <<executionEnvironment>> as browser {
+    artifact "web-shop.js" as webShopJs
+  }
+}
+
+node "Shop server" <<device>> as shopServer {
+  node "JVM 21" <<executionEnvironment>> as jvm {
+    artifact "orders.jar" as ordersJar
+  }
+}
+
+node "Payment provider" <<device>> as paymentProvider {
+  node "Payment platform" <<executionEnvironment>> as platform {
+    artifact "payments-service.jar" as paymentsJar
+  }
+}
+
+artifact "catalog.jar" as catalogJar
+
+component WebShop
+component Orders
+component Payment
+
+webShopJs ..> WebShop : <<manifest>>
+ordersJar ..> Orders : <<manifest>>
+paymentsJar ..> Payment : <<manifest>>
+
+' TODO 1: cada componente de componentes.puml lo manifiesta un artefacto, y solo esos.
+' TODO 2: ningún artefacto fuera de un nodo.
+' TODO 3: una ruta por cada interfaz que cruza de una máquina a otra.
+customer -- shopServer : <<protocol>> HTTPS
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+title Tienda — componentes
+
+component WebShop
+component Orders
+component Payments
+component Catalog
+
+interface OrderApi
+interface PaymentGateway
+interface ProductQuery
+
+Orders -- OrderApi
+Payments -- PaymentGateway
+Catalog -- ProductQuery
+
+WebShop --( OrderApi
+WebShop --( ProductQuery
+Orders --( PaymentGateway
+Orders --( ProductQuery
+@enduml
