@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" role="img">
+  <title>Tres niveles de objetivo de un caso de uso: demasiado grande (Manage library agrupa varios objetivos), el nivel correcto (Borrow book, Renew loan, Pay fine: el actor se va con lo que quería) y demasiado pequeño (Enter barcode, Click save, Log in: pasos de otro caso)</title>
+  <rect width="1100" height="420" fill="#0d1117"/>
+  <text x="40" y="50" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#8b949e">Prueba del nivel: cuando termina, ¿el actor se va con algo que quería?</text>
+  <rect x="40" y="80" width="1020" height="90" rx="6" fill="none" stroke="#f85149" stroke-width="2"/>
+  <text x="60" y="120" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="17" font-weight="bold" fill="#f85149">Demasiado grande</text>
+  <text x="60" y="146" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">Agrupa varios objetivos: pártelo</text>
+  <ellipse cx="420" cy="125" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="420" y="130" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Manage library</text>
+  <rect x="40" y="190" width="1020" height="90" rx="6" fill="none" stroke="#3fb950" stroke-width="2"/>
+  <text x="60" y="230" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="17" font-weight="bold" fill="#3fb950">Nivel de objetivo</text>
+  <text x="60" y="256" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">El actor se va con lo que quería</text>
+  <ellipse cx="420" cy="235" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="420" y="240" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Borrow book</text>
+  <ellipse cx="640" cy="235" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="640" y="240" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Renew loan</text>
+  <ellipse cx="860" cy="235" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="860" y="240" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Pay fine</text>
+  <rect x="40" y="300" width="1020" height="90" rx="6" fill="none" stroke="#e3b341" stroke-width="2"/>
+  <text x="60" y="340" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="17" font-weight="bold" fill="#e3b341">Demasiado pequeño</text>
+  <text x="60" y="366" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">Son pasos de otro caso de uso</text>
+  <ellipse cx="420" cy="345" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="420" y="350" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Enter barcode</text>
+  <ellipse cx="640" cy="345" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="640" y="350" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Click save</text>
+  <ellipse cx="860" cy="345" rx="95" ry="26" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="860" y="350" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Log in</text>
+</svg>

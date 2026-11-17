@@ -1,0 +1,118 @@
+{
+  "semana": "04",
+  "titulo": "Casos de uso",
+  "checks": [
+    {
+      "id": "estructura-sigue-renderizando",
+      "descripcion": "02-clases.puml y 03-objetos.puml de la semana 03 siguen en el modelo y renderizan",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/03-objetos.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "cu-renderiza",
+      "descripcion": "04-casos-de-uso.puml renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/04-casos-de-uso.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "cu-tipo",
+      "descripcion": "04-casos-de-uso.puml es un diagrama de casos de uso con title",
+      "cmd": "plantuml -syntax < {proyecto}/diagramas/04-casos-de-uso.puml | head -1 | grep -qx DESCRIPTION && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/04-casos-de-uso.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "limite-sistema",
+      "descripcion": "El límite del sistema es un rectangle con nombre",
+      "cmd": "grep -E '^[[:space:]]*rectangle[[:space:]]+\"[^\"]+\"[[:space:]]*[{]' {proyecto}/diagramas/04-casos-de-uso.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "actores",
+      "descripcion": "Al menos 3 actores",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*actor[[:space:]]' {proyecto}/diagramas/04-casos-de-uso.puml)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "casos-de-uso",
+      "descripcion": "Al menos 6 casos de uso declarados con usecase y alias CUNN",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*usecase[[:space:]]+\"[^\"]+\"[[:space:]]+as[[:space:]]+CU[0-9][0-9]' {proyecto}/diagramas/04-casos-de-uso.puml)\" -ge 6 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "include",
+      "descripcion": "Hay al menos un <<include>>",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/04-casos-de-uso.puml | grep -F '<<include>>'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "extend",
+      "descripcion": "Hay al menos un <<extend>>",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/04-casos-de-uso.puml | grep -F '<<extend>>'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "include-extend-discontinua",
+      "descripcion": "Todo <<include>> y <<extend>> usa flecha discontinua (..>)",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/04-casos-de-uso.puml | grep -E '<<(include|extend)>>' | grep -vE '[.]+>'",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, pasos 5 y 6"
+    },
+    {
+      "id": "especificaciones",
+      "descripcion": "Al menos 3 especificaciones casos-de-uso/CU-NN.md",
+      "cmd": "[ \"$(ls {proyecto}/casos-de-uso/CU-[0-9][0-9].md 2>/dev/null | wc -l)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "especificaciones-secciones",
+      "descripcion": "Cada CU-NN.md tiene Actor principal, Precondiciones, Flujo principal, Flujos alternativos y Postcondiciones",
+      "cmd": "for f in {proyecto}/casos-de-uso/CU-[0-9][0-9].md; do for s in 'Actor principal' 'Precondiciones' 'Flujo principal' 'Flujos alternativos' 'Postcondiciones'; do grep -qE \"^## $s\" \"$f\" || { echo \"$f: falta ## $s\"; exit 1; }; done; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "especificaciones-flujo",
+      "descripcion": "Cada CU-NN.md tiene al menos 4 pasos numerados en el flujo principal",
+      "cmd": "for f in {proyecto}/casos-de-uso/CU-[0-9][0-9].md; do n=$(awk '/^## /{p=($0 ~ /^## Flujo principal/)} p && /^[0-9]+[.][[:space:]]/{n++} END{print n+0}' \"$f\"); [ \"$n\" -ge 4 ] || { echo \"$f: $n pasos\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "especificaciones-alternativos",
+      "descripcion": "Cada CU-NN.md tiene al menos un flujo alternativo que parte de un paso (3a.)",
+      "cmd": "for f in {proyecto}/casos-de-uso/CU-[0-9][0-9].md; do grep -qE '^[0-9]+[a-z][.][[:space:]]' \"$f\" || { echo \"$f: sin flujo alternativo\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "trazabilidad",
+      "descripcion": "Cada CU-NN.md corresponde a un caso de uso con alias CUNN en el diagrama",
+      "cmd": "for f in {proyecto}/casos-de-uso/CU-[0-9][0-9].md; do id=$(basename \"$f\" .md | tr -d -); grep -qE \"as[[:space:]]+$id([[:space:]]|$)\" {proyecto}/diagramas/04-casos-de-uso.puml || { echo \"$f: no hay $id en el diagrama\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "README.md enlaza diagramas/04-casos-de-uso.puml y casos-de-uso/",
+      "cmd": "grep -qF 'diagramas/04-casos-de-uso.puml' {proyecto}/README.md && grep -qF '(casos-de-uso/' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 11"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "04-casos-de-uso.puml y las especificaciones no tienen TODO pendientes",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/04-casos-de-uso.puml {proyecto}/casos-de-uso/*.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 12"
+    }
+  ]
+}

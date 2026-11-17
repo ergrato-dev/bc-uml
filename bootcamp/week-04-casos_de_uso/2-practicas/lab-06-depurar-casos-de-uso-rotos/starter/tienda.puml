@@ -1,0 +1,37 @@
+@startuml
+' Lab 06 — Este diagrama tiene errores a propósito: no renderiza y, cuando renderice,
+' seguirá mal modelado. Encuéntralos todos.
+title Tienda — pedidos y devoluciones
+
+left to right direction
+
+actor Customer
+actor "Shipping Company" as Shipping <<system>>
+
+rectangle "Store System" {
+  actor Warehouse
+  actor "MySQL" as DB
+  usecase "Place order" as CU01
+  usecase "Pay order" as CU02
+  usecase "Check stock" as CU03
+  usecase "Ship order as CU04
+  usecase "Return product" as CU05
+  usecase "Apply coupon" as CU06
+  usecase "Press confirm button" as CU07
+  usecase "Manage orders" as CU08
+)
+
+Customer --> CU01
+CU01 --> CU02
+CU02 --> CU04
+CU03 ..> CU01 : <<include>>
+CU01 ..> CU06 : <<extend>>
+CU01 -- CU07 : <<include>>
+Customer -- CU05
+CU04 -- Shipping
+Warehouse -- CU04
+Customer -- Shipping
+CU01 -- DB
+Warehouse -- CU08
+CU05 ..> CU02 : <<include>
+@enduml

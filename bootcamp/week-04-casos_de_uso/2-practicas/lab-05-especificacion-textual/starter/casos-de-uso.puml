@@ -1,0 +1,20 @@
+@startuml
+' Lab 05 — Diagrama de referencia: no lo modifiques.
+title Biblioteca — préstamos
+
+left to right direction
+
+actor Librarian
+actor Member
+
+rectangle "Library System" {
+  usecase "Borrow book" as CU01
+  usecase "Renew loan" as CU02
+  usecase "Identify member" as CU03
+}
+
+Librarian -- CU01
+Member -- CU02
+CU01 ..> CU03 : <<include>>
+CU02 ..> CU03 : <<include>>
+@enduml

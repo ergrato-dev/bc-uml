@@ -22,7 +22,7 @@ escrita al estándar actual (10 h, rúbrica 30/40/30, `checks.json`); ⬜ pendie
 
 | Semana | Tema | Estado |
 |:--:|---|:--:|
-| 04 | Casos de uso | ⬜ |
+| [04](week-04-casos_de_uso/README.md) | [Casos de uso](week-04-casos_de_uso/README.md) | ✅ |
 | 05 | Diagrama de actividades | ⬜ |
 | 06 | Secuencia y comunicación | ⬜ |
 | 07 | Máquinas de estados | ⬜ |

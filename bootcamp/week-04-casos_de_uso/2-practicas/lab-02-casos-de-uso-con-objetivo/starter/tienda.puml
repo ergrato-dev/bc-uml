@@ -1,0 +1,36 @@
+@startuml
+' Lab 02 — Casos de uso con nivel de objetivo
+' Renderiza: plantuml -tsvg starter/tienda.puml
+title Tienda — casos de uso del cliente y del encargado
+
+left to right direction
+
+actor Customer
+actor "Store Manager" as StoreManager
+
+rectangle "Store System" {
+  usecase "Manage store" as A
+  usecase "Log in" as B
+  usecase "Click buy button" as C
+  usecase "Enter card number" as D
+  usecase "Product CRUD" as E
+  usecase "Save order in database" as F
+  usecase "Search product" as G
+  usecase "Track order" as H
+}
+
+Customer -- B
+Customer -- C
+Customer -- D
+Customer -- G
+Customer -- H
+StoreManager -- A
+StoreManager -- E
+StoreManager -- F
+
+' TODO 1: clasifica cada óvalo en nivel.md: demasiado grande, nivel de objetivo o demasiado pequeño.
+' TODO 2: sustituye los óvalos por 6 casos de uso de nivel de objetivo, con alias CU01..CU06:
+'         Search product, Place order, Track order, Return product, Update catalog, Review sales.
+' TODO 3: rehaz las asociaciones: el cliente con los 4 primeros, el encargado con los 2 últimos.
+
+@enduml

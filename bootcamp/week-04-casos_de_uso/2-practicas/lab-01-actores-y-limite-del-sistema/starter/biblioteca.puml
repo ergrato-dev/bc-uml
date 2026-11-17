@@ -1,0 +1,29 @@
+@startuml
+' Lab 01 — Actores y límite del sistema
+' Renderiza: plantuml -tsvg starter/biblioteca.puml
+title Biblioteca — actores del sistema de préstamos
+
+left to right direction
+
+' Candidatos a actor sacados del enunciado. No todos lo son.
+actor Ana
+actor Librarian
+actor Database
+actor "Loan Module" as LoanModule
+
+usecase "Borrow book" as CU01
+usecase "Renew loan" as CU02
+usecase "Pay fine" as CU03
+usecase "Send overdue reminders" as CU04
+
+Librarian -- CU01
+
+' TODO 1: Ana es una persona, no un rol: sustitúyela por el actor Member.
+' TODO 2: Database y LoanModule están dentro del sistema: bórralos.
+' TODO 3: el pago de multas lo procesa una pasarela externa: añade el actor
+'         "Payment Gateway" as PaymentGateway <<system>>.
+' TODO 4: los recordatorios salen solos cada noche: añade el actor Clock.
+' TODO 5: mete los cuatro casos de uso en rectangle "Library System" { ... }.
+' TODO 6: asocia Member con CU02 y CU03, PaymentGateway con CU03 y Clock con CU04.
+
+@enduml

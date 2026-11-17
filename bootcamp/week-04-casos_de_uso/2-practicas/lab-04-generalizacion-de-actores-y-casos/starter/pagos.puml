@@ -1,0 +1,35 @@
+@startuml
+' Lab 04 — Generalización de actores y casos de uso
+' Renderiza: plantuml -tsvg starter/pagos.puml
+title Tienda — pago de pedidos
+
+left to right direction
+
+actor Customer
+actor Member
+actor "Payment Gateway" as PaymentGateway <<system>>
+
+rectangle "Store System" {
+  usecase "Place order" as CU01
+  usecase "Pay order" as CU02
+  usecase "Pay by card" as CU03
+  usecase "Pay with points" as CU04
+  usecase "Pay with card in euros" as CU05
+  usecase "Pay with card in dollars" as CU06
+  usecase "Cancel unpaid orders" as CU07
+}
+
+Customer -- CU01
+Customer -- CU02
+Member -- CU01
+Member -- CU02
+Member -- CU04
+CU03 -- PaymentGateway
+
+' TODO 1: Member hace todo lo que hace Customer y además paga con puntos. Dibuja la
+'         generalización de actores y borra las asociaciones que Member ya hereda.
+' TODO 2: pagar con tarjeta y pagar con puntos son variantes de Pay order: dos generalizaciones.
+' TODO 3: CU05 y CU06 solo cambian la moneda: bórralos (será un flujo alternativo de CU03).
+' TODO 4: los pedidos sin pagar se cancelan solos a las 24 h: añade el actor Clock y asócialo.
+
+@enduml

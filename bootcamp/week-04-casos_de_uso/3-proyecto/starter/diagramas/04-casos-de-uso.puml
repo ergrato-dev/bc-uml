@@ -1,0 +1,26 @@
+@startuml
+' Casos de uso: qué objetivos cumple el sistema y para quién.
+' Renderiza: plantuml -tsvg diagramas/04-casos-de-uso.puml
+title TODO: <tu sistema> — casos de uso
+
+left to right direction
+
+' TODO 1: declara los actores de tu README.md (al menos 3). Los sistemas externos llevan <<system>>:
+'         actor Librarian
+'         actor "Payment Gateway" as PaymentGateway <<system>>
+
+' TODO 2: el límite del sistema con al menos 6 casos de uso de nivel de objetivo, con alias CU01, CU02...
+'         rectangle "<Your> System" {
+'           usecase "Borrow book" as CU01
+'         }
+
+' TODO 3: asocia cada caso de uso con sus actores, sin flechas:
+'         Librarian -- CU01
+
+' TODO 4: al menos un <<include>> (paso obligatorio que repiten dos casos o más):
+'         CU01 ..> CU03 : <<include>>
+
+' TODO 5: al menos un <<extend>> con punto de extensión en el caso base y nota con la condición:
+'         CU04 ..> CU01 : <<extend>>
+
+@enduml

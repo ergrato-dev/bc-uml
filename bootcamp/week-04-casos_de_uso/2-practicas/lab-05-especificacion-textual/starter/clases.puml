@@ -1,0 +1,43 @@
+@startuml
+' Lab 05 — Diagrama de clases de referencia: no lo modifiques.
+title Biblioteca — modelo de préstamos
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Member {
+  - name: String
+  - email: String
+}
+
+class Loan {
+  - startDate: Date
+  - dueDate: Date
+  - status: LoanStatus
+}
+
+class Copy {
+  - barcode: String
+}
+
+class Book {
+  - isbn: String
+  - title: String
+}
+
+class Author {
+  - fullName: String
+}
+
+enum LoanStatus <<enumeration>> {
+  ACTIVE
+  RETURNED
+  OVERDUE
+}
+
+Member "1" -- "0..*" Loan : has >
+Loan "0..*" -- "1" Copy : lends >
+Book "1" *-- "1..*" Copy
+Book "0..*" -- "1..*" Author
+@enduml

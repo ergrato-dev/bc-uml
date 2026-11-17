@@ -1,0 +1,29 @@
+@startuml
+' Lab 03 — Include y extend
+' Renderiza: plantuml -tsvg starter/cine.puml
+title Cine — compra y reserva de entradas
+
+left to right direction
+
+actor Customer
+actor "Payment Gateway" as PaymentGateway <<system>>
+
+rectangle "Cinema System" {
+  usecase "Buy ticket" as CU01
+  usecase "Reserve seat" as CU02
+  usecase "Select screening" as CU03
+  usecase "Choose premium seat" as CU04
+  usecase "Redeem gift card" as CU05
+}
+
+Customer -- CU01
+Customer -- CU02
+CU01 -- PaymentGateway
+
+' TODO 1: comprar y reservar empiezan siempre eligiendo la función: dos <<include>> hacia CU03.
+' TODO 2: CU01 declara el punto de extensión "seat selection" en su óvalo.
+' TODO 3: un socio puede elegir butaca premium en ese punto: <<extend>> de CU04 hacia CU01,
+'         con una nota que diga la condición y el punto de extensión.
+' TODO 4: decide si "Redeem gift card" es include o extend de CU01 y dibújalo. Justifícalo en decisiones.md.
+
+@enduml
