@@ -1,0 +1,20 @@
+@startuml
+title Tienda — inicio de sesión
+
+actor Customer
+participant "Web app" as Web
+participant "Auth service" as Auth
+database Users
+
+Customer -> Web : submit(email, password)
+Web -> Auth : login(email, password)
+Auth -> Users : findByEmail(email)
+Users --> Auth : user
+alt password matches
+  Auth --> Web : token
+  Web --> Customer : show home page
+else wrong password
+  Auth --> Web : 401 Unauthorized
+  Web --> Customer : show error
+end
+@enduml

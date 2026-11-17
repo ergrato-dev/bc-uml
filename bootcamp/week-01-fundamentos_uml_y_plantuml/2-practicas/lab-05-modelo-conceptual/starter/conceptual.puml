@@ -1,0 +1,15 @@
+@startuml
+' Lab 05 — Modelo conceptual del cine
+' Renderiza: plantuml -tsvg starter/conceptual.puml
+title Cine de barrio — modelo conceptual
+
+hide circle
+hide empty members
+
+' TODO 1: declara los conceptos de la narrativa (al menos 7), en inglés y en singular.
+'         Comprueba: plantuml -syntax < starter/conceptual.puml  ->  (7 entities) o más
+
+' TODO 2: une los conceptos con asociaciones con nombre (al menos 6).
+'         ConceptoA -- ConceptoB : verbo
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+title Tienda — clases del pedido
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - email: String
+  + placeOrder(): Order
+}
+class Order {
+  - number: String
+  - createdAt: DateTime
+  + total(): Decimal
+}
+class OrderLine {
+  - quantity: Integer
+  - unitPrice: Decimal
+}
+class Product {
+  - sku: String
+  - name: String
+}
+
+Customer "1" -- "0..*" Order : places
+Order "1" *-- "1..*" OrderLine
+OrderLine "0..*" --> "1" Product
+@enduml

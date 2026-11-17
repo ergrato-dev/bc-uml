@@ -1,0 +1,13 @@
+@startuml
+title Tienda — ciclo de vida de un pedido
+
+[*] --> Draft
+Draft --> Placed : confirm
+Placed --> Paid : paymentApproved
+Placed --> Cancelled : cancel
+Paid --> Shipped : ship
+Paid --> Cancelled : cancel / refund()
+Shipped --> Delivered : deliver
+Delivered --> [*]
+Cancelled --> [*]
+@enduml

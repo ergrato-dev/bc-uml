@@ -1,0 +1,11 @@
+@startuml
+' Roto 4: dos tipos de diagrama mezclados en el mismo archivo.
+title Cine — compra de entrada
+
+class Ticket
+class Seat
+Ticket -- Seat : reserves
+
+actor Customer
+Customer -> Ticket : buy()
+@enduml

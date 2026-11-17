@@ -1,0 +1,97 @@
+{
+  "semana": "01",
+  "titulo": "Fundamentos de UML y PlantUML",
+  "checks": [
+    {
+      "id": "readme-sin-todo",
+      "descripcion": "README.md del modelo no tiene TODO pendientes",
+      "cmd": "test -f {proyecto}/README.md && ! grep -n TODO {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, pasos 1 a 4"
+    },
+    {
+      "id": "readme-dominio",
+      "descripcion": "README.md describe el dominio en al menos 2 líneas de texto",
+      "cmd": "[ \"$(awk '/^## /{s=($0 ~ /^## Dominio/); next} s && NF' {proyecto}/README.md | wc -l)\" -ge 2 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "readme-actores",
+      "descripcion": "README.md lista al menos 3 actores",
+      "cmd": "[ \"$(awk '/^## /{s=($0 ~ /^## Actores/); next} s && /^- /' {proyecto}/README.md | wc -l)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "readme-glosario",
+      "descripcion": "El glosario del dominio tiene al menos 8 términos",
+      "cmd": "[ \"$(awk '/^## /{s=($0 ~ /^## Glosario/); next} s && /^[|]/' {proyecto}/README.md | tail -n +3 | wc -l)\" -ge 8 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "README.md enlaza diagramas/01-modelo-conceptual.puml",
+      "cmd": "grep -F 'diagramas/01-modelo-conceptual.puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "conceptual-renderiza",
+      "descripcion": "01-modelo-conceptual.puml renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "conceptual-tipo",
+      "descripcion": "01-modelo-conceptual.puml es un diagrama de clases",
+      "cmd": "plantuml -syntax < {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "stdout~^CLASS$",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "conceptual-titulo",
+      "descripcion": "01-modelo-conceptual.puml tiene title",
+      "cmd": "grep -E '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "conceptual-conceptos",
+      "descripcion": "El modelo conceptual tiene al menos 6 conceptos",
+      "cmd": "[ \"$(plantuml -syntax < {proyecto}/diagramas/01-modelo-conceptual.puml | awk -F'[( ]' '/entities/{print $2}')\" -ge 6 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "conceptual-asociaciones",
+      "descripcion": "El modelo conceptual tiene al menos 5 asociaciones (--)",
+      "cmd": "[ \"$(grep -cF -- ' -- ' {proyecto}/diagramas/01-modelo-conceptual.puml)\" -ge 5 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "conceptual-nombres-asociacion",
+      "descripcion": "Toda asociación lleva nombre (: verbo)",
+      "cmd": "grep -F -- ' -- ' {proyecto}/diagramas/01-modelo-conceptual.puml | grep -vF ' : '",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "conceptual-sin-atributos",
+      "descripcion": "El modelo conceptual no tiene atributos ni operaciones todavía",
+      "cmd": "grep -E '[{]' {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "conceptual-sin-todo",
+      "descripcion": "01-modelo-conceptual.puml no tiene TODO pendientes",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+' Estilo común del equipo: cada diagrama lo incluye con !include estilo.iuml
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+' TODO 1: añade una línea que ponga la fuente de todos los diagramas en monospace:
+'         skinparam defaultFontName Monospaced

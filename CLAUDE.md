@@ -97,7 +97,11 @@ title Reserva de citas — clases del dominio
 
 ' Sin skinparam de colores en los diagramas del estudiante: el tema por defecto
 ' se lee bien impreso y en pantalla. Solo se permite !theme en el lab de estilo.
+' Estas tres líneas sí van en todo diagrama de clases u objetos: quitan lo que
+' PlantUML añade y UML no define (círculo con letra, iconos de visibilidad).
+hide circle
 hide empty members
+skinparam classAttributeIconSize 0
 
 class Appointment {
   - id: UUID

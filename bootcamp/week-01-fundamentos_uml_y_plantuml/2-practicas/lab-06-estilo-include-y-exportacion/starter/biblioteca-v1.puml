@@ -1,0 +1,13 @@
+@startuml
+!include estilo.iuml
+title Biblioteca — préstamos
+
+class Member
+class Loan
+class Book
+
+Member -- Loan : requests
+Loan -- Book : lends
+
+' TODO 2: añade una leyenda (legend ... endlegend) que diga para qué sirve el diagrama.
+@enduml

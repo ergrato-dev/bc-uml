@@ -1,0 +1,12 @@
+@startuml
+' Roto 2: un bloque mal cerrado.
+title Tienda — producto
+
+class Product {
+  - sku: String
+  - price: Decimal
+
+class Category
+
+Product -- Category : belongs to
+@enduml

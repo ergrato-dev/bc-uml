@@ -1,0 +1,8 @@
+@startuml
+' Roto 1: algo falta para que PlantUML sepa dónde termina el diagrama.
+title Tienda — clientes y pedidos
+
+class Customer
+class Order
+
+Customer -- Order : places

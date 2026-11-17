@@ -1,0 +1,15 @@
+@startuml
+' Modelo conceptual: los conceptos del dominio y cómo se relacionan.
+' Sin atributos ni operaciones: eso llega en la semana 02.
+' Renderiza: plantuml -tsvg diagramas/01-modelo-conceptual.puml
+title TODO: título del modelo conceptual
+
+hide circle
+hide empty members
+
+' TODO 1: declara al menos 6 conceptos de tu dominio con `class Nombre`, en inglés y en singular.
+
+' TODO 2: une los conceptos con al menos 5 asociaciones con nombre:
+'         ConceptoA -- ConceptoB : verbo
+
+@enduml

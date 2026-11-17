@@ -63,7 +63,7 @@ done < <(find bootcamp -path "*/2-practicas/*" -mindepth 3 -maxdepth 3 -type d -
 echo "== 2. Enlaces relativos en markdown =="
 # No parsea markdown de verdad: quita los bloques ``` y busca "](...)".
 while IFS= read -r f; do
-  content=$(awk '/^```/{c=!c; next} !c' "$f")
+  content=$(awk '/^[[:space:]]*```/{c=!c; next} !c' "$f")
   while IFS= read -r link; do
     [ -z "$link" ] && continue
     clean="${link%%#*}"

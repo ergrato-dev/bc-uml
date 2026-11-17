@@ -1,0 +1,11 @@
+@startuml
+' Roto 3: una asociación con el nombre mal escrito.
+title Cine — funciones
+
+class Movie
+class Screening
+class Room
+
+Movie -- Screening : is shown in
+Screening -- Room is held in
+@enduml

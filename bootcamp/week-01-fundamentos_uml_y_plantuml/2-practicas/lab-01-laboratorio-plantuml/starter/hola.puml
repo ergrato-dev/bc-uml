@@ -1,0 +1,19 @@
+@startuml
+' Lab 01 — Tu primer diagrama
+' Renderiza: plantuml -tsvg starter/hola.puml
+title Biblioteca — primer diagrama
+
+hide circle
+hide empty members
+
+class Book
+class Member
+class Loan
+
+Member -- Loan : requests
+Loan -- Book : lends
+
+' TODO 1: declara la clase Author y asóciala con Book con el nombre "writes".
+'         Comprueba: plantuml -syntax < starter/hola.puml  ->  (4 entities)
+
+@enduml

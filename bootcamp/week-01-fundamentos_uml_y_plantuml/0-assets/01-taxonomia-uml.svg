@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 580" role="img">
+  <title>Taxonomía de UML 2.5.1: 14 diagramas, 7 de estructura y 7 de comportamiento; 4 de comportamiento son de interacción. Los que usa este bootcamp van resaltados.</title>
+  <rect width="1200" height="580" fill="#0d1117"/>
+
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <!-- Raíz -->
+    <rect x="500" y="24" width="200" height="48" rx="6" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+    <text x="600" y="54" font-size="18" font-weight="bold" fill="#f0f6fc">Diagrama UML</text>
+
+    <path d="M600 72 L600 96 M300 96 L900 96 M300 96 L300 116 M900 96 L900 116" fill="none" stroke="#30363d" stroke-width="2"/>
+
+    <!-- Estructura -->
+    <rect x="180" y="116" width="240" height="56" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="300" y="140" font-size="17" font-weight="bold" fill="#58a6ff">Estructura</text>
+    <text x="300" y="161" font-size="13" fill="#8b949e">qué existe y cómo se organiza</text>
+
+    <!-- Comportamiento -->
+    <rect x="780" y="116" width="240" height="56" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="900" y="140" font-size="17" font-weight="bold" fill="#3fb950">Comportamiento</text>
+    <text x="900" y="161" font-size="13" fill="#8b949e">qué hace y en qué orden</text>
+  </g>
+
+  <!-- Hojas de estructura -->
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14">
+    <path d="M300 172 L300 462 M300 210 L330 210 M300 252 L330 252 M300 294 L330 294 M300 336 L330 336 M300 378 L330 378 M300 420 L330 420 M300 462 L330 462" fill="none" stroke="#30363d" stroke-width="2"/>
+    <rect x="330" y="194" width="200" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="344" y="215" fill="#f0f6fc">Clases</text><text x="518" y="215" fill="#8b949e" text-anchor="end">S02-03</text>
+    <rect x="330" y="236" width="200" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="344" y="257" fill="#f0f6fc">Objetos</text><text x="518" y="257" fill="#8b949e" text-anchor="end">S03</text>
+    <rect x="330" y="278" width="200" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="344" y="299" fill="#f0f6fc">Paquetes</text><text x="518" y="299" fill="#8b949e" text-anchor="end">S08</text>
+    <rect x="330" y="320" width="200" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="344" y="341" fill="#f0f6fc">Componentes</text><text x="518" y="341" fill="#8b949e" text-anchor="end">S08</text>
+    <rect x="330" y="362" width="200" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="344" y="383" fill="#f0f6fc">Despliegue</text><text x="518" y="383" fill="#8b949e" text-anchor="end">S08</text>
+    <rect x="330" y="404" width="200" height="32" rx="4" fill="#161b22" stroke="#30363d"/>
+    <text x="344" y="425" fill="#8b949e">Estructura compuesta</text>
+    <rect x="330" y="446" width="200" height="32" rx="4" fill="#161b22" stroke="#30363d"/>
+    <text x="344" y="467" fill="#8b949e">Perfiles</text>
+  </g>
+
+  <!-- Hojas de comportamiento -->
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14">
+    <path d="M900 172 L900 290 M900 210 L930 210 M900 252 L930 252 M900 290 L930 290" fill="none" stroke="#30363d" stroke-width="2"/>
+    <rect x="930" y="194" width="210" height="32" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="944" y="215" fill="#f0f6fc">Casos de uso</text><text x="1128" y="215" fill="#8b949e" text-anchor="end">S04</text>
+    <rect x="930" y="236" width="210" height="32" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="944" y="257" fill="#f0f6fc">Actividades</text><text x="1128" y="257" fill="#8b949e" text-anchor="end">S05</text>
+    <rect x="930" y="274" width="210" height="32" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="944" y="295" fill="#f0f6fc">Máquina de estados</text><text x="1128" y="295" fill="#8b949e" text-anchor="end">S07</text>
+
+    <!-- Interacción -->
+    <path d="M900 290 L900 340 M820 340 L900 340" fill="none" stroke="#30363d" stroke-width="2"/>
+    <rect x="640" y="322" width="180" height="40" rx="6" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+    <text x="730" y="347" text-anchor="middle" font-weight="bold" fill="#f78166">Interacción</text>
+    <path d="M730 362 L730 526 M730 400 L760 400 M730 442 L760 442 M730 484 L760 484" fill="none" stroke="#30363d" stroke-width="2"/>
+    <path d="M730 526 L760 526" fill="none" stroke="#30363d" stroke-width="2"/>
+    <rect x="760" y="384" width="210" height="32" rx="4" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+    <text x="774" y="405" fill="#f0f6fc">Secuencia</text><text x="958" y="405" fill="#8b949e" text-anchor="end">S06</text>
+    <rect x="760" y="426" width="210" height="32" rx="4" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+    <text x="774" y="447" fill="#f0f6fc">Comunicación</text><text x="958" y="447" fill="#8b949e" text-anchor="end">S06</text>
+    <rect x="760" y="468" width="210" height="32" rx="4" fill="#161b22" stroke="#30363d"/>
+    <text x="774" y="489" fill="#8b949e">Tiempos</text>
+    <rect x="760" y="510" width="210" height="32" rx="4" fill="#161b22" stroke="#30363d"/>
+    <text x="774" y="531" fill="#8b949e">Visión global de interacción</text>
+  </g>
+
+  <!-- Leyenda -->
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13">
+    <rect x="40" y="520" width="22" height="16" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="70" y="533" fill="#8b949e">borde de color: se practica en el bootcamp (semana)</text>
+    <rect x="40" y="546" width="22" height="16" rx="3" fill="#161b22" stroke="#30363d"/>
+    <text x="70" y="559" fill="#8b949e">borde gris: existe en UML 2.5.1, uso poco frecuente</text>
+  </g>
+</svg>
