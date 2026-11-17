@@ -1,0 +1,15 @@
+@startuml
+title Biblioteca — devolver un libro
+
+' TODO 1: renombra estas tres acciones con verbo en infinitivo y objeto.
+start
+:Copy barcode;
+:Loan search;
+:Return screen;
+
+' TODO 2: si el préstamo vuelve tarde, registra una multa; si no, no hace nada.
+
+' TODO 3: si el ejemplar está dañado, envíalo a reparar; si no, colócalo en la estantería.
+
+' TODO 4: cierra el préstamo y termina la actividad.
+@enduml

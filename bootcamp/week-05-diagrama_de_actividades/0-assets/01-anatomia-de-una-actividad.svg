@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 575" role="img">
+<title>Anatomía de un diagrama de actividad: los doce elementos de la semana con su forma UML y su sintaxis en PlantUML: nodo inicial, acción, decisión y fusión con guardas, fork y join, final de actividad, final de flujo, nodo de objeto, enviar señal, aceptar evento, evento de tiempo, partición y flujo de control</title>
+<rect width="1100" height="575" fill="#0d1117"/>
+<rect x="10" y="35" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<circle cx="137" cy="98" r="14" fill="#f0f6fc"/>
+<text x="137" y="162" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Nodo inicial</text>
+<text x="137" y="184" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">start</text>
+<rect x="285" y="35" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<rect x="332" y="74" width="160" height="48" rx="18" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="412" y="103" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">Return book</text>
+<text x="412" y="162" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Acción</text>
+<text x="412" y="184" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">:Return book;</text>
+<rect x="560" y="35" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<polygon points="687,72 717,98 687,124 657,98" fill="#161b22" stroke="#a371f7" stroke-width="2"/><line x1="717" y1="98" x2="782" y2="98" stroke="#8b949e" stroke-width="2"/><text x="749" y="90" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#e3b341">[yes]</text><line x1="657" y1="98" x2="592" y2="98" stroke="#8b949e" stroke-width="2"/><text x="625" y="90" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#e3b341">[no]</text>
+<text x="687" y="162" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Decisión y fusión</text>
+<text x="687" y="184" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">if (...) then ([yes])</text>
+<rect x="835" y="35" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<rect x="872" y="93" width="180" height="10" fill="#f0f6fc"/><line x1="902" y1="103" x2="902" y2="126" stroke="#8b949e" stroke-width="2"/><line x1="962" y1="103" x2="962" y2="126" stroke="#8b949e" stroke-width="2"/><line x1="1022" y1="103" x2="1022" y2="126" stroke="#8b949e" stroke-width="2"/><line x1="962" y1="70" x2="962" y2="93" stroke="#8b949e" stroke-width="2"/>
+<text x="962" y="162" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Fork y join</text>
+<text x="962" y="184" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">fork / end fork</text>
+<rect x="10" y="210" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<circle cx="137" cy="273" r="16" fill="none" stroke="#f0f6fc" stroke-width="2"/><circle cx="137" cy="273" r="10" fill="#f0f6fc"/>
+<text x="137" y="337" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Final de actividad</text>
+<text x="137" y="359" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">stop</text>
+<rect x="285" y="210" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<circle cx="412" cy="273" r="16" fill="none" stroke="#f0f6fc" stroke-width="2"/><line x1="401" y1="262" x2="423" y2="284" stroke="#f0f6fc" stroke-width="2"/><line x1="401" y1="284" x2="423" y2="262" stroke="#f0f6fc" stroke-width="2"/>
+<text x="412" y="337" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Final de flujo</text>
+<text x="412" y="359" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">end</text>
+<rect x="560" y="210" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<rect x="607" y="249" width="160" height="48" fill="#161b22" stroke="#79c0ff" stroke-width="2"/><text x="687" y="278" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">Loan [ACTIVE]</text>
+<text x="687" y="337" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Nodo de objeto</text>
+<text x="687" y="359" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">:Loan [ACTIVE]; &lt;&lt;object&gt;&gt;</text>
+<rect x="835" y="210" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<polygon points="882,249 1022,249 1047,273 1022,297 882,297" fill="#161b22" stroke="#3fb950" stroke-width="2"/><text x="957" y="278" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">Due reminder</text>
+<text x="962" y="337" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Enviar señal</text>
+<text x="962" y="359" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">&lt;&lt;sendSignal&gt;&gt;</text>
+<rect x="10" y="385" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<polygon points="52,424 217,424 217,472 52,472 77,448" fill="#161b22" stroke="#3fb950" stroke-width="2"/><text x="145" y="453" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">Book returned</text>
+<text x="137" y="512" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Aceptar evento</text>
+<text x="137" y="534" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">&lt;&lt;acceptEvent&gt;&gt;</text>
+<rect x="285" y="385" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<polygon points="396,424 428,424 396,472 428,472" fill="#161b22" stroke="#3fb950" stroke-width="2"/><text x="440" y="453" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">14 days</text>
+<text x="412" y="512" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Evento de tiempo</text>
+<text x="412" y="534" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">&lt;&lt;timeEvent&gt;&gt;</text>
+<rect x="560" y="385" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<line x1="587" y1="414" x2="587" y2="482" stroke="#f0f6fc" stroke-width="2"/><line x1="687" y1="414" x2="687" y2="482" stroke="#f0f6fc" stroke-width="2"/><line x1="787" y1="414" x2="787" y2="482" stroke="#f0f6fc" stroke-width="2"/><text x="637" y="436" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">Member</text><text x="737" y="436" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc">Librarian</text>
+<text x="687" y="512" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Partición</text>
+<text x="687" y="534" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#a371f7">|Member|</text>
+<rect x="835" y="385" width="254" height="160" rx="8" fill="none" stroke="#30363d"/>
+<line x1="962" y1="418" x2="962" y2="478" stroke="#8b949e" stroke-width="2"/><polyline points="954,464 962,478 970,464" fill="none" stroke="#8b949e" stroke-width="2"/>
+<text x="962" y="512" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="bold" fill="#f0f6fc">Flujo de control</text>
+<text x="962" y="534" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e">implícito entre líneas</text>
+</svg>

@@ -1,0 +1,41 @@
+@startuml
+title Biblioteca — reservas (referencia, no modificar)
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Member {
+  - memberId: String
+  - name: String
+}
+
+class Copy {
+  - barcode: String
+}
+
+class Reservation {
+  - createdAt: DateTime
+  - readySince: DateTime [0..1]
+  - status: ReservationStatus
+  + markReady(copy: Copy): void
+  + expire(): void
+}
+
+enum ReservationStatus <<enumeration>> {
+  WAITING
+  READY
+  PICKED_UP
+  EXPIRED
+}
+
+class Loan {
+  - startDate: Date
+  - dueDate: Date
+}
+
+Member "1" -- "0..*" Reservation : places >
+Reservation "0..*" --> "0..1" Copy : holds >
+Member "1" -- "0..*" Loan
+Loan "0..*" --> "1" Copy
+@enduml

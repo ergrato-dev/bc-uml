@@ -1,0 +1,28 @@
+@startuml
+title Tienda — servir un pedido en línea
+
+' TODO 1: declara las particiones Customer, Store, Payment Gateway, Warehouse y Carrier, en ese orden, antes de start.
+' TODO 2: mueve cada acción a la partición de quien la hace.
+' TODO 3: borra la partición Database y su acción: no es un responsable de negocio.
+' TODO 4: preparar el pedido y emitir la factura van en paralelo.
+|Customer|
+start
+:Place order;
+|Database|
+:Save order;
+|Customer|
+:Authorize payment;
+if (Payment authorized?) then ([no])
+  :Notify payment failure;
+  stop
+else ([yes])
+endif
+:Confirm order;
+:Pick items;
+:Pack order;
+:Issue invoice;
+:Pick up package;
+:Deliver package;
+:Receive package;
+stop
+@enduml

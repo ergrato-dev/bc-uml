@@ -1,0 +1,118 @@
+{
+  "semana": "05",
+  "titulo": "Diagrama de actividades",
+  "checks": [
+    {
+      "id": "estructura-sigue-renderizando",
+      "descripcion": "02-clases.puml, 03-objetos.puml y 04-casos-de-uso.puml siguen en el modelo y renderizan",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/03-objetos.puml {proyecto}/diagramas/04-casos-de-uso.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "actividad-unica",
+      "descripcion": "Hay exactamente un diagrama 05-actividad-<proceso>.puml con el proceso en kebab-case",
+      "cmd": "[ \"$(ls {proyecto}/diagramas/05-actividad-*.puml 2>/dev/null | grep -cE '/05-actividad-[a-z0-9]+(-[a-z0-9]+)*[.]puml$')\" -eq 1 ] && [ \"$(ls {proyecto}/diagramas/05-actividad-*.puml | wc -l)\" -eq 1 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "actividad-renderiza",
+      "descripcion": "El diagrama de actividad renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "actividad-tipo",
+      "descripcion": "Es un diagrama de actividad con title",
+      "cmd": "plantuml -syntax < $(ls {proyecto}/diagramas/05-actividad-*.puml | head -1) | head -1 | grep -qx ACTIVITY && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "inicio-y-fin",
+      "descripcion": "Un solo nodo inicial (start) y al menos un final de actividad (stop)",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/05-actividad-*.puml | grep -cE '^[[:space:]]*start[[:space:]]*$')\" -eq 1 ] && grep -qE '^[[:space:]]*stop[[:space:]]*$' {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "particiones",
+      "descripcion": "Al menos 3 particiones distintas",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/05-actividad-*.puml | grep -E '^[[:space:]]*[|][^|]+[|][[:space:]]*$' | sed -E 's/[[:space:]]//g' | sort -u | wc -l)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "acciones",
+      "descripcion": "Al menos 8 acciones",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/05-actividad-*.puml | grep -cE '^[[:space:]]*:[^;]+;[[:space:]]*$')\" -ge 8 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "decisiones",
+      "descripcion": "Al menos 2 decisiones",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/05-actividad-*.puml | grep -cE '^[[:space:]]*if[[:space:]]*[(]')\" -ge 2 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "guardas",
+      "descripcion": "Toda salida de una decisión lleva guarda entre corchetes",
+      "cmd": "grep -qE 'then[[:space:]]*[(][[]' {proyecto}/diagramas/05-actividad-*.puml && ! grep -nE '(then|else)[[:space:]]*[(][^[]' {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "fork-join",
+      "descripcion": "Hay al menos un fork con su join (fork, fork again, end fork)",
+      "cmd": "grep -qE '^[[:space:]]*fork[[:space:]]*$' {proyecto}/diagramas/05-actividad-*.puml && grep -qE '^[[:space:]]*fork again[[:space:]]*$' {proyecto}/diagramas/05-actividad-*.puml && grep -qE '^[[:space:]]*end fork[[:space:]]*$' {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "nodo-objeto",
+      "descripcion": "Al menos un nodo de objeto",
+      "cmd": "grep -qE '<<object>>' {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "objeto-en-clases",
+      "descripcion": "Cada nodo de objeto es una clase de 02-clases.puml",
+      "cmd": "for n in $(grep -hE '^[[:space:]]*:[A-Z].*<<object>>' {proyecto}/diagramas/05-actividad-*.puml | sed -E 's/[[:space:]]//g' | cut -c2- | grep -oE '^[A-Z][A-Za-z0-9]*' | sort -u); do grep -qE \"(class|enum)[[:space:]]+$n([^A-Za-z0-9]|$)\" {proyecto}/diagramas/02-clases.puml || { echo \"$n no está en 02-clases.puml\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "senal",
+      "descripcion": "Al menos una señal o evento (sendSignal, acceptEvent o timeEvent)",
+      "cmd": "grep -qE '<<(sendSignal|acceptEvent|timeEvent)>>' {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "trazabilidad-cu",
+      "descripcion": "El diagrama cita al menos un caso de uso y todo CU citado existe en 04-casos-de-uso.puml",
+      "cmd": "ids=$(grep -ohE 'CU-?[0-9]{2}' {proyecto}/diagramas/05-actividad-*.puml | tr -d - | sort -u); [ -n \"$ids\" ] || { echo 'no cita ningún CU'; exit 1; }; for id in $ids; do grep -qE \"as[[:space:]]+$id([[:space:]]|$)\" {proyecto}/diagramas/04-casos-de-uso.puml || { echo \"no hay $id en 04-casos-de-uso.puml\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "El README.md del modelo enlaza el diagrama de actividad",
+      "cmd": "grep -qE 'diagramas/05-actividad-[a-z0-9-]+[.]puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No quedan TODO en el diagrama de actividad",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    }
+  ]
+}

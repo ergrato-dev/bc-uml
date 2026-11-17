@@ -1,0 +1,17 @@
+@startuml
+title Cine — preparar un estreno
+
+' TODO 1: después de confirmar la fecha, abre un fork con las tareas que no dependen unas de otras.
+' TODO 2: recibir la copia y probar la proyección van en la misma rama, en ese orden.
+' TODO 3: la publicación en redes no tiene que acabar antes de abrir puertas: termina su rama con un final de flujo.
+' TODO 4: cierra el fork con su join antes de abrir puertas.
+start
+:Confirm premiere date;
+:Open ticket sales;
+:Print posters;
+:Receive film copy;
+:Test projection;
+:Post on social media;
+:Open doors;
+stop
+@enduml

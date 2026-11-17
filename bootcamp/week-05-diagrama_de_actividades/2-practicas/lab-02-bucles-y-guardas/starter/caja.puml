@@ -1,0 +1,15 @@
+@startuml
+title Tienda — cobrar en caja
+
+start
+' TODO 1: el cajero escanea artículos hasta que no quedan (bucle repeat).
+:Scan item;
+
+:Show total;
+
+' TODO 2: según el medio de pago (card, cash, voucher), una acción por medio (switch).
+
+' TODO 3: dentro de [card], si el banco rechaza el cargo, cancela la venta y termina.
+
+' TODO 4: imprime el ticket y termina.
+@enduml

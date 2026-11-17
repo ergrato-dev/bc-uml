@@ -1,0 +1,21 @@
+@startuml
+title Biblioteca — reservar un libro prestado
+
+|Member|
+|Library System|
+|Librarian|
+|Member|
+start
+:Request reservation;
+|Library System|
+:Create reservation;
+' TODO 1: nodo de objeto con la reserva recién creada y su estado.
+' TODO 2: el sistema espera a que alguien devuelva un ejemplar del libro (aceptar evento).
+|Librarian|
+:Hold copy;
+|Library System|
+' TODO 3: la reserva cambia de estado y el sistema avisa al socio (enviar señal).
+' TODO 4: el sistema espera 3 días (evento de tiempo) y comprueba si el socio recogió el libro.
+' TODO 5: si no lo recogió, cancela la reserva; cada rama termina con la reserva en su estado final.
+stop
+@enduml

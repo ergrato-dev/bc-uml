@@ -1,0 +1,39 @@
+@startuml
+title Cine — vender entradas en línea
+
+|Customer|
+|Cinema System|
+|Database|
+|Customer|
+start
+:Choose screening;
+start
+:Seats;
+|Cinema System|
+:Hold seats;
+|Database|
+:Insert booking row;
+|Cinema System|
+:Data]
+|Customer|
+fork
+  :Pay with card;
+fork again
+  :Pay with voucher;
+end fork
+|Cinema System|
+if (Payment ok?) then (yes)
+  :Confirm booking;
+endif
+fork
+  :Tickets; <<sendSignal>>
+fork again
+  :Update seat map;
+  stop
+endif
+if (Total?) then ([total > 20])
+  :Add loyalty points;
+else ([total > 10])
+endif
+stop
+@enduml

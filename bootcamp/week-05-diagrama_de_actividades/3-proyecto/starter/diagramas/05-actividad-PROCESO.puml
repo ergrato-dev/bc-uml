@@ -1,0 +1,15 @@
+@startuml
+' TODO 1: renombra este archivo (paso 1) y escribe el proceso y el CU que recorre.
+title <Tu sistema> — <proceso núcleo> (CUxx)
+
+' TODO 2: particiones, una por responsable, declaradas en orden antes de start.
+|Role|
+start
+' TODO 3: acciones del flujo principal (al menos 8), verbo en infinitivo y objeto.
+:First action;
+' TODO 4: decisiones con guardas entre corchetes (al menos 2), sacadas de los flujos alternativos.
+' TODO 5: un fork con su join para lo que ocurre en paralelo.
+' TODO 6: nodos de objeto con su estado; cada uno es una clase de 02-clases.puml.
+' TODO 7: una señal o un evento (sendSignal, acceptEvent o timeEvent).
+stop
+@enduml
