@@ -1,26 +1,67 @@
-# 🔒 Política de Seguridad — Bootcamp UML
+# Política de Seguridad
 
 ## Versiones Soportadas
 
-Este es un proyecto de contenido educativo estático (Markdown, SVG, PlantUML).
-No contiene código ejecutable de servidor ni maneja datos de usuarios.
-
-| Versión | Soporte   |
+| Versión | Soportada |
 | ------- | --------- |
-| main    | ✅ Activa |
+| main    | Sí        |
+
+## Reportar una vulnerabilidad
+
+Si descubres una vulnerabilidad de seguridad en este material o en los scripts del repositorio, te pedimos que la reportes de manera responsable.
+
+### NO hacer público el reporte
+
+Por favor, **NO** abras un issue público para reportar vulnerabilidades de seguridad.
+
+### Cómo reportar
+
+1. **Abre un Security Advisory privado** en GitHub:
+   - Ve a la pestaña "Security" del repositorio
+   - Haz clic en "Report a vulnerability"
+   - Completa el formulario con los detalles
+
+2. **Incluye en tu reporte**:
+   - Descripción detallada de la vulnerabilidad
+   - Pasos para reproducir el problema
+   - Impacto potencial
+   - Sugerencias de solución (si las tienes)
+
+### Tiempo de respuesta
+
+- **Confirmación inicial**: 48 horas
+- **Evaluación**: 7 días
+- **Resolución**: Dependiendo de la severidad
 
 ---
 
-## Reportar una Vulnerabilidad
+## Qué se considera vulnerabilidad en este repositorio
 
-Si bien este proyecto no contiene software ejecutable, si encuentras:
+Este es material educativo, no un servicio en producción. Cuentan como vulnerabilidad:
 
-- Links externos que apunten a sitios maliciosos
-- Contenido que promueva prácticas inseguras como ejemplo
-- Scripts de automatización (`scripts/`) con comportamiento inesperado
+- **Un secreto real comiteado** en cualquier archivo del repositorio.
+- **Un ejemplo que envía diagramas a un servidor externo** (el servidor público de plantuml.com, un visor online) sin avisarlo: un diagrama de un sistema real filtra su diseño.
+- **Un script de `scripts/` con inyección de comandos** o borrado fuera de su directorio.
+- **Una imagen Docker o un jar sin versión fijada** (PlantUML se fija por versión y hash SHA-256 en `lab/Dockerfile`).
 
-Por favor abre un **Issue privado** o contáctanos directamente antes de hacer
-la divulgación pública.
+## Prácticas de seguridad que enseña este bootcamp
 
-Nos comprometemos a responder en un plazo de **7 días hábiles** y a acreditar
-el reporte en el CHANGELOG si corresponde.
+### Renderiza en local
+
+Todo diagrama se renderiza dentro del contenedor `uml`. Nunca pegues el `.puml` de un sistema real en un renderizador online: el texto del diagrama viaja al servidor.
+
+### Nunca modeles datos reales
+
+Los diagramas de objetos y los ejemplos usan datos inventados. Nunca copies datos personales reales a un `.puml`.
+
+## Dependencias
+
+Este bootcamp referencia:
+
+- PlantUML 1.2026.9 y Java 21 (ver [`docs/stack-versions.md`](docs/stack-versions.md))
+- Docker con Compose v2 para el laboratorio y el autograding
+- bash, jq y shellcheck para los scripts de verificación
+
+---
+
+Gracias por ayudar a mantener este proyecto seguro.

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img">
+  <title>Bootcamp UML: modelado de software con UML 2.5.1 y PlantUML, 10 semanas</title>
+  <rect width="1200" height="300" fill="#0d1117"/>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#21262d" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="300" fill="url(#grid)"/>
+
+  <!-- Clase abstracta arriba a la izquierda -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">
+    <rect x="70" y="40" width="190" height="96" rx="4" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+    <text x="165" y="64" text-anchor="middle" fill="#f0f6fc" font-style="italic" font-weight="bold">Model</text>
+    <line x1="70" y1="76" x2="260" y2="76" stroke="#30363d" stroke-width="1.5"/>
+    <text x="82" y="96" fill="#79c0ff">- name: String</text>
+    <line x1="70" y1="106" x2="260" y2="106" stroke="#30363d" stroke-width="1.5"/>
+    <text x="82" y="126" fill="#3fb950">+ render(): Svg</text>
+
+    <!-- Dos subclases -->
+    <rect x="40" y="196" width="120" height="56" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="100" y="230" text-anchor="middle" fill="#f0f6fc">Structure</text>
+    <rect x="180" y="196" width="120" height="56" rx="4" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="240" y="230" text-anchor="middle" fill="#f0f6fc">Behavior</text>
+  </g>
+  <path d="M100 196 L100 166 L165 166 L165 152" fill="none" stroke="#a371f7" stroke-width="2"/>
+  <path d="M155 152 L165 137 L175 152 Z" fill="#0d1117" stroke="#a371f7" stroke-width="2"/>
+  <path d="M240 196 L240 166 L165 166" fill="none" stroke="#a371f7" stroke-width="2"/>
+
+  <!-- Título -->
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <text x="704" y="125" font-size="64" font-weight="800" fill="#f0f6fc" text-anchor="end">Bootcamp</text>
+    <text x="722" y="125" font-size="64" font-weight="800" fill="#a371f7" text-anchor="start">UML</text>
+    <text x="640" y="170" font-size="22" fill="#8b949e">Modela sistemas con UML 2.5.1 y diagramas como código</text>
+    <text x="640" y="222" font-size="16" fill="#79c0ff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">10 semanas · 100 horas · PlantUML en Docker</text>
+  </g>
+
+  <!-- Secuencia a la derecha -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">
+    <rect x="960" y="44" width="80" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="1000" y="65" text-anchor="middle" fill="#f0f6fc">:User</text>
+    <rect x="1080" y="44" width="80" height="32" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="1120" y="65" text-anchor="middle" fill="#f0f6fc">:API</text>
+    <line x1="1000" y1="76" x2="1000" y2="260" stroke="#30363d" stroke-width="2" stroke-dasharray="6 5"/>
+    <line x1="1120" y1="76" x2="1120" y2="260" stroke="#30363d" stroke-width="2" stroke-dasharray="6 5"/>
+    <line x1="1000" y1="120" x2="1114" y2="120" stroke="#f78166" stroke-width="2"/>
+    <path d="M1106 114 L1118 120 L1106 126 Z" fill="#f78166"/>
+    <text x="1060" y="112" text-anchor="middle" fill="#f78166">login()</text>
+    <line x1="1120" y1="180" x2="1006" y2="180" stroke="#3fb950" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M1016 174 L1004 180 L1016 186" fill="none" stroke="#3fb950" stroke-width="2"/>
+    <text x="1060" y="172" text-anchor="middle" fill="#3fb950">token</text>
+  </g>
+</svg>

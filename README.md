@@ -1,48 +1,76 @@
 <div align="center">
-  <img src="assets/logo-uml-course.svg" alt="Bootcamp UML Logo" width="800"/>
-</div>
 
-<div align="center">
+![Bootcamp UML Banner](assets/bootcamp-header.svg)
 
-![2 Sesiones](https://img.shields.io/badge/2_Sesiones-intensivas-8b5cf6?style=flat-square)
-![10 Horas](https://img.shields.io/badge/10_Horas_Total-5h_por_semana-8b5cf6?style=flat-square)
-![PlantUML](https://img.shields.io/badge/PlantUML-diagramas-8b5cf6?style=flat-square)
-![License MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)
+[![UML](https://img.shields.io/badge/UML-2.5.1-a371f7?style=for-the-badge)](https://www.omg.org/spec/UML/2.5.1/)
+[![PlantUML](https://img.shields.io/badge/PlantUML-1.2026.9-58a6ff?style=for-the-badge)](https://plantuml.com/)
+[![Nivel](https://img.shields.io/badge/Nivel-Zero_→_Advanced-green?style=for-the-badge)](/)
+[![Duración](https://img.shields.io/badge/Duración-100_horas-blue?style=for-the-badge)](/)
+[![Semanas](https://img.shields.io/badge/Semanas-10-orange?style=for-the-badge)](/)
+[![Docker](https://img.shields.io/badge/Laboratorio-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](docs/setup-entorno.md)
 
-**Bootcamp intensivo de UML para desarrolladores de software**  
-Domina el modelado de sistemas en 2 sesiones de 5 horas · 23 diagramas SVG · Ejercicios con starter + solución
+**Modela sistemas de software con UML: de tu primer diagrama de clases a un modelo completo que puedes defender y llevar a código**
 
-[Inicio Rápido](#-inicio-rápido) · [Sesión 1](bootcamp/week-01-fundamentos_y_diagramas_estructurales/README.md) · [Sesión 2](bootcamp/week-02-diagramas_de_comportamiento/README.md) · [Cheat Sheet](docs/CHEAT-SHEET.md) · [English](README_EN.md)
+[🚀 Comenzar](#-inicio-rápido) •
+[📚 Contenido](#-contenido-del-bootcamp) •
+[💻 Requisitos](#-requisitos) •
+[📖 Recursos](#-recursos)
 
 </div>
 
 ---
 
-## 📚 ¿Qué aprenderás?
+## 🎯 ¿Qué es este Bootcamp?
 
-Este bootcamp está diseñado para desarrolladores que quieren comunicar y documentar diseños de software con **UML 2.5** de forma profesional.
+Un bootcamp de **10 semanas** (10 h/semana, 100 h) para desarrolladores que ya programan con orientación a objetos y quieren diseñar, comunicar y documentar sistemas con **UML 2.5.1**. Todos los diagramas se escriben como código con **PlantUML**, se versionan con git y se renderizan en un contenedor Docker con la misma versión para todos.
 
-| Sesión       | Tema                                  | Horas | Estado        |
-| ------------ | ------------------------------------- | ----- | ------------- |
-| **Sesión 1** | Fundamentos + Diagramas Estructurales | 5h    | ✅ Disponible |
-| **Sesión 2** | Diagramas de Comportamiento           | 5h    | ✅ Disponible |
+- **100% práctico:** 45 min de teoría, 6 labs y un proyecto por semana.
+- **Proyecto hilo conductor:** el instructor te asigna un dominio y cada semana añades una vista del modelo de ese sistema.
+- **Autograding:** `./scripts/verificar-semana.sh NN` te dice qué te falta antes de entregar.
 
-### Resumen de contenidos
+---
 
-**Sesión 1 — Diagramas Estructurales:**
+## 📚 Contenido del Bootcamp
 
-- Taxonomía UML: 14 diagramas estándar
-- Diagrama de Clases: sintaxis, visibilidad, relaciones (6 tipos)
-- Diagrama de Objetos, Componentes y Despliegue
+Índice completo con estado: [bootcamp/README.md](bootcamp/README.md).
 
-**Sesión 2 — Diagramas de Comportamiento:**
+| Fase | Semanas | Temas |
+|---|---|---|
+| 1 — Estructura | 01-03 | Fundamentos y PlantUML, diagrama de clases, relaciones y objetos |
+| 2 — Comportamiento | 04-07 | Casos de uso, actividades, secuencia y comunicación, máquinas de estados |
+| 3 — Arquitectura y código | 08-10 | Componentes, paquetes y despliegue; de UML a código y patrones; proyecto integrador |
 
-- Casos de Uso: actores, include, extend
-- Diagrama de Secuencia: lifelines, fragmentos combinados (alt/opt/loop)
-- Diagrama de Comunicación: numeración jerárquica
-- Máquinas de Estados: compuestos, guardas, acciones
-- Diagramas de Actividades: swimlanes, fork/join
+Cada semana:
+
+| Sección | Tiempo |
+|---|---|
+| `1-teoria/` | 45 min |
+| Conocimiento (10 preguntas) | 15 min |
+| `2-practicas/` (6 labs) | 6 h |
+| `3-proyecto/` | 3 h |
+
+Evaluación: Conocimiento 30% · Desempeño 40% · Producto 30%, con mínimo 70% en cada una.
+
+---
+
+## 💻 Requisitos
+
+- Programar con orientación a objetos en algún lenguaje (clases, objetos, herencia, interfaces).
+- Docker con Compose v2, git y jq. Guía: [docs/setup-entorno.md](docs/setup-entorno.md).
+
+---
+
+## 🚀 Inicio Rápido
+
+```bash
+git clone https://github.com/ergrato-dev/bc-uml.git
+cd bc-uml
+docker compose build
+docker compose run --rm uml plantuml -version
+./scripts/verificar-semana.sh --doctor
+```
+
+Empieza por la [Semana 01](bootcamp/week-01-fundamentos_uml_y_plantuml/README.md).
 
 ---
 
@@ -50,117 +78,42 @@ Este bootcamp está diseñado para desarrolladores que quieren comunicar y docum
 
 ```
 bc-uml/
-├── README.md                           # ← Estás aquí
-├── README_EN.md                        # Versión en inglés
-├── LICENSE                             # MIT
-├── CONTRIBUTING.md                     # Cómo contribuir
-├── CODE_OF_CONDUCT.md                  # Código de conducta
-├── SECURITY.md                         # Política de seguridad
-│
-├── bootcamp/
-│   ├── week-01-fundamentos_y_diagramas_estructurales/  # Fundamentos + Estructurales (5h)
-│   │   ├── README.md                   # Objetivos, cronograma, checklist
-│   │   ├── rubrica-evaluacion.md       # Conocimiento 30% / Desempeño 40% / Producto 30%
-│   │   ├── 0-assets/                   # 15 SVGs de la sesión
-│   │   ├── 1-teoria/                   # 5 archivos teoría (01 al 05)
-│   │   ├── 2-practicas/                # 3 ejercicios con starter + solución
-│   │   ├── 3-proyecto/                 # Proyecto: Sistema Biblioteca
-│   │   ├── 4-recursos/                 # Webgrafía, videografía, ebooks
-│   │   └── 5-glosario/                 # Glosario A-Z de términos estructurales
-│   │
-│   └── week-02-diagramas_de_comportamiento/          # Comportamiento (5h)
-│       ├── README.md                   # Objetivos, cronograma, checklist
-│       ├── rubrica-evaluacion.md       # Misma rubrica adaptada
-│       ├── 0-assets/                   # 8 SVGs de la sesión
-│       ├── 1-teoria/                   # 5 archivos teoría (01 al 05)
-│       ├── 2-practicas/                # 3 ejercicios con starter + solución
-│       ├── 3-proyecto/                 # Proyecto: Hospital Digital
-│       ├── 4-recursos/                 # Webgrafía, videografía, ebooks
-│       └── 5-glosario/                 # Glosario términos de comportamiento
-│
-├── assets/                            # Logo del bootcamp (logo-uml-course.svg)
-├── docs/                              # Plan de estudios, cheat sheet, guías
-└── scripts/                           # Scripts de exportación PDF
+├── bootcamp/          # Las 10 semanas + índice (README.md)
+├── docs/              # Setup, autograding, proyecto hilo conductor, versiones
+├── lab/Dockerfile     # Imagen con PlantUML 1.2026.9, Java 21 y Graphviz
+├── compose.yaml       # Servicio uml
+├── scripts/           # verificar-semana.sh, verificar-enlaces.sh, generar-navegacion.sh
+└── assets/            # Header del bootcamp
+```
+
+### Estructura de cada Semana
+
+```
+week-NN-tema/
+├── README.md              # Objetivos, contenido, navegación
+├── rubrica-evaluacion.md  # Conocimiento / Desempeño / Producto
+├── checks.json            # Autograding del proyecto
+├── 0-assets/              # Diagramas SVG de la teoría
+├── 1-teoria/
+├── 2-practicas/           # 6 labs con starter/
+├── 3-proyecto/            # Incremento del modelo de tu dominio
+├── 4-recursos/
+└── 5-glosario/
 ```
 
 ---
 
-## 🚀 Inicio Rápido
+## 📖 Recursos
 
-### Requisitos previos
-
-- VS Code con las extensiones recomendadas (ver `.vscode/extensions.json`)
-- Conocimientos básicos de POO (clases, herencia, interfaces)
-- No se requiere experiencia previa en UML
-
-### Pasos
-
-```bash
-# 1. Clona el repositorio
-git clone https://github.com/ergrato-dev/bc-uml.git
-cd bc-uml
-
-# 2. Abre en VS Code
-code .
-
-# 3. Instala las extensiones recomendadas
-# VS Code te pedirá instalarlas automáticamente
-```
-
-Luego abre [`bootcamp/week-01-fundamentos_y_diagramas_estructurales/README.md`](bootcamp/week-01-fundamentos_y_diagramas_estructurales/README.md) y sigue el cronograma.
-
----
-
-## 🎯 Modelo de Evaluación
-
-Cada sesión evalúa tres dimensiones:
-
-| Dimensión           | Peso | Instrumento                           |
-| ------------------- | ---- | ------------------------------------- |
-| 🧠 **Conocimiento** | 30%  | Cuestionarios teóricos                |
-| 💪 **Desempeño**    | 40%  | Ejercicios prácticos (`2-practicas/`) |
-| 📦 **Producto**     | 30%  | Proyecto final (`3-proyecto/`)        |
-
-> **Criterio de aprobación**: mínimo **70%** en cada dimensión
-
----
-
-## ⏱️ Distribución de Tiempo por Sesión (5 horas)
-
-```
-📖 Teoría:        2h   (40%)   → 1-teoria/
-💻 Prácticas:     2h   (40%)   → 2-practicas/
-🚀 Proyecto:      0.5h (10%)   → 3-proyecto/
-📚 Recursos:      0.5h (10%)   → 4-recursos/
-```
-
----
-
-## 🧩 Herramientas
-
-| Herramienta                      | Uso                   | Costo    |
-| -------------------------------- | --------------------- | -------- |
-| **PlantUML** (extensión VS Code) | Renderizar `.puml`    | Gratuito |
-| **PlantUML Online**              | Sin instalación       | Gratuito |
-| **Draw.io**                      | Diagramas visuales    | Gratuito |
-| **Mermaid**                      | Diagramas en Markdown | Gratuito |
-
----
-
-## 📖 Documentación
-
-| Documento                                                 | Descripción                      |
-| --------------------------------------------------------- | -------------------------------- |
-| [Cheat Sheet](docs/CHEAT-SHEET.md)                       | Guía rápida de notación PlantUML |
-| [Plan de Estudios](docs/plan-estudios.md)                | Programa completo del bootcamp   |
-| [Guía de Contenidos](docs/guia-desarrollo-contenidos.md) | Cómo agregar nuevo material      |
+- [Especificación UML 2.5.1 (OMG)](https://www.omg.org/spec/UML/2.5.1/)
+- [Referencia del lenguaje PlantUML](https://plantuml.com/)
+- [UML Distilled, Martin Fowler](https://martinfowler.com/books/uml.html)
 
 ---
 
 ## 🤝 Contribuir
 
-Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de enviar un PR.  
-Este proyecto usa **Conventional Commits**: `feat:`, `fix:`, `docs:`.
+Los pull requests externos se cierran automáticamente. Si encuentras un error, abre un issue. Vulnerabilidades: [SECURITY.md](SECURITY.md). Convivencia: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ---
 
@@ -175,14 +128,19 @@ Este material es de carácter **educativo y sin fines de lucro**. Los ejemplos, 
 
 ---
 
-## 📜 Licencia
+## 📄 Licencia
 
-[MIT](LICENSE) © 2026 ergrato-dev
+[CC BY-NC-SA 4.0](LICENSE). English version: [README_EN.md](README_EN.md).
 
 ---
 
 <div align="center">
 
-Hecho con 💜 para la comunidad de desarrolladores en español
+**Bootcamp UML: De Zero a Hero**
+
+[![GitHub stars](https://img.shields.io/github/stars/ergrato-dev/bc-uml?style=social)](https://github.com/ergrato-dev/bc-uml)
+[![GitHub forks](https://img.shields.io/github/forks/ergrato-dev/bc-uml?style=social)](https://github.com/ergrato-dev/bc-uml)
+
+_10 semanas • 100 horas • Zero to Advanced_
 
 </div>

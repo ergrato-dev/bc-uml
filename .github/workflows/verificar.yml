@@ -1,0 +1,26 @@
+name: Verificar contenido
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Principio de mínimo privilegio: solo lectura
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Antes de verificar-enlaces: su paso 8 renderiza los starter/ dentro del contenedor uml.
+      - name: Construir el laboratorio
+        run: docker compose build
+
+      - name: Estructura, enlaces, reglas de estilo y starters que renderizan
+        run: ./scripts/verificar-enlaces.sh
+
+      - name: shellcheck de scripts/
+        run: shellcheck -S warning scripts/*.sh

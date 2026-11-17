@@ -1,0 +1,18 @@
+# Laboratorio de bc-uml. Uso: docs/setup-entorno.md
+#   docker compose run --rm uml                          # shell con plantuml
+#   docker compose run --rm uml plantuml -tsvg ruta.puml # renderiza un diagrama
+#   ./scripts/verificar-semana.sh NN                     # autograding dentro de uml
+services:
+  uml:
+    build: lab
+    image: bc-uml-lab:1.2026.9
+    # Qué: tu copia del repo montada dentro del contenedor.
+    # Para qué: editas en tu equipo y renderizas aquí; los SVG/PNG aparecen junto al .puml.
+    volumes:
+      - .:/bc-uml
+    working_dir: /bc-uml
+    # Qué: el contenedor corre con tu uid/gid.
+    # Para qué: que los archivos generados no queden con dueño root en tu equipo.
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      HOME: /tmp
