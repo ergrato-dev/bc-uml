@@ -1,0 +1,24 @@
+@startuml
+' Diagrama leído del código de java/ o python/. Empieza con dos clases.
+title Tienda — clases leídas del código
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - name: String
+  - email: String
+}
+
+class Product {
+  - sku: String
+  - name: String
+}
+
+' TODO 1: el resto de clases, con sus atributos y operaciones públicas.
+
+' TODO 2: generalizaciones y realizaciones.
+
+' TODO 3: asociaciones, composición y dependencias.
+@enduml

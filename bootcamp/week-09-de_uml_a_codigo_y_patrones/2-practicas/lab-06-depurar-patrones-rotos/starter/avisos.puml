@@ -1,0 +1,37 @@
+@startuml
+' Observer: cuando se libera una butaca de una función, avisa a quien esté atento.
+title Cine — avisos de butacas libres
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Screening <<Observable>> {
+  - startsAt: DateTime
+  + attach(observer: ScreeningObserver): void
+  + detach(observer: ScreeningObserver): void
+  + releaseSeat(seat: Seat): void
+}
+
+class Seat {
+  - row: String
+  - number: Integer
+}
+
+interface ScreeningObserver <<Observer>> {
+  + seatReleased(screening: Screening, seat: Seat): void
+}
+
+class <<ConcreteObserver>> WaitingList {
+  + seatReleased(screening: Screening, seat: Seat): void
+}
+
+class BoxOfficeDisplay <<ConcreteObserver>> {
+  + seatReleased(screening: Screening, seat: Seat): void
+
+Screening --> 0..* WaitingList : notifies >
+Screening ..> Seat
+ScreeningObserver <|.. WaitingList
+BoxOfficeDisplay <|.. ScreeningObserver
+ScreeningObserver <|... WaitingList
+@enduml

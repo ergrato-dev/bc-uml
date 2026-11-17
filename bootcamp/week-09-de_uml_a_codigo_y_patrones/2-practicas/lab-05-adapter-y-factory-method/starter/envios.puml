@@ -1,0 +1,46 @@
+@startuml
+' ShippingService decide qué etiqueta crear con un if sobre el nombre del transportista:
+' cada transportista nuevo obliga a tocarlo.
+title Tienda — etiquetas de envío
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 4: ShippingService pasa a ser Shipper, el Creator.
+class ShippingService {
+  + ship(order: Order, carrier: String): ShippingLabel
+}
+
+' TODO 5: los roles Product y ConcreteProduct.
+abstract class ShippingLabel {
+  - trackingCode: String
+  {abstract} + print(): String
+}
+
+class FastBoxLabel {
+  + print(): String
+}
+
+class EcoPostLabel {
+  + print(): String
+}
+
+class Order {
+  - total: Decimal
+}
+
+' TODO 6: un ConcreteCreator por transportista.
+
+note right of ShippingService
+  ship() hoy:
+  if carrier == "fastbox": new FastBoxLabel()
+  if carrier == "ecopost": new EcoPostLabel()
+end note
+
+ShippingLabel <|-- FastBoxLabel
+ShippingLabel <|-- EcoPostLabel
+ShippingService ..> Order
+ShippingService ..> FastBoxLabel
+ShippingService ..> EcoPostLabel
+@enduml

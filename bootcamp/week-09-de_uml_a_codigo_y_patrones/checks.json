@@ -1,0 +1,118 @@
+{
+  "semana": "09",
+  "titulo": "De UML a código y patrones",
+  "checks": [
+    {
+      "id": "modelo-sigue-renderizando",
+      "descripcion": "Los diagramas de las semanas 02 a 08 siguen en el modelo y renderizan",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/04-casos-de-uso.puml {proyecto}/diagramas/05-actividad-*.puml {proyecto}/diagramas/06-secuencia-*.puml {proyecto}/diagramas/07-estados-*.puml {proyecto}/diagramas/08-paquetes.puml {proyecto}/diagramas/08-componentes.puml {proyecto}/diagramas/08-despliegue.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "codigo-existe",
+      "descripcion": "codigo/ tiene al menos un archivo de código fuente",
+      "cmd": "[ -n \"$(find {proyecto}/codigo -type f ! -name '*.md' ! -name '.gitkeep' | head -1)\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "codigo-clasificadores",
+      "descripcion": "Cada clase, interfaz y enumeración de 02-clases.puml está declarada en codigo/",
+      "cmd": "grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/02-clases.puml | awk '{print $NF}' | sort -u > /tmp/c && [ -s /tmp/c ] && [ -z \"$(comm -23 /tmp/c <(grep -rhoIE --exclude='*.md' '(class|interface|enum|record)[[:space:]]+[A-Z][A-Za-z0-9_]*' {proyecto}/codigo | awk '{print $2}' | sort -u))\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "codigo-atributos",
+      "descripcion": "Cada atributo de 02-clases.puml aparece en codigo/ (sin distinguir camelCase de snake_case)",
+      "cmd": "awk '{s = $0; if (!sub(/^[[:space:]]*([{][a-z]+[}][[:space:]]*)?[-+#~][[:space:]]*([{][a-z]+[}][[:space:]]*)?/, \"\", s)) next; if (s !~ /^[A-Za-z_][A-Za-z0-9_]*[[:space:]]*:/) next; sub(/[^A-Za-z0-9_].*$/, \"\", s); print s}' {proyecto}/diagramas/02-clases.puml | tr -d _ | tr '[:upper:]' '[:lower:]' | sort -u > /tmp/a && [ -s /tmp/a ] && [ -z \"$(comm -23 /tmp/a <(grep -rhoIE --exclude='*.md' '[A-Za-z_][A-Za-z0-9_]*' {proyecto}/codigo | tr -d _ | tr '[:upper:]' '[:lower:]' | sort -u))\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "codigo-operaciones",
+      "descripcion": "Cada operación de 02-clases.puml aparece en codigo/ (sin distinguir camelCase de snake_case)",
+      "cmd": "awk '{s = $0; if (!sub(/^[[:space:]]*([{][a-z]+[}][[:space:]]*)?[-+#~][[:space:]]*([{][a-z]+[}][[:space:]]*)?/, \"\", s)) next; if (s !~ /^[A-Za-z_][A-Za-z0-9_]*[[:space:]]*[(]/) next; sub(/[^A-Za-z0-9_].*$/, \"\", s); print s}' {proyecto}/diagramas/02-clases.puml | tr -d _ | tr '[:upper:]' '[:lower:]' | sort -u > /tmp/o && [ -s /tmp/o ] && [ -z \"$(comm -23 /tmp/o <(grep -rhoIE --exclude='*.md' '[A-Za-z_][A-Za-z0-9_]*' {proyecto}/codigo | tr -d _ | tr '[:upper:]' '[:lower:]' | sort -u))\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "codigo-herencia",
+      "descripcion": "Cada generalización y realización de 02-clases.puml y del patrón está en la declaración de la clase hija en codigo/",
+      "cmd": "awk '$2 ~ /^<[|](--|[.][.])$/ {print $1, $3} $2 ~ /^(--|[.][.])[|]>$/ {print $3, $1}' {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/09-patron-*.puml > /tmp/g && [ -s /tmp/g ] && while read p c; do grep -rqIE --exclude='*.md' \"(class|interface|enum|record)[[:space:]]+$c([^A-Za-z0-9_].*)?[^A-Za-z0-9_]$p([^A-Za-z0-9_]|$)\" {proyecto}/codigo || exit 1; done < /tmp/g",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "patron-archivo",
+      "descripcion": "Hay un solo 09-patron-<nombre>.puml y su nombre es strategy, observer, factory-method o adapter",
+      "cmd": "[ \"$(ls {proyecto}/diagramas/09-patron-*.puml 2>/dev/null | wc -l)\" -eq 1 ] && ls {proyecto}/diagramas/09-patron-*.puml | grep -qE '/09-patron-(strategy|observer|factory-method|adapter)[.]puml$'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "patron-renderiza",
+      "descripcion": "09-patron-<nombre>.puml renderiza, es un diagrama de clases y tiene title",
+      "cmd": "f=$(ls {proyecto}/diagramas/09-patron-*.puml | head -1) && plantuml -checkonly \"$f\" && plantuml -syntax < \"$f\" | head -1 | grep -qx CLASS && grep -qE '^title[[:space:]]+[^[:space:]]' \"$f\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "patron-roles",
+      "descripcion": "Cada rol del patrón está marcado como estereotipo en un clasificador (<<Context>>, <<Strategy>>, <<ConcreteStrategy>>...)",
+      "cmd": "f=$(ls {proyecto}/diagramas/09-patron-*.puml | head -1) && case \"$f\" in *-strategy.puml) R='Context Strategy ConcreteStrategy' ;; *-observer.puml) R='Subject ConcreteSubject Observer ConcreteObserver' ;; *-factory-method.puml) R='Creator ConcreteCreator Product ConcreteProduct' ;; *-adapter.puml) R='Client Target Adapter Adaptee' ;; *) exit 1 ;; esac && for r in $R; do grep -qE \"^[[:space:]]*(abstract[[:space:]]+)?(class|interface|enum)[[:space:]].*<<$r>>\" \"$f\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "patron-abstraccion",
+      "descripcion": "El patrón tiene al menos una interfaz <<interface>> o una clase abstracta",
+      "cmd": "grep -qE '^[[:space:]]*(abstract[[:space:]]+class|interface[[:space:]]+[A-Za-z0-9_]+[[:space:]]+<<interface>>)' {proyecto}/diagramas/09-patron-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "patron-relaciones",
+      "descripcion": "Hay al menos una generalización o realización y una asociación o dependencia (--> o ..>) hacia la abstracción",
+      "cmd": "f=$(ls {proyecto}/diagramas/09-patron-*.puml | head -1) && awk 'NR == FNR {if (match($0, /^[[:space:]]*(abstract[[:space:]]+class|interface)[[:space:]]+[A-Za-z0-9_]+/)) {n = split(substr($0, RSTART, RLENGTH), w, /[[:space:]]+/); a[w[n]]} next} {for (i = 2; i < NF; i++) if ($i ~ /^(-+|[.]+)>$/) {j = i + 1; if ($j ~ /^\"/) j++; if ($j in a) u = 1}} $2 ~ /^<[|](--|[.][.])$/ || $2 ~ /^(--|[.][.])[|]>$/ {g = 1} END {exit !(u && g)}' \"$f\" \"$f\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "patron-del-dominio",
+      "descripcion": "Al menos un clasificador del patrón es una clase de 02-clases.puml",
+      "cmd": "[ -n \"$(comm -12 <(grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/09-patron-*.puml | awk '{print $NF}' | sort -u) <(grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/02-clases.puml | awk '{print $NF}' | sort -u))\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "patron-en-codigo",
+      "descripcion": "Cada clasificador del patrón está declarado en codigo/",
+      "cmd": "grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/09-patron-*.puml | awk '{print $NF}' | sort -u > /tmp/p && [ -s /tmp/p ] && [ -z \"$(comm -23 /tmp/p <(grep -rhoIE --exclude='*.md' '(class|interface|enum|record)[[:space:]]+[A-Z][A-Za-z0-9_]*' {proyecto}/codigo | awk '{print $2}' | sort -u))\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "codigo-sin-clases-fuera-del-modelo",
+      "descripcion": "Cada clase de codigo/ está en 02-clases.puml o en el patrón",
+      "cmd": "[ -z \"$(comm -23 <(grep -rhoIE --exclude='*.md' '(class|interface|enum|record)[[:space:]]+[A-Z][A-Za-z0-9_]*' {proyecto}/codigo | awk '{print $2}' | sort -u) <(grep -hoE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/09-patron-*.puml | awk '{print $NF}' | sort -u))\" ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "El README del modelo enlaza el diagrama del patrón y codigo/",
+      "cmd": "grep -qE 'diagramas/09-patron-[a-z-]+[.]puml' {proyecto}/README.md && grep -qF '](codigo/' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en el patrón ni en codigo/",
+      "cmd": "! grep -rn TODO {proyecto}/diagramas/09-patron-*.puml {proyecto}/codigo",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    }
+  ]
+}

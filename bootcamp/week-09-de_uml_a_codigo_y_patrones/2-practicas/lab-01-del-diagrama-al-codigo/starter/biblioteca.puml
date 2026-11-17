@@ -1,0 +1,47 @@
+@startuml
+' Diagrama de referencia: no lo cambies. El código de java/ o python/ tiene que contar lo mismo.
+title Biblioteca — clases que pasan a código
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+abstract class LibraryItem {
+  - title: String
+  {abstract} + loanDays(): Integer
+}
+
+class Book {
+  - isbn: String
+  + loanDays(): Integer
+}
+
+class Dvd {
+  - minutes: Integer
+  + loanDays(): Integer
+}
+
+class Member {
+  - name: String
+  - email: String
+  + borrow(item: LibraryItem, today: Date): Loan
+  + activeLoans(): Integer
+}
+
+class Loan {
+  - dueDate: Date
+  - status: LoanStatus
+  + isOverdue(today: Date): Boolean
+  + close(): void
+}
+
+enum LoanStatus <<enumeration>> {
+  ACTIVE
+  RETURNED
+}
+
+LibraryItem <|-- Book
+LibraryItem <|-- Dvd
+Member "1" --> "0..*" Loan : has >
+Loan "0..*" --> "1" LibraryItem : lends >
+@enduml

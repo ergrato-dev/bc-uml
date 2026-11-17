@@ -1,0 +1,41 @@
+@startuml
+' El precio depende del tipo de función y cada tipo nuevo obliga a tocar Screening.
+title Cine — precio de la entrada
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 3: Screening pasa a ser el Context y pierde el atributo kind.
+class Screening {
+  - startsAt: DateTime
+  - kind: ScreeningKind
+  + ticketPrice(seat: Seat): Decimal
+}
+
+class Seat {
+  - row: String
+  - number: Integer
+  - premium: Boolean
+}
+
+enum ScreeningKind <<enumeration>> {
+  REGULAR
+  MATINEE
+  PREMIERE
+}
+
+note right of Screening
+  ticketPrice() hoy:
+  switch (kind)
+    REGULAR: 9.00, premium +2.00
+    MATINEE: 6.50, premium +2.00
+    PREMIERE: 14.00, sin suplemento
+end note
+
+' TODO 1: la interfaz PricingPolicy con el rol Strategy.
+
+' TODO 2: una clase ConcreteStrategy por cada valor de ScreeningKind.
+
+Screening ..> Seat
+@enduml

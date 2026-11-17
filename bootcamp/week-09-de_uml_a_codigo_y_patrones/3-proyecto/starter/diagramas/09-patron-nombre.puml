@@ -1,0 +1,17 @@
+@startuml
+' TODO 7: renombra este archivo a 09-patron-<patrón>.puml (strategy, observer, factory-method
+' o adapter) y escribe en el title el nombre de tu sistema y el problema que resuelve el patrón.
+title <Tu sistema> — <patrón> para <problema>
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 8: un clasificador por cada rol del patrón, con el rol como estereotipo
+' (class Appointment <<Context>>). Al menos uno es una clase de 02-clases.puml.
+' La abstracción es una interfaz <<interface>> o una clase abstracta.
+class FirstClass
+
+' TODO 8: la generalización o realización hacia la abstracción y la asociación
+' o dependencia que la usa.
+@enduml

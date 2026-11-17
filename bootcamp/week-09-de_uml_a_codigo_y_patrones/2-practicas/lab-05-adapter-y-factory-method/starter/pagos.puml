@@ -1,0 +1,35 @@
+@startuml
+' Checkout usa directamente el cliente del proveedor de pagos: cambiar de proveedor
+' obliga a reescribir Checkout.
+title Tienda — pago con un proveedor externo
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 3: Checkout es el Client.
+class Checkout {
+  + pay(order: Order, cardToken: String): Boolean
+}
+
+class Order {
+  - total: Decimal
+}
+
+' TODO 1: la interfaz PaymentGateway con el rol Target.
+
+' TODO 2: AcmePayAdapter con el rol Adapter.
+
+' AcmePayClient es del proveedor: no puedes cambiar su código.
+class AcmePayClient {
+  + charge(amountInCents: Integer, token: String): String
+}
+
+note bottom of AcmePayClient
+  charge() devuelve "OK" o un código de error.
+  Trabaja en céntimos; la tienda, en Decimal.
+end note
+
+Checkout ..> Order
+Checkout --> "1" AcmePayClient
+@enduml

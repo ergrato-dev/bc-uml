@@ -65,6 +65,6 @@ Desde la raíz del repositorio:
 
 | Anterior | Actual | Siguiente |
 |---|---|---|
-| [Semana 07 — Máquinas de estados](../week-07-maquinas_de_estados/README.md) | **Semana 08 — Componentes, paquetes y despliegue** | [Semana 09](../week-09-de_uml_a_codigo_y_patrones/README.md) |
+| [Semana 07 — Máquinas de estados](../week-07-maquinas_de_estados/README.md) | **Semana 08 — Componentes, paquetes y despliegue** | [Semana 09 — De UML a código y patrones](../week-09-de_uml_a_codigo_y_patrones/README.md) |
 
 [← Volver al índice del bootcamp](../README.md)

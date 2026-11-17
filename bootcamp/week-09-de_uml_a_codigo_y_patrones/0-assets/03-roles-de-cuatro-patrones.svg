@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" role="img">
+<title>Roles de los cuatro patrones de la semana. Strategy: Context se asocia a la interfaz Strategy, que realiza ConcreteStrategy. Observer: Subject se asocia a muchos Observer, ConcreteSubject hereda de Subject y ConcreteObserver realiza Observer. Factory Method: Creator depende de Product, ConcreteCreator hereda de Creator y depende de ConcreteProduct, que hereda de Product. Adapter: Client se asocia a la interfaz Target, Adapter la realiza y se asocia a Adaptee, la clase ajena</title>
+<rect width="1000" height="660" fill="#0d1117"/>
+<defs>
+<marker id="tri" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.2"/></marker>
+<marker id="open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#f0f6fc" stroke-width="1.5"/></marker>
+<marker id="dia" viewBox="0 0 16 10" refX="1" refY="5" markerWidth="18" markerHeight="12" orient="auto"><path d="M1 5 L8 1 L15 5 L8 9 Z" fill="#f0f6fc"/></marker>
+</defs>
+<g transform="translate(20 20)"><rect width="470" height="250" rx="8" fill="none" stroke="#30363d"/><text x="20" y="30" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#f0f6fc">Strategy</text>
+<rect x="20" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="105" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Context»</text>
+<rect x="290" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#a371f7" stroke-width="2"/><text x="375" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Strategy»</text>
+<rect x="290" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="375" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«ConcreteStrategy»</text>
+<line x1="190" y1="72" x2="288" y2="72" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#open)"/>
+<line x1="375" y1="180" x2="375" y2="96" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#tri)"/>
+</g>
+<g transform="translate(510 20)"><rect width="470" height="250" rx="8" fill="none" stroke="#30363d"/><text x="20" y="30" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#f0f6fc">Observer</text>
+<rect x="20" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="105" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Subject»</text>
+<rect x="290" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#a371f7" stroke-width="2"/><text x="375" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Observer»</text>
+<rect x="20" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="105" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«ConcreteSubject»</text>
+<rect x="290" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="375" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«ConcreteObserver»</text>
+<line x1="190" y1="72" x2="288" y2="72" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#open)"/><text x="239.0" y="64" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f78166">0..*</text>
+<line x1="105" y1="180" x2="105" y2="96" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#tri)"/>
+<line x1="375" y1="180" x2="375" y2="96" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#tri)"/>
+</g>
+<g transform="translate(20 290)"><rect width="470" height="250" rx="8" fill="none" stroke="#30363d"/><text x="20" y="30" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#f0f6fc">Factory Method</text>
+<rect x="20" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#a371f7" stroke-width="2"/><text x="105" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Creator»</text>
+<rect x="290" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#a371f7" stroke-width="2"/><text x="375" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Product»</text>
+<rect x="20" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="105" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«ConcreteCreator»</text>
+<rect x="290" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="375" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«ConcreteProduct»</text>
+<line x1="190" y1="72" x2="288" y2="72" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#open)"/>
+<line x1="105" y1="180" x2="105" y2="96" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#tri)"/>
+<line x1="375" y1="180" x2="375" y2="96" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#tri)"/>
+<line x1="190" y1="202" x2="288" y2="202" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#open)"/>
+</g>
+<g transform="translate(510 290)"><rect width="470" height="250" rx="8" fill="none" stroke="#30363d"/><text x="20" y="30" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#f0f6fc">Adapter</text>
+<rect x="20" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="105" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Client»</text>
+<rect x="290" y="50" width="170" height="44" rx="4" fill="#161b22" stroke="#a371f7" stroke-width="2"/><text x="375" y="78" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Target»</text>
+<rect x="290" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="375" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Adapter»</text>
+<rect x="20" y="180" width="170" height="44" rx="4" fill="#161b22" stroke="#e3b341" stroke-width="2"/><text x="105" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">«Adaptee»</text>
+<line x1="190" y1="72" x2="288" y2="72" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#open)"/>
+<line x1="375" y1="180" x2="375" y2="96" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#tri)"/>
+<line x1="290" y1="202" x2="192" y2="202" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#open)"/>
+</g>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e"><rect x="20" y="578" width="22" height="16" fill="#161b22" stroke="#a371f7" stroke-width="2"/><text x="50" y="591">interfaz o clase abstracta</text><rect x="240" y="578" width="22" height="16" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="270" y="591">clase concreta</text><rect x="400" y="578" width="22" height="16" fill="#161b22" stroke="#e3b341" stroke-width="2"/><text x="430" y="591">clase ajena que no puedes cambiar</text></g>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e"><line x1="20" y1="622" x2="70" y2="622" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#tri)"/>
+<text x="80" y="627">generalización</text><line x1="210" y1="622" x2="260" y2="622" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#tri)"/>
+<text x="270" y="627">realización</text><line x1="380" y1="622" x2="430" y2="622" stroke="#f0f6fc" stroke-width="1.8" marker-end="url(#open)"/>
+<text x="440" y="627">asociación</text><line x1="550" y1="622" x2="600" y2="622" stroke="#f0f6fc" stroke-width="1.8" stroke-dasharray="7 5" marker-end="url(#open)"/>
+<text x="610" y="627">dependencia</text></g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img">
+<title>De la clase al código: la clase UML Member, con su nombre, su atributo name, su operación borrow y su asociación navegable hacia Loan con multiplicidad 0..*, y a la derecha las líneas de Java que salen de cada parte: la declaración de la clase, el campo privado, la lista de préstamos y el método</title>
+<rect width="1000" height="470" fill="#0d1117"/>
+<defs>
+<marker id="tri" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#0d1117" stroke="#f0f6fc" stroke-width="1.2"/></marker>
+<marker id="open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#f0f6fc" stroke-width="1.5"/></marker>
+<marker id="dia" viewBox="0 0 16 10" refX="1" refY="5" markerWidth="18" markerHeight="12" orient="auto"><path d="M1 5 L8 1 L15 5 L8 9 Z" fill="#f0f6fc"/></marker>
+</defs>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" fill="#f0f6fc"><text x="40" y="40" font-size="18" fill="#8b949e">Diagrama</text><text x="540" y="40" font-size="18" fill="#8b949e">Código (Java)</text></g>
+<rect x="40" y="70" width="360" height="130" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+<line x1="40" y1="110" x2="400" y2="110" stroke="#58a6ff"/><line x1="40" y1="150" x2="400" y2="150" stroke="#58a6ff"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#f0f6fc"><text x="220" y="96" text-anchor="middle" font-weight="bold">Member</text><text x="56" y="136">- name: String</text><text x="56" y="180">+ borrow(item: LibraryItem): Loan</text>
+<text x="232" y="290" fill="#f78166">0..*</text></g>
+<rect x="140" y="360" width="160" height="40" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+<text x="220" y="386" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="bold" fill="#f0f6fc">Loan</text>
+<line x1="220" y1="200" x2="220" y2="358" stroke="#f0f6fc" stroke-width="2" marker-end="url(#open)"/>
+<rect x="540" y="70" width="420" height="330" rx="6" fill="#161b22" stroke="#30363d"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#f0f6fc"><text x="560" y="110">public class Member {</text><text x="579" y="150">private String name;</text><text x="579" y="190">private List&lt;Loan&gt; loans</text><text x="618" y="214">= new ArrayList&lt;&gt;();</text><text x="579" y="254">public Loan borrow(</text><text x="618" y="278">LibraryItem item) {</text><text x="598" y="302">throw new Unsupported...;</text><text x="579" y="326">}</text><text x="560" y="366">}</text></g>
+<g stroke="#f78166" stroke-width="2" fill="none" stroke-dasharray="6 4"><path d="M 400 90 C 470 90, 480 105, 552 105"/><path d="M 400 131 C 470 131, 480 145, 552 145"/><path d="M 400 175 C 470 175, 480 249, 552 249"/><path d="M 275 285 C 470 285, 480 185, 552 185"/></g>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e"><text x="40" y="440">Cada parte de la clase se convierte en una línea concreta. La asociación navegable con 0..* es un campo colección en Member;</text><text x="40" y="460">Loan no recibe un campo member porque la flecha no va hacia allí.</text></g>
+</svg>

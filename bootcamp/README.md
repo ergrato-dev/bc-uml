@@ -32,7 +32,7 @@ escrita al estándar actual (10 h, rúbrica 30/40/30, `checks.json`); ⬜ pendie
 | Semana | Tema | Estado |
 |:--:|---|:--:|
 | [08](week-08-componentes_paquetes_y_despliegue/README.md) | [Componentes, paquetes y despliegue](week-08-componentes_paquetes_y_despliegue/README.md) | ✅ |
-| 09 | De UML a código y patrones | ⬜ |
+| [09](week-09-de_uml_a_codigo_y_patrones/README.md) | [De UML a código y patrones](week-09-de_uml_a_codigo_y_patrones/README.md) | ✅ |
 | 10 | Proyecto integrador | ⬜ |
 
 ---

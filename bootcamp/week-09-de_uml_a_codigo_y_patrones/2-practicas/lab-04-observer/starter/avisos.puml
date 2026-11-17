@@ -1,0 +1,46 @@
+@startuml
+' Cada vez que un ejemplar vuelve a estar disponible, LibraryItem llama a tres clases
+' que conoce por su nombre. Una cuarta obligaría a cambiar LibraryItem otra vez.
+title Biblioteca — avisos de disponibilidad
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 2: LibraryItem pasa a ser el Subject y Book el ConcreteSubject.
+abstract class LibraryItem {
+  - title: String
+  + markAvailable(): void
+}
+
+class Book {
+  - isbn: String
+}
+
+' TODO 1: la interfaz ItemObserver con el rol Observer.
+
+' TODO 3: las tres clases pasan a ser ConcreteObserver.
+class WaitingList {
+  + notifyFirst(item: LibraryItem): void
+}
+
+class CatalogDisplay {
+  + refresh(item: LibraryItem): void
+}
+
+class Newsletter {
+  + addTitle(item: LibraryItem): void
+}
+
+note right of LibraryItem
+  markAvailable() hoy:
+  waitingList.notifyFirst(this)
+  display.refresh(this)
+  newsletter.addTitle(this)
+end note
+
+LibraryItem <|-- Book
+LibraryItem --> "1" WaitingList
+LibraryItem --> "1" CatalogDisplay
+LibraryItem --> "1" Newsletter
+@enduml
