@@ -1,0 +1,31 @@
+@startuml
+title Cine — clases de la venta de entradas
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Ticket {
+  - code: String
+  - seat: String
+  - price: Decimal
+  - status: TicketStatus
+  + pay(method: PaymentMethod): void
+  + validate(): void
+  + printQr(): String
+  ' TODO 4: la operación que pide la máquina de estados.
+}
+
+enum TicketStatus <<enumeration>> {
+  RESERVED
+  PAID
+  USED
+  REFUNDED
+  EXPIRED
+}
+
+enum PaymentMethod <<enumeration>> {
+  CARD
+  CASH
+}
+@enduml

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img">
+<title>Anatomía de una transición entre dos estados: la etiqueta return() [copy is intact] / closeLoan() se divide en evento que dispara la transición, guarda que se evalúa al llegar el evento y acción que se ejecuta al cruzar; el orden es fijo y las tres partes son opcionales</title>
+<rect width="1000" height="460" fill="#0d1117"/>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" fill="#f0f6fc" font-size="17">
+<rect x="60" y="60" width="160" height="64" rx="18" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+<text x="140" y="98" text-anchor="middle">Active</text>
+<rect x="780" y="60" width="160" height="64" rx="18" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+<text x="860" y="98" text-anchor="middle">Returned</text>
+</g>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e">
+<text x="140" y="148" text-anchor="middle">estado de origen</text>
+<text x="860" y="148" text-anchor="middle">estado de destino</text>
+</g>
+<line x1="220" y1="92" x2="770" y2="92" stroke="#f0f6fc" stroke-width="2"/>
+<polyline points="756,84 772,92 756,100" fill="none" stroke="#f0f6fc" stroke-width="2"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18">
+<text x="268" y="74" fill="#3fb950">return()</text>
+<text x="368" y="74" fill="#e3b341">[copy is intact]</text>
+<text x="555" y="74" fill="#f0f6fc">/</text>
+<text x="578" y="74" fill="#f78166">closeLoan()</text>
+</g>
+<g fill="none" stroke-width="2">
+<path d="M268 190 v-12 h86 v12" stroke="#3fb950"/>
+<path d="M368 190 v-12 h174 v12" stroke="#e3b341"/>
+<path d="M578 190 v-12 h120 v12" stroke="#f78166"/>
+</g>
+<line x1="311" y1="80" x2="311" y2="176" stroke="#3fb950" stroke-dasharray="4 4"/>
+<line x1="455" y1="80" x2="455" y2="176" stroke="#e3b341" stroke-dasharray="4 4"/>
+<line x1="638" y1="80" x2="638" y2="176" stroke="#f78166" stroke-dasharray="4 4"/>
+<g font-family="Inter, system-ui, -apple-system, sans-serif">
+<rect x="60" y="210" width="270" height="150" rx="8" fill="#161b22" stroke="#3fb950"/>
+<text x="80" y="242" font-size="17" font-weight="bold" fill="#3fb950">Evento</text>
+<text x="80" y="270" font-size="14" fill="#f0f6fc">Lo que dispara la transición.</text>
+<text x="80" y="292" font-size="14" fill="#f0f6fc">Sin evento, el objeto no se mueve.</text>
+<text x="80" y="326" font-size="13" fill="#8b949e">llamada, señal, when(...),</text>
+<text x="80" y="346" font-size="13" fill="#8b949e">after(...)</text>
+<rect x="365" y="210" width="270" height="150" rx="8" fill="#161b22" stroke="#e3b341"/>
+<text x="385" y="242" font-size="17" font-weight="bold" fill="#e3b341">Guarda</text>
+<text x="385" y="270" font-size="14" fill="#f0f6fc">Condición que se evalúa cuando</text>
+<text x="385" y="292" font-size="14" fill="#f0f6fc">llega el evento.</text>
+<text x="385" y="326" font-size="13" fill="#8b949e">falsa: el evento se descarta y</text>
+<text x="385" y="346" font-size="13" fill="#8b949e">el objeto sigue en Active</text>
+<rect x="670" y="210" width="270" height="150" rx="8" fill="#161b22" stroke="#f78166"/>
+<text x="690" y="242" font-size="17" font-weight="bold" fill="#f78166">Acción</text>
+<text x="690" y="270" font-size="14" fill="#f0f6fc">Se ejecuta al cruzar, después</text>
+<text x="690" y="292" font-size="14" fill="#f0f6fc">del exit del origen.</text>
+<text x="690" y="326" font-size="13" fill="#8b949e">breve: no se interrumpe</text>
+</g>
+<text x="500" y="410" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f0f6fc">Orden fijo: <tspan font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#a371f7">evento [guarda] / acción</tspan>. Las tres partes son opcionales.</text>
+</svg>

@@ -1,0 +1,19 @@
+@startuml
+title Cine — ciclo de vida de Ticket
+hide empty description
+
+' TODO 1: un estado que no es ningún literal de TicketStatus.
+[*] --> Booked
+Booked --> Paid : pay(method)
+
+' TODO 2: un literal de TicketStatus que no es ningún estado.
+
+' TODO 3: un evento que no es ninguna operación de Ticket.
+Paid --> Used : scan()
+
+' TODO 4: un evento sin operación en clases.puml (se arregla en el otro archivo).
+Paid --> Refunded : refund() [before showtime] / returnMoney()
+
+Used --> [*]
+Refunded --> [*]
+@enduml

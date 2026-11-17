@@ -1,0 +1,25 @@
+@startuml
+title Tienda — ciclo de vida de Shipment
+hide empty description
+
+[*] --> LabelCreated
+LabelCreated --> InTransit : pickUp()
+
+state InTransit {
+  [*] --> AtHub
+  AtHub => OutForDelivery : dispatch()
+  OutForDelivery --> AtHub : attemptDelivery()
+}
+}
+InTransit : entry / notifyCustomer()
+
+state "Returned to sender as ReturnedToSender
+OutForDelivery --> Delivered : attemptDelivery() / collectSignature()
+InTransit --> ReturnedToSender : [attempts = 3] returnToSender()
+InTransit --> Lost : after(7 days)
+
+Deliverd : entry / requestReview()
+
+Delivered --> [*]
+ReturnedToSender --> [*]
+@enduml

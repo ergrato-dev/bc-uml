@@ -1,0 +1,15 @@
+@startuml
+title Biblioteca — ciclo de vida de Copy
+hide empty description
+
+' TODO 1: el estado inicial. Un ejemplar recién catalogado está disponible.
+
+' TODO 2: el préstamo y la devolución, con su evento.
+Available --> OnLoan
+
+' TODO 3: la reserva: apartar un ejemplar, prestarlo y anular la reserva.
+
+' TODO 4: la reparación y la baja.
+
+' TODO 5: el estado final.
+@enduml

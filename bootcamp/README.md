@@ -25,7 +25,7 @@ escrita al estándar actual (10 h, rúbrica 30/40/30, `checks.json`); ⬜ pendie
 | [04](week-04-casos_de_uso/README.md) | [Casos de uso](week-04-casos_de_uso/README.md) | ✅ |
 | [05](week-05-diagrama_de_actividades/README.md) | [Diagrama de actividades](week-05-diagrama_de_actividades/README.md) | ✅ |
 | [06](week-06-secuencia_y_comunicacion/README.md) | [Secuencia y comunicación](week-06-secuencia_y_comunicacion/README.md) | ✅ |
-| 07 | Máquinas de estados | ⬜ |
+| [07](week-07-maquinas_de_estados/README.md) | [Máquinas de estados](week-07-maquinas_de_estados/README.md) | ✅ |
 
 ### Fase 3 — Arquitectura y código (S08-10, 30 h)
 

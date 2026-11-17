@@ -1,0 +1,25 @@
+@startuml
+title Biblioteca — ciclo de vida de Membership
+hide empty description
+
+[*] --> Pending
+Pending --> Standard : activate()
+
+' TODO 1: Standard y Premium son dos formas de estar activa.
+Standard --> Premium : upgrade()
+Premium --> Standard : downgrade()
+
+' TODO 2: las mismas salidas, repetidas desde Standard y desde Premium.
+Standard --> Suspended : suspend(reason)
+Premium --> Suspended : suspend(reason)
+Standard --> Closed : close()
+Premium --> Closed : close()
+
+' TODO 3: al reactivarse, una membresía Premium vuelve como Standard.
+Suspended --> Standard : reactivate()
+
+' TODO 4: el alta directa como Premium.
+
+Suspended --> Closed : close()
+Closed --> [*]
+@enduml

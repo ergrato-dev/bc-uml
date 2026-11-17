@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img">
+<title>Comparación entre autotransición y transición interna en el estado Held: la autotransición extend() / restartHoldTimer() sale y vuelve a entrar, así que ejecuta exit, la acción y entry; la transición interna extend() / restartHoldTimer() no sale del estado y solo ejecuta su acción</title>
+<rect width="1000" height="480" fill="#0d1117"/>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#f0f6fc">
+<text x="250" y="44" text-anchor="middle">Autotransición</text>
+<text x="750" y="44" text-anchor="middle">Transición interna</text>
+</g>
+<line x1="500" y1="24" x2="500" y2="456" stroke="#30363d"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#8b949e">
+<text x="250" y="70" text-anchor="middle">Held --&gt; Held : extend() / restartHoldTimer()</text>
+<text x="750" y="70" text-anchor="middle">Held : extend() / restartHoldTimer()</text>
+</g>
+<rect x="110" y="130" width="280" height="110" rx="18" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+<line x1="110" y1="166" x2="390" y2="166" stroke="#30363d"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#f0f6fc">
+<text x="250" y="155" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16">Held</text>
+<text x="126" y="192">entry / startHoldTimer()</text>
+<text x="126" y="216">exit / stopHoldTimer()</text>
+</g>
+<path d="M350 130 C 350 86, 450 86, 450 150 C 450 190, 420 196, 392 196" fill="none" stroke="#f78166" stroke-width="2"/>
+<polyline points="404,188 390,196 404,204" fill="none" stroke="#f78166" stroke-width="2"/>
+<text x="110" y="112" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f78166">extend() / restartHoldTimer()</text>
+<rect x="610" y="130" width="280" height="110" rx="18" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+<line x1="610" y1="166" x2="890" y2="166" stroke="#30363d"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#f0f6fc">
+<text x="750" y="155" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16">Held</text>
+<text x="626" y="186">entry / startHoldTimer()</text>
+<text x="626" y="206">exit / stopHoldTimer()</text>
+<text x="626" y="226" fill="#f78166">extend() / restartHoldTimer()</text>
+</g>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15">
+<text x="60" y="292" fill="#8b949e">Al llegar extend() se ejecuta:</text>
+<rect x="60" y="306" width="380" height="36" rx="6" fill="#161b22" stroke="#30363d"/>
+<text x="78" y="330" fill="#f0f6fc">1. exit / stopHoldTimer()</text>
+<rect x="60" y="350" width="380" height="36" rx="6" fill="#161b22" stroke="#30363d"/>
+<text x="78" y="374" fill="#f0f6fc">2. restartHoldTimer()</text>
+<rect x="60" y="394" width="380" height="36" rx="6" fill="#161b22" stroke="#30363d"/>
+<text x="78" y="418" fill="#f0f6fc">3. entry / startHoldTimer()</text>
+<text x="60" y="456" font-size="13" fill="#e3b341">sale y vuelve a entrar: el temporizador arranca de cero</text>
+<text x="560" y="292" fill="#8b949e">Al llegar extend() se ejecuta:</text>
+<rect x="560" y="306" width="380" height="36" rx="6" fill="#161b22" stroke="#30363d"/>
+<text x="578" y="330" fill="#f0f6fc">1. restartHoldTimer()</text>
+<rect x="560" y="350" width="380" height="36" rx="6" fill="#0d1117" stroke="#30363d" stroke-dasharray="5 4"/>
+<text x="578" y="374" fill="#8b949e">sin exit</text>
+<rect x="560" y="394" width="380" height="36" rx="6" fill="#0d1117" stroke="#30363d" stroke-dasharray="5 4"/>
+<text x="578" y="418" fill="#8b949e">sin entry</text>
+<text x="560" y="456" font-size="13" fill="#3fb950">no sale del estado: entry y exit no se ejecutan</text>
+</g>
+</svg>

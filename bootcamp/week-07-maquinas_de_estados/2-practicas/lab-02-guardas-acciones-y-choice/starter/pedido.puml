@@ -1,0 +1,21 @@
+@startuml
+title Tienda — ciclo de vida de Order
+hide empty description
+
+[*] --> Draft
+
+' TODO 1: solo se confirma un carrito que tiene artículos.
+Draft --> Placed : checkout() / reserveStock()
+
+' TODO 2: esta etiqueta no sigue el orden evento [guarda] / acción.
+Placed --> Paid : [amount = total] pay(amount)
+
+' TODO 3: la cancelación, a mano y por tiempo.
+Placed --> Cancelled : cancel()
+
+' TODO 4: el envío depende de si la dirección es válida.
+Paid --> Shipped : ship()
+
+Shipped --> [*]
+Cancelled --> [*]
+@enduml

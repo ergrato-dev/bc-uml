@@ -1,0 +1,132 @@
+{
+  "semana": "07",
+  "titulo": "Máquinas de estados",
+  "checks": [
+    {
+      "id": "modelo-sigue-renderizando",
+      "descripcion": "Los diagramas de clases, casos de uso, actividad, secuencia y comunicación siguen en el modelo y renderizan",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/04-casos-de-uso.puml {proyecto}/diagramas/05-actividad-*.puml {proyecto}/diagramas/06-secuencia-*.puml {proyecto}/diagramas/06-comunicacion-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "estados-unico",
+      "descripcion": "Hay exactamente un diagrama 07-estados-<entidad>.puml con la entidad en kebab-case",
+      "cmd": "[ \"$(ls {proyecto}/diagramas/07-estados-*.puml 2>/dev/null | grep -cE '/07-estados-[a-z0-9]+(-[a-z0-9]+)*[.]puml$')\" -eq 1 ] && [ \"$(ls {proyecto}/diagramas/07-estados-*.puml | wc -l)\" -eq 1 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "estados-renderiza",
+      "descripcion": "La máquina de estados renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "estados-tipo",
+      "descripcion": "Es un diagrama de estados con title",
+      "cmd": "plantuml -syntax < $(ls {proyecto}/diagramas/07-estados-*.puml | head -1) | head -1 | grep -qx STATE && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "entidad-en-clases",
+      "descripcion": "El title nombra la clase cuyo ciclo de vida modela y esa clase está en 02-clases.puml",
+      "cmd": "for w in $(grep -hE '^title' {proyecto}/diagramas/07-estados-*.puml | grep -oE '[A-Z][A-Za-z0-9]*'); do grep -qE \"class[[:space:]]+$w([^A-Za-z0-9]|$)\" {proyecto}/diagramas/02-clases.puml && exit 0; done; echo 'el title no nombra ninguna clase de 02-clases.puml'; exit 1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "inicial-y-final",
+      "descripcion": "Hay un estado inicial ([*] -->) y al menos un estado final (--> [*])",
+      "cmd": "grep -qE '^[[:space:]]*[[][*][]][[:space:]]*-+([a-z]+-+)?>' {proyecto}/diagramas/07-estados-*.puml && grep -qE -- '-+([a-z]+-+)?>[[:space:]]*[[][*][]]' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "estados-minimos",
+      "descripcion": "Al menos 5 estados con nombre en las transiciones (sin contar pseudoestados)",
+      "cmd": "f=$(ls {proyecto}/diagramas/07-estados-*.puml | head -1); ps=$(grep -oE '^[[:space:]]*state[[:space:]]+[A-Za-z0-9_]+[[:space:]]*<<' $f | awk '{print $2}'); n=$( { grep -oE '^[[:space:]]*[A-Za-z][A-Za-z0-9_]*[[:space:]]*-+([a-z]+-+)?>' $f | grep -oE '[A-Za-z][A-Za-z0-9_]*'; grep -oE -- '-+([a-z]+-+)?>[[:space:]]*[A-Za-z][A-Za-z0-9_]*' $f | grep -oE '[A-Za-z][A-Za-z0-9_]*$'; } | sort -u | grep -vxF \"${ps:-@}\" | grep -c .); [ \"$n\" -ge 5 ] || { echo \"$n estados con nombre\"; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "estados-de-la-enumeracion",
+      "descripcion": "Al menos 3 estados se llaman como un literal de una enumeración de 02-clases.puml (Scheduled = SCHEDULED)",
+      "cmd": "f=$(ls {proyecto}/diagramas/07-estados-*.puml | head -1); lits=$(grep -oE '^[[:space:]]*[A-Z][A-Z0-9_]*[[:space:]]*$' {proyecto}/diagramas/02-clases.puml | sed -E 's/[[:space:]_]//g' | sort -u); sts=$( { grep -oE '^[[:space:]]*[A-Za-z][A-Za-z0-9_]*[[:space:]]*-+([a-z]+-+)?>' $f | grep -oE '^[[:space:]]*[A-Za-z][A-Za-z0-9_]*'; grep -oE -- '-+([a-z]+-+)?>[[:space:]]*[A-Za-z][A-Za-z0-9_]*' $f | grep -oE '[A-Za-z][A-Za-z0-9_]*$'; } | sed -E 's/[[:space:]_]//g' | tr a-z A-Z | sort -u); n=$(comm -12 <(echo \"$lits\") <(echo \"$sts\") | grep -c .); [ \"$n\" -ge 3 ] || { echo \"$n estados coinciden con literales de una enumeración\"; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "transiciones-con-evento",
+      "descripcion": "Al menos 6 transiciones con evento en la etiqueta",
+      "cmd": "[ \"$(grep -cE -- '-+([a-z]+-+)?>[^:]*:[[:space:]]*[a-zA-Z]' {proyecto}/diagramas/07-estados-*.puml)\" -ge 6 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "eventos-son-operaciones",
+      "descripcion": "Al menos 3 eventos distintos son operaciones de la clase en 02-clases.puml",
+      "cmd": "f=$(ls {proyecto}/diagramas/07-estados-*.puml | head -1); for w in $(grep -hE '^title' $f | grep -oE '[A-Z][A-Za-z0-9]*'); do grep -qE \"class[[:space:]]+$w([^A-Za-z0-9]|$)\" {proyecto}/diagramas/02-clases.puml && { e=$w; break; }; done; [ -n \"$e\" ] || { echo 'el title no nombra ninguna clase de 02-clases.puml'; exit 1; }; ops=$(awk -v e=\"$e\" '$0 ~ \"class[ ]+\" e \"([^A-Za-z0-9]|$)\" {f=1} f && /^}/ {f=0} f' {proyecto}/diagramas/02-clases.puml | grep -oE '[+#~-][[:space:]]*[a-z][A-Za-z0-9]*[(]' | grep -oE '[a-z][A-Za-z0-9]*' | sort -u); evs=$(grep -oE -- '-+([a-z]+-+)?>[^:]*:[[:space:]]*[a-z][A-Za-z0-9]*[(]' $f | grep -oE '[a-z][A-Za-z0-9]*[(]$' | tr -d '(' | sort -u); n=$(comm -12 <(echo \"$ops\") <(echo \"$evs\") | grep -c .); [ \"$n\" -ge 3 ] || { echo \"$n eventos son operaciones de $e\"; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "guardas",
+      "descripcion": "Al menos una transición con guarda entre corchetes",
+      "cmd": "grep -qE -- '-+([a-z]+-+)?>[^:]*:[^[/]*[[][^]]+[]]' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "etiquetas-en-orden",
+      "descripcion": "Ninguna etiqueta pone la guarda antes del evento: el orden es evento [guarda] / acción",
+      "cmd": "! grep -nE -- '-+([a-z]+-+)?>[^:]*:[[:space:]]*[[][^]]*[]][[:space:]]*[a-zA-Z]' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "acciones",
+      "descripcion": "Al menos una transición con acción (/ acción)",
+      "cmd": "grep -qE -- '-+([a-z]+-+)?>[^:]*:[^/]*/[[:space:]]*[a-zA-Z]' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "actividades-internas",
+      "descripcion": "Al menos 2 actividades internas entry, exit o do",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*[A-Za-z][A-Za-z0-9_]*[[:space:]]*:[[:space:]]*(entry|exit|do)[[:space:]]*/' {proyecto}/diagramas/07-estados-*.puml)\" -ge 2 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "estado-compuesto",
+      "descripcion": "Hay un estado compuesto (state X { ... }) con su propio estado inicial",
+      "cmd": "awk '/^[[:space:]]*state[[:space:]]+[A-Za-z0-9_]+[^{]*[{][[:space:]]*$/ {d++; next} d && /^[[:space:]]*}/ {d--; next} d && /^[[:space:]]*[[][*][]][[:space:]]*-+([a-z]+-+)?>/ {ok=1} END {exit !ok}' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "pseudoestado",
+      "descripcion": "Hay al menos un pseudoestado de choice, historia, fork o join",
+      "cmd": "grep -qE '<<(choice|fork|join)>>|[[]H[*]?[]]' {proyecto}/diagramas/07-estados-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "El README.md del modelo enlaza la máquina de estados",
+      "cmd": "grep -qE 'diagramas/07-estados-[a-z0-9-]+[.]puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No quedan TODO en la máquina de estados",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/07-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    }
+  ]
+}

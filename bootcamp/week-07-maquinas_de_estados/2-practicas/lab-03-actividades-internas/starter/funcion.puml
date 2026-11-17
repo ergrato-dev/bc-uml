@@ -1,0 +1,25 @@
+@startuml
+title Cine — ciclo de vida de Screening
+hide empty description
+
+[*] --> Scheduled
+Scheduled --> OnSale : openSales()
+
+' TODO 1: closeBoxOffice() se repite en cada salida de OnSale.
+OnSale --> SoldOut : lastSeatSold / closeBoxOffice()
+OnSale --> Running : start() / closeBoxOffice()
+
+' TODO 2: la taquilla se abre cada vez que la función entra en OnSale.
+
+' TODO 3: esta autotransición cierra y reabre la taquilla con cada venta.
+OnSale --> OnSale : seatSold / updateFreeSeats()
+
+SoldOut --> OnSale : seatRefunded
+SoldOut --> Running : start()
+
+' TODO 4: lo que hace la sala mientras dura la función.
+
+' TODO 5: nadie envía lastSeatSold ni llama a end().
+Running --> Finished : end()
+Finished --> [*]
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+' TODO 1: renombra este archivo (paso 1) y escribe en el title la clase cuyo ciclo de vida modelas.
+title <Tu sistema> — ciclo de vida de <Clase>
+hide empty description
+
+' TODO 2: estado inicial, al menos 5 estados con los nombres de los literales de la enumeración
+' de estado de tu clase (Scheduled = SCHEDULED) y al menos un estado final.
+[*] --> FirstState
+
+' TODO 3: transiciones con evento (al menos 6); al menos 3 eventos son operaciones de tu clase.
+' TODO 4: al menos una guarda y una acción, en el orden evento [guarda] / acción.
+' TODO 5: al menos 2 actividades internas: entry, exit o do.
+' TODO 6: un estado compuesto con su propio estado inicial.
+' TODO 7: un pseudoestado: choice, historia, fork o join.
+@enduml
