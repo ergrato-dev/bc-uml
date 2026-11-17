@@ -1,0 +1,132 @@
+{
+  "semana": "06",
+  "titulo": "Secuencia y comunicación",
+  "checks": [
+    {
+      "id": "modelo-sigue-renderizando",
+      "descripcion": "02-clases.puml, 04-casos-de-uso.puml y el diagrama de actividad siguen en el modelo y renderizan",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/04-casos-de-uso.puml {proyecto}/diagramas/05-actividad-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "secuencia-unica",
+      "descripcion": "Hay exactamente un diagrama 06-secuencia-<caso-de-uso>.puml con el caso de uso en kebab-case",
+      "cmd": "[ \"$(ls {proyecto}/diagramas/06-secuencia-*.puml 2>/dev/null | grep -cE '/06-secuencia-[a-z0-9]+(-[a-z0-9]+)*[.]puml$')\" -eq 1 ] && [ \"$(ls {proyecto}/diagramas/06-secuencia-*.puml | wc -l)\" -eq 1 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "secuencia-renderiza",
+      "descripcion": "El diagrama de secuencia renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "secuencia-tipo",
+      "descripcion": "Es un diagrama de secuencia con title",
+      "cmd": "plantuml -syntax < $(ls {proyecto}/diagramas/06-secuencia-*.puml | head -1) | head -1 | grep -qx SEQUENCE && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "participantes",
+      "descripcion": "Al menos 4 lifelines y una de ellas es el actor que inicia el caso de uso",
+      "cmd": "[ \"$(plantuml -syntax < $(ls {proyecto}/diagramas/06-secuencia-*.puml | head -1) | awk -F'[( ]' '/participants/{print $2}')\" -ge 4 ] && grep -qE '^[[:space:]]*actor[[:space:]]' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "participantes-en-clases",
+      "descripcion": "Al menos 2 lifelines participant y cada una es una clase de 02-clases.puml",
+      "cmd": "ns=$(grep -hE '^[[:space:]]*participant[[:space:]]' {proyecto}/diagramas/06-secuencia-*.puml | grep -oE ':[A-Z][A-Za-z0-9]*' | cut -c2- | sort -u); [ \"$(echo \"$ns\" | grep -c .)\" -ge 2 ] || { echo 'menos de 2 lifelines participant \":Clase\"'; exit 1; }; for n in $ns; do grep -qE \"class[[:space:]]+$n([^A-Za-z0-9]|$)\" {proyecto}/diagramas/02-clases.puml || { echo \"$n no está en 02-clases.puml\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "mensajes-sincronos",
+      "descripcion": "Al menos 5 mensajes síncronos (->) que llaman a una operación con paréntesis",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/06-secuencia-*.puml | grep -cE '^[[:space:]]*[A-Za-z0-9_]+[[:space:]]*->[[:space:]]*[A-Za-z0-9_]+[[:space:]]*:[[:space:]]*[a-z][A-Za-z0-9]*[(]')\" -ge 5 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "respuestas",
+      "descripcion": "Al menos 2 mensajes de respuesta (-->)",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/06-secuencia-*.puml | grep -cE '^[[:space:]]*[A-Za-z0-9_]+[[:space:]]*-->[[:space:]]*[A-Za-z0-9_]+[[:space:]]*:')\" -ge 2 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "asincrono",
+      "descripcion": "Al menos un mensaje asíncrono (->>)",
+      "cmd": "grep -qE '^[[:space:]]*[A-Za-z0-9_]+[[:space:]]*->>[[:space:]]*[A-Za-z0-9_]+[[:space:]]*:' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "creacion",
+      "descripcion": "Se crea un objeto durante la interacción (create y mensaje <<create>> con -->>)",
+      "cmd": "grep -qE '^[[:space:]]*create[[:space:]]+[A-Za-z0-9_]+[[:space:]]*$' {proyecto}/diagramas/06-secuencia-*.puml && grep -qE -- '-->>[[:space:]]*[A-Za-z0-9_]+[[:space:]]*:[[:space:]]*<<create>>' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "fragmento-alt",
+      "descripcion": "Hay al menos un fragmento alt con su else",
+      "cmd": "grep -qE '^[[:space:]]*alt[[:space:]]' {proyecto}/diagramas/06-secuencia-*.puml && grep -qE '^[[:space:]]*else[[:space:]]' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "fragmento-extra",
+      "descripcion": "Hay al menos otro fragmento: opt, loop, par o break",
+      "cmd": "grep -qE '^[[:space:]]*(opt|loop|par|break)([[:space:]]|$)' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "guardas",
+      "descripcion": "Todo alt, opt, loop y break lleva guarda y ninguna guarda va entre corchetes",
+      "cmd": "! grep -nE '^[[:space:]]*((alt|opt|loop|break)[[:space:]]*$|(alt|else|opt|loop|break)[[:space:]]*[[])' {proyecto}/diagramas/06-secuencia-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "comunicacion",
+      "descripcion": "Hay exactamente un 06-comunicacion-<caso-de-uso>.puml, renderiza, tiene title y es de objetos",
+      "cmd": "[ \"$(ls {proyecto}/diagramas/06-comunicacion-*.puml 2>/dev/null | grep -cE '/06-comunicacion-[a-z0-9]+(-[a-z0-9]+)*[.]puml$')\" -eq 1 ] && [ \"$(ls {proyecto}/diagramas/06-comunicacion-*.puml | wc -l)\" -eq 1 ] && plantuml -checkonly {proyecto}/diagramas/06-comunicacion-*.puml && plantuml -syntax < $(ls {proyecto}/diagramas/06-comunicacion-*.puml) | head -1 | grep -qx CLASS && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/06-comunicacion-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "comunicacion-numerada",
+      "descripcion": "El diagrama de comunicación tiene al menos 5 mensajes numerados y alguno anidado (1.1)",
+      "cmd": "[ \"$(cat {proyecto}/diagramas/06-comunicacion-*.puml | grep -cE '[-.]+[[:space:]]*[A-Za-z0-9_]+[[:space:]]*:[[:space:]]*\"[0-9]+([.][0-9]+)*:')\" -ge 5 ] && grep -qE ':[[:space:]]*\"[0-9]+[.][0-9]+([.][0-9]+)*:' {proyecto}/diagramas/06-comunicacion-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "trazabilidad-cu",
+      "descripcion": "El title de secuencia y comunicación cita el mismo caso de uso y ese CU existe en 04-casos-de-uso.puml",
+      "cmd": "s=$(grep -hE '^title' {proyecto}/diagramas/06-secuencia-*.puml | grep -oE 'CU-?[0-9]{2}' | tr -d - | sort -u); c=$(grep -hE '^title' {proyecto}/diagramas/06-comunicacion-*.puml | grep -oE 'CU-?[0-9]{2}' | tr -d - | sort -u); [ -n \"$s\" ] || { echo 'el title de la secuencia no cita ningún CU'; exit 1; }; [ \"$s\" = \"$c\" ] || { echo \"secuencia cita $s y comunicación cita $c\"; exit 1; }; for id in $s; do grep -qE \"as[[:space:]]+$id([[:space:]]|$)\" {proyecto}/diagramas/04-casos-de-uso.puml || { echo \"no hay $id en 04-casos-de-uso.puml\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "El README.md del modelo enlaza los dos diagramas de la semana",
+      "cmd": "grep -qE 'diagramas/06-secuencia-[a-z0-9-]+[.]puml' {proyecto}/README.md && grep -qE 'diagramas/06-comunicacion-[a-z0-9-]+[.]puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 11"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No quedan TODO en los diagramas de la semana",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/06-*.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 11"
+    }
+  ]
+}

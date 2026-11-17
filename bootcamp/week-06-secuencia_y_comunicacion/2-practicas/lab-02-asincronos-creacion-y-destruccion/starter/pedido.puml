@@ -1,0 +1,29 @@
+@startuml
+title Tienda — CU-02 Place order (secuencia)
+
+actor Customer
+boundary ":CartPage" as ui
+control ":OrderService" as svc
+participant ":Cart" as cart
+' TODO 1: declara el pedido (participant ":Order") y la pasarela de correo (boundary ":MailGateway").
+
+Customer -> ui : placeOrder()
+activate ui
+ui -> svc : placeOrder(cartId)
+activate svc
+svc -> cart : items()
+cart --> svc : items
+
+' TODO 2: el servicio calcula el envío con un mensaje a sí mismo.
+
+' TODO 3: crea el pedido con create y un mensaje <<create>>.
+
+' TODO 4: envía la confirmación por correo sin esperar respuesta.
+
+' TODO 5: el carrito deja de existir.
+
+svc --> ui : orderId
+deactivate svc
+ui --> Customer : show order number
+deactivate ui
+@enduml

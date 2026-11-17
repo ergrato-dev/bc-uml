@@ -1,0 +1,28 @@
+@startuml
+' Ya está completo: es la interacción que vas a redibujar como comunicación.
+title Cine — CU-01 Buy ticket (secuencia, flujo principal)
+
+actor Customer
+boundary ":TicketKiosk" as kiosk
+control ":SaleService" as svc
+participant ":Seat" as seat
+boundary ":PaymentGateway" as pay
+participant ":Ticket" as ticket
+
+Customer -> kiosk : buyTicket(screeningId, seatNumber)
+activate kiosk
+kiosk -> svc : sell(screeningId, seatNumber)
+activate svc
+svc -> seat : isFree()
+seat --> svc : true
+svc -> pay : charge(price)
+pay --> svc : approved
+svc -> seat : hold()
+create ticket
+svc -->> ticket : <<create>> Ticket(seat, price)
+svc --> kiosk : ticket
+deactivate svc
+kiosk -> kiosk : printTicket(ticket)
+kiosk --> Customer : ticket printed
+deactivate kiosk
+@enduml

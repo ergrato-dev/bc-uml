@@ -1,0 +1,14 @@
+@startuml
+' TODO 1: renombra este archivo (paso 1) y escribe en el title el caso de uso con su alias.
+title <Tu sistema> — CUxx <caso de uso> (secuencia)
+
+' TODO 2: lifelines: el actor que inicia el caso de uso, una boundary, una control
+' y al menos 2 participant ":Clase" que existan en 02-clases.puml.
+actor Actor
+
+' TODO 3: mensajes síncronos (al menos 5) que llaman a operaciones, y respuestas (al menos 2).
+' TODO 4: un mensaje asíncrono: algo que el sistema envía sin esperar.
+' TODO 5: el objeto que nace en este caso de uso, con create y <<create>>.
+' TODO 6: un alt con su else para un flujo alternativo; guardas sin corchetes.
+' TODO 7: otro fragmento: opt, loop, par o break.
+@enduml

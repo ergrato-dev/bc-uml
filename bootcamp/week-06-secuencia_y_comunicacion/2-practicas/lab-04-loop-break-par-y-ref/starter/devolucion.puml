@@ -1,0 +1,42 @@
+@startuml
+title Biblioteca — CU-03 Return copies (secuencia)
+
+actor Librarian
+boundary ":ReturnDesk" as desk
+control ":ReturnService" as svc
+participant ":Member" as member
+participant ":Loan" as loan
+participant ":Copy" as copy
+boundary ":NotificationGateway" as notif
+
+Librarian -> desk : returnCopies(memberCard, barcodes)
+activate desk
+desk -> svc : returnCopies(memberId, barcodes)
+activate svc
+
+' TODO 1: identificar al socio es otro caso de uso (CU-07). Referéncialo con ref.
+svc -> member : findByCard(memberCard)
+member --> svc : member
+
+svc -> member : isBlocked()
+member --> svc : blocked
+' TODO 2: si el socio está bloqueado, el servicio responde y el caso de uso termina.
+svc --> desk : review account first
+
+' TODO 3: estos mensajes se repiten una vez por cada ejemplar devuelto.
+' El socio dibujó la segunda vuelta a mano; bórrala.
+svc -> loan : close(returnedAt)
+svc -> member : addFine(daysLate)
+svc -> copy : markAvailable()
+svc ->> notif : notifyNextReservation(copyId)
+svc -> loan : close(returnedAt)
+svc -> copy : markAvailable()
+
+' TODO 4: la multa solo se cobra si el ejemplar vuelve tarde.
+' TODO 5: marcar el ejemplar y avisar al siguiente de la lista no dependen uno del otro.
+
+svc --> desk : summary
+deactivate svc
+desk --> Librarian : show summary
+deactivate desk
+@enduml

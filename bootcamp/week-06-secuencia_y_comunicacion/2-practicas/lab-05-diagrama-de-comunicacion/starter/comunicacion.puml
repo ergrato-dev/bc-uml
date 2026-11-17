@@ -1,0 +1,24 @@
+@startuml
+title Cine — CU-01 Buy ticket (comunicación)
+
+hide circle
+hide empty members
+
+object ":TicketKiosk" as kiosk <<boundary>>
+object ":SaleService" as svc <<control>>
+object ":Seat" as seat
+object ":PaymentGateway" as pay <<boundary>>
+object ":Ticket" as ticket
+' TODO 1: añade el actor Customer.
+
+' TODO 2: enlaces del cliente al quiosco y del quiosco al servicio, numerados.
+
+' TODO 3: dos enlaces entre el mismo par de objetos. Júntalos en uno.
+svc -- seat : "1.1.1: isFree() >"
+svc -- seat : "1.1.3: hold() >"
+
+' TODO 4: este mensaje apunta al revés: lo envía el servicio, no la pasarela.
+pay -- svc : "1.1.2: charge(price) >"
+
+' TODO 5: la creación de la entrada y el mensaje del quiosco a sí mismo.
+@enduml

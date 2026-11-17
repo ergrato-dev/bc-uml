@@ -1,0 +1,38 @@
+@startuml
+title Cine — CU-01 Buy ticket (secuencia)
+
+actor Customer
+boundary ":TicketKiosk" as kiosk
+control ":SaleService" as svc
+participant ":Seat" as seat
+participant ":Ticket" as ticket
+boundary ":PaymentGateway" as pay
+
+Customer -> kiosk : buyTicket(screeningId, seatNumber)
+activate kiosk
+kiosk -> svc : sell(screeningId, seatNumber, memberCard)
+activate svc
+svc -> seat : isFree()
+seat --> svc : free
+
+' TODO 1: todo lo que sigue solo pasa si el asiento está libre; si no, el servicio
+' responde "seat taken". Envuélvelo en un alt con su else.
+' TODO 2: si el cliente trae tarjeta de socio, el servicio aplica el descuento.
+svc -> svc : applyMemberDiscount(memberCard)
+svc -> pay : charge(price)
+pay --> svc : approved
+' TODO 3: si el pago se aprueba, se reserva el asiento y se crea la entrada;
+' si no, el servicio responde "payment rejected".
+svc -> seat : hold()
+create ticket
+svc -->> ticket : <<create>> Ticket(seat, price)
+svc --> kiosk : ticket
+
+' TODO 4: esta guarda está escrita con corchetes. Arréglala.
+opt [customer wants receipt]
+  kiosk -> kiosk : printReceipt()
+end
+deactivate svc
+kiosk --> Customer : show result
+deactivate kiosk
+@enduml

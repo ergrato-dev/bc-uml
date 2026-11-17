@@ -1,0 +1,12 @@
+@startuml
+' TODO 8: renombra este archivo con el mismo caso de uso que la secuencia y copia su title.
+title <Tu sistema> — CUxx <caso de uso> (comunicación)
+
+allowmixing
+hide circle
+hide empty members
+
+actor Actor
+' TODO 8: los mismos objetos de la secuencia, como object ":Clase" as alias.
+' TODO 9: un enlace por pareja de objetos, con sus mensajes numerados (1, 1.1, 1.1.1...).
+@enduml

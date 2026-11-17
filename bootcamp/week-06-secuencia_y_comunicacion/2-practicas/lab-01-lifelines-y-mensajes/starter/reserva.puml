@@ -1,0 +1,15 @@
+@startuml
+title Biblioteca — CU-05 Reserve book (secuencia)
+
+actor Member
+' TODO 1: declara la pantalla (boundary), el servicio (control) y el libro (participant ":Book").
+
+' TODO 2: este mensaje no es una llamada; cámbialo por una operación con argumentos.
+Member -> Member : Reservation screen
+
+' TODO 3: mensajes síncronos del servicio al libro.
+
+' TODO 4: respuestas que vuelven hasta el socio.
+
+' TODO 5: activación de la pantalla y del servicio.
+@enduml

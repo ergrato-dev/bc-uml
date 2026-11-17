@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 480" role="img">
+<title>Anatomía de un fragmento combinado alt: el operador en la pestaña de la esquina, la guarda [card approved] al inicio del primer operando, una línea discontinua que separa el segundo operando con guarda [else] y el borde que cierra el fragmento con end; al lado, el código PlantUML que lo produce</title>
+<rect width="1240" height="480" fill="#0d1117"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc" text-anchor="middle">
+<rect x="55" y="30" width="150" height="34" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+<text x="130" y="52" fill="#79c0ff">:CheckoutService</text>
+<rect x="400" y="30" width="100" height="34" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+<text x="450" y="52" fill="#79c0ff">:Payment</text>
+</g>
+<g stroke="#8b949e" stroke-width="1.5" stroke-dasharray="4 4"><line x1="130" y1="64" x2="130" y2="450"/><line x1="450" y1="64" x2="450" y2="450"/></g>
+<rect x="40" y="100" width="520" height="300" fill="none" stroke="#a371f7" stroke-width="2"/>
+<polygon points="40,100 110,100 110,118 98,130 40,130" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+<text x="56" y="121" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" font-weight="bold" fill="#a371f7">alt</text>
+<text x="125" y="121" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#e3b341">[card approved]</text>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">
+<text x="145" y="175">capture(amount)</text>
+<text x="145" y="230">confirmed</text>
+<text x="145" y="345">rejected</text>
+</g>
+<line x1="130" y1="185" x2="450" y2="185" stroke="#f78166" stroke-width="2"/>
+<polygon points="450,185 436,178 436,192" fill="#f78166"/>
+<line x1="450" y1="240" x2="130" y2="240" stroke="#f78166" stroke-width="2" stroke-dasharray="7 5"/>
+<polyline points="144,233 130,240 144,247" fill="none" stroke="#f78166" stroke-width="2"/>
+<line x1="40" y1="280" x2="560" y2="280" stroke="#a371f7" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="50" y="302" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#e3b341">[else]</text>
+<line x1="450" y1="355" x2="130" y2="355" stroke="#f78166" stroke-width="2" stroke-dasharray="7 5"/>
+<polyline points="144,348 130,355 144,362" fill="none" stroke="#f78166" stroke-width="2"/>
+<g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14">
+<line x1="600" y1="116" x2="580" y2="116" stroke="#30363d" stroke-width="1.5"/>
+<text x="610" y="112" font-weight="bold" fill="#a371f7">Operador</text>
+<text x="610" y="131" fill="#8b949e">alt, opt, loop, break, par, ref</text>
+<line x1="600" y1="190" x2="580" y2="190" stroke="#30363d" stroke-width="1.5"/>
+<text x="610" y="186" font-weight="bold" fill="#e3b341">Guarda</text>
+<text x="610" y="205" fill="#8b949e">PlantUML pone los corchetes</text>
+<line x1="600" y1="280" x2="580" y2="280" stroke="#30363d" stroke-width="1.5"/>
+<text x="610" y="276" font-weight="bold" fill="#f0f6fc">Separador de operandos</text>
+<text x="610" y="295" fill="#8b949e">se ejecuta solo uno de los operandos</text>
+<line x1="600" y1="400" x2="580" y2="400" stroke="#30363d" stroke-width="1.5"/>
+<text x="610" y="396" font-weight="bold" fill="#f0f6fc">Fin del fragmento</text>
+<text x="610" y="415" fill="#8b949e">cada fragmento se cierra con end</text>
+</g>
+<rect x="1000" y="100" width="210" height="150" rx="6" fill="#161b22" stroke="#30363d"/>
+<g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">
+<text x="1015" y="125"><tspan fill="#a371f7">alt</tspan> <tspan fill="#e3b341">card approved</tspan></text>
+<text x="1030" y="147">svc -&gt; pay : ...</text>
+<text x="1030" y="169">pay --&gt; svc : ...</text>
+<text x="1015" y="191"><tspan fill="#a371f7">else</tspan> <tspan fill="#e3b341">else</tspan></text>
+<text x="1030" y="213">pay --&gt; svc : ...</text>
+<text x="1015" y="235" fill="#a371f7">end</text>
+</g>
+</svg>

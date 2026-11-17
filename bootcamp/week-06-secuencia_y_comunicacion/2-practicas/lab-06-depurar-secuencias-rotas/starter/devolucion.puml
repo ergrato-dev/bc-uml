@@ -1,0 +1,31 @@
+@startuml
+' Diagrama roto a propósito: tiene 3 errores de sintaxis y 4 de modelado. No lo uses como ejemplo.
+title Tienda — CU-04 Return product (secuencia)
+
+actor Customer
+boundary ":ReturnPage" as ui
+control ":ReturnService" as svc
+participant ":Order" as order
+participant ":Refund" as refund
+boundary ":PaymentGateway as pay
+
+Customer -> ui : requestReturn(orderId, itemId)
+activate ui
+ui -> svc : requestReturn(orderId, itemId)
+activate svc
+svc => order : purchasedAt()
+order --> svc : purchaseDate
+alt [within 30 days]
+  svc -> oder : markReturned(itemId)
+  svc -> refund : Refund(order, itemId)
+  svc -> pay : refund(amount)
+  pay -> svc : approved
+  svc --> ui : refund issued
+else else
+  svc --> ui : return rejected
+end
+end
+deactivate svc
+ui --> Customer : show result
+deactivate ui
+@enduml
