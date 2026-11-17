@@ -1,0 +1,57 @@
+@startuml
+' Lab 03 — Generalización y realización
+' Renderiza: plantuml -tsvg starter/cine.puml
+title Cine — entradas, funciones y avisos
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+abstract class Ticket {
+  - seat: String
+  - basePrice: Decimal
+  {abstract} + finalPrice(): Decimal
+  + notificationText(): String
+}
+
+' TODO 2: StudentTicket y MemberTicket repiten lo que heredan. Déjales solo lo propio.
+class StudentTicket {
+  - seat: String
+  - basePrice: Decimal
+  - studentId: String
+  + finalPrice(): Decimal
+}
+
+class MemberTicket {
+  - seat: String
+  - basePrice: Decimal
+  - cardNumber: String
+  + finalPrice(): Decimal
+}
+
+interface Notifiable <<interface>> {
+  + notificationText(): String
+}
+
+class Reservation {
+  - code: String
+  - expiresAt: DateTime
+  + notificationText(): String
+}
+
+class Screening {
+  - startsAt: DateTime
+  - room: String
+}
+
+class Movie {
+  - title: String
+  - durationMinutes: Integer
+}
+
+' TODO 1: dibuja la generalización de StudentTicket y MemberTicket hacia Ticket.
+' TODO 3: Ticket y Reservation cumplen el contrato Notifiable: dibuja las dos realizaciones.
+' TODO 4: una entrada es para 1 función; una función vende de 0 a muchas entradas.
+'         Una función proyecta 1 película; una película tiene de 0 a muchas funciones.
+
+@enduml

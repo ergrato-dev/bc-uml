@@ -1,0 +1,21 @@
+@startuml
+' Diagrama de objetos: una situación concreta de tu dominio.
+' Cada objeto, slot y link tiene que poder existir según 02-clases.puml.
+' Renderiza: plantuml -tsvg diagramas/03-objetos.puml
+title TODO: <tu sistema> — <la situación que muestras>
+
+' TODO 1: elige la situación: el caso que mejor pone a prueba tus multiplicidades
+'         (alguien con varios de algo, un objeto que comparten dos, un caso límite).
+
+' TODO 2: declara al menos 6 objetos con nombre y clase:
+'         object "ana : Member" as ana {
+'         }
+
+' TODO 3: dales slots con valor (al menos 10 en total), solo los que importan para la situación:
+'           name = "Ana Ruiz"
+'           status = ACTIVE
+
+' TODO 4: dibuja al menos 5 links, sin multiplicidad. Cada link corresponde a una asociación de 02-clases.puml:
+'         ana -- l1
+
+@enduml

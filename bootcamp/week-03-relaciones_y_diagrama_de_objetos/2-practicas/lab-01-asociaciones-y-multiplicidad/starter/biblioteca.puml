@@ -1,0 +1,39 @@
+@startuml
+' Lab 01 — Asociaciones y multiplicidad
+' Renderiza: plantuml -tsvg starter/biblioteca.puml
+title Biblioteca — socios, préstamos y ejemplares
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Member {
+  - name: String
+  - email: String
+}
+
+class Loan {
+  - startDate: Date
+  - dueDate: Date
+}
+
+class Copy {
+  - barcode: String
+}
+
+class Book {
+  - isbn: String
+  - title: String
+}
+
+class Author {
+  - fullName: String
+}
+
+' TODO 1: un socio tiene de 0 a muchos préstamos; cada préstamo es de exactamente 1 socio.
+' TODO 2: cada préstamo es de 1 ejemplar; un ejemplar se presta muchas veces a lo largo del tiempo.
+' TODO 3: un libro tiene al menos 1 ejemplar; cada ejemplar es de exactamente 1 libro.
+' TODO 4: un libro tiene 1 o más autores; un autor escribe de 0 a muchos libros. Usa los roles authors y books.
+' TODO 5: un socio puede recomendar libros a otro socio: asociación de Member consigo misma con roles.
+
+@enduml

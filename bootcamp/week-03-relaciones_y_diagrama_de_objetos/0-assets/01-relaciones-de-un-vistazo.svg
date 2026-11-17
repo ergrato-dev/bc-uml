@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 590" role="img">
+  <title>Las seis relaciones entre clases de UML 2.5.1: asociación (línea continua con multiplicidades), agregación (rombo vacío en el todo), composición (rombo relleno en el todo), generalización (triángulo hueco hacia la superclase), realización (línea discontinua con triángulo hueco hacia la interfaz) y dependencia (línea discontinua con punta abierta), cada una con su sintaxis PlantUML</title>
+  <rect width="1100" height="590" fill="#0d1117"/>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">
+    <text x="40" y="60">Relación</text><text x="250" y="60">Notación UML</text><text x="600" y="60">PlantUML</text><text x="770" y="60">Se lee</text>
+  </g>
+  <line x1="40" y1="76" x2="1060" y2="76" stroke="#30363d" stroke-width="1"/>
+  <text x="40" y="125" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#f0f6fc" font-weight="bold">Asociación</text>
+  <rect x="250" y="102" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="280" y="125" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">A</text>
+  <rect x="510" y="102" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="540" y="125" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">B</text>
+  <line x1="310" y1="120" x2="510" y2="120" stroke="#f78166" stroke-width="2"/>
+  <text x="318" y="110" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">1</text><text x="502" y="110" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" fill="#f0f6fc">0..*</text>
+  <text x="600" y="125" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#a371f7">A "1" -- "0..*" B</text>
+  <text x="770" y="125" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">Vínculo; multiplicidad a ambos lados</text>
+  <line x1="40" y1="160" x2="1060" y2="160" stroke="#30363d" stroke-width="1"/>
+  <text x="40" y="205" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#f0f6fc" font-weight="bold">Agregación</text>
+  <rect x="250" y="182" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="280" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">A</text>
+  <rect x="510" y="182" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="540" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">B</text>
+  <line x1="342" y1="200" x2="510" y2="200" stroke="#f78166" stroke-width="2"/>
+  <polygon points="310,200 326,191 342,200 326,209" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+  <text x="600" y="205" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#a371f7">A o-- B</text>
+  <text x="770" y="205" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">B es parte de A y existe sin A</text>
+  <line x1="40" y1="240" x2="1060" y2="240" stroke="#30363d" stroke-width="1"/>
+  <text x="40" y="285" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#f0f6fc" font-weight="bold">Composición</text>
+  <rect x="250" y="262" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="280" y="285" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">A</text>
+  <rect x="510" y="262" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="540" y="285" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">B</text>
+  <line x1="342" y1="280" x2="510" y2="280" stroke="#f78166" stroke-width="2"/>
+  <polygon points="310,280 326,271 342,280 326,289" fill="#f78166" stroke="#f78166" stroke-width="2"/>
+  <text x="600" y="285" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#a371f7">A *-- B</text>
+  <text x="770" y="285" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">B es parte de A y se borra con A</text>
+  <line x1="40" y1="320" x2="1060" y2="320" stroke="#30363d" stroke-width="1"/>
+  <text x="40" y="365" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#f0f6fc" font-weight="bold">Generalización</text>
+  <rect x="250" y="342" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="280" y="365" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">A</text>
+  <rect x="510" y="342" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="540" y="365" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">B</text>
+  <line x1="330" y1="360" x2="510" y2="360" stroke="#f78166" stroke-width="2"/>
+  <polygon points="310,360 330,349 330,371" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+  <text x="600" y="365" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#a371f7">A &lt;|-- B</text>
+  <text x="770" y="365" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">B es un A; A es la superclase</text>
+  <line x1="40" y1="400" x2="1060" y2="400" stroke="#30363d" stroke-width="1"/>
+  <text x="40" y="445" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#f0f6fc" font-weight="bold">Realización</text>
+  <rect x="250" y="422" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="280" y="445" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">A</text>
+  <rect x="510" y="422" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="540" y="445" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">B</text>
+  <line x1="330" y1="440" x2="510" y2="440" stroke="#f78166" stroke-width="2" stroke-dasharray="7 5"/>
+  <polygon points="310,440 330,429 330,451" fill="#161b22" stroke="#f78166" stroke-width="2"/>
+  <text x="600" y="445" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#a371f7">A &lt;|.. B</text>
+  <text x="770" y="445" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">B cumple el contrato de A</text>
+  <line x1="40" y1="480" x2="1060" y2="480" stroke="#30363d" stroke-width="1"/>
+  <text x="40" y="525" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="16" fill="#f0f6fc" font-weight="bold">Dependencia</text>
+  <rect x="250" y="502" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="280" y="525" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">A</text>
+  <rect x="510" y="502" width="60" height="36" rx="3" fill="#161b22" stroke="#58a6ff" stroke-width="2"/><text x="540" y="525" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#f0f6fc">B</text>
+  <line x1="310" y1="520" x2="510" y2="520" stroke="#f78166" stroke-width="2" stroke-dasharray="7 5"/>
+  <polyline points="494,511 510,520 494,529" fill="none" stroke="#f78166" stroke-width="2"/>
+  <text x="600" y="525" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#a371f7">A ..&gt; B</text>
+  <text x="770" y="525" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">A usa a B de forma pasajera</text>
+</svg>

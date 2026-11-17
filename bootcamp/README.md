@@ -16,7 +16,7 @@ escrita al estándar actual (10 h, rúbrica 30/40/30, `checks.json`); ⬜ pendie
 |:--:|---|:--:|
 | [01](week-01-fundamentos_uml_y_plantuml/README.md) | [Fundamentos de UML y PlantUML](week-01-fundamentos_uml_y_plantuml/README.md) | ✅ |
 | [02](week-02-diagrama_de_clases/README.md) | [Diagrama de clases](week-02-diagrama_de_clases/README.md) | ✅ |
-| 03 | Relaciones y diagrama de objetos | ⬜ |
+| [03](week-03-relaciones_y_diagrama_de_objetos/README.md) | [Relaciones y diagrama de objetos](week-03-relaciones_y_diagrama_de_objetos/README.md) | ✅ |
 
 ### Fase 2 — Comportamiento (S04-07, 40 h)
 

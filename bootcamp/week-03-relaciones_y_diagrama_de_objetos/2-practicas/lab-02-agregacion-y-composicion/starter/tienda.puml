@@ -1,0 +1,48 @@
+@startuml
+' Lab 02 — Agregación y composición
+' Renderiza: plantuml -tsvg starter/tienda.puml
+title Tienda — pedidos, clientes y catálogo
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - email: String
+}
+
+class Address {
+  - street: String
+  - city: String
+}
+
+class Order {
+  - number: String
+  - placedAt: DateTime
+}
+
+class OrderLine {
+  - quantity: Integer
+  - unitPrice: Decimal
+}
+
+class Product {
+  - sku: String
+  - name: String
+}
+
+class Catalog {
+  - season: String
+}
+
+' Todas las relaciones están dibujadas como asociaciones simples.
+' TODO 1: aplica la prueba del borrado a cada una y cambia por *-- las que son composición.
+' TODO 2: cambia por o-- la que es agregación.
+' TODO 3: corrige la multiplicidad del todo en las composiciones: una parte pertenece a un único todo.
+Customer "1" -- "1..3" Address
+Customer "1" -- "0..*" Order
+Order "0..*" -- "1..*" OrderLine
+OrderLine "0..*" -- "1" Product
+Catalog "0..*" -- "0..*" Product
+
+@enduml

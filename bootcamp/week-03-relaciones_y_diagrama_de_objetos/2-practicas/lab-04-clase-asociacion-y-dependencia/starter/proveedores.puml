@@ -1,0 +1,44 @@
+@startuml
+' Lab 04 — Clase asociación, navegabilidad y dependencia
+' Renderiza: plantuml -tsvg starter/proveedores.puml
+title Tienda — proveedores y facturas
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 1: unitCost y leadTimeDays no son del producto: cambian según el proveedor.
+class Product {
+  - sku: String
+  - name: String
+  - unitCost: Decimal
+  - leadTimeDays: Integer
+}
+
+class Supplier {
+  - taxId: String
+  - name: String
+}
+
+class Order {
+  - number: String
+}
+
+class Invoice {
+  - number: String
+  - issuedAt: Date
+  + render(template: InvoiceTemplate): String
+}
+
+class InvoiceTemplate {
+  - layout: String
+}
+
+Product "0..*" -- "1..*" Supplier
+
+' TODO 2: crea la clase asociación SupplyTerms con los dos atributos que sacaste de Product.
+' TODO 3: una factura es de 1 pedido y un pedido tiene 0..1 factura. Solo la factura necesita
+'         llegar a su pedido: dibuja la asociación navegable en ese sentido.
+' TODO 4: Invoice usa InvoiceTemplate solo dentro de render(): dibuja la dependencia <<use>>.
+
+@enduml

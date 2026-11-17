@@ -1,0 +1,16 @@
+@startuml
+' Lab 05 — Diagrama de objetos
+' Renderiza: plantuml -tsvg starter/objetos.puml
+title Biblioteca — préstamos de Ana el 16 de noviembre
+
+object "ana : Member" as ana {
+  name = "Ana Ruiz"
+}
+
+' TODO 1: añade el libro dune (title = "Dune") y su autor herbert (fullName = "Frank Herbert").
+' TODO 2: añade los ejemplares c7 y c8 de dune, cada uno con su barcode.
+' TODO 3: añade los préstamos l1 (c7, ACTIVE) y l2 (c8, OVERDUE) de Ana, con sus fechas.
+' TODO 4: dibuja los links. Comprueba cada uno contra una asociación de clases.puml.
+' TODO 5: añade a luis : Member, sin préstamos. ¿Lo permite la multiplicidad?
+
+@enduml

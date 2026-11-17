@@ -1,0 +1,118 @@
+{
+  "semana": "03",
+  "titulo": "Relaciones y diagrama de objetos",
+  "checks": [
+    {
+      "id": "conceptual-sigue-renderizando",
+      "descripcion": "01-modelo-conceptual.puml de la semana 01 sigue en el modelo y renderiza",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "clases-renderiza",
+      "descripcion": "02-clases.puml renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "clases-tipo",
+      "descripcion": "02-clases.puml es un diagrama de clases con title",
+      "cmd": "plantuml -syntax < {proyecto}/diagramas/02-clases.puml | head -1 | grep -qx CLASS && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "asociaciones-con-multiplicidad",
+      "descripcion": "02-clases.puml tiene al menos 5 asociaciones con multiplicidad en los dos extremos",
+      "cmd": "[ \"$(grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/02-clases.puml | grep -cE '\"[^\"]+\"[[:space:]]*[*o<]?-+[*o>]?[[:space:]]*\"[^\"]+\"')\" -ge 5 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, pasos 2 y 4"
+    },
+    {
+      "id": "asociaciones-sin-multiplicidad",
+      "descripcion": "Ninguna asociación, agregación o composición sin multiplicidad en ambos extremos",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/02-clases.puml | grep -E '^[[:space:]]*[[:alnum:]_]+[[:space:]]*(\"[^\"]*\")?[[:space:]]*[*o<]?-+[*o>]?[[:space:]]*(\"[^\"]*\")?[[:space:]]*[[:alnum:]_]+' | grep -vE '\"[^\"]+\"[[:space:]]*[*o<]?-+[*o>]?[[:space:]]*\"[^\"]+\"'",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "composicion",
+      "descripcion": "Hay al menos una composición (*--)",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/02-clases.puml | grep -E '[*]--|--[*]'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "generalizacion",
+      "descripcion": "Hay al menos una generalización (<|--)",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/02-clases.puml | grep -E '<[|]--|--[|]>'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "realizacion",
+      "descripcion": "Hay al menos una realización de interfaz (<|..)",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/02-clases.puml | grep -E '<[|][.][.]|[.][.][|]>'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "objetos-renderiza",
+      "descripcion": "03-objetos.puml renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/03-objetos.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "objetos-tipo",
+      "descripcion": "03-objetos.puml tiene title y solo objetos, sin clases",
+      "cmd": "grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/03-objetos.puml && ! grep -qE '^[[:space:]]*(abstract[[:space:]]+)?(class|interface|enum)[[:space:]]' {proyecto}/diagramas/03-objetos.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "objetos-nombrados",
+      "descripcion": "Al menos 6 objetos con nombre y clase (\"name : Class\")",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*object[[:space:]]+\"[^\"]*:[[:space:]]*[[:alpha:]]' {proyecto}/diagramas/03-objetos.puml)\" -ge 6 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "objetos-slots",
+      "descripcion": "Al menos 10 slots con valor (name = value)",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*[[:alpha:]_][[:alnum:]_]*[[:space:]]*=[[:space:]]*[^[:space:]]' {proyecto}/diagramas/03-objetos.puml)\" -ge 10 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "objetos-links",
+      "descripcion": "Al menos 5 links entre objetos",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*[[:alnum:]_]+[[:space:]]*-+>?[[:space:]]*[[:alnum:]_]+' {proyecto}/diagramas/03-objetos.puml)\" -ge 5 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 11"
+    },
+    {
+      "id": "links-sin-multiplicidad",
+      "descripcion": "Los links no llevan multiplicidad (es de las asociaciones, no de los objetos)",
+      "cmd": "grep -vE \"^[[:space:]]*'\" {proyecto}/diagramas/03-objetos.puml | grep -E '\"[0-9.*]+\"[[:space:]]*-|-[[:space:]]*\"[0-9.*]+\"'",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 11"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "README.md enlaza diagramas/03-objetos.puml",
+      "cmd": "grep -F 'diagramas/03-objetos.puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 12"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "02-clases.puml y 03-objetos.puml no tienen TODO pendientes",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/02-clases.puml {proyecto}/diagramas/03-objetos.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 13"
+    }
+  ]
+}

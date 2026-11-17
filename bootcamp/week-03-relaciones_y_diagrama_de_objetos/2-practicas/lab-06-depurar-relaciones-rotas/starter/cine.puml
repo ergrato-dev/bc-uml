@@ -1,0 +1,64 @@
+@startuml
+' Lab 06 — Este diagrama tiene errores a propósito: no renderiza y, cuando renderice,
+' seguirá mal modelado. Encuéntralos todos.
+title Cine — salas, funciones y ventas
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Cinema {
+  - name: String
+}
+
+class Room {
+  - number: Integer
+  - seats: Integer
+}
+
+class Screening {
+  - startsAt: DateTime
+}
+
+class Movie {
+  - title: String
+}
+
+abstract class Ticket {
+  - seat: String
+  {abstract} + finalPrice(): Decimal
+}
+
+class StudentTicket {
+  - studentId: String
+  + finalPrice(): Decimal
+}
+
+interface Payable <<interface>> {
+  + amountDue(): Decimal
+}
+
+class Sale {
+  - paidAt: DateTime
+  + amountDue(): Decimal
+}
+
+class Customer {
+  - email: String
+}
+
+Cinema "1" *-- "1..*" Room
+Room "1" -- "0..*" Screening
+Screening "0..*" -- "1" Movie
+StudentTicket <|-- Ticket
+Payable <|-- Sale
+Sale "1" *-- "0..*" Ticket
+Ticket "1" -- "1" Screening
+Customer "1" *-- "0..*" Sale
+Sale "1" -- Customer
+Room "1" -> "1 Movie
+Sale "0..*" -- "1..*" Payable
+Movie "0..*" -- "1" Room : shows
+Screening "1" --- "0..*" Ticket "
+Movie <|.. Cinema
+@enduml
