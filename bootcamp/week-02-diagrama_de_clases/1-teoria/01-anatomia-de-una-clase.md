@@ -28,7 +28,7 @@ Tipos: usa tipos simples y neutros (`String`, `Integer`, `Decimal`, `Boolean`, `
 visibilidad nombre(parámetro: Tipo, ...): TipoDeRetorno
 ```
 
-- Verbos en inglés: `reschedule`, `cancel`, `isAvailable`.
+- Verbos en inglés: `renew`, `cancel`, `isAvailable`.
 - Cada parámetro con su tipo. Si no devuelve nada útil, `: void`.
 - **No** se modelan getters ni setters triviales: tapan las operaciones que importan. Si `name` es privado y se lee desde fuera, se sobrentiende.
 - Una operación con nombre de otra clase (`Order.calculateShipping()` cuando el envío es de `Shipment`) es una señal de responsabilidad mal ubicada.

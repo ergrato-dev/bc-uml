@@ -137,8 +137,8 @@ Llevar tu diagrama de clases a un esqueleto de código en tu lenguaje y aplicar 
          1 <<Context>>
          1 <<Strategy>>
          1 <<interface>>
-   Appointment
-   Owner
+   Loan
+   Member
    ```
 
    Si has cerrado el contenedor, vuelve a definir `RE` como en el paso 2. Repite el comando del paso 5: las realizaciones del patrón también tienen que estar en el código.

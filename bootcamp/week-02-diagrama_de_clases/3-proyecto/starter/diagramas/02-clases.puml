@@ -11,18 +11,18 @@ skinparam classAttributeIconSize 0
 ' TODO 1: copia aquí las clases de 01-modelo-conceptual.puml (solo las líneas `class X`).
 
 ' TODO 2: abre cada clase con llaves y dale al menos 2 atributos privados con tipo:
-'         class Pet {
-'           - name: String
-'           - birthDate: Date
+'         class Book {
+'           - title: String
+'           - publishedOn: Date
 '         }
 
 ' TODO 3: añade operaciones públicas con parámetros tipados y tipo de retorno (al menos 6 en total):
-'           + reschedule(to: DateTime): void
+'           + renew(until: Date): void
 
 ' TODO 4: añade un enum con los valores de algo que en tu dominio tiene una lista cerrada de opciones:
-'         enum Species <<enumeration>> {
-'           DOG
-'           CAT
+'         enum BookFormat <<enumeration>> {
+'           HARDCOVER
+'           EBOOK
 '         }
 
 ' TODO 5: añade una clase abstracta (abstract class X) y una interfaz con al menos una operación
