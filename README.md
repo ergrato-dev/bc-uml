@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[200~cd /home/ergrato-dev/Documents/ergrato-dev/sicora/sicora-app/sicora-be-go/helpdeskservice Sesiones](https://img.shields.io/badge/2_Sesiones-intensivas-8b5cf6?style=flat-square)
+![2 Sesiones](https://img.shields.io/badge/2_Sesiones-intensivas-8b5cf6?style=flat-square)
 ![10 Horas](https://img.shields.io/badge/10_Horas_Total-5h_por_semana-8b5cf6?style=flat-square)
 ![PlantUML](https://img.shields.io/badge/PlantUML-diagramas-8b5cf6?style=flat-square)
 ![License MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)
