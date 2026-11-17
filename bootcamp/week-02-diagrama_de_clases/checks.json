@@ -1,0 +1,118 @@
+{
+  "semana": "02",
+  "titulo": "Diagrama de clases",
+  "checks": [
+    {
+      "id": "conceptual-sigue-renderizando",
+      "descripcion": "01-modelo-conceptual.puml de la semana 01 sigue en el modelo y renderiza",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/01-modelo-conceptual.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "README.md enlaza diagramas/02-clases.puml",
+      "cmd": "grep -F 'diagramas/02-clases.puml' {proyecto}/README.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "clases-renderiza",
+      "descripcion": "02-clases.puml renderiza sin errores",
+      "cmd": "plantuml -checkonly {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "clases-tipo",
+      "descripcion": "02-clases.puml es un diagrama de clases con title",
+      "cmd": "plantuml -syntax < {proyecto}/diagramas/02-clases.puml | head -1 | grep -qx CLASS && grep -qE '^title[[:space:]]+[^[:space:]]' {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "clases-cantidad",
+      "descripcion": "02-clases.puml tiene al menos 8 elementos (clases, enum, abstracta e interfaz)",
+      "cmd": "[ \"$(plantuml -syntax < {proyecto}/diagramas/02-clases.puml | awk -F'[( ]' '/entities/{print $2}')\" -ge 8 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, pasos 2, 6 y 7"
+    },
+    {
+      "id": "atributos-tipados",
+      "descripcion": "Al menos 12 atributos con visibilidad y tipo (- name: Type)",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*([{][a-z]+[}][[:space:]]*)?[-+#~][[:space:]]*/?[[:alpha:]_][[:alnum:]_]*[[:space:]]*:[[:space:]]*[[:alpha:]]' {proyecto}/diagramas/02-clases.puml)\" -ge 12 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "atributos-privados",
+      "descripcion": "La mayoría de los atributos son privados: al menos 10 con -",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*([{][a-z]+[}][[:space:]]*)?-[[:space:]]*[[:alpha:]_][[:alnum:]_]*[[:space:]]*:' {proyecto}/diagramas/02-clases.puml)\" -ge 10 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "operaciones-con-retorno",
+      "descripcion": "Al menos 6 operaciones con visibilidad y tipo de retorno",
+      "cmd": "[ \"$(grep -cE '^[[:space:]]*([{][a-z]+[}][[:space:]]*)*[-+#~][[:space:]]*[[:alpha:]_][[:alnum:]_]*[(][^)]*[)][[:space:]]*:[[:space:]]*[[:alpha:]]' {proyecto}/diagramas/02-clases.puml)\" -ge 6 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "parametros-tipados",
+      "descripcion": "Al menos 3 operaciones con parámetros tipados (name: Type)",
+      "cmd": "[ \"$(grep -cE '[(][[:space:]]*[[:alpha:]_][[:alnum:]_]*[[:space:]]*:[[:space:]]*[[:alpha:]]' {proyecto}/diagramas/02-clases.puml)\" -ge 3 ]",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "operaciones-sin-tipo",
+      "descripcion": "Ninguna operación sin tipo de retorno",
+      "cmd": "grep -E '^[[:space:]]*([{][a-z]+[}][[:space:]]*)*[-+#~][[:space:]]*[[:alpha:]_][[:alnum:]_]*[(][^)]*[)][[:space:]]*$' {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "enum",
+      "descripcion": "Hay al menos un enum <<enumeration>> con 2 o más valores",
+      "cmd": "awk '/^[[:space:]]*enum[[:space:]].*<<enumeration>>/{e=1; n=0; next} e && /[}]/{if(n>=2) ok=1; e=0} e && NF{n++} END{exit !ok}' {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "abstracta",
+      "descripcion": "Hay al menos una clase abstracta",
+      "cmd": "grep -E '^[[:space:]]*abstract([[:space:]]+class)?[[:space:]]+[[:alpha:]]' {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "interfaz",
+      "descripcion": "Hay al menos una interfaz <<interface>> con una operación",
+      "cmd": "awk '/^[[:space:]]*interface[[:space:]].*<<interface>>/{i=1; next} i && /[(]/{ok=1} i && /[}]/{i=0} END{exit !ok}' {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "static",
+      "descripcion": "Al menos un miembro {static}",
+      "cmd": "grep -F '{static}' {proyecto}/diagramas/02-clases.puml | grep -vE \"^[[:space:]]*'\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 8"
+    },
+    {
+      "id": "sin-relaciones",
+      "descripcion": "02-clases.puml no tiene relaciones todavía (llegan en la semana 03)",
+      "cmd": "grep -E '(--|[.][.])' {proyecto}/diagramas/02-clases.puml | grep -vE \"^[[:space:]]*'\"",
+      "assert": "exit!=0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "clases-sin-todo",
+      "descripcion": "02-clases.puml no tiene TODO pendientes",
+      "cmd": "! grep -n TODO {proyecto}/diagramas/02-clases.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    }
+  ]
+}

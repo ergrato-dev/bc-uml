@@ -1,0 +1,21 @@
+@startuml
+' Lab 01 — Anatomía de una clase
+' Renderiza: plantuml -tsvg starter/libro.puml
+title Biblioteca — el libro
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Book {
+  ' TODO 1: añade 4 atributos privados con tipo: isbn (String), title (String),
+  '         publishedYear (Integer) y copies (Integer, valor inicial 1).
+
+  ' TODO 2: añade 2 operaciones públicas: isAvailable() que devuelve Boolean
+  '         y lend(to: Member) que devuelve Loan.
+}
+
+' TODO 3: declara la clase Member con 2 atributos privados (memberNumber: String, fullName: String)
+'         y la clase Loan con 2 atributos privados (startDate: Date, dueDate: Date).
+
+@enduml

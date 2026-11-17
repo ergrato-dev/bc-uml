@@ -1,0 +1,34 @@
+@startuml
+' Lab 02 — Visibilidad y encapsulamiento
+' Renderiza: plantuml -tsvg starter/tarjeta.puml
+title Cine — tarjeta de socio
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' Tal como está, cualquiera puede poner points en -500 o cambiar expiresOn a 1990.
+class MemberCard {
+  + number: String
+  + points: Integer
+  + expiresOn: Date
+  + active: Boolean
+  + getPoints(): Integer
+  + setPoints(value: Integer): void
+  + getExpiresOn(): Date
+  + setExpiresOn(value: Date): void
+  + validateNumber(): Boolean
+}
+
+' TODO 1: haz privados los 4 atributos.
+' TODO 2: borra los getters y setters triviales.
+' TODO 3: añade las operaciones que expresan las reglas del negocio:
+'         + earnPoints(purchaseTotal: Decimal): void
+'         + redeemFreeTicket(): Ticket
+'         + renew(today: Date): void
+'         + isValidOn(day: Date): Boolean
+' TODO 4: validateNumber() solo la usa la propia tarjeta: dale la visibilidad que corresponde.
+' TODO 5: añade la operación # pointsPerCurrencyUnit(): Integer, que una subclase
+'         (por ejemplo, una tarjeta premium) podrá redefinir.
+
+@enduml

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 470" role="img">
+  <title>Anatomía de una clase UML (la clase abstracta LibraryItem): compartimento de nombre, de atributos y de operaciones, con la sintaxis visibilidad nombre: tipo y visibilidad nombre(parámetros): retorno, miembro estático subrayado y operación abstracta en cursiva</title>
+  <rect width="1100" height="470" fill="#0d1117"/>
+
+  <!-- Clase -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">
+    <rect x="80" y="60" width="380" height="330" rx="4" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="270" y="92" text-anchor="middle" fill="#f0f6fc" font-weight="bold" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-style="italic">LibraryItem</text>
+    <line x1="80" y1="110" x2="460" y2="110" stroke="#30363d" stroke-width="2"/>
+    <text x="96" y="140" fill="#f0f6fc">- isbn: String</text>
+    <text x="96" y="168" fill="#f0f6fc">- title: String</text>
+    <text x="96" y="196" fill="#f0f6fc">- copies: Integer = 1</text>
+    <text x="96" y="224" fill="#f0f6fc" text-decoration="underline">- maxLoanDays: Integer</text>
+    <line x1="80" y1="246" x2="460" y2="246" stroke="#30363d" stroke-width="2"/>
+    <text x="96" y="278" fill="#f0f6fc">+ isAvailable(): Boolean</text>
+    <text x="96" y="306" fill="#f0f6fc">+ lend(to: Member): Loan</text>
+    <text x="96" y="334" fill="#f0f6fc"># audit(): void</text>
+    <text x="96" y="362" fill="#f0f6fc" font-style="italic">+ shelfCode(): String</text>
+  </g>
+
+  <!-- Anotaciones -->
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14">
+    <path d="M460 86 L560 86" stroke="#a371f7" stroke-width="2"/>
+    <text x="572" y="82" fill="#a371f7" font-weight="bold">Nombre</text>
+    <text x="572" y="100" fill="#8b949e">sustantivo singular, en inglés; en cursiva si es abstracta</text>
+
+    <path d="M460 168 L560 168" stroke="#58a6ff" stroke-width="2"/>
+    <text x="572" y="150" fill="#58a6ff" font-weight="bold">Atributos</text>
+    <text x="572" y="170" fill="#f0f6fc" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">visibilidad nombre: Tipo [= valor]</text>
+    <text x="572" y="190" fill="#8b949e">casi siempre privados (-): el estado se protege</text>
+
+    <path d="M262 220 L560 230" stroke="#f78166" stroke-width="2"/>
+    <text x="572" y="226" fill="#f78166" font-weight="bold">Subrayado = estático</text>
+    <text x="572" y="244" fill="#8b949e">pertenece a la clase, no a cada objeto ({static})</text>
+
+    <path d="M460 292 L560 292" stroke="#3fb950" stroke-width="2"/>
+    <text x="572" y="282" fill="#3fb950" font-weight="bold">Operaciones</text>
+    <text x="572" y="302" fill="#f0f6fc" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">visibilidad nombre(param: Tipo): Retorno</text>
+    <text x="572" y="320" fill="#8b949e">sin retorno útil: void</text>
+
+    <path d="M240 357 L560 360" stroke="#e3b341" stroke-width="2"/>
+    <text x="572" y="356" fill="#e3b341" font-weight="bold">Cursiva = abstracta</text>
+    <text x="572" y="374" fill="#8b949e">sin implementación aquí; la da cada subclase ({abstract})</text>
+
+    <text x="80" y="428" fill="#8b949e">Visibilidad:</text>
+    <text x="170" y="428" fill="#f0f6fc" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">+ pública   - privada   # protegida   ~ de paquete</text>
+  </g>
+</svg>

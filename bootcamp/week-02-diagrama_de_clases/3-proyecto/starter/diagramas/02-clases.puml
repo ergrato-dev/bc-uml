@@ -1,0 +1,33 @@
+@startuml
+' Diagrama de clases: el modelo conceptual de la semana 01 con atributos y operaciones.
+' Las relaciones entre clases llegan en la semana 03: aquí no se dibujan.
+' Renderiza: plantuml -tsvg diagramas/02-clases.puml
+title TODO: <tu sistema> — clases
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 1: copia aquí las clases de 01-modelo-conceptual.puml (solo las líneas `class X`).
+
+' TODO 2: abre cada clase con llaves y dale al menos 2 atributos privados con tipo:
+'         class Pet {
+'           - name: String
+'           - birthDate: Date
+'         }
+
+' TODO 3: añade operaciones públicas con parámetros tipados y tipo de retorno (al menos 6 en total):
+'           + reschedule(to: DateTime): void
+
+' TODO 4: añade un enum con los valores de algo que en tu dominio tiene una lista cerrada de opciones:
+'         enum Species <<enumeration>> {
+'           DOG
+'           CAT
+'         }
+
+' TODO 5: añade una clase abstracta (abstract class X) y una interfaz con al menos una operación
+'         (interface Y <<interface>> { ... }) que tengan sentido en tu dominio.
+
+' TODO 6: marca con {static} al menos un miembro que pertenezca a la clase y no a cada objeto.
+
+@enduml

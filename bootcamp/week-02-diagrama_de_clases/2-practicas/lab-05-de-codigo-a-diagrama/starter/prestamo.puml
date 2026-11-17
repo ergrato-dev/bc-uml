@@ -1,0 +1,16 @@
+@startuml
+' Lab 05 — De código a diagrama
+' Renderiza: plantuml -tsvg starter/prestamo.puml
+title Biblioteca — préstamos y multas (desde el código)
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+' TODO 1: modela la clase Loan de codigo/Loan.java (atributos, constante estática y operaciones;
+'         sin el constructor ni el getter).
+' TODO 2: modela el enum LoanStatus.
+' TODO 3: modela la clase abstracta Fine de codigo/fine.py y su subclase StandardFine
+'         (solo con la operación que redefine).
+
+@enduml

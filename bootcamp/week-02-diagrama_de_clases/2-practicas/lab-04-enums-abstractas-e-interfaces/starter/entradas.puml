@@ -1,0 +1,39 @@
+@startuml
+' Lab 04 — Enumeraciones, clases abstractas e interfaces
+' Renderiza: plantuml -tsvg starter/entradas.puml
+title Cine — tipos de entrada
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Ticket {
+  - seat: String
+  - basePrice: Decimal
+  + finalPrice(): Decimal
+}
+
+class StudentTicket {
+  - studentId: String
+  + finalPrice(): Decimal
+}
+
+class MemberTicket {
+  - cardNumber: String
+  + finalPrice(): Decimal
+}
+
+class Movie {
+  - title: String
+  - rating: String
+}
+
+' TODO 1: nadie vende "una entrada" sin tipo: convierte Ticket en abstracta
+'         y su finalPrice() en {abstract}.
+' TODO 2: la clasificación por edad es una lista cerrada (G, PG, PG13, R): crea el enum
+'         AgeRating <<enumeration>> y úsalo como tipo de Movie.rating.
+' TODO 3: las entradas y las reservas generan un aviso al cliente: crea la interfaz
+'         Notifiable <<interface>> con + notificationText(): String.
+' TODO 4: añade la clase Reservation con - code: String y + notificationText(): String.
+
+@enduml

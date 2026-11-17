@@ -1,0 +1,29 @@
+@startuml
+' Lab 03 — Operaciones y firmas completas
+' Renderiza: plantuml -tsvg starter/reserva.puml
+title Cine — reserva de butacas
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Reservation {
+  - code
+  - createdAt
+  - seats
+  - total
+  + addSeat()
+  + removeSeat()
+  + confirm()
+  + expire()
+}
+
+' TODO 1: da tipo a los 4 atributos: code (String), createdAt (DateTime),
+'         seats (String, entre 1 y 10: [1..10]) y total (Decimal).
+' TODO 2: total se calcula a partir de las butacas: márcalo como derivado (/).
+' TODO 3: completa las firmas: addSeat y removeSeat reciben seat: String y devuelven void;
+'         confirm(paidWith: PaymentMethod) devuelve Ticket; expire(now: DateTime) devuelve Boolean.
+' TODO 4: añade el atributo estático holdMinutes: Integer = 10 (igual para todas las reservas).
+' TODO 5: declara el enum PaymentMethod con CASH, CARD y MEMBER_POINTS.
+
+@enduml

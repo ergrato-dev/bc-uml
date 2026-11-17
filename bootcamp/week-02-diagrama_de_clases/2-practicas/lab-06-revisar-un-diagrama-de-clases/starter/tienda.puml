@@ -1,0 +1,43 @@
+@startuml
+' Lab 06 — Revisar un diagrama de clases
+' Este diagrama renderiza, pero tiene 8 errores de modelado. Encuéntralos y corrígelos.
+' Renderiza: plantuml -tsvg starter/tienda.puml
+title Tienda — catálogo y carrito
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Productos {
+  + sku: varchar(20)
+  + name: String
+  + price
+  + getName(): String
+  + setName(value: String): void
+  + getPrice(): Decimal
+  + setPrice(value: Decimal): void
+}
+
+class Cart {
+  - items: String
+  - createdAt: DateTime
+  + addItem(sku: String, quantity: Integer): void
+  + total(): Decimal
+  + calculateShippingCost(address: String): Decimal
+  + sendInvoiceEmail()
+}
+
+enum Currency {
+  USD
+}
+
+interface Discountable {
+  - percentage: Integer
+  + discountedPrice(): Decimal
+}
+
+class Shipment {
+  - address: String
+  - carrier: String
+}
+@enduml

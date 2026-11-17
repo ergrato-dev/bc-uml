@@ -113,6 +113,7 @@ class Appointment {
 
 - Todo `.puml` empieza en `@startuml`, termina en `@enduml` y tiene `title`.
 - Atributos con tipo siempre (`- name: String`); operaciones con parámetros tipados y tipo de retorno.
+- Interfaces y enumeraciones llevan su palabra clave UML explícita: `interface Payable <<interface>>`, `enum Status <<enumeration>>`. Con `hide circle`, PlantUML no la dibuja si no se escribe.
 - Un diagrama, un archivo. Nada de varios `@startuml` en el mismo `.puml`.
 - Los `.puml` de `starter/` **renderizan** aunque estén incompletos (`verificar-enlaces.sh` lo comprueba), salvo los labs rotos a propósito.
 - Se renderiza siempre dentro del contenedor: `docker compose run --rm uml plantuml -tsvg ruta.puml`. Nunca la versión online de plantuml.com para el trabajo del estudiante: envía el diagrama a un servidor externo.
