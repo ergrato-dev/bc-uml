@@ -66,6 +66,6 @@ Desde la raíz del repositorio:
 
 | Anterior | Actual | Siguiente |
 |---|---|---|
-| [Semana 08 — Componentes, paquetes y despliegue](../week-08-componentes_paquetes_y_despliegue/README.md) | **Semana 09 — De UML a código y patrones** | [Semana 10](../week-10-proyecto_integrador/README.md) |
+| [Semana 08 — Componentes, paquetes y despliegue](../week-08-componentes_paquetes_y_despliegue/README.md) | **Semana 09 — De UML a código y patrones** | [Semana 10 — Proyecto integrador](../week-10-proyecto_integrador/README.md) |
 
 [← Volver al índice del bootcamp](../README.md)

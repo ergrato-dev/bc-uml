@@ -1,0 +1,22 @@
+@startuml
+title Cine — casos de uso de la venta de entradas
+
+left to right direction
+
+actor Customer
+actor Manager
+
+rectangle "Cinema Box Office" {
+  usecase "Browse screenings" as CU01
+  usecase "Buy ticket" as CU02
+  usecase "Choose seat" as CU03
+  usecase "Refund ticket" as CU04
+  usecase "Schedule screening" as CU05
+}
+
+Customer --> CU01
+Customer --> CU02
+Customer --> CU04
+Manager --> CU05
+CU02 ..> CU03 : <<include>>
+@enduml

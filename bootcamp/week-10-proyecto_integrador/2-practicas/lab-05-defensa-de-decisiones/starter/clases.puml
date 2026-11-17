@@ -1,0 +1,70 @@
+@startuml
+title Tienda online — clases del pedido
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - email: String
+}
+
+class Address {
+  - street: String
+  - city: String
+}
+
+class Order {
+  - number: String
+  - status: OrderStatus
+  + total(): Decimal
+}
+
+class OrderLine {
+  - quantity: Integer
+  - unitPrice: Decimal
+  + subtotal(): Decimal
+}
+
+class Product {
+  - sku: String
+  - price: Decimal
+}
+
+class Payment {
+  - amount: Decimal
+  - paidAt: DateTime
+}
+
+interface DiscountRule <<interface>> {
+  + apply(order: Order): Decimal
+}
+
+class CouponDiscount {
+  - code: String
+  + apply(order: Order): Decimal
+}
+
+class BulkDiscount {
+  - minUnits: Integer
+  + apply(order: Order): Decimal
+}
+
+enum OrderStatus <<enumeration>> {
+  DRAFT
+  PLACED
+  PAID
+  SHIPPED
+}
+
+Customer "1" --> "1..*" Address
+Customer "1" --> "0..*" Order : places >
+Order "0..*" --> "1" Address : ships to >
+' Composición: una línea no existe fuera de su pedido.
+Order "1" *-- "1..*" OrderLine
+OrderLine "0..*" --> "1" Product
+Order "1" --> "0..1" Payment
+Order "0..*" --> "0..*" DiscountRule
+DiscountRule <|.. CouponDiscount
+DiscountRule <|.. BulkDiscount
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+title Biblioteca — clases del préstamo
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Member {
+  - name: String
+  - maxLoans: Integer
+  + canBorrow(): Boolean
+  + borrow(isbn: String): Loan
+}
+
+class Book {
+  - isbn: String
+  - title: String
+  + isAvailable(): Boolean
+  + markLoaned(): void
+}
+
+class Loan {
+  - startDate: Date
+  - dueDate: Date
+  + close(): void
+}
+
+Member "1" --> "0..*" Loan : holds >
+Loan "0..*" --> "1" Book
+@enduml

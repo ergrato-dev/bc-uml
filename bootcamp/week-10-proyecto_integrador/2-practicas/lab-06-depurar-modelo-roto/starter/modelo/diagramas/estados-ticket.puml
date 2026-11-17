@@ -1,0 +1,9 @@
+@startuml
+title Cine — ciclo de vida de Ticket
+
+[*] --> Sold
+Sold --> Used : use()
+Sold --> Refunded : refund()
+Used --> [*]
+Refunded --> [*]
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+title Tienda — ciclo de vida de Order
+
+[*] --> Draft
+Draft --> Placed : place()
+Placed --> Paid : pay(payment)
+Placed --> Cancelled : cancel(reason)
+Placed --> Cancelled : after(48 h)
+Paid --> Shipped : ship(carrier)
+Shipped --> Delivered : deliver()
+Delivered --> [*]
+Cancelled --> [*]
+@enduml

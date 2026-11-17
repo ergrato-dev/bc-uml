@@ -1,0 +1,23 @@
+@startuml
+title Tienda — paquetes
+
+hide circle
+hide empty members
+
+package customers {
+  class Customer
+}
+
+package catalog {
+  class Product
+}
+
+package orders {
+  class Order
+  class OrderLine
+  enum OrderStatus <<enumeration>>
+}
+
+orders ..> customers
+orders ..> catalog
+@enduml

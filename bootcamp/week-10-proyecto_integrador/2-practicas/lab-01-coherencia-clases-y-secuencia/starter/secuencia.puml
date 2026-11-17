@@ -1,0 +1,19 @@
+@startuml
+title Biblioteca — CU-02 Borrow book (secuencia)
+
+actor Librarian
+participant ":Member" as member
+participant ":Catalog" as catalog
+participant ":Book" as book
+participant ":Loan" as loan
+
+Librarian -> member : borrow(isbn)
+member -> member : canBorrow()
+member -> catalog : findAvailable(isbn)
+catalog --> member : book
+member -> book : reserve()
+create loan
+member -->> loan : <<create>> Loan(book)
+member -> member : register(loan)
+member --> Librarian : loan
+@enduml

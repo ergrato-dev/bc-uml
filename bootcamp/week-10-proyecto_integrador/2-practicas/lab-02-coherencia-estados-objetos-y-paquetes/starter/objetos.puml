@@ -1,0 +1,29 @@
+@startuml
+title Tienda — el pedido de Ana
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+object "ana : Client" as ana {
+  email = "ana@example.com"
+}
+
+object "o42 : Order" as o42 {
+  number = "42"
+  status = PAID
+}
+
+object "l1 : OrderLine" as l1 {
+  quantity = 2
+}
+
+object "mug : Product" as mug {
+  sku = "MUG-01"
+  price = 9.90
+}
+
+ana --> o42
+o42 *-- l1
+l1 --> mug
+@enduml

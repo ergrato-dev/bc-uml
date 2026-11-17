@@ -1,0 +1,25 @@
+@startuml
+title Biblioteca municipal — casos de uso
+
+left to right direction
+
+actor Member
+actor Librarian
+actor Accountant
+
+rectangle "Library System" {
+  usecase "Search book" as CU01
+  usecase "Borrow book" as CU02
+  usecase "Renew loan" as CU03
+  usecase "Return book" as CU04
+  usecase "Add book" as CU05
+  usecase "Click search button" as CU06
+}
+
+Member --> CU01
+Member --> CU02
+Member --> CU03
+Librarian --> CU04
+Librarian --> CU05
+CU01 ..> CU06 : <<include>>
+@enduml

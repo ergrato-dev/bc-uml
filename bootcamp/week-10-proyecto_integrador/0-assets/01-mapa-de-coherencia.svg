@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img">
+<title>Mapa de coherencia: seis vistas del modelo unidas al diagrama de clases por la regla que las ata</title>
+<rect width="960" height="600" fill="#0d1117"/>
+<text x="480" y="40" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" fill="#f0f6fc" text-anchor="middle" font-weight="bold">Un sistema, muchas vistas: todas apuntan al diagrama de clases</text>
+<line x1="150" y1="120" x2="480" y2="270" stroke="#f78166" stroke-width="2"/>
+<line x1="480" y1="120" x2="480" y2="270" stroke="#f78166" stroke-width="2"/>
+<line x1="810" y1="120" x2="480" y2="270" stroke="#f78166" stroke-width="2"/>
+<line x1="150" y1="440" x2="480" y2="350" stroke="#f78166" stroke-width="2"/>
+<line x1="480" y1="440" x2="480" y2="350" stroke="#f78166" stroke-width="2"/>
+<line x1="810" y1="440" x2="480" y2="350" stroke="#f78166" stroke-width="2"/>
+<rect x="20.0" y="60" width="260" height="60" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+<text x="150" y="86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#79c0ff" text-anchor="middle" font-weight="normal">01-modelo-conceptual</text>
+<text x="150" y="107" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">cada concepto es una clase</text>
+<rect x="350.0" y="60" width="260" height="60" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+<text x="480" y="86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#79c0ff" text-anchor="middle" font-weight="normal">03-objetos</text>
+<text x="480" y="107" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">cada objeto : Clase existe</text>
+<rect x="680.0" y="60" width="260" height="60" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+<text x="810" y="86" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#79c0ff" text-anchor="middle" font-weight="normal">06-secuencia</text>
+<text x="810" y="107" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">cada mensaje es una operación</text>
+<rect x="20.0" y="440" width="260" height="60" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+<text x="150" y="466" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#79c0ff" text-anchor="middle" font-weight="normal">07-estados</text>
+<text x="150" y="487" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">cada evento op() es una operación</text>
+<rect x="350.0" y="440" width="260" height="60" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+<text x="480" y="466" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#79c0ff" text-anchor="middle" font-weight="normal">08-paquetes</text>
+<text x="480" y="487" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">cada clase está en un paquete</text>
+<rect x="680.0" y="440" width="260" height="60" rx="8" fill="#161b22" stroke="#79c0ff" stroke-width="1.5"/>
+<text x="810" y="466" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" fill="#79c0ff" text-anchor="middle" font-weight="normal">codigo/</text>
+<text x="810" y="487" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">mismas clases, ni más ni menos</text>
+<rect x="380" y="270" width="200" height="80" rx="8" fill="#161b22" stroke="#a371f7" stroke-width="2.5"/>
+<text x="480" y="305" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#a371f7" text-anchor="middle" font-weight="bold">02-clases.puml</text>
+<text x="480" y="328" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#8b949e" text-anchor="middle" font-weight="normal">define los nombres</text>
+<text x="480" y="580" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#e3b341" text-anchor="middle" font-weight="normal">Las otras vistas usan nombres; si uno no existe en 02-clases.puml, el modelo se contradice</text>
+</svg>

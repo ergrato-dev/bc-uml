@@ -1,0 +1,23 @@
+@startuml
+title Cine — la entrada de Ana
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+object "ana : Customer" as ana {
+  email = "ana@example.com"
+}
+
+object "t1 : Tiket" as t1 {
+  seat = "F7"
+  status = SOLD
+}
+
+object "s20 : Screening" as s20 {
+  startsAt = "2026-11-20 20:00"
+}
+
+ana --> t1
+t1 --> s20
+@enduml

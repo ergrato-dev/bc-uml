@@ -1,0 +1,44 @@
+@startuml
+title Tienda — clases del pedido
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - email: String
+}
+
+class Order {
+  - number: String
+  - status: OrderStatus
+  + place(): void
+  + pay(payment: Payment): void
+  + cancel(reason: String): void
+}
+
+class OrderLine {
+  - quantity: Integer
+}
+
+class Product {
+  - sku: String
+  - price: Decimal
+}
+
+class Payment {
+  - amount: Decimal
+}
+
+enum OrderStatus <<enumeration>> {
+  DRAFT
+  PLACED
+  PAID
+  SHIPPED
+}
+
+Customer "1" --> "0..*" Order : places >
+Order "1" *-- "1..*" OrderLine
+OrderLine "0..*" --> "1" Product
+Order "1" --> "0..1" Payment
+@enduml

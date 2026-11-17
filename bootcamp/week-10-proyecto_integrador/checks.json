@@ -1,0 +1,125 @@
+{
+  "semana": "10",
+  "titulo": "Proyecto integrador",
+  "checks": [
+    {
+      "id": "modelo-completo-renderiza",
+      "descripcion": "El modelo tiene los diagramas de las semanas 01 a 09 y todos renderizan",
+      "cmd": "cd {proyecto}/diagramas || exit 1; for p in 01-modelo-conceptual 02-clases 03-objetos 04-casos-de-uso '05-actividad-*' '06-secuencia-*' '06-comunicacion-*' '07-estados-*' 08-paquetes 08-componentes 08-despliegue '09-patron-*'; do ls $p.puml >/dev/null 2>&1 || { echo falta diagramas/$p.puml; exit 1; }; done; plantuml -checkonly *.puml",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 0"
+    },
+    {
+      "id": "todos-con-title",
+      "descripcion": "Cada diagrama del modelo tiene title",
+      "cmd": "cd {proyecto}/diagramas || exit 1; for f in *.puml; do grep -qE '^[[:space:]]*title[[:space:]]' $f || { echo $f no tiene title; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "conceptual-en-clases",
+      "descripcion": "Cada clase de 01-modelo-conceptual.puml está en 02-clases.puml",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; r=$(comm -23 <(c $d/01-modelo-conceptual.puml) <(c $d/02-clases.puml)); [ -z \"$r\" ] || { echo no están en 02-clases.puml: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "objetos-de-clases",
+      "descripcion": "Cada objeto de 03-objetos.puml es instancia de una clase de 02-clases.puml",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; o=$(grep -hE '^[[:space:]]*object[[:space:]]' $d/03-objetos.puml | grep -oE ':[[:space:]]*[A-Z][A-Za-z0-9_]*' | grep -oE '[A-Z][A-Za-z0-9_]*' | sort -u); [ -n \"$o\" ] || { echo ningún objeto con su clase; exit 1; }; r=$(comm -23 <(echo \"$o\") <(c $d/02-clases.puml)); [ -z \"$r\" ] || { echo clases de objetos que no están en 02-clases.puml: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 1"
+    },
+    {
+      "id": "mensajes-son-operaciones",
+      "descripcion": "Cada mensaje síncrono a una lifeline de clase en la secuencia llama a una operación de 02-clases.puml",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; s=$(ls $d/06-secuencia-*.puml | head -1); a=$(grep -hE '^[[:space:]]*participant[[:space:]]+\"?:[A-Z]' $s | grep -oE 'as[[:space:]]+[A-Za-z0-9_]+[[:space:]]*$' | awk '{print $2}' | paste -sd'|'); [ -n \"$a\" ] || { echo ninguna lifeline participant con alias; exit 1; }; m=$(grep -hE \"^[[:space:]]*[^[:space:]]+[[:space:]]*->[[:space:]]*($a)[[:space:]]*[+-]*[[:space:]]*:\" $s | sed -E 's/^[^:]*:[[:space:]]*//' | grep -oE '^[a-z][A-Za-z0-9_]*[(]' | tr -d '(' | sort -u); [ -n \"$m\" ] || { echo ningún mensaje síncrono a una lifeline de clase; exit 1; }; r=$(comm -23 <(echo \"$m\") <(grep -oE '[+#~-][[:space:]]*[a-z][A-Za-z0-9_]*[(]' $d/02-clases.puml | grep -oE '[a-z][A-Za-z0-9_]*' | sort -u)); [ -z \"$r\" ] || { echo mensajes que no son operaciones de 02-clases.puml: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "eventos-son-operaciones",
+      "descripcion": "Cada evento con paréntesis de la máquina de estados es una operación de la clase que modela (sin contar when y after)",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; f=$(ls $d/07-estados-*.puml | head -1); for w in $(grep -hE '^title' $f | grep -oE '[A-Z][A-Za-z0-9]*'); do grep -qE \"class[[:space:]]+$w([^A-Za-z0-9]|$)\" $d/02-clases.puml && { e=$w; break; }; done; [ -n \"$e\" ] || { echo el title no nombra ninguna clase de 02-clases.puml; exit 1; }; ops=$(awk -v e=\"$e\" '$0 ~ \"class[ ]+\" e \"([^A-Za-z0-9]|$)\" {f=1} f && /^}/ {f=0} f' $d/02-clases.puml | grep -oE '[+#~-][[:space:]]*[a-z][A-Za-z0-9]*[(]' | grep -oE '[a-z][A-Za-z0-9]*' | sort -u); evs=$(grep -oE -- '-+([a-z]+-+)?>[^:]*:[[:space:]]*[a-z][A-Za-z0-9]*[(]' $f | grep -oE '[a-z][A-Za-z0-9]*[(]$' | tr -d '(' | grep -vxE 'when|after' | sort -u); [ -n \"$evs\" ] || { echo ningún evento con paréntesis; exit 1; }; r=$(comm -23 <(echo \"$evs\") <(echo \"$ops\")); [ -z \"$r\" ] || { echo eventos que no son operaciones de $e: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 2"
+    },
+    {
+      "id": "paquetes-cubren-clases",
+      "descripcion": "Cada clasificador de 02-clases.puml está en algún paquete de 08-paquetes.puml",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; r=$(comm -23 <(c $d/02-clases.puml) <(c $d/08-paquetes.puml)); [ -z \"$r\" ] || { echo no están en ningún paquete: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "codigo-sincronizado",
+      "descripcion": "codigo/ declara exactamente los clasificadores de 02-clases.puml y del patrón, ni uno más ni uno menos",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; k=$(grep -rhoIE --exclude='*.md' '(class|interface|enum|record)[[:space:]]+[A-Z][A-Za-z0-9_]*' {proyecto}/codigo | awk '{print $2}' | sort -u); m=$(c $d/02-clases.puml $d/09-patron-*.puml); r=$(comm -3 <(echo \"$m\") <(echo \"$k\") | tr -s '[:space:]' ' '); [ -n \"$k\" ] && [ -z \"${r// /}\" ] || { echo diferencias entre diagramas y código: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 3"
+    },
+    {
+      "id": "trazabilidad-casos",
+      "descripcion": "trazabilidad.md tiene una fila por cada caso de uso de 04-casos-de-uso.puml, y ninguna más",
+      "cmd": "t={proyecto}/trazabilidad.md; [ -f $t ] || { echo falta trazabilidad.md; exit 1; }; u=$(grep -oE 'as[[:space:]]+CU[0-9]{2}' {proyecto}/diagramas/04-casos-de-uso.puml | grep -oE '[0-9]{2}' | sort -u); f=$(grep -oE '^[|][[:space:]]*CU-[0-9]{2}[[:space:]]*[|]' $t | grep -oE '[0-9]{2}' | sort -u); [ -n \"$u\" ] && [ \"$u\" = \"$f\" ] || { echo filas que faltan: $(comm -23 <(echo \"$u\") <(echo \"$f\")) / filas de más: $(comm -13 <(echo \"$u\") <(echo \"$f\")); exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 4"
+    },
+    {
+      "id": "trazabilidad-clases",
+      "descripcion": "Cada fila de trazabilidad.md nombra al menos una clase y todas existen en 02-clases.puml o en el patrón",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; t={proyecto}/trazabilidad.md; awk -F'|' '$2 ~ /CU-[0-9]/ && $4 !~ /`[A-Z]/ {print $2 \"sin clases\"; e=1} END {exit e}' $t || exit 1; n=$(awk -F'|' '$2 ~ /CU-[0-9]/ {print $4}' $t | grep -oE '`[A-Z][A-Za-z0-9_]*`' | tr -d '`' | sort -u); r=$(comm -23 <(echo \"$n\") <(c $d/02-clases.puml $d/09-patron-*.puml)); [ -n \"$n\" ] && [ -z \"$r\" ] || { echo clases que no están en el modelo: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "trazabilidad-cubre-clases",
+      "descripcion": "Cada clasificador de 02-clases.puml aparece en al menos una fila de trazabilidad.md",
+      "cmd": "c() { grep -oE '^[[:space:]]*(abstract[[:space:]]+)?(class|enum|interface)[[:space:]]+[A-Za-z0-9_]+' \"$@\" | awk '{print $NF}' | sort -u; }; d={proyecto}/diagramas; t={proyecto}/trazabilidad.md; n=$(awk -F'|' '$2 ~ /CU-[0-9]/ {print $4}' $t | grep -oE '`[A-Z][A-Za-z0-9_]*`' | tr -d '`' | sort -u); r=$(comm -23 <(c $d/02-clases.puml) <(echo \"$n\")); [ -z \"$r\" ] || { echo clases sin caso de uso: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 5"
+    },
+    {
+      "id": "trazabilidad-diagramas",
+      "descripcion": "Cada fila de trazabilidad.md enlaza al menos un diagrama",
+      "cmd": "awk -F'|' '$2 ~ /CU-[0-9]/ && $5 !~ /[(]diagramas[/][^)]+[.]puml[)]/ {print $2 \"sin diagrama\"; e=1} END {exit e}' {proyecto}/trazabilidad.md",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 6"
+    },
+    {
+      "id": "revision-hallazgos",
+      "descripcion": "revision.md nombra al revisor y tiene al menos 5 hallazgos, cada uno con enlace y resolución",
+      "cmd": "r={proyecto}/revision.md; [ -f $r ] || { echo falta revision.md; exit 1; }; grep -qE '^Revisor:[[:space:]]*[^[:space:]]' $r || { echo falta la línea Revisor:; exit 1; }; awk -F'|' '$2 ~ /^[[:space:]]*[0-9]+[[:space:]]*$/ {n++; x=$5; gsub(/[[:space:]]/, \"\", x); if ($3 !~ /[]][(]/ || x == \"\") {print \"hallazgo\" $2 \"sin enlace o sin resolución\"; e=1}} END {if (n < 5) {print n+0, \"hallazgos\"; e=1}; exit e}' $r",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 7"
+    },
+    {
+      "id": "defensa-decisiones",
+      "descripcion": "defensa.md tiene al menos 5 decisiones, cada una con Diagrama (enlace), Alternativa y Por qué",
+      "cmd": "f={proyecto}/defensa.md; [ -f $f ] || { echo falta defensa.md; exit 1; }; awk '/^### / {n++} /^- [*][*]Diagrama:[*][*].*[]][(]/ {g++} /^- [*][*]Alternativa:[*][*][[:space:]]*[^[:space:]]/ {a++} /^- [*][*]Por qué:[*][*][[:space:]]*[^[:space:]]/ {p++} END {print n+0, \"decisiones,\", g+0, \"diagramas,\", a+0, \"alternativas,\", p+0, \"porqués\"; exit !(n >= 5 && g == n && a == n && p == n)}' $f",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 9"
+    },
+    {
+      "id": "enlaces-internos",
+      "descripcion": "Cada enlace relativo de README.md, trazabilidad.md, revision.md y defensa.md apunta a un archivo que existe",
+      "cmd": "cd {proyecto} || exit 1; for f in README.md trazabilidad.md revision.md defensa.md; do [ -f $f ] || { echo falta $f; exit 1; }; for p in $(grep -oE '[]][(][^)#]+' $f | cut -c3- | grep -vE '^[a-z]+:'); do [ -e \"$p\" ] || { echo $f enlaza $p, que no existe; exit 1; }; done; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "readme-indice",
+      "descripcion": "README.md enlaza cada diagrama de diagramas/ y los archivos trazabilidad.md, revision.md y defensa.md",
+      "cmd": "cd {proyecto} || exit 1; for p in diagramas/*.puml trazabilidad.md revision.md defensa.md; do grep -qF \"]($p)\" README.md || { echo README.md no enlaza $p; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "No queda ningún TODO en el modelo",
+      "cmd": "r=$(grep -rlI --exclude='*.svg' --exclude='*.png' TODO {proyecto}); [ -z \"$r\" ] || { echo TODO en: $r; exit 1; }",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, Paso a paso, paso 10"
+    }
+  ]
+}

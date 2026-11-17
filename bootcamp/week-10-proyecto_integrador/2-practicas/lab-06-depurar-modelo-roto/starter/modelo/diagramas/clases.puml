@@ -1,0 +1,33 @@
+@startuml
+title Cine — clases
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Customer {
+  - email: String
+}
+
+class Screening {
+  - startsAt: DateTime
+  + freeSeats(): Integer
+  + reserve(seat: String): Ticket
+}
+
+class Ticket {
+  - seat: String
+  - price: Decimal
+  - status: TicketStatus
+  + scan(): void
+  + refund(): void
+}
+
+enum TicketStatus <<enumeration> {
+  SOLD
+  USED
+}
+
+Customer "1" --> "0..*" Ticket : buys >
+Ticket "0..*" --> "1" Screening
+@enduml

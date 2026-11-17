@@ -1,0 +1,44 @@
+@startuml
+title Biblioteca municipal — clases
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class LibrarySystem {
+  + searchBook(text: String): Book
+  + borrowBook(memberId: UUID, isbn: String): Loan
+  + renewLoan(loanId: UUID): void
+  + returnBook(loanId: UUID): void
+  + addBook(isbn: String, title: String): Book
+  + computeFine(loanId: UUID): Decimal
+  + sendReminder(loanId: UUID): void
+  + countLoans(memberId: UUID): Integer
+  + blockMember(memberId: UUID): void
+  + printCard(memberId: UUID): void
+  + monthlyReport(): String
+}
+
+class Member {
+  - name: String
+  - cardNumber: String
+}
+
+class Book {
+  - isbn: String
+  - title: String
+}
+
+class Loan {
+  - startDate: Date
+  - dueDate: Date
+  + close(): void
+}
+
+LibrarySystem --> Member
+LibrarySystem --> Book
+LibrarySystem --> Loan
+Member "1" *-- "0..*" Book
+Member "1" --> "0..5" Loan
+Loan "0..*" --> "0..*" Book
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+title Cine — CU-01 Buy ticket (secuencia)
+
+actor Customer
+participant ":Screening" as screening
+participant ":Ticket" as ticket
+
+Customer -> screening : seatsLeft()
+screening --> Customer : seats
+Customer => screening : reserve(seat)
+create ticket
+screening -->> ticket : <<create>> Ticket(seat)
+screening --> Customer : ticket
+@enduml

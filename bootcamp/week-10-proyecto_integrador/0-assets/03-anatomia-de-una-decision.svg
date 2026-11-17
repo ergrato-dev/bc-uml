@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 530" role="img">
+<title>Anatomía de una decisión de modelado: diagrama, decisión, alternativa y motivo, con el ejemplo de Ticket en un cine</title>
+<rect width="960" height="530" fill="#0d1117"/>
+<text x="480" y="40" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="20" fill="#f0f6fc" text-anchor="middle" font-weight="bold">Anatomía de una decisión de modelado</text>
+<rect x="40" y="70" width="560" height="380" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<rect x="56" y="90" width="6" height="66" fill="#79c0ff"/>
+<text x="76" y="112" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#79c0ff" text-anchor="start" font-weight="bold">Diagrama</text>
+<text x="76" y="136" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#f0f6fc" text-anchor="start" font-weight="normal">02-clases.puml</text>
+<line x1="600" y1="123" x2="640" y2="123" stroke="#79c0ff" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="650" y="128" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e" text-anchor="start" font-weight="normal">se abre mientras hablas</text>
+<rect x="56" y="180" width="6" height="66" fill="#a371f7"/>
+<text x="76" y="202" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#a371f7" text-anchor="start" font-weight="bold">Decisión</text>
+<text x="76" y="226" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#f0f6fc" text-anchor="start" font-weight="normal">Ticket es clase asociación entre Customer y</text>
+<text x="76" y="246" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#f0f6fc" text-anchor="start" font-weight="normal">Screening</text>
+<line x1="600" y1="213" x2="640" y2="213" stroke="#a371f7" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="650" y="218" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e" text-anchor="start" font-weight="normal">una frase</text>
+<rect x="56" y="270" width="6" height="66" fill="#f78166"/>
+<text x="76" y="292" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#f78166" text-anchor="start" font-weight="bold">Alternativa</text>
+<text x="76" y="316" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#f0f6fc" text-anchor="start" font-weight="normal">Customer -- Screening y el precio en Screening</text>
+<line x1="600" y1="303" x2="640" y2="303" stroke="#f78166" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="650" y="308" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e" text-anchor="start" font-weight="normal">si no había otra, no era una decisión</text>
+<rect x="56" y="360" width="6" height="66" fill="#3fb950"/>
+<text x="76" y="382" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" fill="#3fb950" text-anchor="start" font-weight="bold">Por qué</text>
+<text x="76" y="406" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc" text-anchor="start" font-weight="normal">El precio de una función cambia; la entrada vendida</text>
+<text x="76" y="426" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#f0f6fc" text-anchor="start" font-weight="normal">conserva el que se pagó</text>
+<line x1="600" y1="393" x2="640" y2="393" stroke="#3fb950" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="650" y="398" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e" text-anchor="start" font-weight="normal">motivo del dominio, no "es más limpio"</text>
+<text x="480" y="500" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="14" fill="#e3b341" text-anchor="middle" font-weight="normal">Se defienden las decisiones, no la notación: la notación la comprueba el autograding</text>
+</svg>

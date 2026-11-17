@@ -1,0 +1,53 @@
+@startuml
+title Cine — clases
+
+hide circle
+hide empty members
+skinparam classAttributeIconSize 0
+
+class Movie {
+  - title: String
+  - minutes: Integer
+}
+
+class Room {
+  - name: String
+}
+
+class Seat {
+  - row: String
+  - number: Integer
+}
+
+class Screening {
+  - startsAt: DateTime
+  + freeSeats(): Integer
+}
+
+class Customer {
+  - email: String
+}
+
+class Ticket {
+  - price: Decimal
+  + refund(): Payment
+}
+
+class Payment {
+  - amount: Decimal
+}
+
+class LoyaltyCard {
+  - points: Integer
+  + addPoints(amount: Decimal): void
+}
+
+Screening "0..*" --> "1" Movie
+Screening "0..*" --> "1" Room
+Room "1" *-- "1..*" Seat
+Ticket "0..*" --> "1" Screening
+Ticket "0..*" --> "1" Seat
+Customer "1" --> "0..*" Ticket : buys >
+Ticket "1" --> "1" Payment
+Customer "1" --> "0..1" LoyaltyCard
+@enduml

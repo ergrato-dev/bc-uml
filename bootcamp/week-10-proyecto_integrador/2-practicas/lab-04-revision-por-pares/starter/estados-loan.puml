@@ -1,0 +1,11 @@
+@startuml
+title Biblioteca municipal — ciclo de vida de Loan
+
+[*] --> Active
+Active --> Renewed : renew()
+Active --> Closed : close()
+Renewed --> Closed : close()
+Active --> Overdue : when(today > dueDate)
+Overdue --> Closed : close()
+Closed --> [*]
+@enduml

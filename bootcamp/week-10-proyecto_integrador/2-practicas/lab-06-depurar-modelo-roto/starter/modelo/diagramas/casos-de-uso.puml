@@ -1,0 +1,18 @@
+@startuml
+title Cine — casos de uso
+
+left to right direction
+
+actor Customer
+actor Usher
+
+rectangle "Cinema Box Office" {
+  usecase "Buy ticket" as CU01
+  usecase "Refund ticket" as CU02
+  usecase "Enter screening" as CU03
+}
+
+Customer --> CU01
+Customer --> CU02
+Usher --> CU03
+@enduml

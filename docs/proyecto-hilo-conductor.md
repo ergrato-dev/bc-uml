@@ -21,9 +21,13 @@ modelo/
 │   ├── 05-actividad-<proceso>.puml
 │   ├── 06-secuencia-<caso-de-uso>.puml
 │   ├── 07-estados-<entidad>.puml
-│   └── 08-{paquetes,componentes,despliegue}.puml
+│   ├── 08-{paquetes,componentes,despliegue}.puml
+│   └── 09-patron-<nombre>.puml
 ├── casos-de-uso/        # CU-01.md, CU-02.md ...
-└── codigo/              # esqueleto de clases en tu lenguaje POO
+├── codigo/              # esqueleto de clases en tu lenguaje POO
+├── trazabilidad.md      # casos de uso → clases → diagramas (semana 10)
+├── revision.md          # hallazgos de la revisión por pares y resoluciones (semana 10)
+└── defensa.md           # guion y decisiones de modelado (semana 10)
 ```
 
 Cada `3-proyecto/starter/` es esta carpeta tal como debería quedar al final de la semana anterior, con TODOs para la semana actual. Si prefieres seguir con tu propia entrega, cópiala encima del starter: el autograding corrige `3-proyecto/starter/`.
